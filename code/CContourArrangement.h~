@@ -1,0 +1,43 @@
+#ifndef _CCONTOURARRANGEMENT_H_
+#define _CCONTOURARRANGEMENT_H_
+#include "CLayer.h"
+#include "CContour.h"
+#include <vector>
+#include "initial.h"
+class contour_couple
+{
+public:
+  contour_couple();
+  CContour* contour1;
+  CContour* contour2;
+  bool b_intersection;
+  float distance;
+  bool b_couple;
+  float boundary_coverage_rate;
+};
+
+class CContourArrangement
+{
+public:
+  CContourArrangement(){};
+  void reset(CLayer* up, CLayer* down)
+  {
+    up_layer=up;down_layer=down;
+    vec_contour_couple.clear();
+  }
+  CLayer* up_layer;
+  CLayer* down_layer;
+  std::vector<contour_couple*> vec_contour_couple;
+  void setup();
+  float check_intersection(CContour*,CContour*);
+  float cal_distance(CContour*,CContour*);
+  float check_boundary_box_coverage(CContour* u, CContour*d);
+  float check_boundary_box_distance(float num1,float num2,float num3, float num4);
+  void get_couple(CLayer* first_layer, CLayer* second_layer,  std::vector<contour_couple*>& vec_couple );
+  float check_intersection_use_level_set(CContour* u, CContour* d);
+  float check_coverage_level_set(CContour* u, CContour*d);
+  float check_intersection_level_set(CContour* u, CContour*d);
+};
+
+
+#endif /* _CCONTOURARRANGEMENT_H_ */

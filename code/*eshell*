@@ -1,0 +1,6202 @@
+Welcome to the Emacs shell
+
+~/git/reconstruction_program/code $ ../Debug/APP
+level:1	274.593point num:235
+level:1	723.286point num:646
+level:1	265.907point num:223
+level:2	276.25point num:235
+level:2	977.855point num:884
+level:2	265.078point num:223
+level:3	278.492point num:236
+level:3	802.985point num:717
+level:3	265.321point num:222
+level:4	280.492point num:238
+level:4	791.085point num:708
+level:4	291.563point num:247
+level:5	279.907point num:237
+level:5	834.884point num:746
+level:5	289.463point num:242
+level:6	282.007point num:242
+level:6	711.529point num:633
+level:6	305.12point num:256
+level:7	285.321point num:242
+level:7	575.688point num:510
+level:7	324.191point num:273
+level:8	289.806point num:244
+level:8	530.617point num:467
+level:8	333.605point num:282
+level:9	291.806point num:246
+level:9	504.233point num:446
+level:9	344.191point num:293
+level:10	308.291point num:260
+level:10	500.617point num:437
+level:10	353.362point num:303
+level:11	319.948point num:270
+level:11	483.103point num:417
+level:11	360.191point num:309
+level:12	337.948point num:288
+level:12	526.032point num:462
+level:12	370.392point num:325
+level:13	355.463point num:308
+level:13	548.215point num:473
+level:13	376.777point num:326
+level:14	362.877point num:315
+level:14	465.831point num:396
+level:14	387.362point num:337
+level:15	378.191point num:327
+level:15	477.245point num:407
+level:15	396.777point num:346
+level:16	385.161point num:329
+level:16	480.517point num:414
+level:16	398.534point num:349
+level:17	401.061point num:342
+level:17	547.487point num:476
+level:17	407.019point num:355
+level:18	410.475point num:351
+level:18	590.943point num:512
+level:18	410.333point num:355
+level:19	417.304point num:357
+level:19	643.872point num:567
+level:19	409.647point num:351
+level:20	414.617point num:351
+level:20	1035.42point num:896
+level:21	1304.11point num:1127
+level:22	1269.34point num:1103
+level:23	1254.09point num:1101
+level:24	1192.15point num:1049
+level:25	1169.03point num:1035
+level:26	1131.23point num:1003
+level:27	1136.16point num:1010
+level:28	1117.74point num:1004
+level:29	1095.15point num:981
+level:30	1063.29point num:945
+level:31	1058.02point num:936
+level:32	1045.29point num:927
+level:33	1045.78point num:925
+level:34	1036.61point num:915
+level:35	1029.29point num:911
+level:36	1022.12point num:903
+level:37	1018.61point num:897
+level:38	1015.19point num:894
+level:39	1016.61point num:895
+level:40	1019.44point num:897
+level:41	1021.82point num:894
+level:42	1020.06point num:891
+level:43	1020.79point num:888
+level:44	1018.79point num:886
+level:45	1019.38point num:887
+level:46	1016.21point num:883
+level:47	1017.96point num:886
+level:48	1020.06point num:891
+level:49	1020.06point num:891
+level:50	1024.65point num:896
+level:51	1032.41point num:905
+level:52	1030.75point num:905
+level:53	1029.68point num:906
+level:54	1024.61point num:903
+level:55	1026.85point num:904
+level:56	1026.36point num:906
+level:57	1022.36point num:902
+level:58	1021.78point num:901
+level:59	1016.02point num:894
+level:60	1024.85point num:902
+level:61	1016.36point num:896
+level:62	1013.88point num:896
+level:63	1006.71point num:888
+level:64	1000.47point num:883
+level:65	997.637point num:881
+level:66	998.222point num:882
+level:67	956.524point num:849
+level:68	954.181point num:845
+level:69	960.767point num:852
+level:70	956.666point num:845
+level:71	974.808point num:859
+level:72	879.453point num:774
+level:73	870.624point num:766
+level:74	872.039point num:767
+level:75	869.21point num:765
+level:76	860.968point num:758
+level:77	864.039point num:759
+level:78	861.696point num:755
+level:79	865.352point num:757
+level:80	863.838point num:753
+level:81	862.08point num:750
+level:82	863.737point num:750
+level:83	865.737point num:752
+level:84	869.879point num:752
+level:85	871.637point num:755
+level:86	866.808point num:751
+level:87	869.051point num:752
+level:88	871.051point num:754
+level:89	867.051point num:750
+level:90	865.051point num:748
+level:91	864.808point num:749
+level:92	867.051point num:750
+level:93	866.465point num:749
+level:94	868.708point num:750
+level:95	870.95point num:751
+level:96	875.436point num:753
+level:97	881.092point num:757
+level:98	885.335point num:760
+level:99	886.264point num:763
+level:100	888.507point num:764
+level:101	888.749point num:763
+level:102	889.678point num:766
+level:103	910.222point num:794
+level:104	924.281point num:818
+level:105	936.767point num:828
+level:106	948.808point num:833
+level:107	958.365point num:838
+level:108	967.092point num:843
+level:109	973.921point num:849
+level:110	980.507point num:856
+level:111	984.264point num:861
+level:112	989.193point num:868
+level:113	997.879point num:880
+level:114	1000.57point num:886
+level:115	1017.98point num:903
+level:116	1012.08point num:900
+level:117	1019.98point num:905
+level:118	1023.15point num:909
+level:119	1027.64point num:911
+level:120	1032.47point num:915
+level:121	1035.29point num:917
+level:122	1039.54point num:920
+level:123	1047.88point num:930
+level:124	1047.54point num:928
+level:125	1050.71point num:932
+level:126	1051.88point num:934
+level:127	1056.12point num:937
+level:128	1053.39point num:938
+level:129	1049.98point num:935
+level:130	1055.74point num:942
+level:131	1053.01point num:943
+level:132	1057.11point num:950
+level:133	1054.62point num:950
+level:134	1061.55point num:959
+level:135	1058.97point num:956
+level:136	1064.97point num:962
+level:137	1066.14point num:964
+level:138	1070.62point num:966
+level:139	1072.62point num:968
+level:140	1075.7point num:969
+level:141	1080.42point num:970
+level:142	1084.57point num:970
+level:143	1090.81point num:975
+level:144	1098.12point num:979
+level:145	1101.68point num:978
+level:146	1118.89point num:989
+level:147	1180.45point num:1046
+level:148	1187.18point num:1049
+level:149	1206.53point num:1058
+level:150	1263.99point num:1108
+level:151	1384.56point num:1212
+level:152	701.428point num:620
+level:152	613.227point num:526
+level:153	619.63point num:544
+level:153	595.855point num:502
+level:154	595.186point num:515
+level:154	586.825point num:488
+level:155	594.257point num:512
+level:155	580.24point num:481
+level:156	590.742point num:506
+level:156	578.825point num:480
+level:157	587.571point num:502
+level:157	573.512point num:478
+level:158	582.642point num:495
+level:158	573.169point num:476
+level:159	577.571point num:492
+level:159	568.34point num:472
+level:160	575.571point num:490
+level:160	564.926point num:469
+level:161	572.742point num:488
+level:161	561.026point num:468
+level:162	566.014point num:485
+level:162	560.198point num:468
+level:163	561.872point num:485
+level:163	554.056point num:466
+level:164	555.387point num:481
+level:164	552.056point num:464
+level:165	553.144point num:480
+level:165	546.985point num:461
+level:166	548.316point num:476
+level:166	544.742point num:460
+level:167	541.831point num:472
+level:167	540.257point num:458
+level:168	538.659point num:468
+level:168	535.772point num:456
+level:169	532.659point num:462
+level:169	530.458point num:454
+level:170	527.487point num:456
+level:170	527.144point num:454
+level:171	521.73point num:449
+level:171	521.487point num:450
+layer num:171
+branch seciton:1
+branch seciton:19
+branch seciton:20
+branch seciton:151
+**********Layer NUM:171	Contour NUM230
+layer_itration:6;layer_id7
+processing layer:7-8; count:1	total layer num:171	complete:0.00584795
+layer_itration:2;layer_id3
+processing layer:3-4; count:2	total layer num:171	complete:0.0116959
+layer_itration:4;layer_id5
+processing layer:5-6; count:3	total layer num:171	complete:0.0175439
+layer_itration:5;layer_id6
+processing layer:6-7; count:4	total layer num:171	complete:0.0233918
+layer_itration:7;layer_id8
+processing layer:8-9; count:5	total layer num:171	complete:0.0292398
+layer_itration:3;layer_id4
+processing layer:4-5; count:6	total layer num:171	complete:0.0350877
+layer_itration:1;layer_id2
+processing layer:2-3; count:7	total layer num:171	complete:0.0409357
+layer_itration:0;layer_id1
+processing layer:1-2; count:8	total layer num:171	complete:0.0467836
+4-3rate:0.873434
+8-7rate:0.86571
+7-69rate:-8rate:0.91895
+0.914811
+53--42rate:rate:0.9307540.91532
+
+4-3rate:0.882807
+2-1rate:0.864942
+6-5rate:0.888252
+8-7rate:0.951087
+7-6rate:0.902312
+9-8rate:0.95565
+3-2rate:0.881215
+5-4rate:0.871196
+4-3rate:0.907523
+2-1rate:0.863282
+6-5rate:0.833787
+8-7rate:0.891125
+9-8rate:0.875093
+7-6rate:0.836002
+3-2rate:0.901928
+5-4rate:0.862095
+3-4rate:0.873434
+2-1rate:0.929735
+7-8rate:0.86571
+8-9rate:0.914811
+3-4rate:0.882807
+4-5rate:0.930754
+2-3rate:0.91532
+6-7rate:0.91895
+1-2rate:0.864942
+3-4rate:0.907523
+7-8rate:0.951087
+8-9rate:0.95565
+4-5rate:0.871196
+2-3rate:0.881215
+6-5rate:0.872625
+1-2rate:0.863282
+6-7rate:0.902312
+7-8rate:0.891125
+8-9rate:0.875093
+5-6rate:0.888252
+2-3rate:0.901928
+4-5rate:0.862095
+6-7rate:0.836002
+1-2rate:0.929735
+5-6rate:0.833787
+5-6rate:0.872625
+segmentation fault (core dumped)
+~/git/reconstruction_program/code $ 
+~/git/reconstruction_program/code $ qui
+qui: command not found
+~/git/reconstruction_program/code $ ../Debug/APP
+level:1	274.593point num:235
+level:1	723.286point num:646
+level:1	265.907point num:223
+level:2	276.25point num:235
+level:2	977.855point num:884
+level:2	265.078point num:223
+level:3	278.492point num:236
+level:3	802.985point num:717
+level:3	265.321point num:222
+level:4	280.492point num:238
+level:4	791.085point num:708
+level:4	291.563point num:247
+level:5	279.907point num:237
+level:5	834.884point num:746
+level:5	289.463point num:242
+level:6	282.007point num:242
+level:6	711.529point num:633
+level:6	305.12point num:256
+level:7	285.321point num:242
+level:7	575.688point num:510
+level:7	324.191point num:273
+level:8	289.806point num:244
+level:8	530.617point num:467
+level:8	333.605point num:282
+level:9	291.806point num:246
+level:9	504.233point num:446
+level:9	344.191point num:293
+level:10	308.291point num:260
+level:10	500.617point num:437
+level:10	353.362point num:303
+level:11	319.948point num:270
+level:11	483.103point num:417
+level:11	360.191point num:309
+level:12	337.948point num:288
+level:12	526.032point num:462
+level:12	370.392point num:325
+level:13	355.463point num:308
+level:13	548.215point num:473
+level:13	376.777point num:326
+level:14	362.877point num:315
+level:14	465.831point num:396
+level:14	387.362point num:337
+level:15	378.191point num:327
+level:15	477.245point num:407
+level:15	396.777point num:346
+level:16	385.161point num:329
+level:16	480.517point num:414
+level:16	398.534point num:349
+level:17	401.061point num:342
+level:17	547.487point num:476
+level:17	407.019point num:355
+level:18	410.475point num:351
+level:18	590.943point num:512
+level:18	410.333point num:355
+level:19	417.304point num:357
+level:19	643.872point num:567
+level:19	409.647point num:351
+level:20	414.617point num:351
+level:20	1035.42point num:896
+level:21	1304.11point num:1127
+level:22	1269.34point num:1103
+level:23	1254.09point num:1101
+level:24	1192.15point num:1049
+level:25	1169.03point num:1035
+level:26	1131.23point num:1003
+level:27	1136.16point num:1010
+level:28	1117.74point num:1004
+level:29	1095.15point num:981
+level:30	1063.29point num:945
+level:31	1058.02point num:936
+level:32	1045.29point num:927
+level:33	1045.78point num:925
+level:34	1036.61point num:915
+level:35	1029.29point num:911
+level:36	1022.12point num:903
+level:37	1018.61point num:897
+level:38	1015.19point num:894
+level:39	1016.61point num:895
+level:40	1019.44point num:897
+level:41	1021.82point num:894
+level:42	1020.06point num:891
+level:43	1020.79point num:888
+level:44	1018.79point num:886
+level:45	1019.38point num:887
+level:46	1016.21point num:883
+level:47	1017.96point num:886
+level:48	1020.06point num:891
+level:49	1020.06point num:891
+level:50	1024.65point num:896
+level:51	1032.41point num:905
+level:52	1030.75point num:905
+level:53	1029.68point num:906
+level:54	1024.61point num:903
+level:55	1026.85point num:904
+level:56	1026.36point num:906
+level:57	1022.36point num:902
+level:58	1021.78point num:901
+level:59	1016.02point num:894
+level:60	1024.85point num:902
+level:61	1016.36point num:896
+level:62	1013.88point num:896
+level:63	1006.71point num:888
+level:64	1000.47point num:883
+level:65	997.637point num:881
+level:66	998.222point num:882
+level:67	956.524point num:849
+level:68	954.181point num:845
+level:69	960.767point num:852
+level:70	956.666point num:845
+level:71	974.808point num:859
+level:72	879.453point num:774
+level:73	870.624point num:766
+level:74	872.039point num:767
+level:75	869.21point num:765
+level:76	860.968point num:758
+level:77	864.039point num:759
+level:78	861.696point num:755
+level:79	865.352point num:757
+level:80	863.838point num:753
+level:81	862.08point num:750
+level:82	863.737point num:750
+level:83	865.737point num:752
+level:84	869.879point num:752
+level:85	871.637point num:755
+level:86	866.808point num:751
+level:87	869.051point num:752
+level:88	871.051point num:754
+level:89	867.051point num:750
+level:90	865.051point num:748
+level:91	864.808point num:749
+level:92	867.051point num:750
+level:93	866.465point num:749
+level:94	868.708point num:750
+level:95	870.95point num:751
+level:96	875.436point num:753
+level:97	881.092point num:757
+level:98	885.335point num:760
+level:99	886.264point num:763
+level:100	888.507point num:764
+level:101	888.749point num:763
+level:102	889.678point num:766
+level:103	910.222point num:794
+level:104	924.281point num:818
+level:105	936.767point num:828
+level:106	948.808point num:833
+level:107	958.365point num:838
+level:108	967.092point num:843
+level:109	973.921point num:849
+level:110	980.507point num:856
+level:111	984.264point num:861
+level:112	989.193point num:868
+level:113	997.879point num:880
+level:114	1000.57point num:886
+level:115	1017.98point num:903
+level:116	1012.08point num:900
+level:117	1019.98point num:905
+level:118	1023.15point num:909
+level:119	1027.64point num:911
+level:120	1032.47point num:915
+level:121	1035.29point num:917
+level:122	1039.54point num:920
+level:123	1047.88point num:930
+level:124	1047.54point num:928
+level:125	1050.71point num:932
+level:126	1051.88point num:934
+level:127	1056.12point num:937
+level:128	1053.39point num:938
+level:129	1049.98point num:935
+level:130	1055.74point num:942
+level:131	1053.01point num:943
+level:132	1057.11point num:950
+level:133	1054.62point num:950
+level:134	1061.55point num:959
+level:135	1058.97point num:956
+level:136	1064.97point num:962
+level:137	1066.14point num:964
+level:138	1070.62point num:966
+level:139	1072.62point num:968
+level:140	1075.7point num:969
+level:141	1080.42point num:970
+level:142	1084.57point num:970
+level:143	1090.81point num:975
+level:144	1098.12point num:979
+level:145	1101.68point num:978
+level:146	1118.89point num:989
+level:147	1180.45point num:1046
+level:148	1187.18point num:1049
+level:149	1206.53point num:1058
+level:150	1263.99point num:1108
+level:151	1384.56point num:1212
+level:152	701.428point num:620
+level:152	613.227point num:526
+level:153	619.63point num:544
+level:153	595.855point num:502
+level:154	595.186point num:515
+level:154	586.825point num:488
+level:155	594.257point num:512
+level:155	580.24point num:481
+level:156	590.742point num:506
+level:156	578.825point num:480
+level:157	587.571point num:502
+level:157	573.512point num:478
+level:158	582.642point num:495
+level:158	573.169point num:476
+level:159	577.571point num:492
+level:159	568.34point num:472
+level:160	575.571point num:490
+level:160	564.926point num:469
+level:161	572.742point num:488
+level:161	561.026point num:468
+level:162	566.014point num:485
+level:162	560.198point num:468
+level:163	561.872point num:485
+level:163	554.056point num:466
+level:164	555.387point num:481
+level:164	552.056point num:464
+level:165	553.144point num:480
+level:165	546.985point num:461
+level:166	548.316point num:476
+level:166	544.742point num:460
+level:167	541.831point num:472
+level:167	540.257point num:458
+level:168	538.659point num:468
+level:168	535.772point num:456
+level:169	532.659point num:462
+level:169	530.458point num:454
+level:170	527.487point num:456
+level:170	527.144point num:454
+level:171	521.73point num:449
+level:171	521.487point num:450
+layer num:171
+branch seciton:1
+branch seciton:19
+branch seciton:20
+branch seciton:151
+**********Layer NUM:171	Contour NUM230
+layer_itration:66;layer_id67
+processing layer:67-68; count:1	total layer num:171	complete:0.00584795
+layer_itration:108;layer_id109
+processing layer:109-110; count:2	total layer num:171	complete:0.0116959
+layer_itration:88;layer_id89
+processing layer:89-90; count:3	total layer num:171	complete:0.0175439
+layer_itration:128;layer_id129
+processing layer:129-130; count:4	total layer num:171	complete:0.0233918
+layer_itration:22;layer_id23
+processing layer:23-24; count:5	total layer num:171	complete:0.0292398
+layer_itration:148;layer_id149
+processing layer:149-150; count:6	total layer num:171	complete:0.0350877
+layer_itration:44;layer_id45
+processing layer:45-46; count:7	total layer num:171	complete:0.0409357
+layer_itration:0;layer_id1
+processing layer:1-2; count:8	total layer num:171	complete:0.0467836
+68-67rate:0.985284
+2-1rate:0.864942
+90-89rate:0.991883
+110-109rate:0.98486
+67-68rate:0.985284
+150-149rate:0.965059
+46-45rate:0.984944
+2-1rate:0.863282
+130-129rate:0.993171
+24-23rate:0.920987
+89-90rate:0.991883
+109-110rate:0.98486
+149-150rate:0.965059
+45-46rate:0.984944
+129-130rate:0.993171
+2-1rate:0.929735
+23-24rate:0.920987
+1-2rate:0.864942
+1-2rate:0.863282
+1-2rate:0.929735
+Iteration:61
+1-2:235
+Iteration:26
+109-110:849
+layer_itration:110;layer_id111
+processing layer:111-112; count:9	total layer num:171	complete:0.0526316
+112-111rate:0.982617
+111-112rate:0.982617
+Iteration:61
+89-90:748
+layer_itration:90;layer_id91
+processing layer:91-92; count:10	total layer num:171	complete:0.0584795
+92-91rate:0.992196
+91-92rate:0.992196
+Iteration:61
+67-68:845
+layer_itration:68;layer_id69
+processing layer:69-70; count:11	total layer num:171	complete:0.0643275
+70-69rate:0.979626
+69-70rate:0.979626
+Iteration:61
+45-46:883
+layer_itration:46;layer_id47
+processing layer:47-48; count:12	total layer num:171	complete:0.0701754
+48-47rate:0.987616
+47-48rate:0.987616
+Iteration:61
+1-2:646
+Iteration:61
+129-130:935
+layer_itration:130;layer_id131
+processing layer:131-132; count:13	total layer num:171	complete:0.0760234
+132-131rate:0.99141
+131-132rate:0.99141
+Iteration:61
+23-24:1049
+layer_itration:24;layer_id25
+processing layer:25-26; count:14	total layer num:171	complete:0.0818713
+Iteration:61
+26-25rate:0.929132
+25-26rate:0.929132
+149-150:1058
+layer_itration:150;layer_id151
+processing layer:151-152; count:15	total layer num:171	complete:0.0877193
+152-151rate:0.489529
+152-151rate:0.447912
+151-152rate:0.489529
+151-152rate:0.447912
+Iteration:61
+1-2:223
+layer_itration:2;layer_id3
+processing layer:3-4; count:16	total layer num:171	complete:0.0935673
+4-3rate:0.873434
+4-3rate:0.882807
+4-3rate:0.907523
+3-4rate:0.873434
+3-4rate:0.882807
+3-4rate:0.907523
+Iteration:61
+111-112:861
+layer_itration:112;layer_id113
+processing layer:113-114; count:17	total layer num:171	complete:0.0994152
+114-113rate:0.983935
+113-114rate:0.983935
+Iteration:61
+3-4:236
+Iteration:61
+91-92:749
+layer_itration:92;layer_id93
+processing layer:93-94; count:18	total layer num:171	complete:0.105263
+94-93rate:0.989755
+Iteration:45
+93-94rate:0.989755
+47-48:886
+layer_itration:48;layer_id49
+processing layer:49-50; count:19	total layer num:171	complete:0.111111
+50-49rate:0.987784
+49-50rate:0.987784
+Iteration:61
+69-70:845
+layer_itration:70;layer_id71
+processing layer:71-72; count:20	total layer num:171	complete:0.116959
+72-71rate:0.965126
+71-72rate:0.965126
+Iteration:61
+151-152:620
+Iteration:33
+113-114:880
+layer_itration:114;layer_id115
+processing layer:115-116; count:21	total layer num:171	complete:0.122807
+116-115rate:0.987647
+115-116rate:0.987647
+Iteration:61
+131-132:943
+layer_itration:132;layer_id133
+processing layer:133-134; count:22	total layer num:171	complete:0.128655
+134-133rate:0.990061
+133-134rate:0.990061
+Iteration:26
+93-94:749
+layer_itration:94;layer_id95
+processing layer:95-96; count:23	total layer num:171	complete:0.134503
+96-95rate:0.98875
+95-96rate:0.98875
+Iteration:61
+25-26:1003
+layer_itration:26;layer_id27
+processing layer:27-28; count:24	total layer num:171	complete:0.140351
+28-27rate:0.928384
+27-28rate:0.928384
+Iteration:61
+3-4:708
+Iteration:61
+151-152:526
+layer_itration:152;layer_id153
+processing layer:153-154; count:25	total layer num:171	complete:0.146199
+154-153rate:0.943469
+154-153rate:0.962931
+153-154rate:0.943469
+153-154rate:0.962931
+Iteration:61
+71-72:774
+layer_itration:72;layer_id73
+processing layer:73-74; count:26	total layer num:171	complete:0.152047
+74-73rate:0.992075
+Iteration:61
+73-74rate:0.992075
+3-4:222
+layer_itration:4;layer_id5
+processing layer:5-6; count:27	total layer num:171	complete:0.157895
+6-5rate:0.888252
+6-5rate:0.833787
+6-5rate:0.872625
+5-6rate:0.888252
+5-6rate:0.833787
+5-6rate:0.872625
+Iteration:61
+49-50:891
+layer_itration:50;layer_id51
+processing layer:51-52; count:28	total layer num:171	complete:0.163743
+52-51rate:0.99175
+51-52rate:0.99175
+Iteration:61
+95-96:751
+layer_itration:96;layer_id97
+processing layer:97-98; count:29	total layer num:171	complete:0.169591
+Iteration:61
+98-97rate:0.988769
+97-98rate:0.988769
+5-6:237
+Iteration:61
+115-116:900
+layer_itration:116;layer_id117
+processing layer:117-118; count:30	total layer num:171	complete:0.175439
+118-117rate:0.990956
+117-118rate:0.990956
+Iteration:61
+153-154:515
+Iteration:61
+133-134:950
+layer_itration:134;layer_id135
+processing layer:135-136; count:31	total layer num:171	complete:0.181287
+136-135rate:0.990096
+135-136rate:0.990096
+Iteration:61
+27-28:1004
+layer_itration:28;layer_id29
+processing layer:29-30; count:32	total layer num:171	complete:0.187135
+30-29rate:0.946627
+29-30rate:0.946627
+Iteration:61
+73-74:766
+layer_itration:74;layer_id75
+processing layer:75-76; count:33	total layer num:171	complete:0.192982
+76-75rate:0.993954
+75-76rate:0.993954
+Iteration:61
+Iteration:61
+51-52:905
+layer_itration:52;layer_id53
+processing layer:53-54; count:34	total layer num:171	complete:0.19883
+Iteration:61
+5-6:633
+54-53rate:0.992265
+53-54rate:0.992265
+153-154:488
+layer_itration:154;layer_id155
+processing layer:155-156; count:35	total layer num:171	complete:0.204678
+156-155rate:0.973602
+156-155rate:0.967704
+155-156rate:0.973602
+155-156rate:0.967704
+Iteration:61
+97-98:757
+layer_itration:98;layer_id99
+processing layer:99-100; count:36	total layer num:171	complete:0.210526
+100-99rate:0.986145
+99-100rate:0.986145
+Iteration:61
+5-6:242
+layer_itration:6;layer_id7
+processing layer:7-8; count:37	total layer num:171	complete:0.216374
+8-7rate:0.86571
+8-7rate:0.951087
+8-7rate:0.891125
+7-8rate:0.86571
+7-8rate:0.951087
+7-8rate:0.891125
+Iteration:61
+117-118:905
+layer_itration:118;layer_id119
+processing layer:119-120; count:38	total layer num:171	complete:0.222222
+120-119rate:0.992627
+119-120rate:0.992627
+Iteration:61
+75-76:758
+layer_itration:76;layer_id77
+processing layer:77-78; count:39	total layer num:171	complete:0.22807
+78-77rate:0.991634
+77-78rate:0.991634
+Iteration:61
+135-136:956
+layer_itration:136;layer_id137
+processing layer:137-138; count:40	total layer num:171	complete:0.233918
+138-137rate:0.990673
+137-138rate:0.990673
+Iteration:61
+Iteration:61
+7-8:242
+155-156:506
+Iteration:61
+29-30:945
+layer_itration:30;layer_id31
+processing layer:31-32; count:41	total layer num:171	complete:0.239766
+32-31rate:0.963439
+31-32rate:0.963439
+Iteration:61
+99-100:763
+layer_itration:100;layer_id101
+processing layer:101-102; count:42	total layer num:171	complete:0.245614
+102-101rate:0.97991
+101-102rate:0.97991
+Iteration:61
+53-54:903
+layer_itration:54;layer_id55
+processing layer:55-56; count:43	total layer num:171	complete:0.251462
+56-55rate:0.992566
+55-56rate:0.992566
+Iteration:61
+7-8:467
+Iteration:61
+155-156:480
+layer_itration:156;layer_id157
+processing layer:157-158; count:44	total layer num:171	complete:0.25731
+158-157rate:0.970787
+158-157rate:0.974392
+157-158rate:0.970787
+157-158rate:0.974392
+Iteration:61
+77-78:755
+layer_itration:78;layer_id79
+processing layer:79-80; count:45	total layer num:171	complete:0.263158
+80-79rate:0.9932
+79-80rate:0.9932
+Iteration:61
+Iteration:61
+119-120:911
+layer_itration:120;layer_id121
+processing layer:121-122; count:46	total layer num:171	complete:0.269006
+122-121rate:0.991983
+121-122rate:0.991983
+7-8:273
+layer_itration:8;layer_id9
+processing layer:9-10; count:47	total layer num:171	complete:0.274854
+10-9rate:0.863718
+10-9rate:0.95368
+10-9rate:0.907375
+9-10rate:0.863718
+9-10rate:0.95368
+9-10rate:0.907375
+Iteration:61
+137-138:964
+layer_itration:138;layer_id139
+processing layer:139-140; count:48	total layer num:171	complete:0.280702
+140-139rate:0.988708
+139-140rate:0.988708
+Iteration:61
+31-32:927
+layer_itration:32;layer_id33
+processing layer:33-34; count:49	total layer num:171	complete:0.28655
+34-33rate:0.96831
+33-34rate:0.96831
+Iteration:61
+Iteration:61
+157-158:495
+9-10:246
+Iteration:61
+101-102:763
+layer_itration:102;layer_id103
+processing layer:103-104; count:50	total layer num:171	complete:0.292398
+104-103rate:0.967409
+103-104rate:0.967409
+Iteration:46
+79-80:753
+layer_itration:80;layer_id81
+processing layer:81-82; count:51	total layer num:171	complete:0.298246
+82-81rate:0.994651
+81-82rate:0.994651
+Iteration:61
+55-56:906
+layer_itration:56;layer_id57
+processing layer:57-58; count:52	total layer num:171	complete:0.304094
+58-57rate:0.991675
+57-58rate:0.991675
+Iteration:61
+9-10:437
+Iteration:61
+157-158:476
+layer_itration:158;layer_id159
+processing layer:159-160; count:53	total layer num:171	complete:0.309942
+160-159rate:0.974548
+160-159rate:0.970278
+159-160rate:0.974548
+159-160rate:0.970278
+Iteration:61
+121-122:917
+layer_itration:122;layer_id123
+processing layer:123-124; count:54	total layer num:171	complete:0.315789
+124-123rate:0.99428
+123-124rate:0.99428
+Iteration:61
+9-10:293
+layer_itration:10;layer_id11
+processing layer:11-12; count:55	total layer num:171	complete:0.321637
+12-11rate:0.830545
+12-11rate:0.904478
+12-11rate:0.922428
+11-12rate:0.830545
+11-12rate:0.904478
+11-12rate:0.922428
+Iteration:61
+139-140:968
+layer_itration:140;layer_id141
+processing layer:141-142; count:56	total layer num:171	complete:0.327485
+142-141rate:0.987158
+141-142rate:0.987158
+Iteration:61
+81-82:750
+layer_itration:82;layer_id83
+processing layer:83-84; count:57	total layer num:171	complete:0.333333
+84-83rate:0.993304
+83-84rate:0.993304
+Iteration:61
+103-104:794
+layer_itration:104;layer_id105
+processing layer:105-106; count:58	total layer num:171	complete:0.339181
+106-105rate:0.982433
+105-106rate:0.982433
+Iteration:61
+33-34:915
+layer_itration:34;layer_id35
+processing layer:35-36; count:59	total layer num:171	complete:0.345029
+36-35rate:0.973647
+35-36rate:0.973647
+Iteration:61
+159-160:490
+Iteration:61
+Iteration:61
+57-58:901
+layer_itration:58;layer_id59
+processing layer:59-60; count:60	total layer num:171	complete:0.350877
+60-59rate:0.989387
+59-60rate:0.989387
+11-12:270
+Iteration:61
+159-160:469
+layer_itration:160;layer_id161
+processing layer:161-162; count:61	total layer num:171	complete:0.356725
+162-161rate:0.969994
+162-161rate:0.969832
+161-162rate:0.969994
+161-162rate:0.969832
+Iteration:61
+123-124:928
+layer_itration:124;layer_id125
+processing layer:125-126; count:62	total layer num:171	complete:0.362573
+126-125rate:0.989997
+125-126rate:0.989997
+Iteration:61
+83-84:752
+layer_itration:84;layer_id85
+processing layer:85-86; count:63	total layer num:171	complete:0.368421
+86-85rate:0.995417
+85-86rate:0.995417
+Iteration:61
+Iteration:61
+105-106:828
+layer_itration:106;layer_id107
+processing layer:107-108; count:64	total layer num:171	complete:0.374269
+108-107rate:0.98632
+107-108rate:0.98632
+Iteration:61
+141-142:970
+layer_itration:142;layer_id143
+processing layer:143-144; count:65	total layer num:171	complete:0.380117
+144-143rate:0.985401
+143-144rate:0.985401
+Iteration:61
+35-36:903
+layer_itration:36;layer_id37
+processing layer:37-38; count:66	total layer num:171	complete:0.385965
+11-12:417
+38-37rate:0.978385
+37-38rate:0.978385
+Iteration:61
+59-60:894
+layer_itration:60;layer_id61
+processing layer:61-62; count:67	total layer num:171	complete:0.391813
+62-61rate:0.984277
+61-62rate:0.984277
+Iteration:61
+161-162:485
+Iteration:61
+Iteration:61
+85-86:751
+layer_itration:86;layer_id87
+processing layer:87-88; count:68	total layer num:171	complete:0.397661
+88-87rate:0.993507
+87-88rate:0.993507
+11-12:309
+layer_itration:12;layer_id13
+processing layer:13-14; count:69	total layer num:171	complete:0.403509
+14-13rate:0.84651
+14-13rate:0.907664
+14-13rate:0.917231
+13-14rate:0.84651
+13-14rate:0.907664
+13-14rate:0.917231
+Iteration:61
+125-126:932
+layer_itration:126;layer_id127
+processing layer:127-128; count:70	total layer num:171	complete:0.409357
+128-127rate:0.993572
+127-128rate:0.993572
+Iteration:61
+161-162:468
+layer_itration:162;layer_id163
+processing layer:163-164; count:71	total layer num:171	complete:0.415205
+Iteration:61
+164-163rate:0.967839
+164-163rate:0.965815
+107-108:838
+163-164rate:0.967839
+163-164rate:0.965815
+Iteration:61
+13-14:308
+Iteration:61
+37-38:894
+layer_itration:38;layer_id39
+processing layer:39-40; count:72	total layer num:171	complete:0.421053
+40-39rate:0.980134
+39-40rate:0.980134
+Iteration:61
+143-144:975
+layer_itration:144;layer_id145
+processing layer:145-146; count:73	total layer num:171	complete:0.426901
+146-145rate:0.982023
+145-146rate:0.982023
+Iteration:61
+61-62:896
+layer_itration:62;layer_id63
+processing layer:63-64; count:74	total layer num:171	complete:0.432749
+64-63rate:0.981818
+63-64rate:0.981818
+Iteration:61
+163-164:481
+Iteration:61
+87-88:752
+Iteration:61
+13-14:396
+Iteration:61
+163-164:464
+layer_itration:164;layer_id165
+processing layer:165-166; count:75	total layer num:171	complete:0.438596
+166-165rate:0.96345
+166-165rate:0.958888
+165-166rate:0.96345
+165-166rate:0.958888
+Iteration:61
+13-14:326
+layer_itration:14;layer_id15
+processing layer:15-16; count:76	total layer num:171	complete:0.444444
+16-15rate:0.875223
+16-15rate:0.906821
+16-15rate:0.933038
+15-16rate:0.875223
+15-16rate:0.906821
+15-16rate:0.933038
+Iteration:61
+127-128:938
+Iteration:61
+15-16:327
+Iteration:61
+165-166:476
+Iteration:61
+39-40:895
+layer_itration:40;layer_id41
+processing layer:41-42; count:77	total layer num:171	complete:0.450292
+42-41rate:0.979797
+41-42rate:0.979797
+Iteration:61
+Iteration:61
+63-64:883
+layer_itration:64;layer_id65
+processing layer:65-66; count:78	total layer num:171	complete:0.45614
+66-65rate:0.97608
+145-146:978
+layer_itration:146;layer_id147
+processing layer:147-148; count:79	total layer num:171	complete:0.461988
+65-66rate:0.97608
+148-147rate:0.977996
+147-148rate:0.977996
+Iteration:61
+15-16:407
+Iteration:61
+165-166:460
+layer_itration:166;layer_id167
+processing layer:167-168; count:80	total layer num:171	complete:0.467836
+168-167rate:0.960523
+168-167rate:0.95249
+167-168rate:0.960523
+167-168rate:0.95249
+Iteration:61
+15-16:346
+layer_itration:16;layer_id17
+processing layer:17-18; count:81	total layer num:171	complete:0.473684
+18-17rate:0.883305
+18-17rate:0.865681
+18-17rate:0.913572
+17-18rate:0.883305
+17-18rate:0.865681
+17-18rate:0.913572
+Iteration:61
+41-42:891
+layer_itration:42;layer_id43
+processing layer:43-44; count:82	total layer num:171	complete:0.479532
+44-43rate:0.983787
+43-44rate:0.983787
+Iteration:61
+167-168:468
+Iteration:61
+17-18:342
+Iteration:41
+Iteration:19
+Iteration:32
+167-168:456
+43-44:886
+Iteration:43
+65-66:881
+17-18:476
+Iteration:36
+147-148:1046
+Iteration:61
+17-18:355
+layer_itration:18;layer_id19
+processing layer:19-20; count:83	total layer num:171	complete:0.48538
+20-19rate:0.906548
+20-19rate:0.480732
+20-19rate:0.38145
+19-20rate:0.906548
+19-20rate:0.480732
+19-20rate:0.38145
+Iteration:61
+19-20:351
+Iteration:61
+19-20:567
+Iteration:61
+19-20:351
+layer_itration:20;layer_id21
+processing layer:21-22; count:84	total layer num:171	complete:0.491228
+22-21rate:0.910562
+21-22rate:0.910562
+Iteration:61
+21-22:1103
+layer_itration:149;layer_id150
+processing layer:150-151; count:85	total layer num:171	complete:0.497076
+layer_itration:89;layer_id90
+processing layer:90-91; count:86	total layer num:171	complete:0.502924
+layer_itration:67;layer_id68
+processing layer:68-69; count:87	total layer num:171	complete:0.508772
+layer_itration:1;layer_id2
+processing layer:2-3; count:88	total layer num:171	complete:0.51462
+layer_itration:45;layer_id46
+processing layer:46-47; count:89	total layer num:171	complete:0.520468
+layer_itration:23;layer_id24
+processing layer:24-25; count:90	total layer num:171	complete:0.526316
+layer_itration:109;layer_id110
+processing layer:110-111; count:91	total layer num:171	complete:0.532164
+layer_itration:129;layer_id130
+processing layer:130-131; count:92	total layer num:171	complete:0.538012
+47-46rate:0.985909
+3-2rate:0.91532
+25-24rate:0.927
+69-68rate:0.978633
+111-110rate:0.981036
+91-90rate:0.992899
+151-150rate:0.941499
+131-130rate:0.992111
+46-47rate:0.985909
+3-2rate:0.881215
+24-25rate:0.927
+68-69rate:0.978633
+90-91rate:0.992899
+110-111rate:0.981036
+150-151rate:0.941499
+130-131rate:0.992111
+3-2rate:0.901928
+2-3rate:0.91532
+2-3rate:0.881215
+2-3rate:0.901928
+Iteration:61
+2-3:235
+Iteration:61
+90-91:749
+layer_itration:91;layer_id92
+processing layer:92-93; count:93	total layer num:171	complete:0.54386
+93-92rate:0.991015
+92-93rate:0.991015
+Iteration:61
+68-69:845
+layer_itration:69;layer_id70
+processing layer:70-71; count:94	total layer num:171	complete:0.549708
+71-70rate:0.971419
+70-71rate:0.971419
+Iteration:61
+110-111:856
+layer_itration:111;layer_id112
+processing layer:112-113; count:95	total layer num:171	complete:0.555556
+113-112rate:0.980504
+112-113rate:0.980504
+Iteration:61
+46-47:883
+layer_itration:47;layer_id48
+processing layer:48-49; count:96	total layer num:171	complete:0.561404
+49-48rate:0.987554
+48-49rate:0.987554
+Iteration:61
+Iteration:61
+130-131:943
+layer_itration:131;layer_id132
+processing layer:132-133; count:97	total layer num:171	complete:0.567251
+133-132rate:0.990998
+132-133rate:0.990998
+2-3:717
+Iteration:61
+24-25:1035
+layer_itration:25;layer_id26
+processing layer:26-27; count:98	total layer num:171	complete:0.573099
+27-26rate:0.926952
+26-27rate:0.926952
+Iteration:61
+150-151:1108
+layer_itration:151;layer_id152
+processing layer:152-153; count:99	total layer num:171	complete:0.578947
+153-152rate:0.926157
+153-152rate:0.936002
+152-153rate:0.926157
+152-153rate:0.936002
+interrupt
+~/git/reconstruction_program/code $ ../Debug/APP
+level:1	274.593point num:235
+level:1	723.286point num:646
+level:1	265.907point num:223
+level:2	276.25point num:235
+level:2	977.855point num:884
+level:2	265.078point num:223
+level:3	278.492point num:236
+level:3	802.985point num:717
+level:3	265.321point num:222
+level:4	280.492point num:238
+level:4	791.085point num:708
+level:4	291.563point num:247
+level:5	279.907point num:237
+level:5	834.884point num:746
+level:5	289.463point num:242
+level:6	282.007point num:242
+level:6	711.529point num:633
+level:6	305.12point num:256
+level:7	285.321point num:242
+level:7	575.688point num:510
+level:7	324.191point num:273
+level:8	289.806point num:244
+level:8	530.617point num:467
+level:8	333.605point num:282
+level:9	291.806point num:246
+level:9	504.233point num:446
+level:9	344.191point num:293
+level:10	308.291point num:260
+level:10	500.617point num:437
+level:10	353.362point num:303
+level:11	319.948point num:270
+level:11	483.103point num:417
+level:11	360.191point num:309
+level:12	337.948point num:288
+level:12	526.032point num:462
+level:12	370.392point num:325
+level:13	355.463point num:308
+level:13	548.215point num:473
+level:13	376.777point num:326
+level:14	362.877point num:315
+level:14	465.831point num:396
+level:14	387.362point num:337
+level:15	378.191point num:327
+level:15	477.245point num:407
+level:15	396.777point num:346
+level:16	385.161point num:329
+level:16	480.517point num:414
+level:16	398.534point num:349
+level:17	401.061point num:342
+level:17	547.487point num:476
+level:17	407.019point num:355
+level:18	410.475point num:351
+level:18	590.943point num:512
+level:18	410.333point num:355
+level:19	417.304point num:357
+level:19	643.872point num:567
+level:19	409.647point num:351
+level:20	414.617point num:351
+level:20	1035.42point num:896
+level:21	1304.11point num:1127
+level:22	1269.34point num:1103
+level:23	1254.09point num:1101
+level:24	1192.15point num:1049
+level:25	1169.03point num:1035
+level:26	1131.23point num:1003
+level:27	1136.16point num:1010
+level:28	1117.74point num:1004
+level:29	1095.15point num:981
+level:30	1063.29point num:945
+level:31	1058.02point num:936
+level:32	1045.29point num:927
+level:33	1045.78point num:925
+level:34	1036.61point num:915
+level:35	1029.29point num:911
+level:36	1022.12point num:903
+level:37	1018.61point num:897
+level:38	1015.19point num:894
+level:39	1016.61point num:895
+level:40	1019.44point num:897
+level:41	1021.82point num:894
+level:42	1020.06point num:891
+level:43	1020.79point num:888
+level:44	1018.79point num:886
+level:45	1019.38point num:887
+level:46	1016.21point num:883
+level:47	1017.96point num:886
+level:48	1020.06point num:891
+level:49	1020.06point num:891
+level:50	1024.65point num:896
+level:51	1032.41point num:905
+level:52	1030.75point num:905
+level:53	1029.68point num:906
+level:54	1024.61point num:903
+level:55	1026.85point num:904
+level:56	1026.36point num:906
+level:57	1022.36point num:902
+level:58	1021.78point num:901
+level:59	1016.02point num:894
+level:60	1024.85point num:902
+level:61	1016.36point num:896
+level:62	1013.88point num:896
+level:63	1006.71point num:888
+level:64	1000.47point num:883
+level:65	997.637point num:881
+level:66	998.222point num:882
+level:67	956.524point num:849
+level:68	954.181point num:845
+level:69	960.767point num:852
+level:70	956.666point num:845
+level:71	974.808point num:859
+level:72	879.453point num:774
+level:73	870.624point num:766
+level:74	872.039point num:767
+level:75	869.21point num:765
+level:76	860.968point num:758
+level:77	864.039point num:759
+level:78	861.696point num:755
+level:79	865.352point num:757
+level:80	863.838point num:753
+level:81	862.08point num:750
+level:82	863.737point num:750
+level:83	865.737point num:752
+level:84	869.879point num:752
+level:85	871.637point num:755
+level:86	866.808point num:751
+level:87	869.051point num:752
+level:88	871.051point num:754
+level:89	867.051point num:750
+level:90	865.051point num:748
+level:91	864.808point num:749
+level:92	867.051point num:750
+level:93	866.465point num:749
+level:94	868.708point num:750
+level:95	870.95point num:751
+level:96	875.436point num:753
+level:97	881.092point num:757
+level:98	885.335point num:760
+level:99	886.264point num:763
+level:100	888.507point num:764
+level:101	888.749point num:763
+level:102	889.678point num:766
+level:103	910.222point num:794
+level:104	924.281point num:818
+level:105	936.767point num:828
+level:106	948.808point num:833
+level:107	958.365point num:838
+level:108	967.092point num:843
+level:109	973.921point num:849
+level:110	980.507point num:856
+level:111	984.264point num:861
+level:112	989.193point num:868
+level:113	997.879point num:880
+level:114	1000.57point num:886
+level:115	1017.98point num:903
+level:116	1012.08point num:900
+level:117	1019.98point num:905
+level:118	1023.15point num:909
+level:119	1027.64point num:911
+level:120	1032.47point num:915
+level:121	1035.29point num:917
+level:122	1039.54point num:920
+level:123	1047.88point num:930
+level:124	1047.54point num:928
+level:125	1050.71point num:932
+level:126	1051.88point num:934
+level:127	1056.12point num:937
+level:128	1053.39point num:938
+level:129	1049.98point num:935
+level:130	1055.74point num:942
+level:131	1053.01point num:943
+level:132	1057.11point num:950
+level:133	1054.62point num:950
+level:134	1061.55point num:959
+level:135	1058.97point num:956
+level:136	1064.97point num:962
+level:137	1066.14point num:964
+level:138	1070.62point num:966
+level:139	1072.62point num:968
+level:140	1075.7point num:969
+level:141	1080.42point num:970
+level:142	1084.57point num:970
+level:143	1090.81point num:975
+level:144	1098.12point num:979
+level:145	1101.68point num:978
+level:146	1118.89point num:989
+level:147	1180.45point num:1046
+level:148	1187.18point num:1049
+level:149	1206.53point num:1058
+level:150	1263.99point num:1108
+level:151	1384.56point num:1212
+level:152	701.428point num:620
+level:152	613.227point num:526
+level:153	619.63point num:544
+level:153	595.855point num:502
+level:154	595.186point num:515
+level:154	586.825point num:488
+level:155	594.257point num:512
+level:155	580.24point num:481
+level:156	590.742point num:506
+level:156	578.825point num:480
+level:157	587.571point num:502
+level:157	573.512point num:478
+level:158	582.642point num:495
+level:158	573.169point num:476
+level:159	577.571point num:492
+level:159	568.34point num:472
+level:160	575.571point num:490
+level:160	564.926point num:469
+level:161	572.742point num:488
+level:161	561.026point num:468
+level:162	566.014point num:485
+level:162	560.198point num:468
+level:163	561.872point num:485
+level:163	554.056point num:466
+level:164	555.387point num:481
+level:164	552.056point num:464
+level:165	553.144point num:480
+level:165	546.985point num:461
+level:166	548.316point num:476
+level:166	544.742point num:460
+level:167	541.831point num:472
+level:167	540.257point num:458
+level:168	538.659point num:468
+level:168	535.772point num:456
+level:169	532.659point num:462
+level:169	530.458point num:454
+level:170	527.487point num:456
+level:170	527.144point num:454
+level:171	521.73point num:449
+level:171	521.487point num:450
+layer num:171
+branch seciton:1
+branch seciton:19
+branch seciton:20
+branch seciton:151
+**********Layer NUM:171	Contour NUM230
+layer_itration:148;layer_id149
+processing layer:149-150; count:1	total layer num:171	complete:0.00584795
+layer_itration:44;layer_id45
+processing layer:45-46; count:2	total layer num:171	complete:0.0116959
+layer_itration:22;layer_id23
+processing layer:23-24; count:3	total layer num:171	complete:0.0175439
+layer_itration:88;layer_id89
+processing layer:89-90; count:4	total layer num:171	complete:0.0233918
+layer_itration:66;layer_id67
+processing layer:67-68; count:5	total layer num:171	complete:0.0292398
+layer_itration:128;layer_id129
+processing layer:129-130; count:6	total layer num:171	complete:0.0350877
+layer_itration:108;layer_id109
+processing layer:109-110; count:7	total layer num:171	complete:0.0409357
+150-149rate:0.965059
+layer_itration:0;layer_id1
+processing layer:1-2; count:8	total layer num:171	complete:0.0467836
+24-23rate:0.920987
+46-45rate:0.984944
+130-129rate:0.993171
+90-89rate:0.991883
+68-67rate:0.985284
+149-150rate:0.965059
+2-1rate:0.864942
+110-109rate:0.98486
+23-24rate:0.920987
+129-130rate:0.993171
+45-46rate:0.984944
+89-90rate:0.991883
+67-68rate:0.985284
+2-1rate:0.863282
+109-110rate:0.98486
+2-1rate:0.929735
+1-2rate:0.864942
+1-2rate:0.863282
+1-2rate:0.929735
+Iteration:61
+1-2:235
+Iteration:21
+129-130:935
+layer_itration:130;layer_id131
+processing layer:131-132; count:9	total layer num:171	complete:0.0526316
+132-131rate:0.99141
+131-132rate:0.99141
+Iteration:24
+Iteration:23
+67-68:845
+layer_itration:68;layer_id69
+processing layer:69-70; count:10	total layer num:171	complete:0.0584795
+45-46:883
+layer_itration:46;layer_id47
+processing layer:47-48; count:11	total layer num:171	complete:0.0643275
+70-69rate:0.979626
+48-47rate:0.987616
+69-70rate:0.979626
+47-48rate:0.987616
+Iteration:32
+109-110:849
+layer_itration:110;layer_id111
+processing layer:111-112; count:12	total layer num:171	complete:0.0701754
+112-111rate:0.982617
+111-112rate:0.982617
+Iteration:5
+131-132:943
+layer_itration:132;layer_id133
+processing layer:133-134; count:13	total layer num:171	complete:0.0760234
+134-133rate:0.990061
+133-134rate:0.990061
+Iteration:10
+47-48:886
+layer_itration:48;layer_id49
+processing layer:49-50; count:14	total layer num:171	complete:0.0818713
+50-49rate:0.987784
+49-50rate:0.987784
+Iteration:6
+111-112:861
+layer_itration:112;layer_id113
+processing layer:113-114; count:15	total layer num:171	complete:0.0877193
+114-113rate:0.983935
+113-114rate:0.983935
+Iteration:61
+89-90:748
+layer_itration:90;layer_id91
+processing layer:91-92; count:16	total layer num:171	complete:0.0935673
+92-91rate:0.992196
+Iteration:44
+91-92rate:0.992196
+Iteration:13
+Iteration:18
+133-134:950
+layer_itration:134;layer_id135
+processing layer:135-136; count:17	total layer num:171	complete:0.0994152
+136-135rate:0.990096
+69-70:845
+layer_itration:70;layer_id71
+processing layer:71-72; count:18	total layer num:171	complete:0.105263
+135-136rate:0.990096
+72-71rate:0.965126
+71-72rate:0.965126
+1-2:646
+Iteration:61
+23-24:1049
+layer_itration:24;layer_id25
+processing layer:25-26; count:19	total layer num:171	complete:0.111111
+Iteration:51
+26-25rate:0.929132
+25-26rate:0.929132
+Iteration:17
+91-92:749
+layer_itration:92;layer_id93
+processing layer:93-94; count:20	total layer num:171	complete:0.116959
+94-93rate:0.989755
+93-94rate:0.989755
+1-2:223
+layer_itration:2;layer_id3
+processing layer:3-4; count:21	total layer num:171	complete:0.122807
+4-3rate:0.873434
+4-3rate:0.882807
+4-3rate:0.907523
+3-4rate:0.873434
+3-4rate:0.882807
+3-4rate:0.907523
+Iteration:61
+149-150:1058
+layer_itration:150;layer_id151
+processing layer:151-152; count:22	total layer num:171	complete:0.128655
+152-151rate:0.489529
+152-151rate:0.447912
+151-152rate:0.489529
+151-152rate:0.447912
+Iteration:61
+3-4:236
+Iteration:31
+Iteration:34
+93-94:749
+layer_itration:94;layer_id95
+processing layer:95-96; count:23	total layer num:171	complete:0.134503
+96-95rate:0.98875
+95-96rate:0.98875
+151-152:620
+Iteration:59
+49-50:891
+layer_itration:50;layer_id51
+processing layer:51-52; count:24	total layer num:171	complete:0.140351
+52-51rate:0.99175
+51-52rate:0.99175
+Iteration:61
+113-114:880
+layer_itration:114;layer_id115
+processing layer:115-116; count:25	total layer num:171	complete:0.146199
+116-115rate:0.987647
+115-116rate:0.987647
+Iteration:61
+71-72:774
+layer_itration:72;layer_id73
+processing layer:73-74; count:26	total layer num:171	complete:0.152047
+74-73rate:0.992075
+73-74rate:0.992075
+Iteration:61
+135-136:956
+layer_itration:136;layer_id137
+processing layer:137-138; count:27	total layer num:171	complete:0.157895
+138-137rate:0.990673
+137-138rate:0.990673
+Iteration:61
+Iteration:61
+151-152:526
+layer_itration:152;layer_id153
+processing layer:153-154; count:28	total layer num:171	complete:0.163743
+154-153rate:0.943469
+Iteration:61
+154-153rate:0.962931
+153-154rate:0.943469
+153-154rate:0.962931
+25-26:1003
+layer_itration:26;layer_id27
+processing layer:27-28; count:29	total layer num:171	complete:0.169591
+28-27rate:0.928384
+27-28rate:0.928384
+3-4:708
+Iteration:61
+95-96:751
+layer_itration:96;layer_id97
+processing layer:97-98; count:30	total layer num:171	complete:0.175439
+98-97rate:0.988769
+97-98rate:0.988769
+Iteration:61
+3-4:222
+layer_itration:4;layer_id5
+processing layer:5-6; count:31	total layer num:171	complete:0.181287
+6-5rate:0.888252
+6-5rate:0.833787
+6-5rate:0.872625
+5-6rate:0.888252
+5-6rate:0.833787
+5-6rate:0.872625
+Iteration:61
+73-74:766
+layer_itration:74;layer_id75
+processing layer:75-76; count:32	total layer num:171	complete:0.187135
+76-75rate:0.993954
+75-76rate:0.993954
+Iteration:61
+51-52:905
+layer_itration:52;layer_id53
+processing layer:53-54; count:33	total layer num:171	complete:0.192982
+54-53rate:0.992265
+Iteration:61
+53-54rate:0.992265
+115-116:900
+layer_itration:116;layer_id117
+processing layer:117-118; count:34	total layer num:171	complete:0.19883
+118-117rate:0.990956
+117-118rate:0.990956
+Iteration:61
+153-154:515
+Iteration:61
+5-6:237
+Iteration:61
+137-138:964
+layer_itration:138;layer_id139
+processing layer:139-140; count:35	total layer num:171	complete:0.204678
+140-139rate:0.988708
+139-140rate:0.988708
+Iteration:37
+97-98:757
+layer_itration:98;layer_id99
+processing layer:99-100; count:36	total layer num:171	complete:0.210526
+100-99rate:0.986145
+99-100rate:0.986145
+Iteration:61
+27-28:1004
+layer_itration:28;layer_id29
+processing layer:29-30; count:37	total layer num:171	complete:0.216374
+30-29rate:0.946627
+29-30rate:0.946627
+Iteration:61
+153-154:488
+layer_itration:154;layer_id155
+processing layer:155-156; count:38	total layer num:171	complete:0.222222
+156-155rate:0.973602
+156-155rate:0.967704
+155-156rate:0.973602
+155-156rate:0.967704
+Iteration:61
+75-76:758
+layer_itration:76;layer_id77
+processing layer:77-78; count:39	total layer num:171	complete:0.22807
+78-77rate:0.991634
+77-78rate:0.991634
+Iteration:61
+Iteration:61
+53-54:903
+layer_itration:54;layer_id55
+processing layer:55-56; count:40	total layer num:171	complete:0.233918
+5-6:633
+56-55rate:0.992566
+55-56rate:0.992566
+Iteration:61
+117-118:905
+layer_itration:118;layer_id119
+processing layer:119-120; count:41	total layer num:171	complete:0.239766
+120-119rate:0.992627
+119-120rate:0.992627
+Iteration:36
+Iteration:37
+Iteration:24
+77-78:755
+layer_itration:78;layer_id79
+processing layer:79-80; count:42	total layer num:171	complete:0.245614
+80-79rate:0.9932
+79-80rate:0.9932
+155-156:506
+5-6:242
+layer_itration:6;layer_id7
+processing layer:7-8; count:43	total layer num:171	complete:0.251462
+8-7rate:0.86571
+8-7rate:0.951087
+8-7rate:0.891125
+7-8rate:0.86571
+Iteration:55
+7-8rate:0.951087
+7-8rate:0.891125
+99-100:763
+layer_itration:100;layer_id101
+processing layer:101-102; count:44	total layer num:171	complete:0.25731
+102-101rate:0.97991
+101-102rate:0.97991
+Iteration:61
+139-140:968
+layer_itration:140;layer_id141
+processing layer:141-142; count:45	total layer num:171	complete:0.263158
+142-141rate:0.987158
+141-142rate:0.987158
+Iteration:61
+7-8:242
+Iteration:61
+Iteration:61
+29-30:945
+layer_itration:30;layer_id31
+processing layer:31-32; count:46	total layer num:171	complete:0.269006
+32-31rate:0.963439
+31-32rate:0.963439
+155-156:480
+layer_itration:156;layer_id157
+processing layer:157-158; count:47	total layer num:171	complete:0.274854
+158-157rate:0.970787
+158-157rate:0.974392
+157-158rate:0.970787
+157-158rate:0.974392
+Iteration:61
+Iteration:61
+55-56:906
+layer_itration:56;layer_id57
+processing layer:57-58; count:48	total layer num:171	complete:0.280702
+Iteration:61
+58-57rate:0.991675
+57-58rate:0.991675
+79-80:753
+layer_itration:80;layer_id81
+processing layer:81-82; count:49	total layer num:171	complete:0.28655
+Iteration:61
+82-81rate:0.994651
+81-82rate:0.994651
+119-120:911
+layer_itration:120;layer_id121
+processing layer:121-122; count:50	total layer num:171	complete:0.292398
+122-121rate:0.991983
+121-122rate:0.991983
+7-8:467
+Iteration:61
+101-102:763
+layer_itration:102;layer_id103
+processing layer:103-104; count:51	total layer num:171	complete:0.298246
+104-103rate:0.967409
+103-104rate:0.967409
+Iteration:61
+157-158:495
+Iteration:61
+7-8:273
+layer_itration:8;layer_id9
+processing layer:9-10; count:52	total layer num:171	complete:0.304094
+10-9rate:0.863718
+10-9rate:0.95368
+10-9rate:0.907375
+9-10rate:0.863718
+9-10rate:0.95368
+9-10rate:0.907375
+Iteration:61
+141-142:970
+layer_itration:142;layer_id143
+processing layer:143-144; count:53	total layer num:171	complete:0.309942
+144-143rate:0.985401
+143-144rate:0.985401
+Iteration:61
+9-10:246
+Iteration:61
+31-32:927
+layer_itration:32;layer_id33
+processing layer:33-34; count:54	total layer num:171	complete:0.315789
+34-33rate:0.96831
+33-34rate:0.96831
+Iteration:61
+81-82:750
+layer_itration:82;layer_id83
+processing layer:83-84; count:55	total layer num:171	complete:0.321637
+84-83rate:0.993304
+83-84rate:0.993304
+Iteration:61
+157-158:476
+layer_itration:158;layer_id159
+processing layer:159-160; count:56	total layer num:171	complete:0.327485
+160-159rate:0.974548
+160-159rate:0.970278
+159-160rate:0.974548
+159-160rate:0.970278
+Iteration:61
+103-104:794
+layer_itration:104;layer_id105
+processing layer:105-106; count:57	total layer num:171	complete:0.333333
+106-105rate:0.982433
+105-106rate:0.982433
+Iteration:61
+57-58:901
+layer_itration:58;layer_id59
+processing layer:59-60; count:58	total layer num:171	complete:0.339181
+60-59rate:0.989387
+59-60rate:0.989387
+Iteration:61
+121-122:917
+layer_itration:122;layer_id123
+processing layer:123-124; count:59	total layer num:171	complete:0.345029
+124-123rate:0.99428
+123-124rate:0.99428
+Iteration:61
+9-10:437
+Iteration:61
+159-160:490
+Iteration:61
+143-144:975
+layer_itration:144;layer_id145
+processing layer:145-146; count:60	total layer num:171	complete:0.350877
+146-145rate:0.982023
+145-146rate:0.982023
+Iteration:61
+9-10:293
+layer_itration:10;layer_id11
+processing layer:11-12; count:61	total layer num:171	complete:0.356725
+12-11rate:0.830545
+12-11rate:0.904478
+12-11rate:0.922428
+11-12rate:0.830545
+11-12rate:0.904478
+11-12rate:0.922428
+Iteration:61
+83-84:752
+layer_itration:84;layer_id85
+processing layer:85-86; count:62	total layer num:171	complete:0.362573
+86-85rate:0.995417
+85-86rate:0.995417
+Iteration:61
+33-34:915
+layer_itration:34;layer_id35
+processing layer:35-36; count:63	total layer num:171	complete:0.368421
+36-35rate:0.973647
+35-36rate:0.973647
+Iteration:61
+105-106:828
+layer_itration:106;layer_id107
+processing layer:107-108; count:64	total layer num:171	complete:0.374269
+108-107rate:0.98632
+107-108rate:0.98632
+Iteration:61
+Iteration:61
+59-60:894
+layer_itration:60;layer_id61
+processing layer:61-62; count:65	total layer num:171	complete:0.380117
+62-61rate:0.984277
+61-62rate:0.984277
+Iteration:61
+123-124:928
+layer_itration:124;layer_id125
+processing layer:125-126; count:66	total layer num:171	complete:0.385965
+126-125rate:0.989997
+125-126rate:0.989997
+Iteration:61
+159-160:469
+layer_itration:160;layer_id161
+processing layer:161-162; count:67	total layer num:171	complete:0.391813
+162-161rate:0.969994
+162-161rate:0.969832
+161-162rate:0.969994
+11-12:270
+161-162rate:0.969832
+Iteration:38
+85-86:751
+layer_itration:86;layer_id87
+processing layer:87-88; count:68	total layer num:171	complete:0.397661
+88-87rate:0.993507
+87-88rate:0.993507
+Iteration:61
+Iteration:61
+145-146:978
+layer_itration:146;layer_id147
+processing layer:147-148; count:69	total layer num:171	complete:0.403509
+148-147rate:0.977996
+147-148rate:0.977996
+Iteration:61
+161-162:485
+Iteration:61
+35-36:903
+layer_itration:36;layer_id37
+processing layer:37-38; count:70	total layer num:171	complete:0.409357
+38-37rate:0.978385
+37-38rate:0.978385
+11-12:417
+Iteration:61
+107-108:838
+Iteration:61
+61-62:896
+layer_itration:62;layer_id63
+processing layer:63-64; count:71	total layer num:171	complete:0.415205
+64-63rate:0.981818
+63-64rate:0.981818
+Iteration:61
+125-126:932
+layer_itration:126;layer_id127
+processing layer:127-128; count:72	total layer num:171	complete:0.421053
+128-127rate:0.993572
+127-128rate:0.993572
+Iteration:61
+87-88:752
+Iteration:61
+Iteration:61
+161-162:468
+layer_itration:162;layer_id163
+processing layer:163-164; count:73	total layer num:171	complete:0.426901
+164-163rate:0.967839
+164-163rate:0.965815
+163-164rate:0.967839
+163-164rate:0.965815
+11-12:309
+layer_itration:12;layer_id13
+processing layer:13-14; count:74	total layer num:171	complete:0.432749
+14-13rate:0.84651
+14-13rate:0.907664
+14-13rate:0.917231
+13-14rate:0.84651
+13-14rate:0.907664
+13-14rate:0.917231
+Iteration:61
+163-164:481
+Iteration:61
+127-128:938
+Iteration:61
+Iteration:61
+147-148:1046
+13-14:308
+Iteration:61
+37-38:894
+layer_itration:38;layer_id39
+processing layer:39-40; count:75	total layer num:171	complete:0.438596
+40-39rate:0.980134
+39-40rate:0.980134
+Iteration:61
+63-64:883
+layer_itration:64;layer_id65
+processing layer:65-66; count:76	total layer num:171	complete:0.444444
+Iteration:61
+66-65rate:0.97608
+65-66rate:0.97608
+163-164:464
+layer_itration:164;layer_id165
+processing layer:165-166; count:77	total layer num:171	complete:0.450292
+166-165rate:0.96345
+166-165rate:0.958888
+165-166rate:0.96345
+165-166rate:0.958888
+Iteration:61
+13-14:396
+Iteration:61
+165-166:476
+Iteration:61
+13-14:326
+layer_itration:14;layer_id15
+processing layer:15-16; count:78	total layer num:171	complete:0.45614
+16-15rate:0.875223
+16-15rate:0.906821
+16-15rate:0.933038
+15-16rate:0.875223
+15-16rate:0.906821
+15-16rate:0.933038
+Iteration:61
+39-40:895
+layer_itration:40;layer_id41
+processing layer:41-42; count:79	total layer num:171	complete:0.461988
+42-41rate:0.979797
+41-42rate:0.979797
+Iteration:61
+65-66:881
+Iteration:61
+Iteration:61
+15-16:327
+165-166:460
+layer_itration:166;layer_id167
+processing layer:167-168; count:80	total layer num:171	complete:0.467836
+168-167rate:0.960523
+168-167rate:0.95249
+167-168rate:0.960523
+167-168rate:0.95249
+Iteration:61
+15-16:407
+Iteration:61
+167-168:468
+Iteration:61
+41-42:891
+layer_itration:42;layer_id43
+processing layer:43-44; count:81	total layer num:171	complete:0.473684
+44-43rate:0.983787
+43-44rate:0.983787
+Iteration:61
+15-16:346
+layer_itration:16;layer_id17
+processing layer:17-18; count:82	total layer num:171	complete:0.479532
+18-17rate:0.883305
+18-17rate:0.865681
+18-17rate:0.913572
+17-18rate:0.883305
+17-18rate:0.865681
+17-18rate:0.913572
+Iteration:61
+167-168:456
+Iteration:61
+17-18:342
+Iteration:61
+43-44:886
+Iteration:61
+17-18:476
+Iteration:61
+17-18:355
+layer_itration:18;layer_id19
+processing layer:19-20; count:83	total layer num:171	complete:0.48538
+20-19rate:0.906548
+20-19rate:0.480732
+20-19rate:0.38145
+19-20rate:0.906548
+19-20rate:0.480732
+19-20rate:0.38145
+Iteration:61
+19-20:351
+Iteration:61
+19-20:567
+Iteration:61
+19-20:351
+layer_itration:20;layer_id21
+processing layer:21-22; count:84	total layer num:171	complete:0.491228
+22-21rate:0.910562
+21-22rate:0.910562
+Iteration:61
+21-22:1103
+layer_itration:1;layer_id2
+processing layer:2-3; count:85	total layer num:171	complete:0.497076
+layer_itration:129;layer_id130
+processing layer:130-131; count:86	total layer num:171	complete:0.502924
+layer_itration:67;layer_id68
+processing layer:68-69; count:87	total layer num:171	complete:0.508772
+layer_itration:149;layer_id150
+processing layer:150-151; count:88	total layer num:171	complete:0.51462
+layer_itration:109;layer_id110
+processing layer:110-111; count:89	total layer num:171	complete:0.520468
+layer_itration:89;layer_id90
+processing layer:90-91; count:90	total layer num:171	complete:0.526316
+layer_itration:45;layer_id46
+processing layer:46-47; count:91	total layer num:171	complete:0.532164
+layer_itration:23;layer_id24
+processing layer:24-25; count:92	total layer num:171	complete:0.538012
+3-2rate:0.91532
+91-90rate:0.992899
+131-130rate:0.992111
+111-110rate:0.981036
+69-68rate:0.978633
+151-150rate:0.941499
+25-24rate:0.927
+47-46rate:0.985909
+3-2rate:0.881215
+90-91rate:0.992899
+130-131rate:0.992111
+110-111rate:0.981036
+68150--69151rate:rate:0.9414990.978633
+46-47rate:0.985909
+24-25rate:0.927
+
+3-2rate:0.901928
+2-3rate:0.91532
+2-3rate:0.881215
+2-3rate:0.901928
+Iteration:1
+90-91:749
+layer_itration:91;layer_id92
+processing layer:92-93; count:93	total layer num:171	complete:0.54386
+93-92rate:0.991015
+92-93rate:0.991015
+Iteration:26
+Iteration:7
+2-3:235
+68-69:845
+layer_itration:69;layer_id70
+processing layer:70-71; count:94	total layer num:171	complete:0.549708
+71-70rate:0.971419
+70-71rate:0.971419
+Iteration:3
+Iteration:7
+92-93:749
+layer_itration:93;layer_id94
+processing layer:94-95; count:95	total layer num:171	complete:0.555556
+95-94rate:0.990753
+94-95rate:0.990753
+46-47:883
+layer_itration:47;layer_id48
+processing layer:48-49; count:96	total layer num:171	complete:0.561404
+49-48rate:0.987554
+48-49rate:0.987554
+Iteration:5
+94-95:750
+layer_itration:95;layer_id96
+processing layer:96-97; count:97	total layer num:171	complete:0.567251
+97-96rate:0.9904
+96-97rate:0.9904
+Iteration:6
+48-49:891
+layer_itration:49;layer_id50
+processing layer:50-51; count:98	total layer num:171	complete:0.573099
+51-50rate:0.987965
+50-51rate:0.987965
+Iteration:20
+Iteration:28
+70-71:845
+layer_itration:71;layer_id72
+processing layer:72-73; count:99	total layer num:171	complete:0.578947
+73-72rate:0.991594
+Iteration:8
+72-73rate:0.991594
+96-97:753
+layer_itration:97;layer_id98
+processing layer:98-99; count:100	total layer num:171	complete:0.584795
+99-98rate:0.988708
+98-99rate:0.988708
+2-3:717
+Iteration:21
+Iteration:10
+Iteration:17
+72-73:766
+layer_itration:73;layer_id74
+processing layer:74-75; count:101	total layer num:171	complete:0.590643
+Iteration:7
+2-3:223
+layer_itration:3;layer_id4
+processing layer:4-5; count:102	total layer num:171	complete:0.596491
+75-74rate:0.992731
+50-51:896
+5-4rate:0.930754layer_itration:
+51;layer_id52
+processing layer:52-53; count:103	total layer num:171	complete:0.602339
+74-75rate:0.992731
+5-4rate:0.871196
+53-52rate:0.991433
+98-99:760
+layer_itration:99;layer_id100
+processing layer:100-101; count:104	total layer num:171	complete:0.608187
+5-4rate:0.862095
+52-53rate:0.991433
+101-100rate:0.979521
+4-5rate:0.930754
+100-101rate:0.979521
+4-5rate:0.871196
+4-5rate:0.862095
+Iteration:61
+110-111:856
+layer_itration:111;layer_id112
+processing layer:112-113; count:105	total layer num:171	complete:0.614035
+113-112rate:0.980504
+112-113rate:0.980504
+Iteration:12
+74-75:765
+layer_itration:75;layer_id76
+processing layer:76-77; count:106	total layer num:171	complete:0.619883
+77-76rate:0.992132
+76-77rate:0.992132
+Iteration:61
+4-5:237
+Iteration:61
+130-131:943
+layer_itration:131;layer_id132
+processing layer:132-133; count:107	total layer num:171	complete:0.625731
+133-132rate:0.990998
+132-133rate:0.990998
+Iteration:61
+Iteration:13
+24-25:1035
+layer_itration:25;layer_id26
+processing layer:26-27; count:108	total layer num:171	complete:0.631579
+112-113:868
+layer_itration:113;layer_id114
+processing layer:114-115; count:109	total layer num:171	complete:0.637427
+27-26rate:0.926952
+115-114rate:0.985381
+26-27rate:0.926952
+114-115rate:0.985381
+Iteration:61
+150-151:1108
+layer_itration:151;layer_id152
+processing layer:152-153; count:110	total layer num:171	complete:0.643275
+153-152rate:0.926157
+153-152rate:0.936002
+152-153rate:0.926157
+152-153rate:0.936002
+Iteration:61
+100-101:764
+layer_itration:101;layer_id102
+processing layer:102-103; count:111	total layer num:171	complete:0.649123
+103-102rate:0.969445
+102-103rate:0.969445
+Iteration:61
+52-53:906
+layer_itration:53;layer_id54
+processing layer:54-55; count:112	total layer num:171	complete:0.654971
+55-54rate:0.991445
+54-55rate:0.991445
+Iteration:54
+76-77:758
+layer_itration:77;layer_id78
+processing layer:78-79; count:113	total layer num:171	complete:0.660819
+79-78rate:0.993213
+78-79rate:0.993213
+Iteration:61
+4-5:708
+Iteration:61
+152-153:544
+Iteration:61
+4-5:242
+layer_itration:5;layer_id6
+processing layer:6-7; count:114	total layer num:171	complete:0.666667
+7-6rate:0.91895
+7-6rate:0.902312
+7-6rate:0.836002
+6-7rate:0.91895
+Iteration:61
+6-7rate:0.902312
+6-7rate:0.836002
+132-133:950
+layer_itration:133;layer_id134
+processing layer:134-135; count:115	total layer num:171	complete:0.672515
+135-134rate:0.990175
+134-135rate:0.990175
+Iteration:61
+114-115:886
+layer_itration:115;layer_id116
+processing layer:116-117; count:116	total layer num:171	complete:0.678363
+117-116rate:0.989153
+116-117rate:0.989153
+Iteration:61
+26-27:1003
+layer_itration:27;layer_id28
+processing layer:28-29; count:117	total layer num:171	complete:0.684211
+29-28rate:0.939568
+28-29rate:0.939568
+Iteration:61
+Iteration:61
+152-153:502
+layer_itration:153;layer_id154
+processing layer:154-155; count:118	total layer num:171	complete:0.690058
+155-154rate:0.974703
+155-154rate:0.966106
+154-155rate:0.974703
+154-155rate:0.966106
+6-7:242
+Iteration:61
+102-103:766
+layer_itration:103;layer_id104
+processing layer:104-105; count:119	total layer num:171	complete:0.695906
+105-104rate:0.976213
+104-105rate:0.976213
+Iteration:54
+78-79:755
+layer_itration:79;layer_id80
+processing layer:80-81; count:120	total layer num:171	complete:0.701754
+81-80rate:0.994458
+80-81rate:0.994458
+Iteration:61
+54-55:903
+layer_itration:55;layer_id56
+processing layer:56-57; count:121	total layer num:171	complete:0.707602
+57-56rate:0.991309
+56-57rate:0.991309
+Iteration:61
+Iteration:61
+154-155:512
+6-7:510
+Iteration:61
+134-135:956
+layer_itration:135;layer_id136
+processing layer:136-137; count:122	total layer num:171	complete:0.71345
+137-136rate:0.989718
+136-137rate:0.989718
+Iteration:61
+116-117:900
+layer_itration:117;layer_id118
+processing layer:118-119; count:123	total layer num:171	complete:0.719298
+119-118rate:0.991033
+118-119rate:0.991033
+Iteration:61
+28-29:981
+layer_itration:29;layer_id30
+processing layer:30-31; count:124	total layer num:171	complete:0.725146
+31-30rate:0.95624
+30-31rate:0.95624
+Iteration:61
+104-105:818
+layer_itration:105;layer_id106
+processing layer:106-107; count:125	total layer num:171	complete:0.730994
+107-106rate:0.984814
+106-107rate:0.984814
+Iteration:61
+6-7:256
+layer_itration:7;layer_id8
+processing layer:8-9; count:126	total layer num:171	complete:0.736842
+9-8rate:0.914811
+9-8rate:0.95565
+9-8rate:0.875093
+8-9rate:0.914811
+8-9rate:0.95565
+8-9rate:0.875093
+Iteration:61
+80-81:750
+layer_itration:81;layer_id82
+processing layer:82-83; count:127	total layer num:171	complete:0.74269
+83-82rate:0.994866
+82-83rate:0.994866
+Iteration:61
+154-155:481
+layer_itration:155;layer_id156
+processing layer:156-157; count:128	total layer num:171	complete:0.748538
+157-156rate:0.967356
+157-156rate:0.972348
+156-157rate:0.967356
+156-157rate:0.972348
+Iteration:61
+56-57:902
+layer_itration:57;layer_id58
+processing layer:58-59; count:129	total layer num:171	complete:0.754386
+59-58rate:0.987052
+58-59rate:0.987052
+Iteration:61
+8-9:244
+Iteration:61
+118-119:909
+layer_itration:119;layer_id120
+processing layer:120-121; count:130	total layer num:171	complete:0.760234
+121-120rate:0.991666
+120-121rate:0.991666
+Iteration:61
+Iteration:61
+156-157:502
+Iteration:61
+82-83:750
+layer_itration:83;layer_id84
+processing layer:84-85; count:131	total layer num:171	complete:0.766082
+85-84rate:0.995007
+Iteration:61
+84-85rate:0.995007
+Iteration:61
+136-137:962
+layer_itration:137;layer_id138
+processing layer:138-139; count:132	total layer num:171	complete:0.77193
+106-107:833
+layer_itration:107;layer_id108
+processing layer:108-109; count:133	total layer num:171	complete:0.777778
+139-138rate:0.988424
+8-9:446
+109-108rate:0.983706
+138-139rate:0.988424
+108-109rate:0.983706
+Iteration:61
+30-31:936
+layer_itration:31;layer_id32
+processing layer:32-33; count:134	total layer num:171	complete:0.783626
+33-32rate:0.96589
+32-33rate:0.96589
+Iteration:61
+Iteration:61
+58-59:894
+layer_itration:59;layer_id60
+processing layer:60-61; count:135	total layer num:171	complete:0.789474
+61-60rate:0.988423
+60-61rate:0.988423
+8-9:282
+layer_itration:9;layer_id10
+processing layer:10-11; count:136	total layer num:171	complete:0.795322
+11-10rate:0.878181
+11-10rate:0.941509
+11-10rate:0.898479
+10-11rate:0.878181
+10-11rate:0.941509
+10-11rate:0.898479
+Iteration:61
+156-157:478
+layer_itration:157;layer_id158
+processing layer:158-159; count:137	total layer num:171	complete:0.80117
+159-158rate:0.966913
+159-158rate:0.973161
+158-159rate:0.966913
+158-159rate:0.973161
+Iteration:61
+10-11:260
+Iteration:61
+84-85:752
+layer_itration:85;layer_id86
+processing layer:86-87; count:138	total layer num:171	complete:0.807018
+87-86rate:0.994822
+86-87rate:0.994822
+Iteration:61
+108-109:843
+Iteration:61
+120-121:915
+layer_itration:121;layer_id122
+processing layer:122-123; count:139	total layer num:171	complete:0.812865
+123-122rate:0.991952
+122-123rate:0.991952
+Iteration:61
+158-159:492
+Iteration:61
+138-139:966
+layer_itration:139;layer_id140
+processing layer:140-141; count:140	total layer num:171	complete:0.818713
+Iteration:61
+141-140rate:0.985975
+140-141rate:0.985975
+Iteration:61
+32-33:927
+layer_itration:33;layer_id34
+processing layer:34-35; count:141	total layer num:171	complete:0.824561
+35-34rate:0.970298
+34-35rate:0.970298
+Iteration:61
+60-61:896
+layer_itration:61;layer_id62
+processing layer:62-63; count:142	total layer num:171	complete:0.830409
+63-62rate:0.980875
+62-63rate:0.980875
+10-11:417
+Iteration:61
+158-159:472
+layer_itration:159;layer_id160
+processing layer:160-161; count:143	total layer num:171	complete:0.836257
+161-160rate:0.965789
+161-160rate:0.971894
+160-161rate:0.965789
+160-161rate:0.971894
+Iteration:61
+86-87:751
+layer_itration:87;layer_id88
+processing layer:88-89; count:144	total layer num:171	complete:0.842105
+89-88rate:0.993039
+88-89rate:0.993039
+Iteration:61
+10-11:303
+layer_itration:11;layer_id12
+processing layer:12-13; count:145	total layer num:171	complete:0.847953
+13-12rate:0.886595
+13-12rate:0.921338
+13-12rate:0.884786
+12-13rate:0.886595
+12-13rate:0.921338
+12-13rate:0.884786
+Iteration:61
+160-161:488
+Iteration:61
+122-123:920
+layer_itration:123;layer_id124
+processing layer:124-125; count:146	total layer num:171	complete:0.853801
+125-124rate:0.992993
+124-125rate:0.992993
+Iteration:61
+12-13:288
+Iteration:61
+160-161:468
+layer_itration:161;layer_id162
+processing layer:162-163; count:147	total layer num:171	complete:0.859649
+163-162rate:0.963695
+Iteration:61
+163-162rate:0.969527
+162-163rate:0.963695
+162-163rate:0.969527
+34-35:911
+layer_itration:35;layer_id36
+processing layer:36-37; count:148	total layer num:171	complete:0.865497
+37-36rate:0.974431
+36-37rate:0.974431
+Iteration:61
+140-141:969
+layer_itration:141;layer_id142
+processing layer:142-143; count:149	total layer num:171	complete:0.871345
+143-142rate:0.985087
+Iteration:61
+142-143rate:0.985087
+62-63:888
+layer_itration:63;layer_id64
+processing layer:64-65; count:150	total layer num:171	complete:0.877193
+65-64rate:0.980408
+64-65rate:0.980408
+Iteration:61
+Iteration:61
+162-163:485
+88-89:750
+Iteration:61
+12-13:462
+Iteration:61
+Iteration:61
+162-163:466
+layer_itration:163;layer_id164
+processing layer:164-165; count:151	total layer num:171	complete:0.883041
+124-125:928
+layer_itration:125;layer_id126
+processing layer:126-127; count:152	total layer num:171	complete:0.888889
+165-164rate:0.959755
+127-126rate:0.989978
+165-164rate:0.967638
+126-127rate:0.989978
+164-165rate:0.959755
+164-165rate:0.967638
+Iteration:61
+12-13:325
+layer_itration:13;layer_id14
+processing layer:14-15; count:153	total layer num:171	complete:0.894737
+15-14rate:0.89273
+15-14rate:0.912177
+15-14rate:0.906129
+14-15rate:0.89273
+14-15rate:0.912177
+14-15rate:0.906129
+Iteration:61
+64-65:881
+layer_itration:65;layer_id66
+processing layer:66-67; count:154	total layer num:171	complete:0.900585
+67-66rate:0.968549
+66-67rate:0.968549
+Iteration:61
+36-37:897
+layer_itration:37;layer_id38
+processing layer:38-39; count:155	total layer num:171	complete:0.906433
+39-38rate:0.978243
+38-39rate:0.978243
+Iteration:61
+164-165:480
+Iteration:61
+142-143:970
+layer_itration:143;layer_id144
+processing layer:144-145; count:156	total layer num:171	complete:0.912281
+145-144rate:0.98272
+144-145rate:0.98272
+Iteration:61
+14-15:315
+Iteration:61
+126-127:934
+layer_itration:127;layer_id128
+processing layer:128-129; count:157	total layer num:171	complete:0.918129
+129-128rate:0.993989
+128-129rate:0.993989
+Iteration:61
+164-165:461
+layer_itration:165;layer_id166
+processing layer:166-167; count:158	total layer num:171	complete:0.923977
+167-166rate:0.956501
+167-166rate:0.962728
+166-167rate:0.956501
+166-167rate:0.962728
+Iteration:61
+166-167:472
+Iteration:61
+14-15:396
+Iteration:61
+66-67:849
+Iteration:61
+Iteration:61
+Iteration:61
+38-39:894
+layer_itration:39;layer_id40
+processing layer:40-41; count:159	total layer num:171	complete:0.929825
+128-129:935
+41-40rate:0.98007
+40-41rate:0.98007
+14-15:337
+layer_itration:15;layer_id16
+processing layer:16-17; count:160	total layer num:171	complete:0.935673
+17-16rate:0.897433
+17-16rate:0.884054
+17-16rate:0.888272
+16-17rate:0.897433
+16-17rate:0.884054
+16-17rate:0.888272
+Iteration:61
+166-167:458
+layer_itration:167;layer_id168
+processing layer:168-169; count:161	total layer num:171	complete:0.94152
+169-168rate:0.952036
+169-168rate:0.960136
+168-169rate:0.952036
+168-169rate:0.960136
+Iteration:61
+144-145:979
+layer_itration:145;layer_id146
+processing layer:146-147; count:162	total layer num:171	complete:0.947368
+147-146rate:0.971473
+146-147rate:0.971473
+Iteration:61
+16-17:329
+Iteration:61
+168-169:462
+Iteration:61
+16-17:414
+Iteration:61
+40-41:897
+layer_itration:41;layer_id42
+processing layer:42-43; count:163	total layer num:171	complete:0.953216
+43-42rate:0.981817
+42-43rate:0.981817
+Iteration:61
+168-169:454
+Iteration:61
+146-147:989
+layer_itration:147;layer_id148
+processing layer:148-149; count:164	total layer num:171	complete:0.959064
+149-148rate:0.968977
+148-149rate:0.968977
+Iteration:61
+16-17:349
+layer_itration:17;layer_id18
+processing layer:18-19; count:165	total layer num:171	complete:0.964912
+19-18rate:0.921365
+19-18rate:0.865501
+19-18rate:0.917324
+18-19rate:0.921365
+18-19rate:0.865501
+18-19rate:0.917324
+Iteration:61
+18-19:351
+Iteration:61
+42-43:891
+layer_itration:43;layer_id44
+processing layer:44-45; count:166	total layer num:171	complete:0.97076
+45-44rate:0.984117
+44-45rate:0.984117
+Iteration:61
+148-149:1049
+Iteration:61
+18-19:512
+Iteration:61
+44-45:886
+Iteration:61
+18-19:351
+layer_itration:19;layer_id20
+processing layer:20-21; count:167	total layer num:171	complete:0.976608
+21-20rate:0.259983
+21-20rate:0.602251
+20-21rate:0.259983
+20-21rate:0.602251
+Iteration:61
+20-21:351
+Iteration:61
+20-21:896
+layer_itration:21;layer_id22
+processing layer:22-23; count:168	total layer num:171	complete:0.982456
+23-22rate:0.917852
+22-23rate:0.917852
+Iteration:61
+22-23:1101
+***************************
+registration cost time:0
+***************************
+libGL error: failed to load driver: swrast
+libGL error: Try again with LIBGL_DEBUG=verbose for more details.
+ERROR: In /build/buildd/vtk-5.8.0/Rendering/vtkXOpenGLRenderWindow.cxx, line 404
+vtkXOpenGLRenderWindow (0x4258320): Could not find a decent visual
+
+
+ERROR: In /build/buildd/vtk-5.8.0/Rendering/vtkXOpenGLRenderWindow.cxx, line 404
+vtkXOpenGLRenderWindow (0x4258320): Could not find a decent visual
+
+
+ERROR: In /build/buildd/vtk-5.8.0/Rendering/vtkXOpenGLRenderWindow.cxx, line 404
+vtkXOpenGLRenderWindow (0x4258320): Could not find a decent visual
+
+
+
+interrupt
+~/git/reconstruction_program/code $ ../Debug/APP
+level:1	274.593point num:235
+level:1	723.286point num:646
+level:1	265.907point num:223
+level:2	276.25point num:235
+level:2	977.855point num:884
+level:2	265.078point num:223
+level:3	278.492point num:236
+level:3	802.985point num:717
+level:3	265.321point num:222
+level:4	280.492point num:238
+level:4	791.085point num:708
+level:4	291.563point num:247
+level:5	279.907point num:237
+level:5	834.884point num:746
+level:5	289.463point num:242
+level:6	282.007point num:242
+level:6	711.529point num:633
+level:6	305.12point num:256
+level:7	285.321point num:242
+level:7	575.688point num:510
+level:7	324.191point num:273
+level:8	289.806point num:244
+level:8	530.617point num:467
+level:8	333.605point num:282
+level:9	291.806point num:246
+level:9	504.233point num:446
+level:9	344.191point num:293
+level:10	308.291point num:260
+level:10	500.617point num:437
+level:10	353.362point num:303
+level:11	319.948point num:270
+level:11	483.103point num:417
+level:11	360.191point num:309
+level:12	337.948point num:288
+level:12	526.032point num:462
+level:12	370.392point num:325
+level:13	355.463point num:308
+level:13	548.215point num:473
+level:13	376.777point num:326
+level:14	362.877point num:315
+level:14	465.831point num:396
+level:14	387.362point num:337
+level:15	378.191point num:327
+level:15	477.245point num:407
+level:15	396.777point num:346
+level:16	385.161point num:329
+level:16	480.517point num:414
+level:16	398.534point num:349
+level:17	401.061point num:342
+level:17	547.487point num:476
+level:17	407.019point num:355
+level:18	410.475point num:351
+level:18	590.943point num:512
+level:18	410.333point num:355
+level:19	417.304point num:357
+level:19	643.872point num:567
+level:19	409.647point num:351
+level:20	414.617point num:351
+level:20	1035.42point num:896
+level:21	1304.11point num:1127
+level:22	1269.34point num:1103
+level:23	1254.09point num:1101
+level:24	1192.15point num:1049
+level:25	1169.03point num:1035
+level:26	1131.23point num:1003
+level:27	1136.16point num:1010
+level:28	1117.74point num:1004
+level:29	1095.15point num:981
+level:30	1063.29point num:945
+level:31	1058.02point num:936
+level:32	1045.29point num:927
+level:33	1045.78point num:925
+level:34	1036.61point num:915
+level:35	1029.29point num:911
+level:36	1022.12point num:903
+level:37	1018.61point num:897
+level:38	1015.19point num:894
+level:39	1016.61point num:895
+level:40	1019.44point num:897
+level:41	1021.82point num:894
+level:42	1020.06point num:891
+level:43	1020.79point num:888
+level:44	1018.79point num:886
+level:45	1019.38point num:887
+level:46	1016.21point num:883
+level:47	1017.96point num:886
+level:48	1020.06point num:891
+level:49	1020.06point num:891
+level:50	1024.65point num:896
+level:51	1032.41point num:905
+level:52	1030.75point num:905
+level:53	1029.68point num:906
+level:54	1024.61point num:903
+level:55	1026.85point num:904
+level:56	1026.36point num:906
+level:57	1022.36point num:902
+level:58	1021.78point num:901
+level:59	1016.02point num:894
+level:60	1024.85point num:902
+level:61	1016.36point num:896
+level:62	1013.88point num:896
+level:63	1006.71point num:888
+level:64	1000.47point num:883
+level:65	997.637point num:881
+level:66	998.222point num:882
+level:67	956.524point num:849
+level:68	954.181point num:845
+level:69	960.767point num:852
+level:70	956.666point num:845
+level:71	974.808point num:859
+level:72	879.453point num:774
+level:73	870.624point num:766
+level:74	872.039point num:767
+level:75	869.21point num:765
+level:76	860.968point num:758
+level:77	864.039point num:759
+level:78	861.696point num:755
+level:79	865.352point num:757
+level:80	863.838point num:753
+level:81	862.08point num:750
+level:82	863.737point num:750
+level:83	865.737point num:752
+level:84	869.879point num:752
+level:85	871.637point num:755
+level:86	866.808point num:751
+level:87	869.051point num:752
+level:88	871.051point num:754
+level:89	867.051point num:750
+level:90	865.051point num:748
+level:91	864.808point num:749
+level:92	867.051point num:750
+level:93	866.465point num:749
+level:94	868.708point num:750
+level:95	870.95point num:751
+level:96	875.436point num:753
+level:97	881.092point num:757
+level:98	885.335point num:760
+level:99	886.264point num:763
+level:100	888.507point num:764
+level:101	888.749point num:763
+level:102	889.678point num:766
+level:103	910.222point num:794
+level:104	924.281point num:818
+level:105	936.767point num:828
+level:106	948.808point num:833
+level:107	958.365point num:838
+level:108	967.092point num:843
+level:109	973.921point num:849
+level:110	980.507point num:856
+level:111	984.264point num:861
+level:112	989.193point num:868
+level:113	997.879point num:880
+level:114	1000.57point num:886
+level:115	1017.98point num:903
+level:116	1012.08point num:900
+level:117	1019.98point num:905
+level:118	1023.15point num:909
+level:119	1027.64point num:911
+level:120	1032.47point num:915
+level:121	1035.29point num:917
+level:122	1039.54point num:920
+level:123	1047.88point num:930
+level:124	1047.54point num:928
+level:125	1050.71point num:932
+level:126	1051.88point num:934
+level:127	1056.12point num:937
+level:128	1053.39point num:938
+level:129	1049.98point num:935
+level:130	1055.74point num:942
+level:131	1053.01point num:943
+level:132	1057.11point num:950
+level:133	1054.62point num:950
+level:134	1061.55point num:959
+level:135	1058.97point num:956
+level:136	1064.97point num:962
+level:137	1066.14point num:964
+level:138	1070.62point num:966
+level:139	1072.62point num:968
+level:140	1075.7point num:969
+level:141	1080.42point num:970
+level:142	1084.57point num:970
+level:143	1090.81point num:975
+level:144	1098.12point num:979
+level:145	1101.68point num:978
+level:146	1118.89point num:989
+level:147	1180.45point num:1046
+level:148	1187.18point num:1049
+level:149	1206.53point num:1058
+level:150	1263.99point num:1108
+level:151	1384.56point num:1212
+level:152	701.428point num:620
+level:152	613.227point num:526
+level:153	619.63point num:544
+level:153	595.855point num:502
+level:154	595.186point num:515
+level:154	586.825point num:488
+level:155	594.257point num:512
+level:155	580.24point num:481
+level:156	590.742point num:506
+level:156	578.825point num:480
+level:157	587.571point num:502
+level:157	573.512point num:478
+level:158	582.642point num:495
+level:158	573.169point num:476
+level:159	577.571point num:492
+level:159	568.34point num:472
+level:160	575.571point num:490
+level:160	564.926point num:469
+level:161	572.742point num:488
+level:161	561.026point num:468
+level:162	566.014point num:485
+level:162	560.198point num:468
+level:163	561.872point num:485
+level:163	554.056point num:466
+level:164	555.387point num:481
+level:164	552.056point num:464
+level:165	553.144point num:480
+level:165	546.985point num:461
+level:166	548.316point num:476
+level:166	544.742point num:460
+level:167	541.831point num:472
+level:167	540.257point num:458
+level:168	538.659point num:468
+level:168	535.772point num:456
+level:169	532.659point num:462
+level:169	530.458point num:454
+level:170	527.487point num:456
+level:170	527.144point num:454
+level:171	521.73point num:449
+level:171	521.487point num:450
+layer num:171
+branch seciton:1
+branch seciton:19
+branch seciton:20
+branch seciton:151
+**********Layer NUM:171	Contour NUM230
+layer_itration:88;layer_id89
+processing layer:89-90; count:1	total layer num:171	complete:0.00584795
+layer_itration:0;layer_id1
+processing layer:1-2; count:2	total layer num:171	complete:0.0116959
+layer_itration:22;layer_id23
+processing layer:23-24; count:3	total layer num:171	complete:0.0175439
+layer_itration:44;layer_id45
+processing layer:45-46; count:4	total layer num:171	complete:0.0233918
+layer_itration:148;layer_id149
+processing layer:149-150; count:5	total layer num:171	complete:0.0292398
+layer_itration:108;layer_id109
+processing layer:109-110; count:6	total layer num:171	complete:0.0350877
+layer_itration:128;layer_id129
+processing layer:129-130; count:7	total layer num:171	complete:0.0409357
+90-89rate:0.991883
+46-45rate:0.984944
+2-1rate:0.864942
+24-23rate:0.920987
+layer_itration:66;layer_id67
+processing layer:67-68; count:8	total layer num:171	complete:0.0467836
+150-149rate:0.965059
+89-90rate:0.991883
+110-109rate:0.98486
+45-46rate:0.984944
+68-67rate:0.985284
+2-1rate:0.863282
+23-24rate:0.920987
+149-150rate:0.965059
+109-110rate:0.98486
+130-129rate:0.993171
+67-68rate:0.985284
+2-1rate:0.929735
+129-130rate:0.993171
+1-2rate:0.864942
+1-2rate:0.863282
+1-2rate:0.929735
+Iteration:61
+1-2:235
+Iteration:42
+89-90:748
+layer_itration:90;layer_id91
+processing layer:91-92; count:9	total layer num:171	complete:0.0526316
+Iteration:37
+92-91rate:0.992196
+91-92rate:0.992196
+67-68:845
+layer_itration:68;layer_id69
+processing layer:69-70; count:10	total layer num:171	complete:0.0584795
+70-69rate:0.979626
+69-70rate:0.979626
+Iteration:34
+109-110:849
+layer_itration:110;layer_id111
+processing layer:111-112; count:11	total layer num:171	complete:0.0643275
+112-111rate:0.982617
+111-112rate:0.982617
+Iteration:61
+Iteration:61
+45-46:883
+layer_itration:46;layer_id47
+processing layer:47-48; count:12	total layer num:171	complete:0.0701754
+48-47rate:0.987616
+47-48rate:0.987616
+Iteration:61
+1-2:646
+129-130:935
+layer_itration:130;layer_id131
+processing layer:131-132; count:13	total layer num:171	complete:0.0760234
+132-131rate:0.99141
+131-132rate:0.99141
+Iteration:61
+149-150:1058
+layer_itration:150;layer_id151
+processing layer:151-152; count:14	total layer num:171	complete:0.0818713
+152-151rate:0.489529
+152-151rate:0.447912
+151-152rate:0.489529
+151-152rate:0.447912
+Iteration:61
+23-24:1049
+layer_itration:24;layer_id25
+processing layer:25-26; count:15	total layer num:171	complete:0.0877193
+26-25rate:0.929132
+25-26rate:0.929132
+Iteration:61
+1-2:223
+layer_itration:2;layer_id3
+processing layer:3-4; count:16	total layer num:171	complete:0.0935673
+4-3rate:0.873434
+4-3rate:0.882807
+4-3rate:0.907523
+3-4rate:0.873434
+3-4rate:0.882807
+3-4rate:0.907523
+Iteration:61
+91-92:749
+layer_itration:92;layer_id93
+processing layer:93-94; count:17	total layer num:171	complete:0.0994152
+94-93rate:0.989755
+93-94rate:0.989755
+Iteration:61
+69-70:845
+layer_itration:70;layer_id71
+processing layer:71-72; count:18	total layer num:171	complete:0.105263
+72-71rate:0.965126
+71-72rate:0.965126
+Iteration:61
+3-4:236
+Iteration:61
+111-112:861
+layer_itration:112;layer_id113
+processing layer:113-114; count:19	total layer num:171	complete:0.111111
+114-113rate:0.983935
+113-114rate:0.983935
+Iteration:43
+47-48:886
+layer_itration:48;layer_id49
+processing layer:49-50; count:20	total layer num:171	complete:0.116959
+50-49rate:0.987784
+49-50rate:0.987784
+Iteration:61
+151-152:620
+Iteration:32
+93-94:749
+layer_itration:94;layer_id95
+processing layer:95-96; count:21	total layer num:171	complete:0.122807
+96-95rate:0.98875
+95-96rate:0.98875
+Iteration:61
+131-132:943
+layer_itration:132;layer_id133
+processing layer:133-134; count:22	total layer num:171	complete:0.128655
+134-133rate:0.990061
+133-134rate:0.990061
+Iteration:61
+25-26:1003
+layer_itration:26;layer_id27
+processing layer:27-28; count:23	total layer num:171	complete:0.134503
+28-27rate:0.928384
+27-28rate:0.928384
+Iteration:61
+Iteration:61
+Iteration:61
+71-72:774
+layer_itration:72;layer_id73
+processing layer:73-74; count:24	total layer num:171	complete:0.140351
+74-73rate:0.992075
+73-74rate:0.992075
+151-152:526
+layer_itration:152;layer_id153
+processing layer:153-154; count:25	total layer num:171	complete:0.146199
+154-153rate:0.943469
+154-153rate:0.962931
+153-154rate:0.943469
+153-154rate:0.962931
+3-4:708
+Iteration:61
+113-114:880
+layer_itration:114;layer_id115
+processing layer:115-116; count:26	total layer num:171	complete:0.152047
+116-115rate:0.987647
+115-116rate:0.987647
+Iteration:61
+3-4:222
+layer_itration:4;layer_id5
+processing layer:5-6; count:27	total layer num:171	complete:0.157895
+6-5rate:0.888252
+6-5rate:0.833787
+6-5rate:0.872625
+5-6rate:0.888252
+5-6rate:0.833787
+5-6rate:0.872625
+Iteration:61
+49-50:891
+layer_itration:50;layer_id51
+processing layer:51-52; count:28	total layer num:171	complete:0.163743
+52-51rate:0.99175
+51-52rate:0.99175
+Iteration:61
+95-96:751
+layer_itration:96;layer_id97
+processing layer:97-98; count:29	total layer num:171	complete:0.169591
+98-97rate:0.988769
+97-98rate:0.988769
+Iteration:61
+153-154:515
+Iteration:61
+5-6:237
+Iteration:61
+133-134:950
+layer_itration:134;layer_id135
+processing layer:135-136; count:30	total layer num:171	complete:0.175439
+136-135rate:0.990096
+135-136rate:0.990096
+Iteration:61
+73-74:766
+layer_itration:74;layer_id75
+processing layer:75-76; count:31	total layer num:171	complete:0.181287
+76-75rate:0.993954
+75-76rate:0.993954
+Iteration:61
+153-154:488
+layer_itration:154;layer_id155
+processing layer:155-156; count:32	total layer num:171	complete:0.187135
+156-155rate:0.973602
+156-155rate:0.967704
+155-156rate:0.973602
+155-156rate:0.967704
+Iteration:61
+27-28:1004
+layer_itration:28;layer_id29
+processing layer:29-30; count:33	total layer num:171	complete:0.192982
+30-29rate:0.946627
+29-30rate:0.946627
+Iteration:61
+Iteration:61
+115-116:900
+layer_itration:116;layer_id117
+processing layer:117-118; count:34	total layer num:171	complete:0.19883
+118-117rate:0.990956
+117-118rate:0.990956
+97-98:757
+layer_itration:98;layer_id99
+processing layer:99-100; count:35	total layer num:171	complete:0.204678
+100-99rate:0.986145
+99-100rate:0.986145
+Iteration:61
+Iteration:61
+51-52:905
+layer_itration:52;layer_id53
+processing layer:53-54; count:36	total layer num:171	complete:0.210526
+54-53rate:0.992265
+5-6:633
+53-54rate:0.992265
+Iteration:29
+Iteration:37
+Iteration:46
+5-6:242
+layer_itration:6;layer_id7
+processing layer:7-8; count:37	total layer num:171	complete:0.216374
+8-7rate:0.86571
+Iteration:43
+75-76:758
+layer_itration:76;layer_id77
+processing layer:77-78; count:38	total layer num:171	complete:0.222222
+8-7rate:0.951087
+78-77rate:0.991634
+8-7rate:0.891125
+Iteration:16
+155-156:506
+7-8rate:0.86571
+77-78rate:0.991634
+135-136:956
+layer_itration:136;layer_id137
+processing layer:137-138; count:39	total layer num:171	complete:0.22807
+7-8rate:0.951087
+138-137rate:0.990673
+99-100:763
+layer_itration:100;layer_id101
+processing layer:101-102; count:40	total layer num:171	complete:0.233918
+7-8rate:0.891125
+137-138rate:0.990673
+102-101rate:0.97991
+101-102rate:0.97991
+Iteration:61
+7-8:242
+Iteration:61
+155-156:480
+layer_itration:156;layer_id157
+processing layer:157-158; count:41	total layer num:171	complete:0.239766
+158-157rate:0.970787
+158-157rate:0.974392
+157-158rate:0.970787
+157-158rate:0.974392
+Iteration:61
+117-118:905
+layer_itration:118;layer_id119
+processing layer:119-120; count:42	total layer num:171	complete:0.245614
+120-119rate:0.992627
+119-120rate:0.992627
+Iteration:61
+77-78:755
+layer_itration:78;layer_id79
+processing layer:79-80; count:43	total layer num:171	complete:0.251462
+80-79rate:0.9932
+Iteration:61
+79-80rate:0.9932
+29-30:945
+layer_itration:30;layer_id31
+processing layer:31-32; count:44	total layer num:171	complete:0.25731
+Iteration:61
+32-31rate:0.963439
+31-32rate:0.963439
+Iteration:61
+Iteration:61
+53-54:903
+layer_itration:54;layer_id55
+processing layer:55-56; count:45	total layer num:171	complete:0.263158
+101-102:763
+layer_itration:102;layer_id103
+processing layer:103-104; count:46	total layer num:171	complete:0.269006
+7-8:467
+56-55rate:0.992566
+104-103rate:0.967409
+55-56rate:0.992566
+103-104rate:0.967409
+Iteration:61
+137-138:964
+layer_itration:138;layer_id139
+processing layer:139-140; count:47	total layer num:171	complete:0.274854
+140-139rate:0.988708
+139-140rate:0.988708
+Iteration:61
+Iteration:61
+7-8:273
+layer_itration:8;layer_id9
+processing layer:9-10; count:48	total layer num:171	complete:0.280702
+10-9rate:0.863718
+157-158:495
+10-9rate:0.95368
+10-9rate:0.907375
+9-10rate:0.863718
+9-10rate:0.95368
+9-10rate:0.907375
+Iteration:61
+9-10:246
+Iteration:61
+79-80:753
+layer_itration:80;layer_id81
+processing layer:81-82; count:49	total layer num:171	complete:0.28655
+82-81rate:0.994651
+81-82rate:0.994651
+Iteration:61
+Iteration:61
+103-104:794
+layer_itration:104;layer_id105
+processing layer:105-106; count:50	total layer num:171	complete:0.292398
+106-105rate:0.982433
+Iteration:61
+157-158:476
+layer_itration:158;layer_id159
+processing layer:159-160; count:51	total layer num:171	complete:0.298246
+105-106rate:0.982433
+160-159rate:0.974548
+160-159rate:0.970278
+119-120:911
+layer_itration:120;layer_id121
+processing layer:121-122; count:52	total layer num:171	complete:0.304094
+159-160rate:0.974548
+122-121rate:0.991983
+159-160rate:0.970278
+121-122rate:0.991983
+Iteration:61
+31-32:927
+layer_itration:32;layer_id33
+processing layer:33-34; count:53	total layer num:171	complete:0.309942
+34-33rate:0.96831
+33-34rate:0.96831
+Iteration:61
+55-56:906
+layer_itration:56;layer_id57
+processing layer:57-58; count:54	total layer num:171	complete:0.315789
+58-57rate:0.991675
+57-58rate:0.991675
+Iteration:61
+9-10:437
+Iteration:61
+139-140:968
+layer_itration:140;layer_id141
+processing layer:141-142; count:55	total layer num:171	complete:0.321637
+142-141rate:0.987158
+141-142rate:0.987158
+Iteration:61
+Iteration:61
+159-160:490
+9-10:293
+layer_itration:10;layer_id11
+processing layer:11-12; count:56	total layer num:171	complete:0.327485
+12-11rate:0.830545
+12-11rate:0.904478
+12-11rate:0.922428
+11-12rate:0.830545
+11-12rate:0.904478
+11-12rate:0.922428
+Iteration:61
+81-82:750
+layer_itration:82;layer_id83
+processing layer:83-84; count:57	total layer num:171	complete:0.333333
+84-83rate:0.993304
+83-84rate:0.993304
+Iteration:61
+105-106:828
+layer_itration:106;layer_id107
+processing layer:107-108; count:58	total layer num:171	complete:0.339181
+108-107rate:0.98632
+107-108rate:0.98632
+Iteration:61
+Iteration:61
+11-12:270
+121-122:917
+layer_itration:122;layer_id123
+processing layer:123-124; count:59	total layer num:171	complete:0.345029
+124-123rate:0.99428
+123-124rate:0.99428
+Iteration:61
+33-34:915
+layer_itration:34;layer_id35
+processing layer:35-36; count:60	total layer num:171	complete:0.350877
+36-35rate:0.973647
+35-36rate:0.973647
+Iteration:61
+159-160:469
+layer_itration:160;layer_id161
+processing layer:161-162; count:61	total layer num:171	complete:0.356725
+162-161rate:0.969994
+Iteration:61
+162-161rate:0.969832
+161-162rate:0.969994
+161-162rate:0.969832
+57-58:901
+layer_itration:58;layer_id59
+processing layer:59-60; count:62	total layer num:171	complete:0.362573
+60-59rate:0.989387
+59-60rate:0.989387
+Iteration:61
+141-142:970
+layer_itration:142;layer_id143
+processing layer:143-144; count:63	total layer num:171	complete:0.368421
+144-143rate:0.985401
+143-144rate:0.985401
+Iteration:61
+83-84:752
+layer_itration:84;layer_id85
+processing layer:85-86; count:64	total layer num:171	complete:0.374269
+86-85rate:0.995417
+85-86rate:0.995417
+Iteration:61
+Iteration:61
+161-162:485
+11-12:417
+Iteration:61
+107-108:838
+Iteration:61
+59-60:894
+layer_itration:60;layer_id61
+processing layer:61-62; count:65	total layer num:171	complete:0.380117
+62-61rate:0.984277
+61-62rate:0.984277
+Iteration:61
+35-36:903
+layer_itration:36;layer_id37
+processing layer:37-38; count:66	total layer num:171	complete:0.385965
+38-37rate:0.978385
+37-38rate:0.978385
+Iteration:61
+123-124:928
+layer_itration:124;layer_id125
+processing layer:125-126; count:67	total layer num:171	complete:0.391813
+126-125rate:0.989997
+125-126rate:0.989997
+Iteration:61
+Iteration:61
+161-162:468
+layer_itration:162;layer_id163
+processing layer:163-164; count:68	total layer num:171	complete:0.397661
+164-163rate:0.967839
+164-163rate:0.965815
+163-164rate:0.967839
+163-164rate:0.965815
+11-12:309
+layer_itration:12;layer_id13
+processing layer:13-14; count:69	total layer num:171	complete:0.403509
+14-13rate:0.84651
+14-13rate:0.907664
+14-13rate:0.917231
+13-14rate:0.84651
+13-14rate:0.907664
+13-14rate:0.917231
+Iteration:61
+Iteration:61
+85-86:751
+layer_itration:86;layer_id87
+processing layer:87-88; count:70	total layer num:171	complete:0.409357
+88-87rate:0.993507
+143-144:975
+layer_itration:144;layer_id145
+processing layer:145-146; count:71	total layer num:171	complete:0.415205
+87-88rate:0.993507
+146-145rate:0.982023
+145-146rate:0.982023
+Iteration:61
+61-62:896
+layer_itration:62;layer_id63
+processing layer:63-64; count:72	total layer num:171	complete:0.421053
+64-63rate:0.981818
+63-64rate:0.981818
+Iteration:61
+13-14:308
+Iteration:61
+163-164:481
+Iteration:61
+37-38:894
+layer_itration:38;layer_id39
+processing layer:39-40; count:73	total layer num:171	complete:0.426901
+40-39rate:0.980134
+39-40rate:0.980134
+Iteration:61
+Iteration:61
+125-126:932
+layer_itration:126;layer_id127
+processing layer:127-128; count:74	total layer num:171	complete:0.432749
+128-127rate:0.993572
+127-128rate:0.993572
+13-14:396
+Iteration:61
+87-88:752
+Iteration:61
+63-64:883
+layer_itration:64;layer_id65
+processing layer:65-66; count:75	total layer num:171	complete:0.438596
+66-65rate:0.97608
+65-66rate:0.97608
+Iteration:23
+Iteration:52
+163-164:464
+layer_itration:164;layer_id165
+processing layer:165-166; count:76	total layer num:171	complete:0.444444
+Iteration:18
+166-165rate:0.96345
+Iteration:11
+166-165rate:0.958888
+13-14:326
+layer_itration:14;layer_id15
+processing layer:15-16; count:77	total layer num:171	complete:0.450292
+127-128:938
+165-166rate:0.96345
+Iteration:59
+16-15rate:0.875223
+65-66:881
+165-166rate:0.958888
+16-15rate:0.906821
+Iteration:15
+16-15rate:0.933038
+15-16rate:0.875223
+145-146:978
+layer_itration:146;layer_id147
+processing layer:147-148; count:78	total layer num:171	complete:0.45614
+15-16rate:0.906821
+148-147rate:0.977996
+15-16rate:0.933038
+147-148rate:0.977996
+39-40:895
+layer_itration:40;layer_id41
+processing layer:41-42; count:79	total layer num:171	complete:0.461988
+42-41rate:0.979797
+41-42rate:0.979797
+Iteration:61
+15-16:327
+Iteration:61
+165-166:476
+Iteration:61
+15-16:407
+Iteration:61
+41-42:891
+layer_itration:42;layer_id43
+processing layer:43-44; count:80	total layer num:171	complete:0.467836
+44-43rate:0.983787
+43-44rate:0.983787
+Iteration:61
+165-166:460
+layer_itration:166;layer_id167
+processing layer:167-168; count:81	total layer num:171	complete:0.473684
+168-167rate:0.960523
+168-167rate:0.95249
+167-168rate:0.960523
+167-168rate:0.95249
+Iteration:61
+147-148:1046
+Iteration:61
+15-16:346
+layer_itration:16;layer_id17
+processing layer:17-18; count:82	total layer num:171	complete:0.479532
+18-17rate:0.883305
+18-17rate:0.865681
+18-17rate:0.913572
+17-18rate:0.883305
+17-18rate:0.865681
+17-18rate:0.913572
+Iteration:61
+167-168:468
+Iteration:61
+17-18:342
+Iteration:30
+167-168:456
+Iteration:16
+Iteration:60
+43-44:886
+17-18:476
+Iteration:61
+17-18:355
+layer_itration:18;layer_id19
+processing layer:19-20; count:83	total layer num:171	complete:0.48538
+20-19rate:0.906548
+20-19rate:0.480732
+20-19rate:0.38145
+19-20rate:0.906548
+19-20rate:0.480732
+19-20rate:0.38145
+Iteration:61
+19-20:351
+Iteration:61
+19-20:567
+Iteration:61
+19-20:351
+layer_itration:20;layer_id21
+processing layer:21-22; count:84	total layer num:171	complete:0.491228
+22-21rate:0.910562
+21-22rate:0.910562
+Iteration:61
+21-22:1103
+layer_itration:45;layer_id46
+processing layer:46-47; count:85	total layer num:171	complete:0.497076
+layer_itration:149;layer_id150
+processing layer:150-151; count:86	total layer num:171	complete:0.502924
+layer_itration:1;layer_id2
+processing layer:2-3; count:87	total layer num:171	complete:0.508772
+layer_itration:109;layer_id110
+processing layer:110-111; count:88	total layer num:171	complete:0.51462
+layer_itration:67;layer_id68
+processing layer:68-69; count:89	total layer num:171	complete:0.520468
+layer_itration:89;layer_id90
+processing layer:90-91; count:90	total layer num:171	complete:0.526316
+layer_itration:23;layer_id24
+processing layer:24-25; count:91	total layer num:171	complete:0.532164
+3-2rate:0.91532
+25-24rate:0.927
+151-150rate:0.941499
+91-90rate:0.992899
+47-46rate:0.985909
+69-68rate:0.978633
+111-110rate:0.981036
+3-2rate:0.881215
+layer_itration:129;layer_id130
+processing layer:130-131; count:92	total layer num:171	complete:0.538012
+3-2rate:0.901928
+68-69rate:0.978633
+24-25rate:0.927
+90-91rate:0.992899
+150-151rate:0.941499
+46-47rate:0.985909
+131-130rate:0.992111
+2-3rate:0.91532
+110-111rate:0.981036
+2-3rate:0.881215
+130-131rate:0.992111
+2-3rate:0.901928
+Iteration:61
+2-3:235
+Iteration:34
+Iteration:48
+Iteration:57
+68-69:845
+layer_itration:69;layer_id70
+processing layer:70-71; count:93	total layer num:171	complete:0.54386
+Iteration:42
+Iteration:45
+71-70rate:0.971419
+90-91:749
+layer_itration:91;layer_id92
+processing layer:92-93; count:94	total layer num:171	complete:0.549708
+Iteration:43
+70-71rate:0.971419
+93-92rate:0.991015
+92-93rate:0.991015
+130-131:943
+layer_itration:131;layer_id132
+processing layer:132-133; count:95	total layer num:171	complete:0.555556
+46-47:883
+layer_itration:47;layer_id48
+processing layer:48-49; count:96	total layer num:171	complete:0.561404
+133-132rate:0.990998
+49-48rate:0.987554
+132-133rate:0.990998
+48-49rate:0.987554
+110-111:856
+layer_itration:111;layer_id112
+processing layer:112-113; count:97	total layer num:171	complete:0.567251
+113-112rate:0.980504
+112-113rate:0.980504
+2-3:717
+Iteration:61
+2-3:223
+layer_itration:3;layer_id4
+processing layer:4-5; count:98	total layer num:171	complete:0.573099
+5-4rate:0.930754
+5-4rate:0.871196
+5-4rate:0.862095
+4-5rate:0.930754
+4-5rate:0.871196
+4-5rate:0.862095
+Iteration:61
+24-25:1035
+layer_itration:25;layer_id26
+processing layer:26-27; count:99	total layer num:171	complete:0.578947
+27-26rate:0.926952
+26-27rate:0.926952
+Iteration:61
+150-151:1108
+layer_itration:151;layer_id152
+processing layer:152-153; count:100	total layer num:171	complete:0.584795
+153-152rate:0.926157
+153-152rate:0.936002
+152-153rate:0.926157
+152-153rate:0.936002
+Iteration:61
+Iteration:42
+92-93:749
+layer_itration:93;layer_id94
+processing layer:94-95; count:101	total layer num:171	complete:0.590643
+95-94rate:0.990753
+94-95rate:0.990753
+4-5:237
+Iteration:40
+112-113:868
+layer_itration:113;layer_id114
+processing layer:114-115; count:102	total layer num:171	complete:0.596491
+115-114rate:0.985381
+114-115rate:0.985381
+Iteration:46
+48-49:891
+layer_itration:49;layer_id50
+processing layer:50-51; count:103	total layer num:171	complete:0.602339
+51-50rate:0.987965
+50-51rate:0.987965
+Iteration:61
+70-71:845
+layer_itration:71;layer_id72
+processing layer:72-73; count:104	total layer num:171	complete:0.608187
+73-72rate:0.991594
+72-73rate:0.991594
+Iteration:61
+132-133:950
+layer_itration:133;layer_id134
+processing layer:134-135; count:105	total layer num:171	complete:0.614035
+135-134rate:0.990175
+134-135rate:0.990175
+Iteration:61
+152-153:544
+Iteration:61
+Iteration:61
+94-95:750
+layer_itration:95;layer_id96
+processing layer:96-97; count:106	total layer num:171	complete:0.619883
+97-96rate:0.9904
+96-97rate:0.9904
+4-5:708
+Iteration:61
+26-27:1003
+layer_itration:27;layer_id28
+processing layer:28-29; count:107	total layer num:171	complete:0.625731
+29-28rate:0.939568
+28-29rate:0.939568
+Iteration:40
+Iteration:49
+152-153:502
+layer_itration:153;layer_id154
+processing layer:154-155; count:108	total layer num:171	complete:0.631579
+155-154rate:0.974703
+155-154rate:0.966106
+Iteration:53
+154-155rate:0.974703
+4-5:242
+layer_itration:5;layer_id6
+processing layer:6-7; count:109	total layer num:171	complete:0.637427
+Iteration:17
+Iteration:52
+154-155rate:0.966106
+7-6rate:0.91895
+Iteration:36
+7-6rate:0.902312
+72-73:766
+layer_itration:73;layer_id74
+processing layer:74-75; count:110	total layer num:171	complete:0.643275
+96-97:753
+layer_itration:97;layer_id98
+processing layer:98-99; count:111	total layer num:171	complete:0.649123
+75-74rate:0.992731
+7-6rate:0.836002
+Iteration:51
+99-98rate:0.988708
+50-51:896
+layer_itration:51;layer_id52
+processing layer:52-53; count:112	total layer num:171	complete:0.654971
+74-75rate:0.992731
+6-7rate:0.91895
+134-135:956
+layer_itration:135;layer_id136
+processing layer:136-137; count:113	total layer num:171	complete:0.660819
+53-52rate:0.991433
+98-99rate:0.988708
+6-7rate:0.902312
+137-136rate:0.989718
+52-53rate:0.991433
+114-115:886
+layer_itration:115;layer_id116
+processing layer:116-117; count:114	total layer num:171	complete:0.666667
+6-7rate:0.836002
+136-137rate:0.989718
+117-116rate:0.989153
+116-117rate:0.989153
+Iteration:61
+6-7:242
+Iteration:32
+98-99:760
+layer_itration:99;layer_id100
+processing layer:100-101; count:115	total layer num:171	complete:0.672515
+101-100rate:0.979521
+100-101rate:0.979521
+Iteration:61
+154-155:512
+Iteration:61
+74-75:765
+layer_itration:75;layer_id76
+processing layer:76-77; count:116	total layer num:171	complete:0.678363
+77-76rate:0.992132
+76-77rate:0.992132
+Iteration:61
+28-29:981
+layer_itration:29;layer_id30
+processing layer:30-31; count:117	total layer num:171	complete:0.684211
+31-30rate:0.95624
+30-31rate:0.95624
+Iteration:61
+6-7:510
+Iteration:61
+52-53:906
+layer_itration:53;layer_id54
+processing layer:54-55; count:118	total layer num:171	complete:0.690058
+55-54rate:0.991445
+54-55rate:0.991445
+Iteration:61
+136-137:962
+layer_itration:137;layer_id138
+processing layer:138-139; count:119	total layer num:171	complete:0.695906
+139-138rate:0.988424
+138-139rate:0.988424
+Iteration:61
+116-117:900
+layer_itration:117;layer_id118
+processing layer:118-119; count:120	total layer num:171	complete:0.701754
+119-118rate:0.991033
+118-119rate:0.991033
+Iteration:61
+154-155:481
+layer_itration:155;layer_id156
+processing layer:156-157; count:121	total layer num:171	complete:0.707602
+157-156rate:0.967356
+157-156rate:0.972348
+156-157rate:0.967356
+156-157rate:0.972348
+Iteration:61
+6-7:256
+layer_itration:7;layer_id8
+processing layer:8-9; count:122	total layer num:171	complete:0.71345
+9-8rate:0.914811
+9-8rate:0.95565
+9-8rate:0.875093
+8-9rate:0.914811
+8-9rate:0.95565
+8-9rate:0.875093
+Iteration:61
+100-101:764
+layer_itration:101;layer_id102
+processing layer:102-103; count:123	total layer num:171	complete:0.719298
+103-102rate:0.969445
+102-103rate:0.969445
+Iteration:42
+76-77:758
+layer_itration:77;layer_id78
+processing layer:78-79; count:124	total layer num:171	complete:0.725146
+79-78rate:0.993213
+78-79rate:0.993213
+Iteration:61
+8-9:244
+Iteration:61
+156-157:502
+Iteration:61
+54-55:903
+layer_itration:55;layer_id56
+processing layer:56-57; count:125	total layer num:171	complete:0.730994
+57-56rate:0.991309
+56-57rate:0.991309
+Iteration:61
+Iteration:61
+118-119:909
+layer_itration:119;layer_id120
+processing layer:120-121; count:126	total layer num:171	complete:0.736842
+121-120rate:0.991666
+30-31:936
+layer_itration:31;layer_id32
+processing layer:32-33; count:127	total layer num:171	complete:0.74269
+120-121rate:0.991666
+33-32rate:0.96589
+32-33rate:0.96589
+Iteration:61
+138-139:966
+layer_itration:139;layer_id140
+processing layer:140-141; count:128	total layer num:171	complete:0.748538
+141-140rate:0.985975
+140-141rate:0.985975
+Iteration:61
+8-9:446
+Iteration:61
+102-103:766
+layer_itration:103;layer_id104
+processing layer:104-105; count:129	total layer num:171	complete:0.754386
+105-104rate:0.976213
+104-105rate:0.976213
+Iteration:61
+156-157:478
+layer_itration:157;layer_id158
+processing layer:158-159; count:130	total layer num:171	complete:0.760234
+159-158rate:0.966913
+159-158rate:0.973161
+158-159rate:0.966913
+158-159rate:0.973161
+Iteration:59
+78-79:755
+layer_itration:79;layer_id80
+processing layer:80-81; count:131	total layer num:171	complete:0.766082
+81-80rate:0.994458
+80-81rate:0.994458
+Iteration:61
+8-9:282
+layer_itration:9;layer_id10
+processing layer:10-11; count:132	total layer num:171	complete:0.77193
+11-10rate:0.878181
+11-10rate:0.941509
+11-10rate:0.898479
+10-11rate:0.878181
+10-11rate:0.941509
+10-11rate:0.898479
+Iteration:22
+Iteration:27
+158-159:492
+Iteration:31
+10-11:260
+Iteration:21
+32-33:927
+layer_itration:33;layer_id34
+processing layer:34-35; count:133	total layer num:171	complete:0.777778
+Iteration:27
+35-34rate:0.970298
+Iteration:31
+Iteration:38
+34-35rate:0.970298
+80-81:750
+layer_itration:81;layer_id82
+processing layer:82-83; count:134	total layer num:171	complete:0.783626
+104-105:818
+layer_itration:105;layer_id106
+processing layer:106-107; count:135	total layer num:171	complete:0.789474
+83-82rate:0.994866
+107-106rate:0.984814
+82-83rate:0.994866
+140-141:969
+layer_itration:141;layer_id142
+processing layer:142-143; count:136	total layer num:171	complete:0.795322
+106-107rate:0.984814
+143-142rate:0.985087
+56-57:902
+layer_itration:57;layer_id58
+processing layer:58-59; count:137	total layer num:171	complete:0.80117
+142-143rate:0.985087
+59-58rate:0.987052
+58-59rate:0.987052
+Iteration:61
+120-121:915
+layer_itration:121;layer_id122
+processing layer:122-123; count:138	total layer num:171	complete:0.807018
+123-122rate:0.991952
+122-123rate:0.991952
+Iteration:61
+Iteration:61
+158-159:472
+layer_itration:159;layer_id160
+processing layer:160-161; count:139	total layer num:171	complete:0.812865
+161-160rate:0.965789
+161-160rate:0.971894
+160-161rate:0.965789
+160-161rate:0.971894
+10-11:417
+Iteration:61
+82-83:750
+layer_itration:83;layer_id84
+processing layer:84-85; count:140	total layer num:171	complete:0.818713
+85-84rate:0.995007
+84-85rate:0.995007
+Iteration:61
+106-107:833
+layer_itration:107;layer_id108
+processing layer:108-109; count:141	total layer num:171	complete:0.824561
+109-108rate:0.983706
+108-109rate:0.983706
+Iteration:61
+34-35:911
+layer_itration:35;layer_id36
+processing layer:36-37; count:142	total layer num:171	complete:0.830409
+37-36rate:0.974431
+36-37rate:0.974431
+Iteration:61
+58-59:894
+layer_itration:59;layer_id60
+processing layer:60-61; count:143	total layer num:171	complete:0.836257
+Iteration:61
+61-60rate:0.988423
+60-61rate:0.988423
+Iteration:61
+10-11:303
+layer_itration:11;layer_id12
+processing layer:12-13; count:144	total layer num:171	complete:0.842105
+13-12rate:0.886595
+13-12rate:0.921338
+13-12rate:0.884786
+160-161:488
+12-13rate:0.886595
+12-13rate:0.921338
+12-13rate:0.884786
+Iteration:61
+142-143:970
+layer_itration:143;layer_id144
+processing layer:144-145; count:145	total layer num:171	complete:0.847953
+145-144rate:0.98272
+144-145rate:0.98272
+Iteration:61
+122-123:920
+layer_itration:123;layer_id124
+processing layer:124-125; count:146	total layer num:171	complete:0.853801
+125-124rate:0.992993
+124-125rate:0.992993
+Iteration:61
+12-13:288
+Iteration:61
+160-161:468
+layer_itration:161;layer_id162
+processing layer:162-163; count:147	total layer num:171	complete:0.859649
+163-162rate:0.963695
+163-162rate:0.969527
+162-163rate:0.963695
+162-163rate:0.969527
+Iteration:61
+84-85:752
+layer_itration:85;layer_id86
+processing layer:86-87; count:148	total layer num:171	complete:0.865497
+87-86rate:0.994822
+86-87rate:0.994822
+Iteration:61
+12-13:462
+Iteration:61
+108-109:843
+Iteration:61
+36-37:897
+layer_itration:37;layer_id38
+processing layer:38-39; count:149	total layer num:171	complete:0.871345
+39-38rate:0.978243
+38-39rate:0.978243
+Iteration:61
+60-61:896
+layer_itration:61;layer_id62
+processing layer:62-63; count:150	total layer num:171	complete:0.877193
+63-62rate:0.980875
+62-63rate:0.980875
+Iteration:61
+162-163:485
+Iteration:61
+144-145:979
+layer_itration:145;layer_id146
+processing layer:146-147; count:151	total layer num:171	complete:0.883041
+147-146rate:0.971473
+146-147rate:0.971473
+Iteration:61
+12-13:325
+layer_itration:13;layer_id14
+processing layer:14-15; count:152	total layer num:171	complete:0.888889
+15-14rate:0.89273
+Iteration:61
+15-14rate:0.912177
+15-14rate:0.906129
+86-87:751
+layer_itration:87;layer_id88
+processing layer:88-89; count:153	total layer num:171	complete:0.894737
+14-15rate:0.89273
+89-88rate:0.993039
+14-15rate:0.912177
+88-89rate:0.993039
+14-15rate:0.906129
+Iteration:61
+124-125:928
+layer_itration:125;layer_id126
+processing layer:126-127; count:154	total layer num:171	complete:0.900585
+127-126rate:0.989978
+126-127rate:0.989978
+Iteration:61
+162-163:466
+layer_itration:163;layer_id164
+processing layer:164-165; count:155	total layer num:171	complete:0.906433
+165-164rate:0.959755
+165-164rate:0.967638
+164-165rate:0.959755
+164-165rate:0.967638
+Iteration:61
+14-15:315
+Iteration:61
+88-89:750
+Iteration:61
+38-39:894
+layer_itration:39;layer_id40
+processing layer:40-41; count:156	total layer num:171	complete:0.912281
+41-40rate:0.98007
+40-41rate:0.98007
+Iteration:61
+62-63:888
+layer_itration:63;layer_id64
+processing layer:64-65; count:157	total layer num:171	complete:0.918129
+65-64rate:0.980408
+64-65rate:0.980408
+Iteration:61
+Iteration:61
+14-15:396
+164-165:480
+Iteration:61
+126-127:934
+layer_itration:127;layer_id128
+processing layer:128-129; count:158	total layer num:171	complete:0.923977
+129-128rate:0.993989
+128-129rate:0.993989
+Iteration:61
+146-147:989
+layer_itration:147;layer_id148
+processing layer:148-149; count:159	total layer num:171	complete:0.929825
+149-148rate:0.968977
+148-149rate:0.968977
+Iteration:61
+14-15:337
+layer_itration:15;layer_id16
+processing layer:16-17; count:160	total layer num:171	complete:0.935673
+17-16rate:0.897433
+17-16rate:0.884054
+17-16rate:0.888272
+16-17rate:0.897433
+16-17rate:0.884054
+16-17rate:0.888272
+Iteration:61
+40-41:897
+layer_itration:41;layer_id42
+processing layer:42-43; count:161	total layer num:171	complete:0.94152
+43-42rate:0.981817
+42-43rate:0.981817
+Iteration:61
+16-17:329
+Iteration:61
+164-165:461
+layer_itration:165;layer_id166
+processing layer:166-167; count:162	total layer num:171	complete:0.947368
+167-166rate:0.956501
+167-166rate:0.962728
+166-167rate:0.956501
+166-167rate:0.962728
+Iteration:61
+64-65:881
+layer_itration:65;layer_id66
+processing layer:66-67; count:163	total layer num:171	complete:0.953216
+Iteration:61
+67-66rate:0.968549
+66-67rate:0.968549
+16-17:414
+Iteration:61
+42-43:891
+layer_itration:43;layer_id44
+processing layer:44-45; count:164	total layer num:171	complete:0.959064
+45-44rate:0.984117
+44-45rate:0.984117
+Iteration:61
+128-129:935
+Iteration:61
+16-17:349
+layer_itration:17;layer_id18
+processing layer:18-19; count:165	total layer num:171	complete:0.964912
+Iteration:61
+19-18rate:0.921365
+19-18rate:0.865501
+166-167:472
+19-18rate:0.917324
+18-19rate:0.921365
+18-19rate:0.865501
+18-19rate:0.917324
+Iteration:61
+148-149:1049
+Iteration:61
+18-19:351
+Iteration:61
+166-167:458
+layer_itration:167;layer_id168
+processing layer:168-169; count:166	total layer num:171	complete:0.97076
+169-168rate:0.952036
+169-168rate:0.960136
+168-169rate:0.952036
+168-169rate:0.960136
+Iteration:61
+44-45:886
+Iteration:61
+66-67:849
+Iteration:61
+Iteration:61
+168-169:462
+18-19:512
+Iteration:61
+Iteration:61
+168-169:454
+18-19:351
+layer_itration:19;layer_id20
+processing layer:20-21; count:167	total layer num:171	complete:0.976608
+21-20rate:0.259983
+21-20rate:0.602251
+20-21rate:0.259983
+20-21rate:0.602251
+Iteration:61
+20-21:351
+Iteration:61
+20-21:896
+layer_itration:21;layer_id22
+processing layer:22-23; count:168	total layer num:171	complete:0.982456
+23-22rate:0.917852
+22-23rate:0.917852
+Iteration:61
+22-23:1101
+***************************
+registration cost time:-78.4905
+***************************
+libGL error: failed to load driver: swrast
+libGL error: Try again with LIBGL_DEBUG=verbose for more details.
+ERROR: In /build/buildd/vtk-5.8.0/Rendering/vtkXOpenGLRenderWindow.cxx, line 404
+vtkXOpenGLRenderWindow (0x4d3b320): Could not find a decent visual
+
+
+ERROR: In /build/buildd/vtk-5.8.0/Rendering/vtkXOpenGLRenderWindow.cxx, line 404
+vtkXOpenGLRenderWindow (0x4d3b320): Could not find a decent visual
+
+
+ERROR: In /build/buildd/vtk-5.8.0/Rendering/vtkXOpenGLRenderWindow.cxx, line 404
+vtkXOpenGLRenderWindow (0x4d3b320): Could not find a decent visual
+
+
+interrupt
+~/git/reconstruction_program/code $ ../Debug/APP
+level:1	274.593point num:235
+level:1	723.286point num:646
+level:1	265.907point num:223
+level:2	276.25point num:235
+level:2	977.855point num:884
+level:2	265.078point num:223
+level:3	278.492point num:236
+level:3	802.985point num:717
+level:3	265.321point num:222
+level:4	280.492point num:238
+level:4	791.085point num:708
+level:4	291.563point num:247
+level:5	279.907point num:237
+level:5	834.884point num:746
+level:5	289.463point num:242
+level:6	282.007point num:242
+level:6	711.529point num:633
+level:6	305.12point num:256
+level:7	285.321point num:242
+level:7	575.688point num:510
+level:7	324.191point num:273
+level:8	289.806point num:244
+level:8	530.617point num:467
+level:8	333.605point num:282
+level:9	291.806point num:246
+level:9	504.233point num:446
+level:9	344.191point num:293
+level:10	308.291point num:260
+level:10	500.617point num:437
+level:10	353.362point num:303
+level:11	319.948point num:270
+level:11	483.103point num:417
+level:11	360.191point num:309
+level:12	337.948point num:288
+level:12	526.032point num:462
+level:12	370.392point num:325
+level:13	355.463point num:308
+level:13	548.215point num:473
+level:13	376.777point num:326
+level:14	362.877point num:315
+level:14	465.831point num:396
+level:14	387.362point num:337
+level:15	378.191point num:327
+level:15	477.245point num:407
+level:15	396.777point num:346
+level:16	385.161point num:329
+level:16	480.517point num:414
+level:16	398.534point num:349
+level:17	401.061point num:342
+level:17	547.487point num:476
+level:17	407.019point num:355
+level:18	410.475point num:351
+level:18	590.943point num:512
+level:18	410.333point num:355
+level:19	417.304point num:357
+level:19	643.872point num:567
+level:19	409.647point num:351
+level:20	414.617point num:351
+level:20	1035.42point num:896
+level:21	1304.11point num:1127
+level:22	1269.34point num:1103
+level:23	1254.09point num:1101
+level:24	1192.15point num:1049
+level:25	1169.03point num:1035
+level:26	1131.23point num:1003
+level:27	1136.16point num:1010
+level:28	1117.74point num:1004
+level:29	1095.15point num:981
+level:30	1063.29point num:945
+level:31	1058.02point num:936
+level:32	1045.29point num:927
+level:33	1045.78point num:925
+level:34	1036.61point num:915
+level:35	1029.29point num:911
+level:36	1022.12point num:903
+level:37	1018.61point num:897
+level:38	1015.19point num:894
+level:39	1016.61point num:895
+level:40	1019.44point num:897
+level:41	1021.82point num:894
+level:42	1020.06point num:891
+level:43	1020.79point num:888
+level:44	1018.79point num:886
+level:45	1019.38point num:887
+level:46	1016.21point num:883
+level:47	1017.96point num:886
+level:48	1020.06point num:891
+level:49	1020.06point num:891
+level:50	1024.65point num:896
+level:51	1032.41point num:905
+level:52	1030.75point num:905
+level:53	1029.68point num:906
+level:54	1024.61point num:903
+level:55	1026.85point num:904
+level:56	1026.36point num:906
+level:57	1022.36point num:902
+level:58	1021.78point num:901
+level:59	1016.02point num:894
+level:60	1024.85point num:902
+level:61	1016.36point num:896
+level:62	1013.88point num:896
+level:63	1006.71point num:888
+level:64	1000.47point num:883
+level:65	997.637point num:881
+level:66	998.222point num:882
+level:67	956.524point num:849
+level:68	954.181point num:845
+level:69	960.767point num:852
+level:70	956.666point num:845
+level:71	974.808point num:859
+level:72	879.453point num:774
+level:73	870.624point num:766
+level:74	872.039point num:767
+level:75	869.21point num:765
+level:76	860.968point num:758
+level:77	864.039point num:759
+level:78	861.696point num:755
+level:79	865.352point num:757
+level:80	863.838point num:753
+level:81	862.08point num:750
+level:82	863.737point num:750
+level:83	865.737point num:752
+level:84	869.879point num:752
+level:85	871.637point num:755
+level:86	866.808point num:751
+level:87	869.051point num:752
+level:88	871.051point num:754
+level:89	867.051point num:750
+level:90	865.051point num:748
+level:91	864.808point num:749
+level:92	867.051point num:750
+level:93	866.465point num:749
+level:94	868.708point num:750
+level:95	870.95point num:751
+level:96	875.436point num:753
+level:97	881.092point num:757
+level:98	885.335point num:760
+level:99	886.264point num:763
+level:100	888.507point num:764
+level:101	888.749point num:763
+level:102	889.678point num:766
+level:103	910.222point num:794
+level:104	924.281point num:818
+level:105	936.767point num:828
+level:106	948.808point num:833
+level:107	958.365point num:838
+level:108	967.092point num:843
+level:109	973.921point num:849
+level:110	980.507point num:856
+level:111	984.264point num:861
+level:112	989.193point num:868
+level:113	997.879point num:880
+level:114	1000.57point num:886
+level:115	1017.98point num:903
+level:116	1012.08point num:900
+level:117	1019.98point num:905
+level:118	1023.15point num:909
+level:119	1027.64point num:911
+level:120	1032.47point num:915
+level:121	1035.29point num:917
+level:122	1039.54point num:920
+level:123	1047.88point num:930
+level:124	1047.54point num:928
+level:125	1050.71point num:932
+level:126	1051.88point num:934
+level:127	1056.12point num:937
+level:128	1053.39point num:938
+level:129	1049.98point num:935
+level:130	1055.74point num:942
+level:131	1053.01point num:943
+level:132	1057.11point num:950
+level:133	1054.62point num:950
+level:134	1061.55point num:959
+level:135	1058.97point num:956
+level:136	1064.97point num:962
+level:137	1066.14point num:964
+level:138	1070.62point num:966
+level:139	1072.62point num:968
+level:140	1075.7point num:969
+level:141	1080.42point num:970
+level:142	1084.57point num:970
+level:143	1090.81point num:975
+level:144	1098.12point num:979
+level:145	1101.68point num:978
+level:146	1118.89point num:989
+level:147	1180.45point num:1046
+level:148	1187.18point num:1049
+level:149	1206.53point num:1058
+level:150	1263.99point num:1108
+level:151	1384.56point num:1212
+level:152	701.428point num:620
+level:152	613.227point num:526
+level:153	619.63point num:544
+level:153	595.855point num:502
+level:154	595.186point num:515
+level:154	586.825point num:488
+level:155	594.257point num:512
+level:155	580.24point num:481
+level:156	590.742point num:506
+level:156	578.825point num:480
+level:157	587.571point num:502
+level:157	573.512point num:478
+level:158	582.642point num:495
+level:158	573.169point num:476
+level:159	577.571point num:492
+level:159	568.34point num:472
+level:160	575.571point num:490
+level:160	564.926point num:469
+level:161	572.742point num:488
+level:161	561.026point num:468
+level:162	566.014point num:485
+level:162	560.198point num:468
+level:163	561.872point num:485
+level:163	554.056point num:466
+level:164	555.387point num:481
+level:164	552.056point num:464
+level:165	553.144point num:480
+level:165	546.985point num:461
+level:166	548.316point num:476
+level:166	544.742point num:460
+level:167	541.831point num:472
+level:167	540.257point num:458
+level:168	538.659point num:468
+level:168	535.772point num:456
+level:169	532.659point num:462
+level:169	530.458point num:454
+level:170	527.487point num:456
+level:170	527.144point num:454
+level:171	521.73point num:449
+level:171	521.487point num:450
+layer num:171
+branch seciton:1
+branch seciton:19
+branch seciton:20
+branch seciton:151
+**********Layer NUM:171	Contour NUM230
+processing layer:1-2; count:1	total layer num:171	complete:0.00584795
+2-1rate:0.864942
+2-1rate:0.863282
+2-1rate:0.929735
+1-2rate:0.864942
+1-2rate:0.863282
+1-2rate:0.929735
+Iteration:61
+1-2:235
+Iteration:61
+1-2:646
+Iteration:61
+1-2:223
+***************************
+registration cost time:-2.57477
+***************************
+processing layer:2-3; count:2	total layer num:171	complete:0.0116959
+3-2rate:0.91532
+3-2rate:0.881215
+3-2rate:0.901928
+2-3rate:0.91532
+2-3rate:0.881215
+2-3rate:0.901928
+Iteration:61
+2-3:235
+Iteration:61
+2-3:717
+Iteration:61
+2-3:223
+***************************
+registration cost time:-5.27813
+***************************
+processing layer:3-4; count:3	total layer num:171	complete:0.0175439
+4-3rate:0.873434
+4-3rate:0.882807
+4-3rate:0.907523
+3-4rate:0.873434
+3-4rate:0.882807
+3-4rate:0.907523
+Iteration:49
+3-4:236
+Iteration:61
+3-4:708
+Iteration:61
+3-4:222
+***************************
+registration cost time:-7.89469
+***************************
+processing layer:4-5; count:4	total layer num:171	complete:0.0233918
+5-4rate:0.930754
+5-4rate:0.871196
+5-4rate:0.862095
+4-5rate:0.930754
+4-5rate:0.871196
+4-5rate:0.862095
+Iteration:61
+4-5:237
+Iteration:61
+4-5:708
+Iteration:61
+4-5:242
+***************************
+registration cost time:-10.6415
+***************************
+processing layer:5-6; count:5	total layer num:171	complete:0.0292398
+6-5rate:0.888252
+6-5rate:0.833787
+6-5rate:0.872625
+5-6rate:0.888252
+5-6rate:0.833787
+5-6rate:0.872625
+Iteration:61
+5-6:237
+Iteration:61
+5-6:633
+Iteration:61
+5-6:242
+***************************
+registration cost time:-13.2384
+***************************
+processing layer:6-7; count:6	total layer num:171	complete:0.0350877
+7-6rate:0.91895
+7-6rate:0.902312
+7-6rate:0.836002
+6-7rate:0.91895
+6-7rate:0.902312
+6-7rate:0.836002
+Iteration:61
+6-7:242
+Iteration:61
+6-7:510
+Iteration:61
+6-7:256
+***************************
+registration cost time:-15.5904
+***************************
+processing layer:7-8; count:7	total layer num:171	complete:0.0409357
+8-7rate:0.86571
+8-7rate:0.951087
+8-7rate:0.891125
+7-8rate:0.86571
+7-8rate:0.951087
+7-8rate:0.891125
+Iteration:61
+7-8:242
+Iteration:61
+7-8:467
+Iteration:61
+7-8:273
+***************************
+registration cost time:-17.8762
+***************************
+processing layer:8-9; count:8	total layer num:171	complete:0.0467836
+9-8rate:0.914811
+9-8rate:0.95565
+9-8rate:0.875093
+8-9rate:0.914811
+8-9rate:0.95565
+8-9rate:0.875093
+Iteration:61
+8-9:244
+Iteration:61
+8-9:446
+Iteration:61
+8-9:282
+***************************
+registration cost time:-20.1491
+***************************
+processing layer:9-10; count:9	total layer num:171	complete:0.0526316
+10-9rate:0.863718
+10-9rate:0.95368
+10-9rate:0.907375
+9-10rate:0.863718
+9-10rate:0.95368
+9-10rate:0.907375
+Iteration:61
+9-10:246
+Iteration:61
+9-10:437
+Iteration:61
+9-10:293
+***************************
+registration cost time:-22.4217
+***************************
+processing layer:10-11; count:10	total layer num:171	complete:0.0584795
+11-10rate:0.878181
+11-10rate:0.941509
+11-10rate:0.898479
+10-11rate:0.878181
+10-11rate:0.941509
+10-11rate:0.898479
+Iteration:61
+10-11:260
+Iteration:61
+10-11:417
+Iteration:61
+10-11:303
+***************************
+registration cost time:-25.1035
+***************************
+processing layer:11-12; count:11	total layer num:171	complete:0.0643275
+12-11rate:0.830545
+12-11rate:0.904478
+12-11rate:0.922428
+11-12rate:0.830545
+11-12rate:0.904478
+11-12rate:0.922428
+Iteration:61
+11-12:270
+Iteration:61
+11-12:417
+Iteration:61
+11-12:309
+***************************
+registration cost time:-28.3751
+***************************
+processing layer:12-13; count:12	total layer num:171	complete:0.0701754
+13-12rate:0.886595
+13-12rate:0.921338
+13-12rate:0.884786
+12-13rate:0.886595
+12-13rate:0.921338
+12-13rate:0.884786
+Iteration:61
+12-13:288
+Iteration:61
+12-13:462
+Iteration:61
+12-13:325
+***************************
+registration cost time:-30.8698
+***************************
+processing layer:13-14; count:13	total layer num:171	complete:0.0760234
+14-13rate:0.84651
+14-13rate:0.907664
+14-13rate:0.917231
+13-14rate:0.84651
+13-14rate:0.907664
+13-14rate:0.917231
+Iteration:61
+13-14:308
+Iteration:61
+13-14:396
+Iteration:61
+13-14:326
+***************************
+registration cost time:-33.2705
+***************************
+processing layer:14-15; count:14	total layer num:171	complete:0.0818713
+15-14rate:0.89273
+15-14rate:0.912177
+15-14rate:0.906129
+14-15rate:0.89273
+14-15rate:0.912177
+14-15rate:0.906129
+Iteration:61
+14-15:315
+Iteration:61
+14-15:396
+Iteration:61
+14-15:337
+***************************
+registration cost time:-35.7077
+***************************
+processing layer:15-16; count:15	total layer num:171	complete:0.0877193
+16-15rate:0.875223
+16-15rate:0.906821
+16-15rate:0.933038
+15-16rate:0.875223
+15-16rate:0.906821
+15-16rate:0.933038
+Iteration:61
+15-16:327
+Iteration:61
+15-16:407
+Iteration:61
+15-16:346
+***************************
+registration cost time:-38.2169
+***************************
+processing layer:16-17; count:16	total layer num:171	complete:0.0935673
+17-16rate:0.897433
+17-16rate:0.884054
+17-16rate:0.888272
+16-17rate:0.897433
+16-17rate:0.884054
+16-17rate:0.888272
+Iteration:61
+16-17:329
+Iteration:61
+16-17:414
+Iteration:61
+16-17:349
+***************************
+registration cost time:-40.7568
+***************************
+processing layer:17-18; count:17	total layer num:171	complete:0.0994152
+18-17rate:0.883305
+18-17rate:0.865681
+18-17rate:0.913572
+17-18rate:0.883305
+17-18rate:0.865681
+17-18rate:0.913572
+Iteration:61
+17-18:342
+Iteration:61
+17-18:476
+Iteration:61
+17-18:355
+***************************
+registration cost time:-43.4701
+***************************
+processing layer:18-19; count:18	total layer num:171	complete:0.105263
+19-18rate:0.921365
+19-18rate:0.865501
+19-18rate:0.917324
+18-19rate:0.921365
+18-19rate:0.865501
+18-19rate:0.917324
+Iteration:61
+18-19:351
+Iteration:61
+18-19:512
+Iteration:61
+18-19:351
+***************************
+registration cost time:-46.4454
+***************************
+processing layer:19-20; count:19	total layer num:171	complete:0.111111
+20-19rate:0.906548
+20-19rate:0.480732
+20-19rate:0.38145
+19-20rate:0.906548
+19-20rate:0.480732
+19-20rate:0.38145
+Iteration:61
+19-20:351
+Iteration:61
+19-20:567
+Iteration:61
+19-20:351
+***************************
+registration cost time:-49.3623
+***************************
+processing layer:20-21; count:20	total layer num:171	complete:0.116959
+21-20rate:0.259983
+21-20rate:0.602251
+20-21rate:0.259983
+20-21rate:0.602251
+Iteration:61
+20-21:351
+Iteration:61
+20-21:896
+***************************
+registration cost time:-52.0667
+***************************
+processing layer:21-22; count:21	total layer num:171	complete:0.122807
+22-21rate:0.910562
+21-22rate:0.910562
+Iteration:61
+21-22:1103
+***************************
+registration cost time:-54.3009
+***************************
+processing layer:22-23; count:22	total layer num:171	complete:0.128655
+23-22rate:0.917852
+22-23rate:0.917852
+Iteration:61
+22-23:1101
+***************************
+registration cost time:-56.5205
+***************************
+processing layer:23-24; count:23	total layer num:171	complete:0.134503
+24-23rate:0.920987
+23-24rate:0.920987
+Iteration:61
+23-24:1049
+***************************
+registration cost time:-58.642
+***************************
+processing layer:24-25; count:24	total layer num:171	complete:0.140351
+25-24rate:0.927
+24-25rate:0.927
+Iteration:61
+24-25:1035
+***************************
+registration cost time:-60.7424
+***************************
+processing layer:25-26; count:25	total layer num:171	complete:0.146199
+26-25rate:0.929132
+25-26rate:0.929132
+Iteration:61
+25-26:1003
+***************************
+registration cost time:-62.7703
+***************************
+processing layer:26-27; count:26	total layer num:171	complete:0.152047
+27-26rate:0.926952
+26-27rate:0.926952
+Iteration:61
+26-27:1003
+***************************
+registration cost time:-64.8029
+***************************
+processing layer:27-28; count:27	total layer num:171	complete:0.157895
+28-27rate:0.928384
+27-28rate:0.928384
+Iteration:61
+27-28:1004
+***************************
+registration cost time:-66.8303
+***************************
+processing layer:28-29; count:28	total layer num:171	complete:0.163743
+29-28rate:0.939568
+28-29rate:0.939568
+Iteration:61
+28-29:981
+***************************
+registration cost time:-68.8074
+***************************
+processing layer:29-30; count:29	total layer num:171	complete:0.169591
+30-29rate:0.946627
+29-30rate:0.946627
+Iteration:61
+29-30:945
+***************************
+registration cost time:-70.7264
+***************************
+processing layer:30-31; count:30	total layer num:171	complete:0.175439
+31-30rate:0.95624
+30-31rate:0.95624
+interrupt
+~/git/reconstruction_program/code $ ../Debug/APP
+level:1	274.593point num:235
+level:1	723.286point num:646
+level:1	265.907point num:223
+level:2	276.25point num:235
+level:2	977.855point num:884
+level:2	265.078point num:223
+level:3	278.492point num:236
+level:3	802.985point num:717
+level:3	265.321point num:222
+level:4	280.492point num:238
+level:4	791.085point num:708
+level:4	291.563point num:247
+level:5	279.907point num:237
+level:5	834.884point num:746
+level:5	289.463point num:242
+level:6	282.007point num:242
+level:6	711.529point num:633
+level:6	305.12point num:256
+level:7	285.321point num:242
+level:7	575.688point num:510
+level:7	324.191point num:273
+level:8	289.806point num:244
+level:8	530.617point num:467
+level:8	333.605point num:282
+level:9	291.806point num:246
+level:9	504.233point num:446
+level:9	344.191point num:293
+level:10	308.291point num:260
+level:10	500.617point num:437
+level:10	353.362point num:303
+level:11	319.948point num:270
+level:11	483.103point num:417
+level:11	360.191point num:309
+level:12	337.948point num:288
+level:12	526.032point num:462
+level:12	370.392point num:325
+level:13	355.463point num:308
+level:13	548.215point num:473
+level:13	376.777point num:326
+level:14	362.877point num:315
+level:14	465.831point num:396
+level:14	387.362point num:337
+level:15	378.191point num:327
+level:15	477.245point num:407
+level:15	396.777point num:346
+level:16	385.161point num:329
+level:16	480.517point num:414
+level:16	398.534point num:349
+level:17	401.061point num:342
+level:17	547.487point num:476
+level:17	407.019point num:355
+level:18	410.475point num:351
+level:18	590.943point num:512
+level:18	410.333point num:355
+level:19	417.304point num:357
+level:19	643.872point num:567
+level:19	409.647point num:351
+level:20	414.617point num:351
+level:20	1035.42point num:896
+level:21	1304.11point num:1127
+level:22	1269.34point num:1103
+level:23	1254.09point num:1101
+level:24	1192.15point num:1049
+level:25	1169.03point num:1035
+level:26	1131.23point num:1003
+level:27	1136.16point num:1010
+level:28	1117.74point num:1004
+level:29	1095.15point num:981
+level:30	1063.29point num:945
+level:31	1058.02point num:936
+level:32	1045.29point num:927
+level:33	1045.78point num:925
+level:34	1036.61point num:915
+level:35	1029.29point num:911
+level:36	1022.12point num:903
+level:37	1018.61point num:897
+level:38	1015.19point num:894
+level:39	1016.61point num:895
+level:40	1019.44point num:897
+level:41	1021.82point num:894
+level:42	1020.06point num:891
+level:43	1020.79point num:888
+level:44	1018.79point num:886
+level:45	1019.38point num:887
+level:46	1016.21point num:883
+level:47	1017.96point num:886
+level:48	1020.06point num:891
+level:49	1020.06point num:891
+level:50	1024.65point num:896
+level:51	1032.41point num:905
+level:52	1030.75point num:905
+level:53	1029.68point num:906
+level:54	1024.61point num:903
+level:55	1026.85point num:904
+level:56	1026.36point num:906
+level:57	1022.36point num:902
+level:58	1021.78point num:901
+level:59	1016.02point num:894
+level:60	1024.85point num:902
+level:61	1016.36point num:896
+level:62	1013.88point num:896
+level:63	1006.71point num:888
+level:64	1000.47point num:883
+level:65	997.637point num:881
+level:66	998.222point num:882
+level:67	956.524point num:849
+level:68	954.181point num:845
+level:69	960.767point num:852
+level:70	956.666point num:845
+level:71	974.808point num:859
+level:72	879.453point num:774
+level:73	870.624point num:766
+level:74	872.039point num:767
+level:75	869.21point num:765
+level:76	860.968point num:758
+level:77	864.039point num:759
+level:78	861.696point num:755
+level:79	865.352point num:757
+level:80	863.838point num:753
+level:81	862.08point num:750
+level:82	863.737point num:750
+level:83	865.737point num:752
+level:84	869.879point num:752
+level:85	871.637point num:755
+level:86	866.808point num:751
+level:87	869.051point num:752
+level:88	871.051point num:754
+level:89	867.051point num:750
+level:90	865.051point num:748
+level:91	864.808point num:749
+level:92	867.051point num:750
+level:93	866.465point num:749
+level:94	868.708point num:750
+level:95	870.95point num:751
+level:96	875.436point num:753
+level:97	881.092point num:757
+level:98	885.335point num:760
+level:99	886.264point num:763
+level:100	888.507point num:764
+level:101	888.749point num:763
+level:102	889.678point num:766
+level:103	910.222point num:794
+level:104	924.281point num:818
+level:105	936.767point num:828
+level:106	948.808point num:833
+level:107	958.365point num:838
+level:108	967.092point num:843
+level:109	973.921point num:849
+level:110	980.507point num:856
+level:111	984.264point num:861
+level:112	989.193point num:868
+level:113	997.879point num:880
+level:114	1000.57point num:886
+level:115	1017.98point num:903
+level:116	1012.08point num:900
+level:117	1019.98point num:905
+level:118	1023.15point num:909
+level:119	1027.64point num:911
+level:120	1032.47point num:915
+level:121	1035.29point num:917
+level:122	1039.54point num:920
+level:123	1047.88point num:930
+level:124	1047.54point num:928
+level:125	1050.71point num:932
+level:126	1051.88point num:934
+level:127	1056.12point num:937
+level:128	1053.39point num:938
+level:129	1049.98point num:935
+level:130	1055.74point num:942
+level:131	1053.01point num:943
+level:132	1057.11point num:950
+level:133	1054.62point num:950
+level:134	1061.55point num:959
+level:135	1058.97point num:956
+level:136	1064.97point num:962
+level:137	1066.14point num:964
+level:138	1070.62point num:966
+level:139	1072.62point num:968
+level:140	1075.7point num:969
+level:141	1080.42point num:970
+level:142	1084.57point num:970
+level:143	1090.81point num:975
+level:144	1098.12point num:979
+level:145	1101.68point num:978
+level:146	1118.89point num:989
+level:147	1180.45point num:1046
+level:148	1187.18point num:1049
+level:149	1206.53point num:1058
+level:150	1263.99point num:1108
+level:151	1384.56point num:1212
+level:152	701.428point num:620
+level:152	613.227point num:526
+level:153	619.63point num:544
+level:153	595.855point num:502
+level:154	595.186point num:515
+level:154	586.825point num:488
+level:155	594.257point num:512
+level:155	580.24point num:481
+level:156	590.742point num:506
+level:156	578.825point num:480
+level:157	587.571point num:502
+level:157	573.512point num:478
+level:158	582.642point num:495
+level:158	573.169point num:476
+level:159	577.571point num:492
+level:159	568.34point num:472
+level:160	575.571point num:490
+level:160	564.926point num:469
+level:161	572.742point num:488
+level:161	561.026point num:468
+level:162	566.014point num:485
+level:162	560.198point num:468
+level:163	561.872point num:485
+level:163	554.056point num:466
+level:164	555.387point num:481
+level:164	552.056point num:464
+level:165	553.144point num:480
+level:165	546.985point num:461
+level:166	548.316point num:476
+level:166	544.742point num:460
+level:167	541.831point num:472
+level:167	540.257point num:458
+level:168	538.659point num:468
+level:168	535.772point num:456
+level:169	532.659point num:462
+level:169	530.458point num:454
+level:170	527.487point num:456
+level:170	527.144point num:454
+level:171	521.73point num:449
+level:171	521.487point num:450
+layer num:171
+branch seciton:1
+branch seciton:19
+branch seciton:20
+branch seciton:151
+**********Layer NUM:171	Contour NUM230
+processing layer:1-2; count:1	total layer num:171	complete:0.00584795
+2-1rate:0.864942
+2-1rate:0.863282
+2-1rate:0.929735
+1-2rate:0.864942
+1-2rate:0.863282
+1-2rate:0.929735
+Iteration:61
+1-2:235
+Iteration:61
+1-2:646
+Iteration:61
+1-2:223
+processing layer:2-3; count:2	total layer num:171	complete:0.0116959
+3-2rate:0.91532
+3-2rate:0.881215
+3-2rate:0.901928
+2-3rate:0.91532
+2-3rate:0.881215
+2-3rate:0.901928
+Iteration:61
+2-3:235
+Iteration:61
+2-3:717
+Iteration:61
+2-3:223
+processing layer:3-4; count:3	total layer num:171	complete:0.0175439
+4-3rate:0.873434
+4-3rate:0.882807
+4-3rate:0.907523
+3-4rate:0.873434
+3-4rate:0.882807
+3-4rate:0.907523
+Iteration:49
+3-4:236
+Iteration:61
+3-4:708
+Iteration:61
+3-4:222
+processing layer:4-5; count:4	total layer num:171	complete:0.0233918
+5-4rate:0.930754
+5-4rate:0.871196
+5-4rate:0.862095
+4-5rate:0.930754
+4-5rate:0.871196
+4-5rate:0.862095
+Iteration:61
+4-5:237
+Iteration:61
+4-5:708
+Iteration:61
+4-5:242
+processing layer:5-6; count:5	total layer num:171	complete:0.0292398
+6-5rate:0.888252
+6-5rate:0.833787
+6-5rate:0.872625
+5-6rate:0.888252
+5-6rate:0.833787
+5-6rate:0.872625
+Iteration:61
+5-6:237
+Iteration:61
+5-6:633
+Iteration:61
+5-6:242
+processing layer:6-7; count:6	total layer num:171	complete:0.0350877
+7-6rate:0.91895
+7-6rate:0.902312
+7-6rate:0.836002
+6-7rate:0.91895
+6-7rate:0.902312
+6-7rate:0.836002
+Iteration:61
+6-7:242
+Iteration:61
+6-7:510
+Iteration:61
+6-7:256
+processing layer:7-8; count:7	total layer num:171	complete:0.0409357
+8-7rate:0.86571
+8-7rate:0.951087
+8-7rate:0.891125
+7-8rate:0.86571
+7-8rate:0.951087
+7-8rate:0.891125
+Iteration:61
+7-8:242
+Iteration:61
+7-8:467
+Iteration:61
+7-8:273
+processing layer:8-9; count:8	total layer num:171	complete:0.0467836
+9-8rate:0.914811
+9-8rate:0.95565
+9-8rate:0.875093
+8-9rate:0.914811
+8-9rate:0.95565
+8-9rate:0.875093
+Iteration:61
+8-9:244
+Iteration:61
+8-9:446
+Iteration:61
+8-9:282
+processing layer:9-10; count:9	total layer num:171	complete:0.0526316
+10-9rate:0.863718
+10-9rate:0.95368
+10-9rate:0.907375
+9-10rate:0.863718
+9-10rate:0.95368
+9-10rate:0.907375
+Iteration:61
+9-10:246
+Iteration:61
+9-10:437
+Iteration:61
+9-10:293
+processing layer:10-11; count:10	total layer num:171	complete:0.0584795
+11-10rate:0.878181
+11-10rate:0.941509
+11-10rate:0.898479
+10-11rate:0.878181
+10-11rate:0.941509
+10-11rate:0.898479
+Iteration:61
+10-11:260
+Iteration:61
+10-11:417
+Iteration:61
+10-11:303
+processing layer:11-12; count:11	total layer num:171	complete:0.0643275
+12-11rate:0.830545
+12-11rate:0.904478
+12-11rate:0.922428
+11-12rate:0.830545
+11-12rate:0.904478
+11-12rate:0.922428
+Iteration:61
+11-12:270
+Iteration:61
+11-12:417
+Iteration:61
+11-12:309
+processing layer:12-13; count:12	total layer num:171	complete:0.0701754
+13-12rate:0.886595
+13-12rate:0.921338
+13-12rate:0.884786
+12-13rate:0.886595
+12-13rate:0.921338
+12-13rate:0.884786
+Iteration:61
+12-13:288
+Iteration:61
+12-13:462
+Iteration:61
+12-13:325
+processing layer:13-14; count:13	total layer num:171	complete:0.0760234
+14-13rate:0.84651
+14-13rate:0.907664
+14-13rate:0.917231
+13-14rate:0.84651
+13-14rate:0.907664
+13-14rate:0.917231
+Iteration:61
+13-14:308
+Iteration:61
+13-14:396
+Iteration:61
+13-14:326
+processing layer:14-15; count:14	total layer num:171	complete:0.0818713
+15-14rate:0.89273
+15-14rate:0.912177
+15-14rate:0.906129
+14-15rate:0.89273
+14-15rate:0.912177
+14-15rate:0.906129
+Iteration:61
+14-15:315
+Iteration:61
+14-15:396
+Iteration:61
+14-15:337
+processing layer:15-16; count:15	total layer num:171	complete:0.0877193
+16-15rate:0.875223
+16-15rate:0.906821
+16-15rate:0.933038
+15-16rate:0.875223
+15-16rate:0.906821
+15-16rate:0.933038
+Iteration:61
+15-16:327
+Iteration:61
+15-16:407
+Iteration:61
+15-16:346
+processing layer:16-17; count:16	total layer num:171	complete:0.0935673
+17-16rate:0.897433
+17-16rate:0.884054
+17-16rate:0.888272
+16-17rate:0.897433
+16-17rate:0.884054
+16-17rate:0.888272
+Iteration:61
+16-17:329
+Iteration:61
+16-17:414
+Iteration:61
+16-17:349
+processing layer:17-18; count:17	total layer num:171	complete:0.0994152
+18-17rate:0.883305
+18-17rate:0.865681
+18-17rate:0.913572
+17-18rate:0.883305
+17-18rate:0.865681
+17-18rate:0.913572
+Iteration:61
+17-18:342
+Iteration:61
+17-18:476
+Iteration:61
+17-18:355
+processing layer:18-19; count:18	total layer num:171	complete:0.105263
+19-18rate:0.921365
+19-18rate:0.865501
+19-18rate:0.917324
+18-19rate:0.921365
+18-19rate:0.865501
+18-19rate:0.917324
+Iteration:61
+18-19:351
+Iteration:61
+18-19:512
+Iteration:61
+18-19:351
+processing layer:19-20; count:19	total layer num:171	complete:0.111111
+20-19rate:0.906548
+20-19rate:0.480732
+20-19rate:0.38145
+19-20rate:0.906548
+19-20rate:0.480732
+19-20rate:0.38145
+Iteration:61
+19-20:351
+Iteration:61
+19-20:567
+Iteration:61
+19-20:351
+processing layer:20-21; count:20	total layer num:171	complete:0.116959
+21-20rate:0.259983
+21-20rate:0.602251
+20-21rate:0.259983
+20-21rate:0.602251
+Iteration:61
+20-21:351
+Iteration:61
+20-21:896
+processing layer:21-22; count:21	total layer num:171	complete:0.122807
+22-21rate:0.910562
+21-22rate:0.910562
+Iteration:61
+21-22:1103
+processing layer:22-23; count:22	total layer num:171	complete:0.128655
+23-22rate:0.917852
+22-23rate:0.917852
+Iteration:61
+22-23:1101
+processing layer:23-24; count:23	total layer num:171	complete:0.134503
+24-23rate:0.920987
+23-24rate:0.920987
+Iteration:61
+23-24:1049
+processing layer:24-25; count:24	total layer num:171	complete:0.140351
+25-24rate:0.927
+24-25rate:0.927
+Iteration:61
+24-25:1035
+processing layer:25-26; count:25	total layer num:171	complete:0.146199
+26-25rate:0.929132
+25-26rate:0.929132
+Iteration:61
+25-26:1003
+processing layer:26-27; count:26	total layer num:171	complete:0.152047
+27-26rate:0.926952
+26-27rate:0.926952
+Iteration:61
+26-27:1003
+processing layer:27-28; count:27	total layer num:171	complete:0.157895
+28-27rate:0.928384
+27-28rate:0.928384
+Iteration:61
+27-28:1004
+processing layer:28-29; count:28	total layer num:171	complete:0.163743
+29-28rate:0.939568
+28-29rate:0.939568
+Iteration:61
+28-29:981
+processing layer:29-30; count:29	total layer num:171	complete:0.169591
+30-29rate:0.946627
+29-30rate:0.946627
+Iteration:61
+29-30:945
+processing layer:30-31; count:30	total layer num:171	complete:0.175439
+31-30rate:0.95624
+30-31rate:0.95624
+Iteration:61
+30-31:936
+processing layer:31-32; count:31	total layer num:171	complete:0.181287
+32-31rate:0.963439
+31-32rate:0.963439
+Iteration:61
+31-32:927
+processing layer:32-33; count:32	total layer num:171	complete:0.187135
+33-32rate:0.96589
+32-33rate:0.96589
+Iteration:61
+32-33:927
+processing layer:33-34; count:33	total layer num:171	complete:0.192982
+34-33rate:0.96831
+33-34rate:0.96831
+Iteration:61
+33-34:915
+processing layer:34-35; count:34	total layer num:171	complete:0.19883
+35-34rate:0.970298
+34-35rate:0.970298
+Iteration:61
+34-35:911
+processing layer:35-36; count:35	total layer num:171	complete:0.204678
+36-35rate:0.973647
+35-36rate:0.973647
+Iteration:61
+35-36:903
+processing layer:36-37; count:36	total layer num:171	complete:0.210526
+37-36rate:0.974431
+36-37rate:0.974431
+Iteration:61
+36-37:897
+processing layer:37-38; count:37	total layer num:171	complete:0.216374
+38-37rate:0.978385
+37-38rate:0.978385
+Iteration:61
+37-38:894
+processing layer:38-39; count:38	total layer num:171	complete:0.222222
+39-38rate:0.978243
+38-39rate:0.978243
+Iteration:61
+38-39:894
+processing layer:39-40; count:39	total layer num:171	complete:0.22807
+40-39rate:0.980134
+39-40rate:0.980134
+Iteration:61
+39-40:895
+processing layer:40-41; count:40	total layer num:171	complete:0.233918
+41-40rate:0.98007
+40-41rate:0.98007
+Iteration:61
+40-41:897
+processing layer:41-42; count:41	total layer num:171	complete:0.239766
+42-41rate:0.979797
+41-42rate:0.979797
+Iteration:61
+41-42:891
+processing layer:42-43; count:42	total layer num:171	complete:0.245614
+43-42rate:0.981817
+42-43rate:0.981817
+Iteration:61
+42-43:891
+processing layer:43-44; count:43	total layer num:171	complete:0.251462
+44-43rate:0.983787
+43-44rate:0.983787
+Iteration:61
+43-44:886
+processing layer:44-45; count:44	total layer num:171	complete:0.25731
+45-44rate:0.984117
+44-45rate:0.984117
+Iteration:61
+44-45:886
+processing layer:45-46; count:45	total layer num:171	complete:0.263158
+46-45rate:0.984944
+45-46rate:0.984944
+Iteration:61
+45-46:883
+processing layer:46-47; count:46	total layer num:171	complete:0.269006
+47-46rate:0.985909
+46-47rate:0.985909
+Iteration:61
+46-47:883
+processing layer:47-48; count:47	total layer num:171	complete:0.274854
+48-47rate:0.987616
+47-48rate:0.987616
+Iteration:61
+47-48:886
+processing layer:48-49; count:48	total layer num:171	complete:0.280702
+49-48rate:0.987554
+48-49rate:0.987554
+Iteration:61
+48-49:891
+processing layer:49-50; count:49	total layer num:171	complete:0.28655
+50-49rate:0.987784
+49-50rate:0.987784
+Iteration:61
+49-50:891
+processing layer:50-51; count:50	total layer num:171	complete:0.292398
+51-50rate:0.987965
+50-51rate:0.987965
+Iteration:61
+50-51:896
+processing layer:51-52; count:51	total layer num:171	complete:0.298246
+52-51rate:0.99175
+51-52rate:0.99175
+Iteration:61
+51-52:905
+processing layer:52-53; count:52	total layer num:171	complete:0.304094
+53-52rate:0.991433
+52-53rate:0.991433
+Iteration:61
+52-53:906
+processing layer:53-54; count:53	total layer num:171	complete:0.309942
+54-53rate:0.992265
+53-54rate:0.992265
+Iteration:61
+53-54:903
+processing layer:54-55; count:54	total layer num:171	complete:0.315789
+55-54rate:0.991445
+54-55rate:0.991445
+Iteration:61
+54-55:903
+processing layer:55-56; count:55	total layer num:171	complete:0.321637
+56-55rate:0.992566
+55-56rate:0.992566
+Iteration:61
+55-56:906
+processing layer:56-57; count:56	total layer num:171	complete:0.327485
+57-56rate:0.991309
+56-57rate:0.991309
+Iteration:61
+56-57:902
+processing layer:57-58; count:57	total layer num:171	complete:0.333333
+58-57rate:0.991675
+57-58rate:0.991675
+Iteration:61
+57-58:901
+processing layer:58-59; count:58	total layer num:171	complete:0.339181
+59-58rate:0.987052
+58-59rate:0.987052
+Iteration:61
+58-59:894
+processing layer:59-60; count:59	total layer num:171	complete:0.345029
+60-59rate:0.989387
+59-60rate:0.989387
+Iteration:61
+59-60:894
+processing layer:60-61; count:60	total layer num:171	complete:0.350877
+61-60rate:0.988423
+60-61rate:0.988423
+Iteration:61
+60-61:896
+processing layer:61-62; count:61	total layer num:171	complete:0.356725
+62-61rate:0.984277
+61-62rate:0.984277
+Iteration:61
+61-62:896
+processing layer:62-63; count:62	total layer num:171	complete:0.362573
+63-62rate:0.980875
+62-63rate:0.980875
+Iteration:61
+62-63:888
+processing layer:63-64; count:63	total layer num:171	complete:0.368421
+64-63rate:0.981818
+63-64rate:0.981818
+Iteration:61
+63-64:883
+processing layer:64-65; count:64	total layer num:171	complete:0.374269
+65-64rate:0.980408
+64-65rate:0.980408
+Iteration:61
+64-65:881
+processing layer:65-66; count:65	total layer num:171	complete:0.380117
+66-65rate:0.97608
+65-66rate:0.97608
+Iteration:61
+65-66:881
+processing layer:66-67; count:66	total layer num:171	complete:0.385965
+67-66rate:0.968549
+66-67rate:0.968549
+Iteration:61
+66-67:849
+processing layer:67-68; count:67	total layer num:171	complete:0.391813
+68-67rate:0.985284
+67-68rate:0.985284
+Iteration:61
+67-68:845
+processing layer:68-69; count:68	total layer num:171	complete:0.397661
+69-68rate:0.978633
+68-69rate:0.978633
+Iteration:61
+68-69:845
+processing layer:69-70; count:69	total layer num:171	complete:0.403509
+70-69rate:0.979626
+69-70rate:0.979626
+Iteration:61
+69-70:845
+processing layer:70-71; count:70	total layer num:171	complete:0.409357
+71-70rate:0.971419
+70-71rate:0.971419
+Iteration:61
+70-71:845
+processing layer:71-72; count:71	total layer num:171	complete:0.415205
+72-71rate:0.965126
+71-72rate:0.965126
+Iteration:61
+71-72:774
+processing layer:72-73; count:72	total layer num:171	complete:0.421053
+73-72rate:0.991594
+72-73rate:0.991594
+Iteration:61
+72-73:766
+processing layer:73-74; count:73	total layer num:171	complete:0.426901
+74-73rate:0.992075
+73-74rate:0.992075
+Iteration:61
+73-74:766
+processing layer:74-75; count:74	total layer num:171	complete:0.432749
+75-74rate:0.992731
+74-75rate:0.992731
+Iteration:61
+74-75:765
+processing layer:75-76; count:75	total layer num:171	complete:0.438596
+76-75rate:0.993954
+75-76rate:0.993954
+Iteration:61
+75-76:758
+processing layer:76-77; count:76	total layer num:171	complete:0.444444
+77-76rate:0.992132
+76-77rate:0.992132
+Iteration:61
+76-77:758
+processing layer:77-78; count:77	total layer num:171	complete:0.450292
+78-77rate:0.991634
+77-78rate:0.991634
+Iteration:61
+77-78:755
+processing layer:78-79; count:78	total layer num:171	complete:0.45614
+79-78rate:0.993213
+78-79rate:0.993213
+Iteration:61
+78-79:755
+processing layer:79-80; count:79	total layer num:171	complete:0.461988
+80-79rate:0.9932
+79-80rate:0.9932
+Iteration:61
+79-80:753
+processing layer:80-81; count:80	total layer num:171	complete:0.467836
+81-80rate:0.994458
+80-81rate:0.994458
+Iteration:61
+80-81:750
+processing layer:81-82; count:81	total layer num:171	complete:0.473684
+82-81rate:0.994651
+81-82rate:0.994651
+Iteration:61
+81-82:750
+processing layer:82-83; count:82	total layer num:171	complete:0.479532
+83-82rate:0.994866
+82-83rate:0.994866
+Iteration:61
+82-83:750
+processing layer:83-84; count:83	total layer num:171	complete:0.48538
+84-83rate:0.993304
+83-84rate:0.993304
+Iteration:61
+83-84:752
+processing layer:84-85; count:84	total layer num:171	complete:0.491228
+85-84rate:0.995007
+84-85rate:0.995007
+Iteration:61
+84-85:752
+processing layer:85-86; count:85	total layer num:171	complete:0.497076
+86-85rate:0.995417
+85-86rate:0.995417
+Iteration:61
+85-86:751
+processing layer:86-87; count:86	total layer num:171	complete:0.502924
+87-86rate:0.994822
+86-87rate:0.994822
+Iteration:61
+86-87:751
+processing layer:87-88; count:87	total layer num:171	complete:0.508772
+88-87rate:0.993507
+87-88rate:0.993507
+Iteration:61
+87-88:752
+processing layer:88-89; count:88	total layer num:171	complete:0.51462
+89-88rate:0.993039
+88-89rate:0.993039
+Iteration:61
+88-89:750
+processing layer:89-90; count:89	total layer num:171	complete:0.520468
+90-89rate:0.991883
+89-90rate:0.991883
+Iteration:61
+89-90:748
+processing layer:90-91; count:90	total layer num:171	complete:0.526316
+91-90rate:0.992899
+90-91rate:0.992899
+Iteration:61
+90-91:749
+processing layer:91-92; count:91	total layer num:171	complete:0.532164
+92-91rate:0.992196
+91-92rate:0.992196
+Iteration:61
+91-92:749
+processing layer:92-93; count:92	total layer num:171	complete:0.538012
+93-92rate:0.991015
+92-93rate:0.991015
+Iteration:61
+92-93:749
+processing layer:93-94; count:93	total layer num:171	complete:0.54386
+94-93rate:0.989755
+93-94rate:0.989755
+Iteration:61
+93-94:749
+processing layer:94-95; count:94	total layer num:171	complete:0.549708
+95-94rate:0.990753
+94-95rate:0.990753
+Iteration:61
+94-95:750
+processing layer:95-96; count:95	total layer num:171	complete:0.555556
+96-95rate:0.98875
+95-96rate:0.98875
+Iteration:61
+95-96:751
+processing layer:96-97; count:96	total layer num:171	complete:0.561404
+97-96rate:0.9904
+96-97rate:0.9904
+Iteration:61
+96-97:753
+processing layer:97-98; count:97	total layer num:171	complete:0.567251
+98-97rate:0.988769
+97-98rate:0.988769
+Iteration:61
+97-98:757
+processing layer:98-99; count:98	total layer num:171	complete:0.573099
+99-98rate:0.988708
+98-99rate:0.988708
+Iteration:61
+98-99:760
+processing layer:99-100; count:99	total layer num:171	complete:0.578947
+100-99rate:0.986145
+99-100rate:0.986145
+Iteration:61
+99-100:763
+processing layer:100-101; count:100	total layer num:171	complete:0.584795
+101-100rate:0.979521
+100-101rate:0.979521
+Iteration:61
+100-101:764
+processing layer:101-102; count:101	total layer num:171	complete:0.590643
+102-101rate:0.97991
+101-102rate:0.97991
+Iteration:61
+101-102:763
+processing layer:102-103; count:102	total layer num:171	complete:0.596491
+103-102rate:0.969445
+102-103rate:0.969445
+Iteration:61
+102-103:766
+processing layer:103-104; count:103	total layer num:171	complete:0.602339
+104-103rate:0.967409
+103-104rate:0.967409
+Iteration:61
+103-104:794
+processing layer:104-105; count:104	total layer num:171	complete:0.608187
+105-104rate:0.976213
+104-105rate:0.976213
+Iteration:61
+104-105:818
+processing layer:105-106; count:105	total layer num:171	complete:0.614035
+106-105rate:0.982433
+105-106rate:0.982433
+Iteration:61
+105-106:828
+processing layer:106-107; count:106	total layer num:171	complete:0.619883
+107-106rate:0.984814
+106-107rate:0.984814
+Iteration:61
+106-107:833
+processing layer:107-108; count:107	total layer num:171	complete:0.625731
+108-107rate:0.98632
+107-108rate:0.98632
+Iteration:61
+107-108:838
+processing layer:108-109; count:108	total layer num:171	complete:0.631579
+109-108rate:0.983706
+108-109rate:0.983706
+Iteration:61
+108-109:843
+processing layer:109-110; count:109	total layer num:171	complete:0.637427
+110-109rate:0.98486
+109-110rate:0.98486
+Iteration:61
+109-110:849
+processing layer:110-111; count:110	total layer num:171	complete:0.643275
+111-110rate:0.981036
+110-111rate:0.981036
+Iteration:61
+110-111:856
+processing layer:111-112; count:111	total layer num:171	complete:0.649123
+112-111rate:0.982617
+111-112rate:0.982617
+Iteration:61
+111-112:861
+processing layer:112-113; count:112	total layer num:171	complete:0.654971
+113-112rate:0.980504
+112-113rate:0.980504
+Iteration:61
+112-113:868
+processing layer:113-114; count:113	total layer num:171	complete:0.660819
+114-113rate:0.983935
+113-114rate:0.983935
+Iteration:61
+113-114:880
+processing layer:114-115; count:114	total layer num:171	complete:0.666667
+115-114rate:0.985381
+114-115rate:0.985381
+Iteration:61
+114-115:886
+processing layer:115-116; count:115	total layer num:171	complete:0.672515
+116-115rate:0.987647
+115-116rate:0.987647
+Iteration:61
+115-116:900
+processing layer:116-117; count:116	total layer num:171	complete:0.678363
+117-116rate:0.989153
+116-117rate:0.989153
+Iteration:61
+116-117:900
+processing layer:117-118; count:117	total layer num:171	complete:0.684211
+118-117rate:0.990956
+117-118rate:0.990956
+Iteration:61
+117-118:905
+processing layer:118-119; count:118	total layer num:171	complete:0.690058
+119-118rate:0.991033
+118-119rate:0.991033
+Iteration:61
+118-119:909
+processing layer:119-120; count:119	total layer num:171	complete:0.695906
+120-119rate:0.992627
+119-120rate:0.992627
+Iteration:61
+119-120:911
+processing layer:120-121; count:120	total layer num:171	complete:0.701754
+121-120rate:0.991666
+120-121rate:0.991666
+Iteration:61
+120-121:915
+processing layer:121-122; count:121	total layer num:171	complete:0.707602
+122-121rate:0.991983
+121-122rate:0.991983
+Iteration:61
+121-122:917
+processing layer:122-123; count:122	total layer num:171	complete:0.71345
+123-122rate:0.991952
+122-123rate:0.991952
+Iteration:61
+122-123:920
+processing layer:123-124; count:123	total layer num:171	complete:0.719298
+124-123rate:0.99428
+123-124rate:0.99428
+Iteration:61
+123-124:928
+processing layer:124-125; count:124	total layer num:171	complete:0.725146
+125-124rate:0.992993
+124-125rate:0.992993
+Iteration:61
+124-125:928
+processing layer:125-126; count:125	total layer num:171	complete:0.730994
+126-125rate:0.989997
+125-126rate:0.989997
+Iteration:61
+125-126:932
+processing layer:126-127; count:126	total layer num:171	complete:0.736842
+127-126rate:0.989978
+126-127rate:0.989978
+Iteration:61
+126-127:934
+processing layer:127-128; count:127	total layer num:171	complete:0.74269
+128-127rate:0.993572
+127-128rate:0.993572
+Iteration:61
+127-128:938
+processing layer:128-129; count:128	total layer num:171	complete:0.748538
+129-128rate:0.993989
+128-129rate:0.993989
+Iteration:61
+128-129:935
+processing layer:129-130; count:129	total layer num:171	complete:0.754386
+130-129rate:0.993171
+129-130rate:0.993171
+Iteration:61
+129-130:935
+processing layer:130-131; count:130	total layer num:171	complete:0.760234
+131-130rate:0.992111
+130-131rate:0.992111
+Iteration:61
+130-131:943
+processing layer:131-132; count:131	total layer num:171	complete:0.766082
+132-131rate:0.99141
+131-132rate:0.99141
+Iteration:61
+131-132:943
+processing layer:132-133; count:132	total layer num:171	complete:0.77193
+133-132rate:0.990998
+132-133rate:0.990998
+Iteration:61
+132-133:950
+processing layer:133-134; count:133	total layer num:171	complete:0.777778
+134-133rate:0.990061
+133-134rate:0.990061
+Iteration:61
+133-134:950
+processing layer:134-135; count:134	total layer num:171	complete:0.783626
+135-134rate:0.990175
+134-135rate:0.990175
+Iteration:61
+134-135:956
+processing layer:135-136; count:135	total layer num:171	complete:0.789474
+136-135rate:0.990096
+135-136rate:0.990096
+Iteration:61
+135-136:956
+processing layer:136-137; count:136	total layer num:171	complete:0.795322
+137-136rate:0.989718
+136-137rate:0.989718
+Iteration:61
+136-137:962
+processing layer:137-138; count:137	total layer num:171	complete:0.80117
+138-137rate:0.990673
+137-138rate:0.990673
+Iteration:61
+137-138:964
+processing layer:138-139; count:138	total layer num:171	complete:0.807018
+139-138rate:0.988424
+138-139rate:0.988424
+Iteration:61
+138-139:966
+processing layer:139-140; count:139	total layer num:171	complete:0.812865
+140-139rate:0.988708
+139-140rate:0.988708
+Iteration:61
+139-140:968
+processing layer:140-141; count:140	total layer num:171	complete:0.818713
+141-140rate:0.985975
+140-141rate:0.985975
+Iteration:61
+140-141:969
+processing layer:141-142; count:141	total layer num:171	complete:0.824561
+142-141rate:0.987158
+141-142rate:0.987158
+Iteration:61
+141-142:970
+processing layer:142-143; count:142	total layer num:171	complete:0.830409
+143-142rate:0.985087
+142-143rate:0.985087
+Iteration:61
+142-143:970
+processing layer:143-144; count:143	total layer num:171	complete:0.836257
+144-143rate:0.985401
+143-144rate:0.985401
+Iteration:61
+143-144:975
+processing layer:144-145; count:144	total layer num:171	complete:0.842105
+145-144rate:0.98272
+144-145rate:0.98272
+Iteration:61
+144-145:979
+processing layer:145-146; count:145	total layer num:171	complete:0.847953
+146-145rate:0.982023
+145-146rate:0.982023
+Iteration:61
+145-146:978
+processing layer:146-147; count:146	total layer num:171	complete:0.853801
+147-146rate:0.971473
+146-147rate:0.971473
+Iteration:61
+146-147:989
+processing layer:147-148; count:147	total layer num:171	complete:0.859649
+148-147rate:0.977996
+147-148rate:0.977996
+Iteration:61
+147-148:1046
+processing layer:148-149; count:148	total layer num:171	complete:0.865497
+149-148rate:0.968977
+148-149rate:0.968977
+Iteration:61
+148-149:1049
+processing layer:149-150; count:149	total layer num:171	complete:0.871345
+150-149rate:0.965059
+149-150rate:0.965059
+Iteration:61
+149-150:1058
+processing layer:150-151; count:150	total layer num:171	complete:0.877193
+151-150rate:0.941499
+150-151rate:0.941499
+Iteration:61
+150-151:1108
+processing layer:151-152; count:151	total layer num:171	complete:0.883041
+152-151rate:0.489529
+152-151rate:0.447912
+151-152rate:0.489529
+151-152rate:0.447912
+Iteration:61
+151-152:620
+Iteration:61
+151-152:526
+processing layer:152-153; count:152	total layer num:171	complete:0.888889
+153-152rate:0.926157
+153-152rate:0.936002
+152-153rate:0.926157
+152-153rate:0.936002
+Iteration:61
+152-153:544
+Iteration:61
+152-153:502
+processing layer:153-154; count:153	total layer num:171	complete:0.894737
+154-153rate:0.943469
+154-153rate:0.962931
+153-154rate:0.943469
+153-154rate:0.962931
+Iteration:61
+153-154:515
+Iteration:61
+153-154:488
+processing layer:154-155; count:154	total layer num:171	complete:0.900585
+155-154rate:0.974703
+155-154rate:0.966106
+154-155rate:0.974703
+154-155rate:0.966106
+Iteration:61
+154-155:512
+Iteration:61
+154-155:481
+processing layer:155-156; count:155	total layer num:171	complete:0.906433
+156-155rate:0.973602
+156-155rate:0.967704
+155-156rate:0.973602
+155-156rate:0.967704
+Iteration:61
+155-156:506
+Iteration:61
+155-156:480
+processing layer:156-157; count:156	total layer num:171	complete:0.912281
+157-156rate:0.967356
+157-156rate:0.972348
+156-157rate:0.967356
+156-157rate:0.972348
+Iteration:61
+156-157:502
+Iteration:61
+156-157:478
+processing layer:157-158; count:157	total layer num:171	complete:0.918129
+158-157rate:0.970787
+158-157rate:0.974392
+157-158rate:0.970787
+157-158rate:0.974392
+Iteration:61
+157-158:495
+Iteration:61
+157-158:476
+processing layer:158-159; count:158	total layer num:171	complete:0.923977
+159-158rate:0.966913
+159-158rate:0.973161
+158-159rate:0.966913
+158-159rate:0.973161
+Iteration:61
+158-159:492
+Iteration:61
+158-159:472
+processing layer:159-160; count:159	total layer num:171	complete:0.929825
+160-159rate:0.974548
+160-159rate:0.970278
+159-160rate:0.974548
+159-160rate:0.970278
+Iteration:51
+159-160:490
+Iteration:61
+159-160:469
+processing layer:160-161; count:160	total layer num:171	complete:0.935673
+161-160rate:0.965789
+161-160rate:0.971894
+160-161rate:0.965789
+160-161rate:0.971894
+Iteration:61
+160-161:488
+Iteration:61
+160-161:468
+processing layer:161-162; count:161	total layer num:171	complete:0.94152
+162-161rate:0.969994
+162-161rate:0.969832
+161-162rate:0.969994
+161-162rate:0.969832
+Iteration:61
+161-162:485
+Iteration:61
+161-162:468
+processing layer:162-163; count:162	total layer num:171	complete:0.947368
+163-162rate:0.963695
+163-162rate:0.969527
+162-163rate:0.963695
+162-163rate:0.969527
+Iteration:61
+162-163:485
+Iteration:61
+162-163:466
+processing layer:163-164; count:163	total layer num:171	complete:0.953216
+164-163rate:0.967839
+164-163rate:0.965815
+163-164rate:0.967839
+163-164rate:0.965815
+Iteration:61
+163-164:481
+Iteration:61
+163-164:464
+processing layer:164-165; count:164	total layer num:171	complete:0.959064
+165-164rate:0.959755
+165-164rate:0.967638
+164-165rate:0.959755
+164-165rate:0.967638
+Iteration:61
+164-165:480
+Iteration:61
+164-165:461
+processing layer:165-166; count:165	total layer num:171	complete:0.964912
+166-165rate:0.96345
+166-165rate:0.958888
+165-166rate:0.96345
+165-166rate:0.958888
+Iteration:61
+165-166:476
+Iteration:61
+165-166:460
+processing layer:166-167; count:166	total layer num:171	complete:0.97076
+167-166rate:0.956501
+167-166rate:0.962728
+166-167rate:0.956501
+166-167rate:0.962728
+Iteration:61
+166-167:472
+Iteration:61
+166-167:458
+processing layer:167-168; count:167	total layer num:171	complete:0.976608
+168-167rate:0.960523
+168-167rate:0.95249
+167-168rate:0.960523
+167-168rate:0.95249
+Iteration:61
+167-168:468
+Iteration:61
+167-168:456
+processing layer:168-169; count:168	total layer num:171	complete:0.982456
+169-168rate:0.952036
+169-168rate:0.960136
+168-169rate:0.952036
+168-169rate:0.960136
+Iteration:61
+168-169:462
+Iteration:61
+168-169:454
+processing layer:169-170; count:169	total layer num:171	complete:0.988304
+170-169rate:0.960147
+170-169rate:0.948327
+169-170rate:0.960147
+169-170rate:0.948327
+Iteration:61
+169-170:456
+Iteration:61
+169-170:454
+processing layer:170-171; count:170	total layer num:171	complete:0.994152
+171-170rate:0.945134
+171-170rate:0.959674
+170-171rate:0.945134
+170-171rate:0.959674
+Iteration:61
+170-171:449
+Iteration:61
+170-171:450
+processing layer:171-2.39622e-43; count:171	total layer num:171	complete:1
+***************************
+registration cost time:-325.761
+***************************
+libGL error: failed to load driver: swrast
+libGL error: Try again with LIBGL_DEBUG=verbose for more details.
+ERROR: In /build/buildd/vtk-5.8.0/Rendering/vtkXOpenGLRenderWindow.cxx, line 404
+vtkXOpenGLRenderWindow (0xa5cd5120): Could not find a decent visual
+
+
+ERROR: In /build/buildd/vtk-5.8.0/Rendering/vtkXOpenGLRenderWindow.cxx, line 404
+vtkXOpenGLRenderWindow (0xa5cd5120): Could not find a decent visual
+
+
+ERROR: In /build/buildd/vtk-5.8.0/Rendering/vtkXOpenGLRenderWindow.cxx, line 404
+vtkXOpenGLRenderWindow (0xa5cd5120): Could not find a decent visual
+
+
