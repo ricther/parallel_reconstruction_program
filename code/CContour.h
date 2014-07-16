@@ -7,6 +7,7 @@
 #include "CMedialMap.h"
 #include "CMap.h"
 #include "initial.h"
+#include <map>
 class CPoint;
 class CLayer;
 
@@ -35,28 +36,30 @@ class CContour
   CMap* m_Map;
   CMedialMap* m_medial_map;
   CMap* m_temp_map;
-  double** lattice_x,**lattice_y;//as NXB NYB will be initialize in CRegister
-  double** new_lattice_x,**new_lattice_y;//as NNXB NNYB the next control point coordinates position
+  float** lattice_x,**lattice_y;//as NXB NYB will be initialize in CRegister
+  float** new_lattice_x,**new_lattice_y;//as NNXB NNYB the next control point coordinates position
   void normalize(CPoint); 
   void InitMap();
-  std::vector<double> vec_intensity_old;
-  std::vector<double> vec_intensity_new;
+  std::vector<float> vec_intensity_old;
+  std::vector<float> vec_intensity_new;
   CPoint* center_point;
   CPoint* moment_one_point;
-  double max_x,max_y,min_x,min_y;
-  double length;
+  float max_x,max_y,min_x,min_y;
+  float length;
   void reset();
-  int use_as_higher_contour_count,use_as_lower_contour_count;
+  //  int use_as_higher_contour_count,use_as_lower_contour_count;
   void smooth();
-  void calculate_medial_map(double**);
+  void calculate_medial_map(float**);
   void swap_map_medialmap();
   void swap_medialmap_map();
+  std::multimap<float,CContour*> map_neighbour; /**< record the contour intersection with this contour, which in the neighbour layer */
+  int use_counter;
 private:
-  void check_edge(double,double);
+  void check_edge(float,float);
   void get_center();
   void calculate_one_moment();
   void check_point_seq();
   float sum_x,sum_y;
-  double last_x,last_y;
+  float last_x,last_y;
   CPoint* get_the_nearest_unused_point(CPoint* point);
 };

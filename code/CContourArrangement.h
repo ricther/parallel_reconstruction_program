@@ -4,6 +4,7 @@
 #include "CContour.h"
 #include <vector>
 #include "initial.h"
+class CShape;
 class contour_couple
 {
 public:
@@ -21,16 +22,12 @@ public:
 class CContourArrangement
 {
 public:
-  CContourArrangement(){};
-  void reset(CLayer* up, CLayer* down)
-  {
-    up_layer=up;down_layer=down;
-    vec_contour_couple.clear();
-  }
-  CLayer* up_layer;
-  CLayer* down_layer;
+CContourArrangement(CShape* shape):m_shape(shape){};
+
+  CShape* m_shape;
   std::vector<contour_couple*> vec_contour_couple;
   void setup();
+  void setup_use_omp();
   float check_intersection(CContour*,CContour*);
   float cal_distance(CContour*,CContour*);
   float check_boundary_box_coverage(CContour* u, CContour*d);
@@ -41,6 +38,5 @@ public:
   float check_intersection_level_set(CContour* u, CContour*d);
   void get_union_couple(  std::vector<contour_couple*>&,  std::vector<contour_couple*>&);
 };
-
 
 #endif /* _CCONTOURARRANGEMENT_H_ */

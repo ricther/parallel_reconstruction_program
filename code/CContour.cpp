@@ -19,8 +19,9 @@ CContour::CContour(const float ID,CLayer* layer):lattice_x(NULL),lattice_y(NULL)
   moment_one_point= new CPoint();
   length=0;
   last_x=last_y=9999999;
-  use_as_higher_contour_count=0;
-  use_as_lower_contour_count=0;
+  //  use_as_higher_contour_count=0;
+  //  use_as_lower_contour_count=0;
+  use_counter=0;
   sum_x=0;
   sum_y=0;
 }
@@ -33,7 +34,7 @@ void CContour:: operator=(CContour &temp)
 }
 #include "stdio.h"
 #include "iostream"
-void CContour:: check_edge(double tempx,double tempy )
+void CContour:: check_edge(float tempx,float tempy )
 {
     if (tempx>max_x)
     {
@@ -81,7 +82,7 @@ bool CContour::read_single_layer_without_z(fstream& fin)
 {
   int oldz=0,newz=-9999;
 
-  double tempvalue;
+  float tempvalue;
   while(fin.good())
   {
     CPoint *temp=new CPoint();
@@ -262,8 +263,8 @@ void CContour::reset()
   vec_Points_Inter.clear();
   vec_Points_Vicinity.clear();
   vec_new_points_vicinity.clear();//change after bspline_update
-  use_as_lower_contour_count=0;
-  use_as_higher_contour_count=0;
+  //use_as_lower_contour_count=0;
+  //use_as_higher_contour_count=0;
 }
 
 void CContour::smooth()
@@ -290,7 +291,7 @@ void CContour::smooth()
 }
 
 #include"CFileDebug.h"
-void CContour::calculate_medial_map(double** medial_axis)
+void CContour::calculate_medial_map(float** medial_axis)
 {
   m_medial_map = new CMedialMap(this,medial_axis);
   m_medial_map->setup();

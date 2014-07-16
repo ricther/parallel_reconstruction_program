@@ -50,11 +50,13 @@ const float boundary_coverage_rate_threshold = m_data_reader.get_value_float ("b
 const bool use_open_mp = m_data_reader.get_value_bool ("use_open_mp"); /**< whether use open_mp */
 const int thread_num = m_data_reader.get_value_int ("thread_num"); /**< the threads number when using openmp */
 //@}
+const int gap_threshold = m_data_reader.get_value_float("gap_threshold"); /**< the gap of the hole, the threshold decide whether the hole to fill, the gap is metric by points num */
 CShape m_source;
 
 
-void init_data(CShape&);
+void init_data();
 void vtk_setup();
+void registration();
 void vtk_draw_view1(vtkSmartPointer<vtkRenderWindow>,vtkSmartPointer<vtkRenderWindowInteractor>);
 void vtk_draw_view2(vtkSmartPointer<vtkRenderWindow>,vtkSmartPointer<vtkRenderWindowInteractor>);
 void vtk_draw_view3(vtkSmartPointer<vtkRenderWindow>,vtkSmartPointer<vtkRenderWindowInteractor>);
@@ -65,36 +67,34 @@ int main( int argc, char *argv[] )
   // Create the RenderWindow, Renderer and both Actors
   //
 
-  init_data(m_source);
+  init_data();
+
+  registration();
   
   vtk_setup();
   
   return EXIT_SUCCESS;
 }
 
+void registration()
+{
+  if (use_open_mp)
+  {
+    m_source.Setup_use_openmp();
+  }
+  else
+  {
+    m_source.Setup();
+  }
+  
+  m_source.Registration();  
+}
 
-void init_data(CShape&m_source)
+void init_data()
 {
   char currentPath[200];
   getcwd(currentPath, sizeof(currentPath));
-  
-  std::vector<string> vec_filename;
-  string temp=m_data_reader.get_data_source();
-  // if(fin.is_open())
-  // {
-  //   while(!fin.eof())
-  //   {
-  //     fin>>temp;
-  //     if(temp!="end")
-  //     {
-  //       vec_filename.push_back(temp);
-  //     }
-  //   }
-  // }
-  vec_filename.push_back(temp);
-  m_source.initial(vec_filename);
-  //m_source.Setup();
-  //  m_source.Registration();
+  m_data_reader.read_file(&m_source);
 }
 
 void vtk_setup()
@@ -114,16 +114,16 @@ void vtk_setup()
         vtk_draw_view1(renderWindow,interactor);
         break;
       case 2:
-        //        vtk_draw_view2(renderWindow,interactor);
+        vtk_draw_view2(renderWindow,interactor);
         break;
       case 3:
-        //        vtk_draw_view3(renderWindow,interactor);
+        vtk_draw_view3(renderWindow,interactor);
         break;
       case 4:
-        //        vtk_draw_view4(renderWindow,interactor);
+        vtk_draw_view4(renderWindow,interactor);
         break;
       case 5:
-        //        vtk_draw_view5(renderWindow,interactor);
+        vtk_draw_view5(renderWindow,interactor);
         break;
     }
   }
@@ -133,15 +133,15 @@ void vtk_setup()
 }
 
 //cordinate for normal
-// double xmins[5] = {0,.25,0.5,0,.5};
-// double xmaxs[5] = {0.25,0.50,1,0.5,1};
-// double ymins[5] = {0,0,0,.5,.5};
-// double ymaxs[5]= {0.5,0.5,0.5,1,1};
+double xmins[5] = {0,.25,0.5,0,.5};
+double xmaxs[5] = {0.25,0.50,1,0.5,1};
+double ymins[5] = {0,0,0,.5,.5};
+double ymaxs[5]= {0.5,0.5,0.5,1,1};
 
- double xmins[5] = {0,0,0,0,0};
- double xmaxs[5] = {1,0,0,0,0};
- double ymins[5] = {0,0,0,0,0};
- double ymaxs[5]= {1,0,0,0,0};
+ // double xmins[5] = {0,0,0,0,0};
+ // double xmaxs[5] = {1,0,0,0,0};
+ // double ymins[5] = {0,0,0,0,0};
+ // double ymaxs[5]= {1,0,0,0,0};
 
 vtkSmartPointer<vtkRenderer> Renderers[5];
 void vtk_draw_view1(vtkSmartPointer<vtkRenderWindow> renderWindow,vtkSmartPointer<vtkRenderWindowInteractor> interactor)

@@ -25,10 +25,10 @@ void ParamRecord::operator=(const ParamRecord & right)
   this->errorE = right.errorE;
 }
 
-void ParamRecord::initial(double errorE,CContour* higher)
+void ParamRecord::initial(float errorE,CContour* higher)
 {
-  this->lattice_x = make_2D_double_array(MatrixRes,MatrixRes);//initial the new lattice
-  this->lattice_y = make_2D_double_array(MatrixRes,MatrixRes);
+  this->lattice_x = make_2D_float_array(MatrixRes,MatrixRes);//initial the new lattice
+  this->lattice_y = make_2D_float_array(MatrixRes,MatrixRes);
   for (int j = 0; j < MatrixRes; ++j)
   {
     for (int k = 0; k < MatrixRes; ++k)
@@ -49,12 +49,12 @@ CRegistration::CRegistration(CShape* source):narrow_band(10),NumberRows(NumRows)
   lamda = 0.02;
   kappa = 5.0;
 
-  xvb=new double[MatrixRes];
-  yvb=new double[MatrixRes];
-  XB=make_2D_double_array(MatrixRes,MatrixRes);
-  YB=make_2D_double_array(MatrixRes,MatrixRes);
-  dXB=make_2D_double_array(MatrixRes,MatrixRes);
-  dYB=make_2D_double_array(MatrixRes,MatrixRes);
+  xvb=new float[MatrixRes];
+  yvb=new float[MatrixRes];
+  XB=make_2D_float_array(MatrixRes,MatrixRes);
+  YB=make_2D_float_array(MatrixRes,MatrixRes);
+  dXB=make_2D_float_array(MatrixRes,MatrixRes);
+  dYB=make_2D_float_array(MatrixRes,MatrixRes);
   
   int interval = NumberRows/MatrixRes;
   for (int i = 0; i < MatrixRes; ++i)
@@ -79,8 +79,8 @@ void CRegistration::reset()
 
 void CRegistration::freeform_res1(CContour* lower,CContour*higher)
 {
-  double *xv;
-  double *yv;
+  float *xv;
+  float *yv;
   int count;
   reset();
   shape_vicinity(higher,narrow_band);
@@ -93,7 +93,7 @@ void CRegistration::freeform_res1(CContour* lower,CContour*higher)
   ///////////////
   //first time calculate the intensity before bespline as though the points do not changed
   //calculate the intensity in self distancesmap
-  compute_intensity(higher->vec_Points_Vicinity,higher->m_Map->DistancsMap,higher->vec_intensity_old);
+  compute_intensity(higher->vec_Points_Vicinity,higher->m_Map->get_distance_map(),higher->vec_intensity_old);
   // m_file.Output_intensity_data(higher->vec_Points_Vicinity,higher->vec_intensity_old);
   // m_file2.Output(higher->m_Map->DistancsMap);
   init_lattice(lower);
@@ -101,15 +101,15 @@ void CRegistration::freeform_res1(CContour* lower,CContour*higher)
   bspline_update(higher,0,higher->vec_Points_Vicinity,higher->vec_new_points_vicinity);
   //second time calculate the intensity after bespline update as though the points was changed
   //calculate the intensity in lower distancemap
-  compute_intensity(higher->vec_new_points_vicinity,lower->m_Map->DistancsMap,higher->vec_intensity_new);
+  compute_intensity(higher->vec_new_points_vicinity,lower->m_Map->get_distance_map(),higher->vec_intensity_new);
   //m_file2.Output_intensity_data(higher->vec_new_points_vicinity,higher->vec_intensity_new);
-  double errorE=energy_func_square_diff(higher);
+  float errorE=energy_func_square_diff(higher);
   gradientdescent_smoother(lower,higher,errorE);
 }
 #include "iostream"
 void CRegistration::Register()
 {
-  double start_time=omp_get_wtime();
+  float start_time=omp_get_wtime();
   int src_layer_num=SourceShape->map_Layer.size();
   CLayer *lower_layer=NULL;
   CLayer *higher_layer=NULL;
@@ -117,9 +117,9 @@ void CRegistration::Register()
   CContour* lower_contour=NULL;
   CContour* higher_contour=NULL;
 
-
-
-  CContourArrangement contour_arrangement;
+  CContourArrangement contour_arrangement(SourceShape);
+  contour_arrangement.setup();
+  //  contour_arrangement
   
   std::map<float,CLayer*>::iterator itr=SourceShape->map_Layer.begin(),etr=SourceShape->map_Layer.end(),nitr;
   int count=1;
@@ -141,8 +141,7 @@ void CRegistration::Register()
     lower_layer->reset();
     higher_layer->reset();
 
-    contour_arrangement.reset(higher_layer,lower_layer);
-    contour_arrangement.setup();
+
     int couple_num=contour_arrangement.vec_contour_couple.size();
     if (couple_num==0)
     {
@@ -154,48 +153,15 @@ void CRegistration::Register()
      temp_couple=contour_arrangement.vec_contour_couple[i];
      regist_lower_long_higher_short(temp_couple->contour1,temp_couple->contour2);
     }
-    // int lower_contours_num=lower_layer->map_contour.size();
-    // int higher_contours_num=higher_layer->map_contour.size();
-    // if (lower_contours_num>1&&higher_contours_num>1)
-    // {
-    //   for (int i = 0; i < lower_contours_num; ++i)
-    //   {
-    //     CContour* higher_nearest_contour;
-    //     higher_nearest_contour=find_nearest_contour(lower_layer->map_contour[lower_layer->map_contourID[i]],higher_layer,abs(lower_contours_num-higher_contours_num));
-    //     regist_lower_long_higher_short(lower_layer->map_contour[lower_layer->map_contourID[i]],higher_nearest_contour);
-    //   }
-    // }
-
-    // else if (lower_contours_num>1&&higher_contours_num==1)
-    // {
-    //   for (int i = 0; i < lower_contours_num; ++i)
-    //   {
-    //       regist_lower_long_higher_short(lower_layer->map_contour[lower_layer->map_contourID[i]],higher_layer->map_contour[higher_layer->map_contourID[0]]);
-    //   }
-    // }
-
-    // else if (lower_contours_num==1&&higher_contours_num>1)
-    // {
-    //   for (int i=0; i < higher_contours_num; ++i)
-    //   {
-    //       regist_lower_long_higher_short(lower_layer->map_contour[lower_layer->map_contourID[0]],higher_layer->map_contour[higher_layer->map_contourID[i]]);
-    //   }
-    // }
-
-    // else if(lower_contours_num==1&&higher_contours_num==1)
-    // {
-    //      regist_lower_long_higher_short(lower_layer->map_contour[lower_layer->map_contourID[0]],higher_layer->map_contour[higher_layer->map_contourID[0]]);
-    // }
-
   }
-  double end_time=omp_get_wtime();
+  float end_time=omp_get_wtime();
   std::cout<<"***************************\n"<<"registration cost time:"<<start_time-end_time<<endl<<"***************************\n";
 
 }
 
 void CRegistration::Register_use_openmp()
 {
-  double start_time=omp_get_wtime();
+  float start_time=omp_get_wtime();
   int src_layer_num=SourceShape->map_Layer.size();
   
   std::map<float,CLayer*>::iterator itr=SourceShape->map_Layer.begin(),etr=SourceShape->map_Layer.end(),nitr;
@@ -222,8 +188,8 @@ void CRegistration::Register_use_openmp()
     CContour* higher_contour=NULL;
 
 
-    CContourArrangement contour_arrangement;
-  
+    CContourArrangement contour_arrangement(SourceShape);
+    contour_arrangement.setup();
 
     lower_layer=SourceShape->map_Layer[vec_layerID[ly]];
     higher_layer=SourceShape->map_Layer[vec_layerID[ly+1]];
@@ -237,8 +203,6 @@ void CRegistration::Register_use_openmp()
     lower_layer->reset();
     higher_layer->reset();
 
-    contour_arrangement.reset(higher_layer,lower_layer);
-    contour_arrangement.setup();
     int couple_num=contour_arrangement.vec_contour_couple.size();
     if (couple_num==0)
     {
@@ -252,7 +216,7 @@ void CRegistration::Register_use_openmp()
     }
   }
   }
-  double end_time=omp_get_wtime();
+  float end_time=omp_get_wtime();
   std::cout<<"***************************\n"<<"registration cost time:"<<start_time-end_time<<endl<<"***************************\n";
 }
 
@@ -313,27 +277,28 @@ void CRegistration:: regist_lower_long_higher_short(CContour* lower,CContour* hi
 
 CContour* CRegistration::find_nearest_contour(CContour* lower_contour,CLayer* higher_layer,int diffecence)
 {
-  float dis=9999999;
-  map<int,CContour*>::iterator itr,etr;
+  assert(false);
+  // float dis=9999999;
+  // map<int,CContour*>::iterator itr,etr;
   CContour* temp_contour=NULL;
-  itr=higher_layer->map_contour.begin();etr=higher_layer->map_contour.end();
-  for (;itr!=etr;++itr)
-  {
-    //    CPoint* point1= lower_contour->center_point;
-    //    CPoint* point2= (itr->second)->center_point;
-    CPoint* point1= lower_contour->moment_one_point;
-    CPoint* point2= (itr->second)->moment_one_point;
-    if (itr->second->use_as_higher_contour_count<=diffecence)
-    {
-      float tempdis=(point1->x-point2->x)*(point1->x-point2->x)+(point1->y-point2->y)*(point1->y-point2->y);
-      if (tempdis<dis)
-      {
-        dis=tempdis;
-        temp_contour=(itr->second);
-      }
-    }
-  }
-  temp_contour->use_as_higher_contour_count++;
+  // itr=higher_layer->map_contour.begin();etr=higher_layer->map_contour.end();
+  // for (;itr!=etr;++itr)
+  // {
+  //   //    CPoint* point1= lower_contour->center_point;
+  //   //    CPoint* point2= (itr->second)->center_point;
+  //   CPoint* point1= lower_contour->moment_one_point;
+  //   CPoint* point2= (itr->second)->moment_one_point;
+  //   if (itr->second->use_as_higher_contour_count<=diffecence)
+  //   {
+  //     float tempdis=(point1->x-point2->x)*(point1->x-point2->x)+(point1->y-point2->y)*(point1->y-point2->y);
+  //     if (tempdis<dis)
+  //     {
+  //       dis=tempdis;
+  //       temp_contour=(itr->second);
+  //     }
+  //   }
+  // }
+  // temp_contour->use_as_higher_contour_count++;
   return temp_contour;
 }
 #include "math.h"
@@ -389,22 +354,22 @@ void CRegistration::shape_vicinity(CContour* source,int band)
   vicinity_points_num=k;
 }
 
-void CRegistration::compute_intensity(std::vector<CPoint*>&vec_points,double**&map,std::vector<double>&vec_intensity)
+void CRegistration::compute_intensity(std::vector<CPoint*>&vec_points,float**&map,std::vector<float>&vec_intensity)
 {
   vec_intensity.clear();
   int size = vec_points.size();
   for (int i = 0; i < size; ++i)
   {//TODO here x,y ,a ,b exchange position . consistency with xiaolei's code but , maybe not right ...have change back , exchange is not right/// for test now exchange ,because already change the distmap x,y 
-    double px,py;
+    float px,py;
     px=vec_points[i]->y;
     py=vec_points[i]->x;
     int x = (int)px;
     int y= (int)py;
-    double a = (double)(px-x);
-    double b = (double)(py-y);
+    float a = (float)(px-x);
+    float b = (float)(py-y);
     if ((x>=0)&&(y>=0)&&(x<(NumberRows-1))&&(y<(NumberCols-1)))
     {
-      double e=(double)((1.0-a)*(1.0-b)*map[x][y]+(1.0-a)*b*map[x][y+1]+a*b*map[x+1][y+1]+a*(1.0-b)*map[x+1][y]);
+      float e=(float)((1.0-a)*(1.0-b)*map[x][y]+(1.0-a)*b*map[x][y+1]+a*b*map[x+1][y+1]+a*(1.0-b)*map[x+1][y]);
       vec_intensity.push_back(e);
     }
     else
@@ -441,10 +406,10 @@ void CRegistration::init_lattice(CContour* contour)
     
   }
 
-  contour->lattice_x=make_2D_double_array(MatrixRes,MatrixRes);
-  contour->lattice_y=make_2D_double_array(MatrixRes,MatrixRes);
-  contour->new_lattice_x=make_2D_double_array(MatrixRes,MatrixRes);
-  contour->new_lattice_y=make_2D_double_array(MatrixRes,MatrixRes);
+  contour->lattice_x=make_2D_float_array(MatrixRes,MatrixRes);
+  contour->lattice_y=make_2D_float_array(MatrixRes,MatrixRes);
+  contour->new_lattice_x=make_2D_float_array(MatrixRes,MatrixRes);
+  contour->new_lattice_y=make_2D_float_array(MatrixRes,MatrixRes);
   
   for (int i = 0; i < MatrixRes; ++i)
   {
@@ -463,33 +428,34 @@ void CRegistration::bspline_update(CContour* contour,int mode,std::vector<CPoint
   int nx = MatrixRes;
   int ny = MatrixRes;
   int size = vec_points.size();
+  
   vec_new_points.clear();
   vec_new_points.reserve(size);
   for (int i = 0; i < size; ++i)
   {
-    double x = vec_points[i]->x;
-    double y = vec_points[i]->y;
+    float x = vec_points[i]->x;
+    float y = vec_points[i]->y;
 
-    double x_index = (x- min(xvb,nx))/(max(xvb,nx)-min(xvb,nx))*(nx-1);
-    double y_index = (y- min(yvb,ny))/(max(yvb,ny)-min(yvb,ny))*(ny-1);
+    float x_index = (x- min(xvb,nx))/(max(xvb,nx)-min(xvb,nx))*(nx-1);
+    float y_index = (y- min(yvb,ny))/(max(yvb,ny)-min(yvb,ny))*(ny-1);
 
     int i_index=(int)(x_index)-1;
     int j_index=(int)(y_index)-1;
     
-    double u_index=(x_index)-(int)(x_index);
-    double v_index=(y_index)-(int)(y_index);
+    float u_index=(x_index)-(int)(x_index);
+    float v_index=(y_index)-(int)(y_index);
 
     if (i_index<0||i_index>(nx-3-1)||j_index<0||j_index>(ny-3-1))
     {
-      double xb = x; double nxb= x;
-      double yb = y; double nyb=y;
+      float xb = x; float nxb= x;
+      float yb = y; float nyb=y;
       CPoint* temp =new CPoint();
       temp->x=nxb;temp->y=nyb;temp->z=vec_points[i]->z;
       vec_new_points.push_back(temp);
     }
     else
     {
-      double nxb=0.0,nyb=0.0;
+      float nxb=0.0,nyb=0.0;
       for (int m = 0; m < 4; ++m)
       {
         for (int n = 0; n < 4; ++n)
@@ -515,32 +481,32 @@ void CRegistration::bspline_update(CContour* contour,int mode,std::vector<CPoint
   }
 }
 
-double CRegistration::energy_func_square_diff(CContour* contour)
+float CRegistration::energy_func_square_diff(CContour* contour)
 {
   int N=contour->vec_intensity_old.size();
-  double temp=0.0;
+  float temp=0.0;
   for (int i = 0; i < N; ++i)
   {
-    double tempp=( contour->vec_intensity_old[i]-contour->vec_intensity_new[i]);
+    float tempp=( contour->vec_intensity_old[i]-contour->vec_intensity_new[i]);
     temp+=tempp*tempp;
   }
   return temp;
 }
 
-void CRegistration::gradientdescent_smoother(CContour* lower,CContour* higher,double errorE)
+void CRegistration::gradientdescent_smoother(CContour* lower,CContour* higher,float errorE)
 {
   kNumberOfIteration=iteration_number;
   int magicnumber=MatrixRes;
 
-  current_params.lattice_x=make_2D_double_array(MatrixRes,MatrixRes);
-  current_params.lattice_y=make_2D_double_array(MatrixRes,MatrixRes);
+  current_params.lattice_x=make_2D_float_array(MatrixRes,MatrixRes);
+  current_params.lattice_y=make_2D_float_array(MatrixRes,MatrixRes);
   ParamRecord record[kNumberOfIteration+1];
   //  Use Levenberg-Marquardt method to implement the minimization
-  //	double lamda = 0.05;  // initialize lamda
-  //	double kappa = 2.0;   // the weight parameter between image data and smoothness term
+  //	float lamda = 0.05;  // initialize lamda
+  //	float kappa = 2.0;   // the weight parameter between image data and smoothness term
   /////////////////////////////////////////////////////////////////
-  double** Dcpx = make_2D_double_array(MatrixRes,MatrixRes);
-  double** Dcpy = make_2D_double_array(MatrixRes,MatrixRes);
+  float** Dcpx = make_2D_float_array(MatrixRes,MatrixRes);
+  float** Dcpy = make_2D_float_array(MatrixRes,MatrixRes);
 
 
   ////////////////////////////////////////////////////////////////
@@ -552,8 +518,8 @@ void CRegistration::gradientdescent_smoother(CContour* lower,CContour* higher,do
     //  save record_hand_freeForm_RES1 record;
     //  save record_hand_freeForm_vicinity record;
     // Set up the parameters (x/y coordinates of the control points)
-    memset(Dcpx[0],0,sizeof(double)*MatrixRes*MatrixRes);
-    memset(Dcpy[0],0,sizeof(double)*MatrixRes*MatrixRes);
+    memset(Dcpx[0],0,sizeof(float)*MatrixRes*MatrixRes);
+    memset(Dcpy[0],0,sizeof(float)*MatrixRes*MatrixRes);
     record[it].initial(errorE,higher);
     calculate_dlattice_by_point(Dcpx,Dcpy,higher,lower);
     //////////////////////////////////////////////////////
@@ -591,7 +557,7 @@ void CRegistration::gradientdescent_smoother(CContour* lower,CContour* higher,do
   // {
   //   for (int yy = 0; yy < MatrixRes; ++yy)
   //   {
-  //     double x=Dcpx[xx][yy],y=Dcpy[xx][yy];
+  //     float x=Dcpx[xx][yy],y=Dcpy[xx][yy];
   //     if (x!=0&&y!=0)
   //     {
   //       std::cout<<"Dcpxy["<<xx<<","<<yy<<"]:"<<x<<","<<y<<";";
@@ -599,23 +565,23 @@ void CRegistration::gradientdescent_smoother(CContour* lower,CContour* higher,do
   //   }
   //   std::cout<<"\n";
   // }
-  free_2D_double_array(Dcpx);
-  free_2D_double_array(Dcpy);
+  free_2D_float_array(Dcpx);
+  free_2D_float_array(Dcpy);
 }
 
-double CRegistration::compute_intensity_by_point(double **& dist, double tx,double ty)
+float CRegistration::compute_intensity_by_point(float **& dist, float tx,float ty)
 {
   //for text ,exchange x,y .because already exchange the x,y int distmap
-  double px=ty;
-  double py=tx;
+  float px=ty;
+  float py=tx;
   int x = (int) px;
   int y = (int) py;
   
-  double a = px - x;
-  double b = py -y;
+  float a = px - x;
+  float b = py -y;
   int N= NumberRows;
   if (( x >= 0) && (y >= 0) && (x < (N-1)) && (y < (N-1))) 
-    return  (double) ((1.0 - a) * (1.0 - b) * dist[x][y] + (1.0 - a) * b * dist[x][y+1] +
+    return  (float) ((1.0 - a) * (1.0 - b) * dist[x][y] + (1.0 - a) * b * dist[x][y+1] +
                       a * b * dist[x+1][y+1] + a * (1.0 - b) * dist[x+1][y]);
   else 
   {
@@ -627,76 +593,76 @@ double CRegistration::compute_intensity_by_point(double **& dist, double tx,doub
   }
 }
 
-double CRegistration::cubic_spline(double u, int o)
+float CRegistration::cubic_spline(float u, int o)
 
 	// u: t, the time
 	// o: the order
 {
-	double b;
+	float b;
 	switch (o)
 	{
 	case 0:
-		b = (double) (1.0-u)*(1.0-u)*(1.0-u)/ (double) 6.0;
+		b = (float) (1.0-u)*(1.0-u)*(1.0-u)/ (float) 6.0;
 		break;
 	case 1: 
-		b = (double) (3.0*u*u*u-6*u*u+4)/(double) 6.0;
+		b = (float) (3.0*u*u*u-6*u*u+4)/(float) 6.0;
 		break;
 	case 2: 
-		b = (double) (-3*u*u*u+3*u*u+3*u+1)/(double) 6.0;
+		b = (float) (-3*u*u*u+3*u*u+3*u+1)/(float) 6.0;
 		break;
 	case 3: 
-		b = (double) u*u*u/(double) 6.0;
+		b = (float) u*u*u/(float) 6.0;
 		break;
 	}
 	return b;
 }
 
-void CRegistration::calculate_dlattice_by_point(double **&Dcpx,double**&Dcpy,CContour*higher,CContour*lower)
+void CRegistration::calculate_dlattice_by_point(float **&Dcpx,float**&Dcpy,CContour*higher,CContour*lower)
 {
-  double fx=0,gtx=0;
-  double Dg[2],Dp[2];
-  double dux=0,duy=0;
-  double dLx[2],dLy[2];
-  double dxdLx[2],dydLx[2],dxdLy[2],dydLy[2];
-  double dx[2],dy[2];
+  float fx=0,gtx=0;
+  float Dg[2],Dp[2];
+  float dux=0,duy=0;
+  float dLx[2],dLy[2];
+  float dxdLx[2],dydLx[2],dxdLy[2],dydLy[2];
+  float dx[2],dy[2];
   int size = higher->vec_Points_Vicinity.size();
   //fstream filefx("fx_gtx_Dg",ios_base::out|ios_base::app);
   for(int k=0;k<size;++k)
   {
-    double x = higher->vec_Points_Vicinity[k]->x;
-    double y = higher->vec_Points_Vicinity[k]->y;
-    double xt= higher->vec_new_points_vicinity[k]->x;
-    double yt= higher->vec_new_points_vicinity[k]->y;
+    float x = higher->vec_Points_Vicinity[k]->x;
+    float y = higher->vec_Points_Vicinity[k]->y;
+    float xt= higher->vec_new_points_vicinity[k]->x;
+    float yt= higher->vec_new_points_vicinity[k]->y;
     //TODO why y and x exchange position?
 
-    fx = compute_intensity_by_point(higher->m_Map->DistancsMap,x,y);
-    gtx = compute_intensity_by_point(lower->m_Map->DistancsMap,xt,yt);
+    fx = compute_intensity_by_point(higher->m_Map->get_distance_map(),x,y);
+    gtx = compute_intensity_by_point(lower->m_Map->get_distance_map(),xt,yt);
     //distance between a transfored feature point and its corresponding target feature point
     //TODO why yt xt exchange their position? don't need exchange
-    Dg[0] = compute_intensity_by_point(lower->m_Map->gx,xt,yt);
-    Dg[1] = compute_intensity_by_point(lower->m_Map->gy,xt,yt);
+    Dg[0] = compute_intensity_by_point(lower->m_Map->get_gx(),xt,yt);
+    Dg[1] = compute_intensity_by_point(lower->m_Map->get_gy(),xt,yt);
     // filefx<<x<<"\t"<<y<<"\t"<<xt<<"\t"<<yt<<"\t"<<fx<<"\t"<<gtx<<"\t"<<Dg[0]<<"\t"<<Dg[1]<<"\r\n";
     //    filefx<<"******************************************************"<<"\r\n";
     //find the index of current pixel
     // find the index of current pixel
-    double xIdx = 1+(x-min(xvb, MatrixRes))/(max(xvb,MatrixRes)-min(xvb,MatrixRes))*(MatrixRes-1);  // the index in the control point lattice
-    double yIdx = 1+(y-min(yvb,MatrixRes))/(max(yvb,MatrixRes)-min(yvb,MatrixRes))*(MatrixRes-1);
+    float xIdx = 1+(x-min(xvb, MatrixRes))/(max(xvb,MatrixRes)-min(xvb,MatrixRes))*(MatrixRes-1);  // the index in the control point lattice
+    float yIdx = 1+(y-min(yvb,MatrixRes))/(max(yvb,MatrixRes)-min(yvb,MatrixRes))*(MatrixRes-1);
     
     
     int i = (int) (xIdx)-2;
     int j = (int) (yIdx)-2;
     
-    double u = xIdx - (int) (xIdx);
-    double v = yIdx - (int) (yIdx);
+    float u = xIdx - (int) (xIdx);
+    float v = yIdx - (int) (yIdx);
       
     // compute partial u/partial x and partial v/partial x
     dux = 1.0/(max(xvb, MatrixRes)-min(xvb,MatrixRes))*(MatrixRes-1.0);
     duy = 1.0/(max(yvb,MatrixRes)-min(yvb,MatrixRes))*(MatrixRes-1.0);
     
-    dLx[0]=(double)0.0;
-    dLx[1]=(double)0.0;
-    dLy[0]=(double)0.0;
-    dLy[1]=(double)0.0;
+    dLx[0]=(float)0.0;
+    dLx[1]=(float)0.0;
+    dLy[0]=(float)0.0;
+    dLy[1]=(float)0.0;
     
     // cuurent pixel only affects sixteen control points , thus only 2*16 parameters
     if (!(i<0||i>(MatrixRes-3-1)||j<0||j>(MatrixRes-3-1)))
@@ -709,9 +675,9 @@ void CRegistration::calculate_dlattice_by_point(double **&Dcpx,double**&Dcpy,CCo
          //the derivative for control point lattice(j+n,i+m) derived from the image term
           //to do the y x position exchanged!!
           dx[0] = cubic_spline(u,m)*cubic_spline(v,n);
-          dx[1] = (double)0.0;
+          dx[1] = (float)0.0;
           
-          dy[0] = (double)0.0;
+          dy[0] = (float)0.0;
           dy[1] = cubic_spline(u,m)*cubic_spline(v,n);
           
           Dcpx[j+n][i+m] = Dcpx[j+n][i+m] - 2*(fx-gtx)*dot(Dg,dx);
@@ -732,20 +698,20 @@ void CRegistration::calculate_dlattice_by_point(double **&Dcpx,double**&Dcpy,CCo
           
           // the derivative for control point NXB(j+n, i+m) derived from the image term
           dxdLx[0] = spline_deriv(u, m)*dux*cubic_spline(v, n);     // derivative with respect to the x coordinate
-          dxdLx[1] = (double)0.0;    // derivative with respect to the x coordinate
-          dydLx[0] = (double)0.0;
+          dxdLx[1] = (float)0.0;    // derivative with respect to the x coordinate
+          dydLx[0] = (float)0.0;
           dydLx[1] = spline_deriv(u, m)*dux*cubic_spline(v, n);
           
           //  	dydLx = [0 spline_deriv(u, m)*dux*cubic_spline(v, n)]';
           
           dxdLy[0] = cubic_spline(u, m)*spline_deriv(v, n)*duy;
-          dxdLy[1] = (double) 0.0;     // derivative with respect to the x coordinate
-          dydLy[0] = (double) 0.0;
+          dxdLy[1] = (float) 0.0;     // derivative with respect to the x coordinate
+          dydLy[0] = (float) 0.0;
           dydLy[1] = cubic_spline(u, m)*spline_deriv(v, n)*duy;
           
           // update based on the smoothness term
-          Dcpx[j+n][i+m] = Dcpx[j+n][i+m] + kappa*((double) 2.0*dot(dLx, dxdLx) + (double) 2.0*dot(dLy, dxdLy));
-          Dcpy[j+n][i+m] = Dcpy[j+n][i+m] + kappa*((double) 2.0*dot(dLx, dydLx) + (double) 2.0*dot(dLy, dydLy));
+          Dcpx[j+n][i+m] = Dcpx[j+n][i+m] + kappa*((float) 2.0*dot(dLx, dxdLx) + (float) 2.0*dot(dLy, dxdLy));
+          Dcpy[j+n][i+m] = Dcpy[j+n][i+m] + kappa*((float) 2.0*dot(dLx, dydLx) + (float) 2.0*dot(dLy, dydLy));
         }
       }
       //end of if
@@ -754,10 +720,10 @@ void CRegistration::calculate_dlattice_by_point(double **&Dcpx,double**&Dcpy,CCo
   }
 }
 
-bool CRegistration::update_lattice(double**&Dcpx,double**&Dcpy,CContour*higher,CContour*lower,double& errorE)
+bool CRegistration::update_lattice(float**&Dcpx,float**&Dcpy,CContour*higher,CContour*lower,float& errorE)
 {
-  double **ddXB = make_2D_double_array(MatrixRes,MatrixRes);
-  double **ddYB = make_2D_double_array(MatrixRes,MatrixRes);
+  float **ddXB = make_2D_float_array(MatrixRes,MatrixRes);
+  float **ddYB = make_2D_float_array(MatrixRes,MatrixRes);
 
   //because the direction (Dcpx,Dcpy) is the max incremental direction of E, so we use the oppse direction of the (Dcpx,Dcpy) 
   for (int i = 0; i < MatrixRes; ++i)
@@ -822,8 +788,8 @@ bool CRegistration::update_lattice(double**&Dcpx,double**&Dcpy,CContour*higher,C
     // //filout_dd<<it<<"end\n";
     // filout_p<<"****************************************************\n";
     // filout_p.close();
-    compute_intensity(higher->vec_new_points_vicinity,lower->m_Map->DistancsMap,higher->vec_intensity_new);
-    double nextE = energy_func_square_diff(higher);
+    compute_intensity(higher->vec_new_points_vicinity,lower->m_Map->get_distance_map(),higher->vec_intensity_new);
+    float nextE = energy_func_square_diff(higher);
     if (nextE < errorE)
     {
       for (int i = 0; i < MatrixRes; ++i)
@@ -880,8 +846,8 @@ bool CRegistration::update_lattice(double**&Dcpx,double**&Dcpy,CContour*higher,C
       }
     }
   }
-  free_2D_double_array(ddXB);
-  free_2D_double_array(ddYB);
+  free_2D_float_array(ddXB);
+  free_2D_float_array(ddYB);
   return stop;
 }
 
@@ -1093,11 +1059,11 @@ int CRegistration::get_closest_point(std::vector<CPoint*>&vec_points,CPoint poin
   int N = vec_points.size();
   CPoint temp;
   int result=-1;
-  double distancs=999999999;
+  float distancs=999999999;
   for (int i = 0; i < N; ++i)
   {
     temp =*(vec_points[i]);
-    double d=(temp.x-point.x)*(temp.x-point.x)+(temp.y-point.y)*(temp.y-point.y);
+    float d=(temp.x-point.x)*(temp.x-point.x)+(temp.y-point.y)*(temp.y-point.y);
     d=sqrt(d);
     if (d<distancs)
     {
@@ -1114,11 +1080,11 @@ int CRegistration::get_closest_point(std::vector<CPoint*>&vec_points,std::vector
   int N = vec_points.size();
   CPoint temp;
   int result=-1;
-  double distancs=999999999;
+  float distancs=999999999;
   for (int i = 0; i < N; ++i)
   {
     temp =*(vec_points[i]);
-    double d=(temp.x-point.x)*(temp.x-point.x)+(temp.y-point.y)*(temp.y-point.y);
+    float d=(temp.x-point.x)*(temp.x-point.x)+(temp.y-point.y)*(temp.y-point.y);
     d=sqrt(d);
     if (d<distancs)
     {
@@ -1130,7 +1096,7 @@ int CRegistration::get_closest_point(std::vector<CPoint*>&vec_points,std::vector
   for (int i = 0; i < N; ++i)
   {
     temp =*(medial_points[i]);
-    double d=(temp.x-point.x)*(temp.x-point.x)+(temp.y-point.y)*(temp.y-point.y);
+    float d=(temp.x-point.x)*(temp.x-point.x)+(temp.y-point.y)*(temp.y-point.y);
     d=sqrt(d);
     if (d<distancs)
     {

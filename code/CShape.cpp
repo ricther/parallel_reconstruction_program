@@ -4,7 +4,12 @@
 #include"CMap.h"
 #include"CPoint.h"
 #include"CSkeleton.h"
+#include<omp.h>
 using namespace std;
+/** 
+ * initial m_skeleton;m_registration
+ * 
+ */
 CShape::CShape()
 {
   float n=999999;
@@ -12,48 +17,40 @@ CShape::CShape()
   min_x=min_y=min_z=n;
   sum_x=sum_y=0;
   m_skeleton=new CSkeleton();
-}
-void CShape::initial(vector<string>&t_vec_filename)
-{
   m_registration= new CRegistration(this);
-  vec_filename=t_vec_filename;
-  int size=vec_filename.size();
-  if (size>1)
-  {
-    // for (int i = 0; i < size; ++i)
-    // {
-    //   string filename=vec_filename[i];
-    //   fstream fin(vec_filename[i].c_str(),ios_base::in);
-    //   if (fin.is_open())
-    //   {
-    //     CLayer * newlayer = new CLayer(i+1);//in order to keep consistent with the single file,the first level is 1, not zero
-    //     newlayer->filename=filename;
-    //     newlayer->read_layer_single_contour_without_z(fin);
-    //     check_edge(newlayer->center_point->x,newlayer->center_point->y,newlayer->center_point->z);
-    //     map_Layer.insert(make_pair(newlayer->LayerID,newlayer));
-    //   }
-    // }
-    // get_center();
-    // calculate_one_moment();
-  }
-  else if(size==1)
-  {
-    read();   
-  }
- 
 }
 
+/** 
+ * intial the shape, invoke the read()
+ * 
+ * @param filename 
+ */
+void CShape::initial(string filename)
+{
+  m_filename=filename;
+  read();   
+}
+
+/** 
+ * 
+ * 
+ * @param temp_window 
+ * @param temp_interactor 
+ */
 void CShape::initial_display(vtkSmartPointer<vtkRenderWindow> temp_window,vtkSmartPointer<vtkRenderWindowInteractor> temp_interactor)
 {
   m_display= new CShapeDisplay(this,temp_window,temp_interactor);
 }
 
 #include<fstream>
+/** 
+ * read the image data, and invoke the layer.read() and contour.read()
+ * fill the map_layer
+ */
 void CShape::read()
 {
   //read the structure like that: level contourID x y
-  string filename = vec_filename[0];
-  fstream fin(filename.c_str(),ios_base::in);
+    fstream fin(m_filename.c_str(),ios_base::in);
   if(fin.is_open())
   {
     bool result=true;
@@ -90,7 +87,11 @@ void CShape::read()
   get_center();
   calculate_one_moment();
 }
-
+/** 
+ * build skeleton;
+ * normalize the shape position;
+ * 
+ */
 void CShape::Setup()
 {
   m_skeleton->build_skeleton_new(map_Layer);
@@ -102,13 +103,32 @@ void CShape::Setup()
     layer_count++;
     (itr->second)->setup(moment_one_point);
     contour_count+=(itr->second)->map_contour.size();
-    //    (itr->second)->normalize(center_point);
-    //    (itr->second)->normalize(moment_one_point);
-    //    (itr->second)->InitMap();
-    //(itr->second)->m_Map->gradient();
   }
   std::cout<<"**********Layer NUM:"<<layer_count<<"\t"<<"Contour NUM"<<contour_count<<"\n";
 }
+
+void CShape::Setup_use_openmp()
+{
+  m_skeleton->build_skeleton_new(map_Layer);
+  std::map<float,CLayer*>::iterator itr=map_Layer.begin(),etr=map_Layer.end();
+  for(;itr!=etr;++itr)
+  {
+    vec_layerID.push_back(itr->first);
+  }
+
+  int size=vec_layerID.size();
+  int layer_count=0;
+  int contour_count=0;
+#pragma omp parallel for num_threads(thread_num)
+  for(int i=0;i<size;++i)
+  {
+    layer_count++;
+    map_Layer[vec_layerID[i]]->setup(moment_one_point);
+    contour_count+=(itr->second)->map_contour.size();
+  }
+  std::cout<<"**********Layer NUM:"<<layer_count<<"\t"<<"Contour NUM"<<contour_count<<"\n";
+}
+
 
 void CShape::Registration()
 {

@@ -27,6 +27,7 @@ CMap::~CMap()
   freeMap((void**)gx);
   freeMap((void**)gy);
 }
+
 void CMap::setup()
 {
   string filestr=m_contour->filename;
@@ -60,18 +61,18 @@ void CMap::setup()
   // m_debugfile2.Output(DistancsMap);
 }
 
-bool CMap::mallocMap_double(double **& array)
+bool CMap::mallocMap_double(float **& array)
 {
   array=0;
-  double *arr_ptr;
-  arr_ptr=(double*) calloc(NUMCOLS*NUMROWS,sizeof(double));//calloc can initialize the memory with 0
+  float *arr_ptr;
+  arr_ptr=(float*) calloc(NUMCOLS*NUMROWS,sizeof(float));//calloc can initialize the memory with 0
   //  memset(arr_ptr,NUMCOLS*NUMROWS,sizeof(double)*NUMCOLS*NUMROWS);
   //  std::cout<<"mallocMap_double_size:"<<NUMCOLS*NUMROWS*sizeof(double)<<"double_size:"<<sizeof(double)<<"\n";
   if (arr_ptr==NULL)
   {
     return false;
   }
-  array =(double**) calloc(NUMROWS,sizeof(double*));
+  array =(float**) calloc(NUMROWS,sizeof(float*));
   if (array==NULL)
   {
     return false;
@@ -216,7 +217,7 @@ void CMap::insertPoint(CPoint* temp)
 ///the edge pixel in the distances map will nbe 0
 void CMap::drawcontour()
 {
-  memset(DistancsMap[0],'w',sizeof(double)*NUMCOLS*NUMROWS);// initialize the DistancsMap with a big number
+  memset(DistancsMap[0],'w',sizeof(float)*NUMCOLS*NUMROWS);// initialize the DistancsMap with a big number
   memset(SignMap[0],0,sizeof(unsigned char)*NUMCOLS*NUMROWS);// initialize the SignMap with 0;
   for(int i=0;i<m_contour->vec_Points_Inter.size();++i)
   {
@@ -254,7 +255,7 @@ void CMap::caldistancesmap()
   double M_SQRT_2 = 1.4142135623730950488016887220097;
   int ONE=1;
   int k=0,l=0;
-  double t;
+  float t;
 
   for(int i=0;i<NUMROWS;i++)
   {
@@ -283,7 +284,7 @@ void CMap::caldistancesmap()
     for(int j=NUMCOLS-1;j>=0;j--)
     {
       t=DistancsMap[i][j];
-      double test=t;
+      float test=t;
       k=i+1;l=j-1;if ((k<NUMROWS)&&(l>=0)&&(t>DistancsMap[k][l]+M_SQRT_2)) t=DistancsMap[k][l]+M_SQRT_2;
       k=i+1;l=j;if ((k<NUMROWS)&&(t>DistancsMap[k][l]+ONE)) t=DistancsMap[k][l]+ONE;
       k=i+1;l=j+1;if ((k<NUMROWS)&&(l<NUMCOLS)&&(t>DistancsMap[k][l]+M_SQRT_2)) t=DistancsMap[k][l]+M_SQRT_2;
@@ -303,7 +304,7 @@ void CMap::caldistancesmap()
       }
     }
   }
-  double Temp[NUMROWS][NUMCOLS];
+  float Temp[NUMROWS][NUMCOLS];
   for (int i = 0; i < NUMROWS; ++i)
   {
     for (int j = 0; j < NUMCOLS; ++j)

@@ -1,4 +1,5 @@
 #pragma once
+#include <stdlib.h>
 // this is the class about the bit map
 class CContour;
 class CPoint;
@@ -15,15 +16,68 @@ public:
   const int NUMROWS;
   const int NUMCOLS;
   unsigned char** SignMap;
-  double** DistancsMap;
+
   CContour* m_contour;
   void setup();
-  bool mallocMap_double(double**&);
+  bool mallocMap_double(float**&);
   bool mallocMap_char(unsigned char**&);
   void freeMap(void**);
   void gradient();
-  double**gx,**gy;
   int area;
+protected:
+  float **gx,**gy;
+  float** DistancsMap;//if the image is too large, here can use double
+public:
+  float**& get_distance_map()
+  {
+    if(DistancsMap==NULL)
+    {
+      setup();
+    }
+    return DistancsMap;
+  }
+  float**& get_gx()
+  {
+    if (gx==NULL)
+    {
+      gradient();
+    }
+    return gx;
+  }
+  float**& get_gy()
+  {
+    if (gy==NULL)
+    {
+      gradient();
+    }
+    return gy;
+  }
+
+  float get_distance_map(int i,int j)
+  {
+    if(DistancsMap==NULL)
+    {
+      setup();
+    }
+    return DistancsMap[i][j];
+  }
+  float get_gx(int i,int j)
+  {
+    if (gx==NULL)
+    {
+      gradient();
+    }
+    return gx[i][j];
+  }
+  float get_gy(int i , int j)
+  {
+    if (gy==NULL)
+    {
+      gradient();
+    }
+    return gy[i][j];
+  }
+
 protected:
   void interp_closed();
   int  digi_img_line(CPoint*,CPoint*,int*,int*);

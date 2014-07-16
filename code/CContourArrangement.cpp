@@ -5,7 +5,7 @@
 #include "assert.h"
 #include "stdio.h"
 #include "iostream"
-
+#include "CShape.h"
 contour_couple::contour_couple()
 {
   contour1=NULL;contour2=NULL;
@@ -38,19 +38,50 @@ bool contour_couple:: operator == (const contour_couple& right)
 void CContourArrangement::setup()
 {
   std::vector<contour_couple*> vec_couple1,vec_couple2;
-  get_couple(up_layer,down_layer,vec_couple1);
-  get_couple(down_layer,up_layer,vec_couple2);
-  get_union_couple(vec_couple1,vec_couple2);
-  vec_couple1.clear();vec_couple2.clear();
+  int size = m_shape->vec_layerID.size();
+  for (int i = 0; i < size; ++i)
+  {
+    if (i+1>=size)
+    {
+      break;
+    }
+    get_couple(m_shape->map_Layer[m_shape->vec_layerID[i]],m_shape->map_Layer[m_shape->vec_layerID[i+1]],vec_couple1);
+    get_couple(m_shape->map_Layer[m_shape->vec_layerID[i+1]],m_shape->map_Layer[m_shape->vec_layerID[i]],vec_couple2);
+    get_union_couple(vec_couple1,vec_couple2);
+    vec_couple1.clear();vec_couple2.clear();
+  }
 }
+
+void CContourArrangement::setup_use_omp()
+{
+  std::vector<contour_couple*> vec_couple1,vec_couple2;
+  int size = m_shape->vec_layerID.size();
+#pragma omp parallel for num_threads(thread_num)
+  for (int i = 0; i < size-1; ++i)
+  {
+    get_couple(m_shape->map_Layer[m_shape->vec_layerID[i]],m_shape->map_Layer[m_shape->vec_layerID[i+1]],vec_couple1);
+    get_couple(m_shape->map_Layer[m_shape->vec_layerID[i+1]],m_shape->map_Layer[m_shape->vec_layerID[i]],vec_couple2);
+    get_union_couple(vec_couple1,vec_couple2);
+    vec_couple1.clear();vec_couple2.clear();
+  }
+}
+
+
 
 void CContourArrangement::get_union_couple(  std::vector<contour_couple*>& couple1,  std::vector<contour_couple*>& couple2)
 {
-  vec_contour_couple=couple1;
+
+  std::vector<contour_couple*>::iterator itr2=couple1.begin(),etr2=couple1.end();
+  for(;itr2!=etr2;++itr2)
+  {
+    (*itr2)->contour1->use_counter++;(*itr2)->contour2->use_counter++;
+    vec_contour_couple.push_back(*itr2);
+  }
+  
   std::vector<contour_couple*>::iterator itr=couple2.begin(),etr=couple2.end();
   for (; itr!=etr; ++itr)
   {
-    std::vector<contour_couple*>::iterator itr2=vec_contour_couple.begin(),etr2=vec_contour_couple.end();
+    itr2=couple1.begin(),etr2=couple1.end();
     bool find_same=false;
     for (; itr2 !=etr2; ++itr2)
     {
@@ -121,6 +152,8 @@ void CContourArrangement:: get_couple(CLayer* first_layer, CLayer* second_layer,
     else
     {
       vec_couple.push_back(new_couple);
+      new_couple->contour1->map_neighbour.insert(std::make_pair(new_couple->contour2->LayerID,new_couple->contour2));
+      new_couple->contour2->map_neighbour.insert(std::make_pair(new_couple->contour1->LayerID,new_couple->contour1));
     }
   }
 }
@@ -258,7 +291,7 @@ float CContourArrangement::check_intersection_use_level_set(CContour* u, CContou
   {
     for (int j = 0; j < NumCols; ++j)
     {
-      if (u->m_Map->DistancsMap[j][i]<0&&d->m_Map->DistancsMap[j][i]<0)
+      if (u->m_Map->get_distance_map(j,i)<0&&d->m_Map->get_distance_map(j,i)<0)
       {
         ++temp;
       }

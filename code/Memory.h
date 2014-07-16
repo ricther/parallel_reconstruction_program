@@ -20,4 +20,7 @@
   double **make_2D_double_array(int row,int col);
   void free_2D_double_array(double **arr);
 
+  float **make_2D_float_array(int row,int col);
+  void free_2D_float_array(float **arr);
+
 

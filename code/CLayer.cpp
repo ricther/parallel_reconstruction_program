@@ -39,7 +39,7 @@ void CLayer:: check_length(float length)
 {
   total_length+=length;
 }
-void CLayer:: check_edge(double tempx,double tempy )
+void CLayer:: check_edge(float tempx,float tempy )
 {
     if (tempx>max_x)
     {
@@ -175,12 +175,12 @@ void CLayer::setup(CPoint shape_center_point)
   {
     (itr->second)->normalize(shape_center_point);
     (itr->second)->smooth();
-    (itr->second)->InitMap();
+    //(itr->second)->InitMap();
   }
-  if (contour_Num>1)
-  {
-    calculate_medial_axis();
-  }
+  // if (contour_Num>1)
+  // {
+  //   calculate_medial_axis();
+  // }
 }
 
 void CLayer::reset()
@@ -199,7 +199,7 @@ void CLayer::reset()
 void CLayer::calculate_medial_axis()
 {
   medial_axis_count++;
-  medial_axis=make_2D_double_array(NumRows,NumCols);
+  medial_axis=make_2D_float_array(NumRows,NumCols);
   for (int i = 0; i < NumRows; ++i)
   {
     for (int j = 0; j < NumCols; ++j)
@@ -234,8 +234,8 @@ void CLayer::calculate_medial_axis()
       {
         for (int j = 0; j < NumCols; ++j)
         {
-          double first=(int) itr->second->m_Map->DistancsMap[i][j];
-          double second=(int) nitr->second->m_Map->DistancsMap[i][j];
+          float first=(int) itr->second->m_Map->get_distance_map(i,j);
+          float second=(int) nitr->second->m_Map->get_distance_map(i,j);
           float margin=1;
           if(first-second>=-margin&&first-second<=margin)
           {
@@ -243,7 +243,7 @@ void CLayer::calculate_medial_axis()
           }
           else if (medial_axis[i][j]==0)
           {
-            if (itr->second->m_Map->DistancsMap[i][j]<=distance_medialaxis_contour||nitr->second->m_Map->DistancsMap[i][j]<=distance_medialaxis_contour)
+            if (itr->second->m_Map->get_distance_map(i,j)<=distance_medialaxis_contour||nitr->second->m_Map->get_distance_map(i,j)<=distance_medialaxis_contour)
             {
               medial_axis[i][j]=255;              
             }

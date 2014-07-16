@@ -1,4 +1,4 @@
-#pragma oncep
+#pragma once
 //athour xu liu 01/10/13
 //the class of layer
 #include <map>
@@ -25,16 +25,19 @@ public:
  std:: map<float,CLayer*> map_Layer;
 
  void Registration();
- void initial(std::vector<std::string>&);//if size of vec is biger than one the section will read multi files and one file contain one //layer else the section will read wohle shape from one file
+ void initial(std::string);//if size of vec is biger than one the section will read multi files and one file contain one //layer else the section will read wohle shape from one file
  void Setup();
+ void Setup_use_openmp();
  void initial_display(vtkSmartPointer<vtkRenderWindow>,vtkSmartPointer<vtkRenderWindowInteractor>);
  CShapeDisplay* m_display;
  CSkeleton *m_skeleton;
  float get_next_layer(float now_layerID,int direction);//direction 0 down 1 up
+ std::vector<float> vec_layerID;
+ 
 private:
 
  CRegistration * m_registration;
- std::vector<std::string>vec_filename;
+ std::string m_filename;
  void read();
  void check_edge(float ,float ,float);
  void get_center();
