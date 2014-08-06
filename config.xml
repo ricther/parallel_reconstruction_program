@@ -3,11 +3,11 @@
   <NumRows>900</NumRows>
   <NumCols>900</NumCols>
   <interval_of_point>1</interval_of_point>
-  <layer_interval_scale>1</layer_interval_scale>
+  <layer_interval_scale>10</layer_interval_scale>
   <interval_of_line_layer>1</interval_of_line_layer>
   <distance_medialaxis_contour>3</distance_medialaxis_contour>
   <iteration_number>60</iteration_number>
-  <use_medial_axis>TRUE</use_medial_axis>
+  <use_medial_axis>false</use_medial_axis>
   <use_normalize_for_points>true</use_normalize_for_points>
   <show_vertex_on_edge>TRUE</show_vertex_on_edge>
   <use_length_energy>TRUE</use_length_energy>
@@ -17,8 +17,8 @@
   <contour_pointnum_threshold>30</contour_pointnum_threshold>
   <point_distance_scale>0</point_distance_scale>
   <boundary_coverage_rate_threshold>0.0001</boundary_coverage_rate_threshold>
-  <use_open_mp>FALSE</use_open_mp>
-  <thread_num>8</thread_num>
+  <use_open_mp>true</use_open_mp>
+  <thread_num>2</thread_num>
   <gap_threshold>8</gap_threshold>
   <use_contour_smooth>false</use_contour_smooth>
 </initial>

@@ -24,6 +24,7 @@ CContour::CContour(const float ID,CLayer* layer):lattice_x(NULL),lattice_y(NULL)
   use_counter=0;
   sum_x=0;
   sum_y=0;
+  m_Map= new CMap(this);
 }
 
 void CContour:: operator=(CContour &temp)
@@ -269,7 +270,10 @@ void CContour::reset()
 
 void CContour::smooth()
 {
-  return;
+  if (use_contour_smooth==false)
+  {
+    return;
+  }
   float smooth_factor=4.0;
   int size=vec_Points_Origin.size();
   for (int i = 0; i < size; ++i)

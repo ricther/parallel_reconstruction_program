@@ -13,6 +13,8 @@ CMap::CMap(CContour* temp_contour):NUMROWS(NumRows),NUMCOLS(NumCols)
   m_contour=temp_contour;
   SignMap=NULL;
   DistancsMap=NULL;
+  gx=NULL;
+  gy=NULL;
   area=0;
 }
 

@@ -19,3 +19,4 @@ extern const float boundary_coverage_rate_threshold;
 extern const bool use_open_mp;
 extern const int thread_num;
 extern const int gap_threshold;
+extern const bool use_contour_smooth;

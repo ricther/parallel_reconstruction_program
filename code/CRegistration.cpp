@@ -120,40 +120,50 @@ void CRegistration::Register()
   CContourArrangement contour_arrangement(SourceShape);
   contour_arrangement.setup();
   //  contour_arrangement
-  
-  std::map<float,CLayer*>::iterator itr=SourceShape->map_Layer.begin(),etr=SourceShape->map_Layer.end(),nitr;
-  int count=1;
-  contour_couple* temp_couple;
-  
-  for (;itr!=etr; ++itr)
+
+  std::vector<contour_couple*>::iterator itr=contour_arrangement.vec_contour_couple.begin(),etr=contour_arrangement.vec_contour_couple.end();
+  int size=contour_arrangement.vec_contour_couple.size();
+  int counter=0;
+  for (;itr!=etr;++itr)
   {
-
-    nitr=itr;
-    ++nitr;
-    cout<<"processing layer:"<<itr->first<<"-"<<nitr->first<<"; count:"<<count<<"\ttotal layer num:"<<src_layer_num<<"\t"<<"complete:"<<count*1.0/(src_layer_num*1.0)<<"\n";
-    count++;
-    if (nitr==etr)
-    {
-      break;
-    }
-    lower_layer=itr->second;
-    higher_layer=nitr->second;
-    lower_layer->reset();
-    higher_layer->reset();
-
-
-    int couple_num=contour_arrangement.vec_contour_couple.size();
-    if (couple_num==0)
-    {
-      continue;
-    }
-    
-    for (int i = 0; i < couple_num; ++i)
-    {
-     temp_couple=contour_arrangement.vec_contour_couple[i];
-     regist_lower_long_higher_short(temp_couple->contour1,temp_couple->contour2);
-    }
+    counter++;
+    std::cout<<"processing couple:"<<counter<<"\t total couple num:"<<size<<"\t complete:"<<counter*1.0/(size*1.0)<<"\n";
+    regist_lower_long_higher_short((*itr)->contour1,(*itr)->contour2);
   }
+  
+  // std::map<float,CLayer*>::iterator itr=SourceShape->map_Layer.begin(),etr=SourceShape->map_Layer.end(),nitr;
+  // int count=1;
+  // contour_couple* temp_couple;
+  
+  // for (;itr!=etr; ++itr)
+  // {
+
+  //   nitr=itr;
+  //   ++nitr;
+  //   cout<<"processing layer:"<<itr->first<<"-"<<nitr->first<<"; count:"<<count<<"\ttotal layer num:"<<src_layer_num<<"\t"<<"complete:"<<count*1.0/(src_layer_num*1.0)<<"\n";
+  //   count++;
+  //   if (nitr==etr)
+  //   {
+  //     break;
+  //   }
+  //   lower_layer=itr->second;
+  //   higher_layer=nitr->second;
+  //   lower_layer->reset();
+  //   higher_layer->reset();
+
+
+  //   int couple_num=contour_arrangement.vec_contour_couple.size();
+  //   if (couple_num==0)
+  //   {
+  //     continue;
+  //   }
+    
+  //   for (int i = 0; i < couple_num; ++i)
+  //   {
+  //    temp_couple=contour_arrangement.vec_contour_couple[i];
+  //    regist_lower_long_higher_short(temp_couple->contour1,temp_couple->contour2);
+  //   }
+  // }
   float end_time=omp_get_wtime();
   std::cout<<"***************************\n"<<"registration cost time:"<<start_time-end_time<<endl<<"***************************\n";
 
@@ -163,61 +173,78 @@ void CRegistration::Register_use_openmp()
 {
   float start_time=omp_get_wtime();
   int src_layer_num=SourceShape->map_Layer.size();
+  CContourArrangement contour_arrangement(SourceShape);
+  contour_arrangement.setup_use_omp();
+
+  std::vector<contour_couple*>::iterator itr=contour_arrangement.vec_contour_couple.begin(),etr=contour_arrangement.vec_contour_couple.end();
+  int size=contour_arrangement.vec_contour_couple.size();
+  int counter=0;
   
-  std::map<float,CLayer*>::iterator itr=SourceShape->map_Layer.begin(),etr=SourceShape->map_Layer.end(),nitr;
-  std::vector<float> vec_layerID;
-  int count=1;
-  contour_couple* temp_couple;
-
-  for (;itr!=etr ; ++itr)
-  {
-    vec_layerID.push_back(itr->first);
-  }
-
-  int size=vec_layerID.size();
-
-  std::cout<<"use openmp to acc"<<std::endl;
-  for (int ii = 0; ii < 2; ++ii)
-  {
 #pragma omp parallel for num_threads(thread_num)
-    for (int ly=ii;ly<size-1-2;ly+=2)
-    {
-    CLayer *lower_layer=NULL;
-    CLayer *higher_layer=NULL;
-    CContour* lower_contour=NULL;
-    CContour* higher_contour=NULL;
+  for (int i=0;i<size;++i)
+  {
+    counter++;
+    std::cout<<"processing couple:"<<counter<<"\t total couple num:"<<size<<"\t complete:"<<counter*1.0/(size*1.0)<<"\n";
+    regist_lower_long_higher_short(contour_arrangement.vec_contour_couple[i]->contour1,contour_arrangement.vec_contour_couple[i]->contour2);
+  }
+  
 
 
-    CContourArrangement contour_arrangement(SourceShape);
-    contour_arrangement.setup();
+  
+//   std::map<float,CLayer*>::iterator itr=SourceShape->map_Layer.begin(),etr=SourceShape->map_Layer.end(),nitr;
+//   std::vector<float> vec_layerID;
+//   int count=1;
+//   contour_couple* temp_couple;
 
-    lower_layer=SourceShape->map_Layer[vec_layerID[ly]];
-    higher_layer=SourceShape->map_Layer[vec_layerID[ly+1]];
-    #pragma omp critical
-    {
-    cout<<"layer_itration:"<<ly<<";layer_id"<<lower_layer->LayerID<<endl;
-    cout<<"processing layer:"<<lower_layer->LayerID<<"-"<<higher_layer->LayerID<<"; count:"<<count<<"\ttotal layer num:"<<src_layer_num<<"\t"<<"complete:"<<count*1.0/(src_layer_num*1.0)<<"\n";
-    }
-    count++;
+//   for (;itr!=etr ; ++itr)
+//   {
+//     vec_layerID.push_back(itr->first);
+//   }
 
-    lower_layer->reset();
-    higher_layer->reset();
+//   int size=vec_layerID.size();
 
-    int couple_num=contour_arrangement.vec_contour_couple.size();
-    if (couple_num==0)
-    {
-      continue;
-    }
+//   std::cout<<"use openmp to acc"<<std::endl;
+//   for (int ii = 0; ii < 2; ++ii)
+//   {
+// #pragma omp parallel for num_threads(thread_num)
+//     for (int ly=ii;ly<size-1-2;ly+=2)
+//     {
+//     CLayer *lower_layer=NULL;
+//     CLayer *higher_layer=NULL;
+//     CContour* lower_contour=NULL;
+//     CContour* higher_contour=NULL;
+
+
+//     CContourArrangement contour_arrangement(SourceShape);
+//     contour_arrangement.setup();
+
+//     lower_layer=SourceShape->map_Layer[vec_layerID[ly]];
+//     higher_layer=SourceShape->map_Layer[vec_layerID[ly+1]];
+//     #pragma omp critical
+//     {
+//     cout<<"layer_itration:"<<ly<<";layer_id"<<lower_layer->LayerID<<endl;
+//     cout<<"processing layer:"<<lower_layer->LayerID<<"-"<<higher_layer->LayerID<<"; count:"<<count<<"\ttotal layer num:"<<src_layer_num<<"\t"<<"complete:"<<count*1.0/(src_layer_num*1.0)<<"\n";
+//     }
+//     count++;
+
+//     lower_layer->reset();
+//     higher_layer->reset();
+
+//     int couple_num=contour_arrangement.vec_contour_couple.size();
+//     if (couple_num==0)
+//     {
+//       continue;
+//     }
     
-    for (int i = 0; i < couple_num; ++i)
-    {
-     temp_couple=contour_arrangement.vec_contour_couple[i];
-     regist_lower_long_higher_short(temp_couple->contour1,temp_couple->contour2);
-    }
-  }
-  }
+//     for (int i = 0; i < couple_num; ++i)
+//     {
+//      temp_couple=contour_arrangement.vec_contour_couple[i];
+//      regist_lower_long_higher_short(temp_couple->contour1,temp_couple->contour2);
+//     }
+//   }
+//   }
   float end_time=omp_get_wtime();
-  std::cout<<"***************************\n"<<"registration cost time:"<<start_time-end_time<<endl<<"***************************\n";
+  std::cout<<"***************************\n"<<"registration cost time with use openmp:"<<start_time-end_time<<endl<<"***************************\n";
 }
 
 
@@ -457,7 +484,7 @@ void CRegistration::bspline_update(CContour* contour,int mode,std::vector<CPoint
     {
       float nxb=0.0,nyb=0.0;
       for (int m = 0; m < 4; ++m)
-      {
+       {
         for (int n = 0; n < 4; ++n)
         {
           if(mode == 0)

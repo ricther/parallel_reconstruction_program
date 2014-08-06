@@ -100,11 +100,12 @@ void CShape::Setup()
   int contour_count=0;
   for(;itr!=etr;++itr)
   {
+    vec_layerID.push_back(itr->first);
     layer_count++;
     (itr->second)->setup(moment_one_point);
     contour_count+=(itr->second)->map_contour.size();
   }
-  std::cout<<"**********Layer NUM:"<<layer_count<<"\t"<<"Contour NUM"<<contour_count<<"\n";
+  std::cout<<"**********Layer NUM:"<<layer_count<<"\t"<<"Contour NUM:"<<contour_count<<"\n";
 }
 
 void CShape::Setup_use_openmp()
@@ -124,9 +125,9 @@ void CShape::Setup_use_openmp()
   {
     layer_count++;
     map_Layer[vec_layerID[i]]->setup(moment_one_point);
-    contour_count+=(itr->second)->map_contour.size();
+    contour_count+=map_Layer[vec_layerID[i]]->map_contour.size();
   }
-  std::cout<<"**********Layer NUM:"<<layer_count<<"\t"<<"Contour NUM"<<contour_count<<"\n";
+  std::cout<<"**********Layer NUM:"<<layer_count<<"\t"<<"Contour NUM:"<<contour_count<<"\n";
 }
 
 

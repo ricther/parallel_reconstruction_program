@@ -1,5 +1,6 @@
 #pragma once
 #include <stdlib.h>
+#include <assert.h>
 // this is the class about the bit map
 class CContour;
 class CPoint;
@@ -65,6 +66,10 @@ public:
   {
     if (gx==NULL)
     {
+      if (DistancsMap==NULL)
+      {
+        assert(false);
+      }
       gradient();
     }
     return gx[i][j];

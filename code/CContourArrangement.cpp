@@ -93,6 +93,7 @@ void CContourArrangement::get_union_couple(  std::vector<contour_couple*>& coupl
     }
     if (find_same==false)
     {
+      (*itr)->contour1->use_counter++;(*itr)->contour2->use_counter++;
       vec_contour_couple.push_back(*itr);
     }
   }
