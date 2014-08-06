@@ -4,13 +4,14 @@
 #include "CContour.h"
 #include <vector>
 #include "initial.h"
+#include "CVirtualContour.h"
 class CShape;
 class contour_couple
 {
 public:
   contour_couple();
-  CContour* contour1;
-  CContour* contour2;
+  CVirtualContour* vcontour1;
+  CVirtualContour* vcontour2;
   bool b_intersection;
   float distance;
   bool b_couple;

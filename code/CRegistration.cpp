@@ -25,7 +25,7 @@ void ParamRecord::operator=(const ParamRecord & right)
   this->errorE = right.errorE;
 }
 
-void ParamRecord::initial(float errorE,CContour* higher)
+void ParamRecord::initial(float errorE,CVirtualContour* higher)
 {
   this->lattice_x = make_2D_float_array(MatrixRes,MatrixRes);//initial the new lattice
   this->lattice_y = make_2D_float_array(MatrixRes,MatrixRes);
@@ -77,7 +77,7 @@ void CRegistration::reset()
   lamda = 0.02;
 }
 
-void CRegistration::freeform_res1(CContour* lower,CContour*higher)
+void CRegistration::freeform_res1(CVirtualContour* lower,CVirtualContour*higher)
 {
   float *xv;
   float *yv;
@@ -93,7 +93,7 @@ void CRegistration::freeform_res1(CContour* lower,CContour*higher)
   ///////////////
   //first time calculate the intensity before bespline as though the points do not changed
   //calculate the intensity in self distancesmap
-  compute_intensity(higher->vec_Points_Vicinity,higher->m_Map->get_distance_map(),higher->vec_intensity_old);
+  compute_intensity(higher->vec_Points_Vicinity,higher->m_contour->m_Map->get_distance_map(),higher->vec_intensity_old);
   // m_file.Output_intensity_data(higher->vec_Points_Vicinity,higher->vec_intensity_old);
   // m_file2.Output(higher->m_Map->DistancsMap);
   init_lattice(lower);
@@ -101,7 +101,7 @@ void CRegistration::freeform_res1(CContour* lower,CContour*higher)
   bspline_update(higher,0,higher->vec_Points_Vicinity,higher->vec_new_points_vicinity);
   //second time calculate the intensity after bespline update as though the points was changed
   //calculate the intensity in lower distancemap
-  compute_intensity(higher->vec_new_points_vicinity,lower->m_Map->get_distance_map(),higher->vec_intensity_new);
+  compute_intensity(higher->vec_new_points_vicinity,lower->m_contour->m_Map->get_distance_map(),higher->vec_intensity_new);
   //m_file2.Output_intensity_data(higher->vec_new_points_vicinity,higher->vec_intensity_new);
   float errorE=energy_func_square_diff(higher);
   gradientdescent_smoother(lower,higher,errorE);
@@ -128,7 +128,7 @@ void CRegistration::Register()
   {
     counter++;
     std::cout<<"processing couple:"<<counter<<"\t total couple num:"<<size<<"\t complete:"<<counter*1.0/(size*1.0)<<"\n";
-    regist_lower_long_higher_short((*itr)->contour1,(*itr)->contour2);
+    regist_lower_long_higher_short((*itr)->vcontour1,(*itr)->vcontour2);
   }
   
   // std::map<float,CLayer*>::iterator itr=SourceShape->map_Layer.begin(),etr=SourceShape->map_Layer.end(),nitr;
@@ -185,7 +185,7 @@ void CRegistration::Register_use_openmp()
   {
     counter++;
     std::cout<<"processing couple:"<<counter<<"\t total couple num:"<<size<<"\t complete:"<<counter*1.0/(size*1.0)<<"\n";
-    regist_lower_long_higher_short(contour_arrangement.vec_contour_couple[i]->contour1,contour_arrangement.vec_contour_couple[i]->contour2);
+    regist_lower_long_higher_short(contour_arrangement.vec_contour_couple[i]->vcontour1,contour_arrangement.vec_contour_couple[i]->vcontour2);
   }
   
 
@@ -251,18 +251,18 @@ void CRegistration::Register_use_openmp()
 
 
 
-void CRegistration:: regist_lower_long_higher_short(CContour* lower,CContour* higher)
+void CRegistration:: regist_lower_long_higher_short(CVirtualContour* lower,CVirtualContour* higher)
 {
   if (lower->LayerID>higher->LayerID)
   {
-    CContour* temp = lower;
+    CVirtualContour* temp = lower;
     lower=higher;
     higher=temp;
   }
-  CContour* longer,*shorter;
+  CVirtualContour* longer,*shorter;
   if (use_length_energy)
   {
-    if (lower->length>=higher->length)
+    if (lower->m_contour->length>=higher->m_contour->length)
     {
       longer=lower;shorter=higher;
     }
@@ -278,12 +278,12 @@ void CRegistration:: regist_lower_long_higher_short(CContour* lower,CContour* hi
 
   if (use_medial_axis)
   {
-    if(shorter->m_layer->medial_axis_count>0)
+    if(shorter->m_contour->m_layer->medial_axis_count>0)
     {
-      longer->calculate_medial_map(shorter->m_layer->medial_axis);
-      longer->swap_map_medialmap();
+      longer->m_contour->calculate_medial_map(shorter->m_contour->m_layer->medial_axis);
+      longer->m_contour->swap_map_medialmap();
       freeform_res1(longer,shorter);
-      longer->swap_medialmap_map();
+      longer->m_contour->swap_medialmap_map();
     }
     else
     {
@@ -302,12 +302,12 @@ void CRegistration:: regist_lower_long_higher_short(CContour* lower,CContour* hi
   SourceShape->vec_Cor.push_back(cor);
 }
 
-CContour* CRegistration::find_nearest_contour(CContour* lower_contour,CLayer* higher_layer,int diffecence)
+CVirtualContour* CRegistration::find_nearest_contour(CVirtualContour* lower_contour,CLayer* higher_layer,int diffecence)
 {
   assert(false);
   // float dis=9999999;
-  // map<int,CContour*>::iterator itr,etr;
-  CContour* temp_contour=NULL;
+  // map<int,CVirtualContour*>::iterator itr,etr;
+  CVirtualContour* temp_contour=NULL;
   // itr=higher_layer->map_contour.begin();etr=higher_layer->map_contour.end();
   // for (;itr!=etr;++itr)
   // {
@@ -329,19 +329,19 @@ CContour* CRegistration::find_nearest_contour(CContour* lower_contour,CLayer* hi
   return temp_contour;
 }
 #include "math.h"
-bool CRegistration::check_contour_distance(CContour* lower_contour,CContour* higher_contour)
+bool CRegistration::check_contour_distance(CVirtualContour* lower_contour,CVirtualContour* higher_contour)
 {
   if(contour_distance_threshold<=0)
   {
     return true;
   }
   // if have medial points, then the two layer have intersections, so needn't to calculate the distance
-  if (lower_contour->m_layer->vec_medial_points.size()>0||higher_contour->m_layer->vec_medial_points.size()>0)
+  if (lower_contour->m_contour->m_layer->vec_medial_points.size()>0||higher_contour->m_contour->m_layer->vec_medial_points.size()>0)
   {
     return true;
   }
-  CPoint* point1= lower_contour->moment_one_point;
-  CPoint* point2= higher_contour->moment_one_point;
+  CPoint* point1= lower_contour->m_contour->moment_one_point;
+  CPoint* point2= higher_contour->m_contour->moment_one_point;
 
   float tempdis=(point1->x-point2->x)*(point1->x-point2->x)+(point1->y-point2->y)*(point1->y-point2->y);
   tempdis= sqrt(tempdis);
@@ -357,16 +357,16 @@ bool CRegistration::check_contour_distance(CContour* lower_contour,CContour* hig
 }
 
 
-void CRegistration::shape_vicinity(CContour* source,int band)
+void CRegistration::shape_vicinity(CVirtualContour* source,int band)
 {
-  int size = source->vec_Points_Origin.size();
+  int size = source->m_contour->vec_Points_Origin.size();
   source->vec_Points_Vicinity.clear();
   source->vec_Points_Vicinity.reserve(size*band);
   int k=0;
   for (int i = 0; i < size; ++i)
   {
-    int cx=(int)source->vec_Points_Origin[i]->x+1;
-    int cy=(int)source->vec_Points_Origin[i]->y+1;
+    int cx=(int)source->m_contour->vec_Points_Origin[i]->x+1;
+    int cy=(int)source->m_contour->vec_Points_Origin[i]->y+1;
     //TODO    int cz
     for (int j = 0; j < (int)(2.0*band/3.0); ++j)
     {
@@ -420,7 +420,7 @@ void CRegistration::compute_intensity(std::vector<CPoint*>&vec_points,float**&ma
 }
 
 
-void CRegistration::init_lattice(CContour* contour)
+void CRegistration::init_lattice(CVirtualContour* contour)
 {
 
   for (int i = 0; i < MatrixRes; ++i)
@@ -449,7 +449,7 @@ void CRegistration::init_lattice(CContour* contour)
 }
 #include <vector>
 //mode=0 use old_lattice mode=1 use new_lattice
-void CRegistration::bspline_update(CContour* contour,int mode,std::vector<CPoint*>&vec_points,std::vector<CPoint*>&vec_new_points)
+void CRegistration::bspline_update(CVirtualContour* contour,int mode,std::vector<CPoint*>&vec_points,std::vector<CPoint*>&vec_new_points)
 {
   int res = 1;
   int nx = MatrixRes;
@@ -508,7 +508,7 @@ void CRegistration::bspline_update(CContour* contour,int mode,std::vector<CPoint
   }
 }
 
-float CRegistration::energy_func_square_diff(CContour* contour)
+float CRegistration::energy_func_square_diff(CVirtualContour* contour)
 {
   int N=contour->vec_intensity_old.size();
   float temp=0.0;
@@ -520,7 +520,7 @@ float CRegistration::energy_func_square_diff(CContour* contour)
   return temp;
 }
 
-void CRegistration::gradientdescent_smoother(CContour* lower,CContour* higher,float errorE)
+void CRegistration::gradientdescent_smoother(CVirtualContour* lower,CVirtualContour* higher,float errorE)
 {
   kNumberOfIteration=iteration_number;
   int magicnumber=MatrixRes;
@@ -644,7 +644,7 @@ float CRegistration::cubic_spline(float u, int o)
 	return b;
 }
 
-void CRegistration::calculate_dlattice_by_point(float **&Dcpx,float**&Dcpy,CContour*higher,CContour*lower)
+void CRegistration::calculate_dlattice_by_point(float **&Dcpx,float**&Dcpy,CVirtualContour*higher,CVirtualContour*lower)
 {
   float fx=0,gtx=0;
   float Dg[2],Dp[2];
@@ -662,12 +662,12 @@ void CRegistration::calculate_dlattice_by_point(float **&Dcpx,float**&Dcpy,CCont
     float yt= higher->vec_new_points_vicinity[k]->y;
     //TODO why y and x exchange position?
 
-    fx = compute_intensity_by_point(higher->m_Map->get_distance_map(),x,y);
-    gtx = compute_intensity_by_point(lower->m_Map->get_distance_map(),xt,yt);
+    fx = compute_intensity_by_point(higher->m_contour->m_Map->get_distance_map(),x,y);
+    gtx = compute_intensity_by_point(lower->m_contour->m_Map->get_distance_map(),xt,yt);
     //distance between a transfored feature point and its corresponding target feature point
     //TODO why yt xt exchange their position? don't need exchange
-    Dg[0] = compute_intensity_by_point(lower->m_Map->get_gx(),xt,yt);
-    Dg[1] = compute_intensity_by_point(lower->m_Map->get_gy(),xt,yt);
+    Dg[0] = compute_intensity_by_point(lower->m_contour->m_Map->get_gx(),xt,yt);
+    Dg[1] = compute_intensity_by_point(lower->m_contour->m_Map->get_gy(),xt,yt);
     // filefx<<x<<"\t"<<y<<"\t"<<xt<<"\t"<<yt<<"\t"<<fx<<"\t"<<gtx<<"\t"<<Dg[0]<<"\t"<<Dg[1]<<"\r\n";
     //    filefx<<"******************************************************"<<"\r\n";
     //find the index of current pixel
@@ -747,7 +747,7 @@ void CRegistration::calculate_dlattice_by_point(float **&Dcpx,float**&Dcpy,CCont
   }
 }
 
-bool CRegistration::update_lattice(float**&Dcpx,float**&Dcpy,CContour*higher,CContour*lower,float& errorE)
+bool CRegistration::update_lattice(float**&Dcpx,float**&Dcpy,CVirtualContour*higher,CVirtualContour*lower,float& errorE)
 {
   float **ddXB = make_2D_float_array(MatrixRes,MatrixRes);
   float **ddYB = make_2D_float_array(MatrixRes,MatrixRes);
@@ -815,7 +815,7 @@ bool CRegistration::update_lattice(float**&Dcpx,float**&Dcpy,CContour*higher,CCo
     // //filout_dd<<it<<"end\n";
     // filout_p<<"****************************************************\n";
     // filout_p.close();
-    compute_intensity(higher->vec_new_points_vicinity,lower->m_Map->get_distance_map(),higher->vec_intensity_new);
+    compute_intensity(higher->vec_new_points_vicinity,lower->m_contour->m_Map->get_distance_map(),higher->vec_intensity_new);
     float nextE = energy_func_square_diff(higher);
     if (nextE < errorE)
     {
@@ -878,7 +878,7 @@ bool CRegistration::update_lattice(float**&Dcpx,float**&Dcpy,CContour*higher,CCo
   return stop;
 }
 
-void CRegistration::get_correspondence(CCorrespond* corres,CContour* shorter,CContour* longer)
+void CRegistration::get_correspondence(CCorrespond* corres,CVirtualContour* shorter,CVirtualContour* longer)
 {
   // int N=lower->vec_Points_Origin.size();
   // bspline_update(higher,1,higher->vec_Points_Origin,higher->vec_new_points);
@@ -901,10 +901,10 @@ void CRegistration::get_correspondence(CCorrespond* corres,CContour* shorter,CCo
   //   corres->map_cor.insert(std::make_pair(i,new_para_point));
   // }
   bool use_medial_axis_point=false;
-  int N=shorter->vec_Points_Origin.size();
-  int longer_size=longer->vec_Points_Origin.size();
+  int N=shorter->m_contour->vec_Points_Origin.size();
+  int longer_size=longer->m_contour->vec_Points_Origin.size();
   int real_gap_threshold=gap_threshold<longer_size?gap_threshold:longer_size;
-  bspline_update(shorter,1,shorter->vec_Points_Origin,shorter->vec_new_points);
+  bspline_update(shorter,1,shorter->m_contour->vec_Points_Origin,shorter->vec_new_points);
   //  string filestr;
   // filestr=higher->filename+"_Original_Points";
   // CFileDebug m_file(filestr);
@@ -921,14 +921,14 @@ void CRegistration::get_correspondence(CCorrespond* corres,CContour* shorter,CCo
   {
     temp =*(shorter->vec_new_points[i]);
     int shorter_layerID=shorter->LayerID;
-    if (shorter->m_layer->medial_axis_count>0&&use_medial_axis)
+    if (shorter->m_contour->m_layer->medial_axis_count>0&&use_medial_axis)
     {
-      index=get_closest_point(longer->vec_Points_Origin,shorter->m_layer->vec_medial_points,temp, use_medial_axis_point);
+      index=get_closest_point(longer->m_contour->vec_Points_Origin,shorter->m_contour->m_layer->vec_medial_points,temp, use_medial_axis_point);
       //      std::cout<<"use medial_axis"<<"\n";
     }
     else
     {
-      index=get_closest_point(longer->vec_Points_Origin,temp);
+      index=get_closest_point(longer->m_contour->vec_Points_Origin,temp);
       if (i==0)
       {
         first_index=index;
@@ -941,15 +941,15 @@ void CRegistration::get_correspondence(CCorrespond* corres,CContour* shorter,CCo
     {
       // new_para_point->point1 = *(shorter->vec_points[i]);
       //new_para_point->point2 = *(longer->vec_points[index]);
-       new_para_point->point1 = *(shorter->vec_Points_Origin[i]);
+       new_para_point->point1 = *(shorter->m_contour->vec_Points_Origin[i]);
        if (use_medial_axis_point&&use_medial_axis)
        {
          CPoint* project_point=new CPoint();
          project_point->index=project_point->get_index();
          int temp_index = project_point->index;
-         *project_point=*(shorter->m_layer->vec_medial_points[index]);
+         *project_point=*(shorter->m_contour->m_layer->vec_medial_points[index]);
          project_point->index=temp_index;
-         project_point->z=longer->vec_Points_Origin[0]->z;
+         project_point->z=longer->m_contour->vec_Points_Origin[0]->z;
          new_para_point->point2 = *project_point;
          longer->vec_Points_project.push_back(project_point);
        }
@@ -959,28 +959,28 @@ void CRegistration::get_correspondence(CCorrespond* corres,CContour* shorter,CCo
          get_gap(first_index,longer_size,index,last_index,gap,isforeward);
          if (gap>1&&gap<real_gap_threshold&&last_index!=-1)
          {
-           fill_the_hole(corres,offset,first_index,longer_size,last_index,index,shorter->vec_Points_Origin[i],longer,gap,isforeward);
+           fill_the_hole(corres,offset,first_index,longer_size,last_index,index,shorter->m_contour->vec_Points_Origin[i],longer,gap,isforeward);
          }
          else if(abs(gap)>1)
          {
            cout<<"gap:"<<gap<<"\tindex:"<<index<<"\tlast_index:"<<last_index<<"\tfirst_index:"<<first_index<<"\tsize:"<<longer_size<<"\n";
          }
-         new_para_point->point2 = *(longer->vec_Points_Origin[index]);
+         new_para_point->point2 = *(longer->m_contour->vec_Points_Origin[index]);
        }
     }
     else
     {
       //new_para_point->point2 = *(shorter->vec_points[i]);
       //new_para_point->point1 = *(longer->vec_points[index]);
-      new_para_point->point2 = *(shorter->vec_Points_Origin[i]);
+      new_para_point->point2 = *(shorter->m_contour->vec_Points_Origin[i]);
       if (use_medial_axis_point&&use_medial_axis)
       {
         CPoint* project_point=new CPoint();
         project_point->index=project_point->get_index();
         int temp_index = project_point->index;
-        *project_point=*(shorter->m_layer->vec_medial_points[index]);
+        *project_point=*(shorter->m_contour->m_layer->vec_medial_points[index]);
         project_point->index=temp_index;
-        project_point->z=longer->vec_Points_Origin[0]->z;
+        project_point->z=longer->m_contour->vec_Points_Origin[0]->z;
         new_para_point->point1 = *project_point;
         longer->vec_Points_project.push_back(project_point);
       }
@@ -990,14 +990,14 @@ void CRegistration::get_correspondence(CCorrespond* corres,CContour* shorter,CCo
         get_gap(first_index,longer_size,index,last_index,gap,isforeward);
         if (gap>1&&gap<real_gap_threshold&&last_index!=-1)
         {
-          fill_the_hole(corres,offset,first_index,longer_size,last_index,index,longer,shorter->vec_Points_Origin[i],gap,isforeward);
+          fill_the_hole(corres,offset,first_index,longer_size,last_index,index,longer,shorter->m_contour->vec_Points_Origin[i],gap,isforeward);
         }
         else if(abs(gap)>1)
         {
           cout<<"gap:"<<gap<<"\tindex:"<<index<<"\tlast_index:"<<last_index<<"\tfirst_index:"<<first_index<<"\tsize:"<<longer_size<<"\n";
         }
 
-        new_para_point->point1 = *(longer->vec_Points_Origin[index]);
+        new_para_point->point1 = *(longer->m_contour->vec_Points_Origin[index]);
       }
     }
     last_index=index;
@@ -1030,7 +1030,7 @@ void CRegistration::get_gap(int first, int size, int index, int last_index,int &
   }
 }
 
-void CRegistration::fill_the_hole(CCorrespond *corres,int& count,int first,int size,int last_index,int index, CPoint* point1, CContour *higher,int gap,bool isforeward)
+void CRegistration::fill_the_hole(CCorrespond *corres,int& count,int first,int size,int last_index,int index, CPoint* point1, CVirtualContour *higher,int gap,bool isforeward)
 {
   if (isforeward)
   {
@@ -1038,7 +1038,7 @@ void CRegistration::fill_the_hole(CCorrespond *corres,int& count,int first,int s
     {
       Parapoint * new_para_point= new Parapoint();
       new_para_point->point1=*point1;
-      new_para_point->point2=*(higher->vec_Points_Origin[(last_index+i)%size]);
+      new_para_point->point2=*(higher->m_contour->vec_Points_Origin[(last_index+i)%size]);
       corres->map_cor.insert(std::make_pair(count++,new_para_point));
     }
   }
@@ -1048,14 +1048,14 @@ void CRegistration::fill_the_hole(CCorrespond *corres,int& count,int first,int s
     {
       Parapoint * new_para_point= new Parapoint();
       new_para_point->point1=*point1;
-      new_para_point->point2=*(higher->vec_Points_Origin[(index+i)%size]);
+      new_para_point->point2=*(higher->m_contour->vec_Points_Origin[(index+i)%size]);
       corres->map_cor.insert(std::make_pair(count++,new_para_point));
     }
   }
 }
 
 
-void CRegistration::fill_the_hole(CCorrespond *corres,int& count,int first,int size,int last_index,int index, CContour *lower,CPoint* point2,int gap,bool isforeward)
+void CRegistration::fill_the_hole(CCorrespond *corres,int& count,int first,int size,int last_index,int index, CVirtualContour *lower,CPoint* point2,int gap,bool isforeward)
 {
   if (isforeward)
   {
@@ -1063,7 +1063,7 @@ void CRegistration::fill_the_hole(CCorrespond *corres,int& count,int first,int s
     {
       Parapoint * new_para_point= new Parapoint();
       new_para_point->point2=*point2;
-      new_para_point->point1=*(lower->vec_Points_Origin[(last_index+i)%size]);
+      new_para_point->point1=*(lower->m_contour->vec_Points_Origin[(last_index+i)%size]);
       corres->map_cor.insert(std::make_pair(count++,new_para_point));
     }
   }
@@ -1073,7 +1073,7 @@ void CRegistration::fill_the_hole(CCorrespond *corres,int& count,int first,int s
     {
       Parapoint * new_para_point= new Parapoint();
       new_para_point->point2=*point2;
-      new_para_point->point1=*(lower->vec_Points_Origin[(index+i)%size]);
+      new_para_point->point1=*(lower->m_contour->vec_Points_Origin[(index+i)%size]);
       corres->map_cor.insert(std::make_pair(count++,new_para_point));
     }
   }

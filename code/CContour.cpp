@@ -6,7 +6,7 @@
 using namespace std;
 
 
-CContour::CContour(const float ID,CLayer* layer):lattice_x(NULL),lattice_y(NULL)
+CContour::CContour(const float ID,CLayer* layer)
 {
   m_layer=layer;
   contourID=ID;
@@ -29,6 +29,7 @@ CContour::CContour(const float ID,CLayer* layer):lattice_x(NULL),lattice_y(NULL)
 
 void CContour:: operator=(CContour &temp)
 {
+  assert(false);
   contourID = temp.contourID;
   m_Map = temp.m_Map;
   sum_x=sum_y=0;
@@ -261,9 +262,7 @@ void CContour::normalize(CPoint shape_center_point)//may be use the moment point
 
 void CContour::reset()
 {
-  vec_Points_Inter.clear();
-  vec_Points_Vicinity.clear();
-  vec_new_points_vicinity.clear();//change after bspline_update
+  assert(false);
   //use_as_lower_contour_count=0;
   //use_as_higher_contour_count=0;
 }

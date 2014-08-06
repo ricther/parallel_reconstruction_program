@@ -25,23 +25,16 @@ class CContour
   std::vector<CPoint*> vec_points;// this is the primitive points;
   std::vector<CPoint*> vec_points_orderd;// the point after check the sequnce
   std::vector<CPoint*> vec_Points_Origin;// the points after normalize;
-  std::vector<CPoint*> vec_new_points;//change after bspline_update
-  std::vector<CPoint*> vec_Points_Inter;
-  std::vector<CPoint*> vec_Points_Vicinity;
-  std::vector<CPoint*> vec_new_points_vicinity;//change after bspline_update
-  std::vector<CPoint*> vec_Points_project;//points project from adjacent layer's medial_axis;
+  std::vector<CPoint*> vec_Points_Inter; //just used in CMap. can clear after calculate Distancemap
+
   void operator=(CContour &temp);
   bool read_single_layer_without_z(std::fstream&);
   bool read_contour_with_z(std::fstream& fin);
   CMap* m_Map;
   CMedialMap* m_medial_map;
   CMap* m_temp_map;
-  float** lattice_x,**lattice_y;//as NXB NYB will be initialize in CRegister
-  float** new_lattice_x,**new_lattice_y;//as NNXB NNYB the next control point coordinates position
   void normalize(CPoint); 
   void InitMap();
-  std::vector<float> vec_intensity_old;
-  std::vector<float> vec_intensity_new;
   CPoint* center_point;
   CPoint* moment_one_point;
   float max_x,max_y,min_x,min_y;

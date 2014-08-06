@@ -119,10 +119,10 @@ void vtk_setup()
         vtk_draw_view2(renderWindow,interactor);
         break;
       case 3:
-        vtk_draw_view3(renderWindow,interactor);
+        //        vtk_draw_view3(renderWindow,interactor);
         break;
       case 4:
-        vtk_draw_view4(renderWindow,interactor);
+        //        vtk_draw_view4(renderWindow,interactor);
         break;
       case 5:
         vtk_draw_view5(renderWindow,interactor);

@@ -73,12 +73,12 @@ void CTriangleDisplay:: set_up_data(CShape* m_shape)
         map_pindex_vtkindex.insert(make_pair((*p_itr)->index,count-1));
       }
 
-      p_itr=c_itr->second->vec_Points_project.begin();p_etr=c_itr->second->vec_Points_project.end();
-      for (; p_itr!=p_etr; ++p_itr)
-      {
-        m_points->InsertPoint(static_cast<vtkIdType>(count++),(*p_itr)->x,(*p_itr)->y,(*p_itr)->z);
-        map_pindex_vtkindex.insert(make_pair((*p_itr)->index,count-1));
-      }
+      // p_itr=c_itr->second->vec_Points_project.begin();p_etr=c_itr->second->vec_Points_project.end();
+      // for (; p_itr!=p_etr; ++p_itr)
+      // {
+      //   m_points->InsertPoint(static_cast<vtkIdType>(count++),(*p_itr)->x,(*p_itr)->y,(*p_itr)->z);
+      //   map_pindex_vtkindex.insert(make_pair((*p_itr)->index,count-1));
+      // }
     }
     if (l_itr->second->vec_medial_points.size()>0)
     {

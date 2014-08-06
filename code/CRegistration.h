@@ -2,12 +2,14 @@
 #include <vector>
 #include "CContour.h"
 #include "initial.h"
+
 //function of freeform code
 
 class CPoint;
 class CShape;
 class CLayer;
 class CCorrespond;
+class CVirtualContour;
 
 class ParamRecord
 {
@@ -22,7 +24,7 @@ class ParamRecord
   float **lattice_y;
   float errorE;
   void operator=(const ParamRecord &);
-  void initial(float errorE,CContour* higher);
+  void initial(float errorE,CVirtualContour* higher);
 };
 
 class CRegistration
@@ -30,13 +32,13 @@ class CRegistration
   public:
   CRegistration(CShape*);
   CShape *SourceShape;
-  void freeform_res1(CContour*,CContour*);//first is lower_layer equal target, second is higher_layer equal source
+  void freeform_res1(CVirtualContour*,CVirtualContour*);//first is lower_layer equal target, second is higher_layer equal source
   int kNumberOfIteration;
   void Register();
   void Register_use_openmp();
   private:
   void reset();
-  void shape_vicinity(CContour*,int);//first is higher_layer as source,second is the narrow band width
+  void shape_vicinity(CVirtualContour*,int);//first is higher_layer as source,second is the narrow band width
   int narrow_band;
   int vicinity_points_num;
   //compute the intensity of the sample points in distance map
@@ -44,28 +46,28 @@ class CRegistration
   //compute the intensity of single point in distance map
   float compute_intensity_by_point(float**& dist,float tx, float ty);
   //the grill in distance map
-  void init_lattice(CContour*);
+  void init_lattice(CVirtualContour*);
   
   float* xvb;//the lattice's x value
   float* yvb;//the lattice's y value
   //bspline_update
-  void bspline_update(CContour*,int mode,std::vector<CPoint*>&,std::vector<CPoint*>&);// mode = 0,use the normal lattice, mode = 1 ,use the new lattice.p
+  void bspline_update(CVirtualContour*,int mode,std::vector<CPoint*>&,std::vector<CPoint*>&);// mode = 0,use the normal lattice, mode = 1 ,use the new lattice.p
   //compute energy
-  float energy_func_square_diff(CContour*);
+  float energy_func_square_diff(CVirtualContour*);
   //drive the eqution
-  void gradientdescent_smoother(CContour* lower,CContour*higher,float errorE);
+  void gradientdescent_smoother(CVirtualContour* lower,CVirtualContour*higher,float errorE);
   //calculate the lattice
-  void calculate_dlattice_by_point(float**&,float**&,CContour*,CContour*);
+  void calculate_dlattice_by_point(float**&,float**&,CVirtualContour*,CVirtualContour*);
   
-  bool update_lattice(float**&,float**&m,CContour*,CContour*,float&);
+  bool update_lattice(float**&,float**&m,CVirtualContour*,CVirtualContour*,float&);
   ParamRecord current_params;
   float cubic_spline(float u,int o);
-  void get_correspondence(CCorrespond*,CContour*higher,CContour*lower);
+  void get_correspondence(CCorrespond*,CVirtualContour*higher,CVirtualContour*lower);
   int get_closest_point(std::vector<CPoint*>&,CPoint);
   int get_closest_point(std::vector<CPoint*>&vec_points,std::vector<CPoint*>&medial_points,CPoint,bool&);
   //fill the hole on the boundary
-  void fill_the_hole(CCorrespond* corres,int& count,int first,int size,int last_index,int index, CContour *lower,CPoint* point2,int gap,bool isforeward);
-  void fill_the_hole(CCorrespond* corres,int& count,int first,int size,int last_index,int index, CPoint* point1, CContour *higher,int gap,bool isforeward);
+  void fill_the_hole(CCorrespond* corres,int& count,int first,int size,int last_index,int index, CVirtualContour *lower,CPoint* point2,int gap,bool isforeward);
+  void fill_the_hole(CCorrespond* corres,int& count,int first,int size,int last_index,int index, CPoint* point1, CVirtualContour *higher,int gap,bool isforeward);
   int get_relate_index(int first, int size, int old_index);
   void get_gap(int first, int size, int index, int last_index,int &real_gap,bool& isforeward );
   float** XB;// original control point coordinates;
@@ -127,9 +129,9 @@ class CRegistration
 	return b;
   }
   //find the nearest contour except used
-  CContour* find_nearest_contour(CContour*,CLayer*,int);
-  bool check_contour_distance(CContour* lower_contour,CContour* higher_contour);
-  void regist_lower_long_higher_short(CContour*,CContour*);
+  CVirtualContour* find_nearest_contour(CVirtualContour*,CLayer*,int);
+  bool check_contour_distance(CVirtualContour* lower_contour,CVirtualContour* higher_contour);
+  void regist_lower_long_higher_short(CVirtualContour*,CVirtualContour*);
 
 };
 

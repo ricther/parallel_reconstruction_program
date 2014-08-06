@@ -321,6 +321,10 @@ void CMap::caldistancesmap()
       DistancsMap[j][i]=Temp[i][j];
     }
   }
+
+  freeMap((void**)SignMap);
+  m_contour->vec_Points_Inter.clear();
+  m_contour->vec_Points_Inter.resize(0);
   //////////////////////////////////////////////////////
   // string file_name;
   // file_name=m_contour->filename+"_dist_output";

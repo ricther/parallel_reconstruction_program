@@ -8,7 +8,7 @@
 #include "CShape.h"
 contour_couple::contour_couple()
 {
-  contour1=NULL;contour2=NULL;
+  vcontour1=NULL;vcontour2=NULL;
   b_intersection=false;
   distance=99999999999;
   boundary_coverage_rate=0.0;
@@ -17,16 +17,16 @@ contour_couple::contour_couple()
 
 bool contour_couple:: operator == (const contour_couple& right)
 {
-  if(this->contour1==right.contour1)
+  if(this->vcontour1->m_contour==right.vcontour1->m_contour)
   {
-    if(this->contour2==right.contour2)
+    if(this->vcontour2->m_contour==right.vcontour2->m_contour)
     {
       return true;
     }
   }
-  if (this->contour1==right.contour2)
+  if (this->vcontour1->m_contour==right.vcontour2->m_contour)
   {
-    if (this->contour2==right.contour1)
+    if (this->vcontour2->m_contour==right.vcontour1->m_contour)
     {
       return true;
     }
@@ -74,7 +74,7 @@ void CContourArrangement::get_union_couple(  std::vector<contour_couple*>& coupl
   std::vector<contour_couple*>::iterator itr2=couple1.begin(),etr2=couple1.end();
   for(;itr2!=etr2;++itr2)
   {
-    (*itr2)->contour1->use_counter++;(*itr2)->contour2->use_counter++;
+    (*itr2)->vcontour1->m_contour->use_counter++;(*itr2)->vcontour2->m_contour->use_counter++;
     vec_contour_couple.push_back(*itr2);
   }
   
@@ -93,7 +93,7 @@ void CContourArrangement::get_union_couple(  std::vector<contour_couple*>& coupl
     }
     if (find_same==false)
     {
-      (*itr)->contour1->use_counter++;(*itr)->contour2->use_counter++;
+      (*itr)->vcontour1->m_contour->use_counter++;(*itr)->vcontour2->m_contour->use_counter++;
       vec_contour_couple.push_back(*itr);
     }
   }
@@ -101,8 +101,8 @@ void CContourArrangement::get_union_couple(  std::vector<contour_couple*>& coupl
 //make couple depend on the intersection rate and distance, did't decided the compute arrangement.
 void CContourArrangement:: get_couple(CLayer* first_layer, CLayer* second_layer,  std::vector<contour_couple*>& vec_couple )
 {
-    std::map<int,CContour*>::iterator u_itr,u_etr,d_itr,d_etr;
-    u_itr=first_layer->map_contour.begin();u_etr=first_layer->map_contour.end();
+  std::map<int,CContour*>::iterator u_itr,u_etr,d_itr,d_etr;
+  u_itr=first_layer->map_contour.begin();u_etr=first_layer->map_contour.end();
 
   float intersection_rate;
   float distance;
@@ -110,7 +110,7 @@ void CContourArrangement:: get_couple(CLayer* first_layer, CLayer* second_layer,
   for (;u_itr!=u_etr ; u_itr++)
   {
     contour_couple* new_couple=new contour_couple();
-    new_couple->contour1=u_itr->second;
+    new_couple->vcontour1=new CVirtualContour(u_itr->second);
     d_itr=second_layer->map_contour.begin();d_etr=second_layer->map_contour.end();
     for (;d_itr!=d_etr ;d_itr++ )
     {
@@ -122,7 +122,7 @@ void CContourArrangement:: get_couple(CLayer* first_layer, CLayer* second_layer,
         if (intersection_rate>new_couple->boundary_coverage_rate)
         {
           new_couple->boundary_coverage_rate=intersection_rate;
-          new_couple->contour2=d_itr->second;
+          new_couple->vcontour2=new CVirtualContour(d_itr->second);
           new_couple->b_couple=true;
         }
         // if (distance<new_couple->distance)
@@ -140,7 +140,7 @@ void CContourArrangement:: get_couple(CLayer* first_layer, CLayer* second_layer,
           {
             std::cout<<first_layer->LayerID<<"-"<<second_layer->LayerID<<"distance:"<<distance<<std::endl;
             new_couple->distance=distance;
-            new_couple->contour2=d_itr->second;
+            new_couple->vcontour2=new CVirtualContour(d_itr->second);
             new_couple->b_couple=true;
           }
         }
@@ -153,8 +153,8 @@ void CContourArrangement:: get_couple(CLayer* first_layer, CLayer* second_layer,
     else
     {
       vec_couple.push_back(new_couple);
-      new_couple->contour1->map_neighbour.insert(std::make_pair(new_couple->contour2->LayerID,new_couple->contour2));
-      new_couple->contour2->map_neighbour.insert(std::make_pair(new_couple->contour1->LayerID,new_couple->contour1));
+      new_couple->vcontour1->m_contour->map_neighbour.insert(std::make_pair(new_couple->vcontour2->m_contour->LayerID,new_couple->vcontour2->m_contour));
+      new_couple->vcontour2->m_contour->map_neighbour.insert(std::make_pair(new_couple->vcontour1->m_contour->LayerID,new_couple->vcontour1->m_contour));
     }
   }
 }
