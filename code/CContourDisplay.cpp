@@ -6,7 +6,7 @@ vtkSmartPointer<vtkActor> CContourDisplay::initialActor(float layerID,int contou
 {
   CLayer* temp = map_Layer[layerID];
   CContour* temp_contour= temp->map_contour[temp->map_contourID[contourID]];
-  set_iterator(temp_contour);
+  set_iterator(temp_contour,0);
   initial_contour_actor(point_itr,point_etr,point_size,1);
   current_LayerID=layerID;
   return m_actor;
@@ -50,7 +50,7 @@ void CContourDisplay::update_contour_polydata(float layerID,int contourID)
   current_LayerID=layerID;
   CLayer* temp = map_Layer[layerID];
   CContour* temp_contour= temp->map_contour[temp->map_contourID[contourID]];
-  set_iterator(temp_contour);
+  set_iterator(temp_contour,0);
   int count=0;
   update_polydata(point_itr,point_etr,point_size,1);
 }
@@ -89,7 +89,7 @@ void CContourDisplay::update_polydata(std::vector<CPoint*>::iterator point_itr,s
   m_polydata->Update();  
 }
 
-void CContourDisplay::set_iterator(CContour* temp)
+void CContourDisplay::set_iterator(CContour* temp,int deformID)
 {
   point_itr= temp->vec_points.begin();
   point_etr= temp->vec_points.end();

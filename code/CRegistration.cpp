@@ -1,3 +1,4 @@
+
 #include "CRegistration.h"
 #include "CShape.h"
 #include "string.h"
@@ -46,15 +47,11 @@ void ParamRecord::initial(float errorE,CVirtualContour* higher)
 CRegistration::CRegistration(CShape* source):narrow_band(10),NumberRows(NumRows),NumberCols(NumCols)
 {
   SourceShape=source;
-  lamda = 0.02;
+  
   kappa = 5.0;
 
   xvb=new float[MatrixRes];
   yvb=new float[MatrixRes];
-  XB=make_2D_float_array(MatrixRes,MatrixRes);
-  YB=make_2D_float_array(MatrixRes,MatrixRes);
-  dXB=make_2D_float_array(MatrixRes,MatrixRes);
-  dYB=make_2D_float_array(MatrixRes,MatrixRes);
   
   int interval = NumberRows/MatrixRes;
   for (int i = 0; i < MatrixRes; ++i)
@@ -64,17 +61,17 @@ CRegistration::CRegistration(CShape* source):narrow_band(10),NumberRows(NumRows)
   }
 }
 
-void CRegistration::reset()
+void CRegistration::reset(CVirtualContour* higher)
 {
   for (int i = 0; i < MatrixRes; ++i)
   {
     for (int j = 0; j < MatrixRes; ++j)
     {
-      XB[i][j]=0;YB[i][j]=0;
-      dXB[i][j]=0;dYB[i][j]=0;
+      higher->XB[i][j]=0;higher->YB[i][j]=0;
+      higher->dXB[i][j]=0;higher->dYB[i][j]=0;
     }
   }
-  lamda = 0.02;
+  higher->lamda = 0.02;
 }
 
 void CRegistration::freeform_res1(CVirtualContour* lower,CVirtualContour*higher)
@@ -82,7 +79,7 @@ void CRegistration::freeform_res1(CVirtualContour* lower,CVirtualContour*higher)
   float *xv;
   float *yv;
   int count;
-  reset();
+  init_lattice(higher);
   shape_vicinity(higher,narrow_band);
   ////////////////
   // string filestr;
@@ -96,8 +93,8 @@ void CRegistration::freeform_res1(CVirtualContour* lower,CVirtualContour*higher)
   compute_intensity(higher->vec_Points_Vicinity,higher->m_contour->m_Map->get_distance_map(),higher->vec_intensity_old);
   // m_file.Output_intensity_data(higher->vec_Points_Vicinity,higher->vec_intensity_old);
   // m_file2.Output(higher->m_Map->DistancsMap);
-  init_lattice(lower);
-  init_lattice(higher);
+  //  init_lattice(lower);
+
   bspline_update(higher,0,higher->vec_Points_Vicinity,higher->vec_new_points_vicinity);
   //second time calculate the intensity after bespline update as though the points was changed
   //calculate the intensity in lower distancemap
@@ -111,12 +108,6 @@ void CRegistration::Register()
 {
   float start_time=omp_get_wtime();
   int src_layer_num=SourceShape->map_Layer.size();
-  CLayer *lower_layer=NULL;
-  CLayer *higher_layer=NULL;
-
-  CContour* lower_contour=NULL;
-  CContour* higher_contour=NULL;
-
   CContourArrangement contour_arrangement(SourceShape);
   contour_arrangement.setup();
   //  contour_arrangement
@@ -360,6 +351,10 @@ bool CRegistration::check_contour_distance(CVirtualContour* lower_contour,CVirtu
 void CRegistration::shape_vicinity(CVirtualContour* source,int band)
 {
   int size = source->m_contour->vec_Points_Origin.size();
+  if (source->vec_Points_Vicinity.size()!=0)
+  {
+    return;
+  }
   source->vec_Points_Vicinity.clear();
   source->vec_Points_Vicinity.reserve(size*band);
   int k=0;
@@ -422,13 +417,20 @@ void CRegistration::compute_intensity(std::vector<CPoint*>&vec_points,float**&ma
 
 void CRegistration::init_lattice(CVirtualContour* contour)
 {
-
+  if (contour->XB==NULL)
+  {
+    contour->XB=make_2D_float_array(MatrixRes,MatrixRes);
+    contour->YB=make_2D_float_array(MatrixRes,MatrixRes);
+    contour->dXB=make_2D_float_array(MatrixRes,MatrixRes);
+    contour->dYB=make_2D_float_array(MatrixRes,MatrixRes);
+    reset(contour);
+  }
   for (int i = 0; i < MatrixRes; ++i)
   {
     for (int j = 0;j < MatrixRes; ++j)
     {
-      XB[j][i]=xvb[i];
-      YB[j][i]=yvb[j];
+      contour->XB[j][i]=xvb[i];
+      contour->YB[j][i]=yvb[j];
     }
     
   }
@@ -442,8 +444,8 @@ void CRegistration::init_lattice(CVirtualContour* contour)
   {
     for (int j = 0; j < MatrixRes; ++j)
     {
-      contour->lattice_x[i][j]= XB[i][j]+dXB[i][j];
-      contour->lattice_y[i][j]= YB[i][j]+dYB[i][j];
+      contour->lattice_x[i][j]= contour->XB[i][j]+contour->dXB[i][j];
+      contour->lattice_y[i][j]= contour->YB[i][j]+contour->dYB[i][j];
     }
   }
 }
@@ -579,8 +581,8 @@ void CRegistration::gradientdescent_smoother(CVirtualContour* lower,CVirtualCont
   {
     current_params = record[kNumberOfIteration];
   }
-  std::cout<<"Iteration:"<<it<<"\n";
-  {}// for (int xx = 0; xx < MatrixRes; ++xx)
+  std::cout<<"higher_ID:"<<higher->LayerID<<"(contourID:"<<higher->m_contour->contourID<<")"<<"-lower_ID:"<<lower->LayerID<<"(contourID:"<<lower->m_contour->contourID<<")"<<"\tIteration:"<<it<<"\terrorE:"<<errorE<<"\n";
+  // for (int xx = 0; xx < MatrixRes; ++xx)
   // {
   //   for (int yy = 0; yy < MatrixRes; ++yy)
   //   {
@@ -711,10 +713,10 @@ void CRegistration::calculate_dlattice_by_point(float **&Dcpx,float**&Dcpy,CVirt
           Dcpy[j+n][i+m] = Dcpy[j+n][i+m] - 2*(fx-gtx)*dot(Dg,dy);
           
             // the smoothness term related
-          dLx[0] = dLx[0] + spline_deriv(u,m)*dux*cubic_spline(v,n)*dXB[j+n][i+m];
-          dLx[1] = dLx[1] + spline_deriv(u,m)*dux*cubic_spline(v, n)*dYB[j+n][i+m];
-          dLy[0] = dLy[0] + cubic_spline(u,m)*spline_deriv(v, n)*duy*dXB[j+n][i+m];
-          dLy[1] = dLy[1] + cubic_spline(u,m)*spline_deriv(v, n)*duy*dYB[j+n][i+m];
+          dLx[0] = dLx[0] + spline_deriv(u,m)*dux*cubic_spline(v,n)*higher->dXB[j+n][i+m];
+          dLx[1] = dLx[1] + spline_deriv(u,m)*dux*cubic_spline(v, n)*higher->dYB[j+n][i+m];
+          dLy[0] = dLy[0] + cubic_spline(u,m)*spline_deriv(v, n)*duy*higher->dXB[j+n][i+m];
+          dLy[1] = dLy[1] + cubic_spline(u,m)*spline_deriv(v, n)*duy*higher->dYB[j+n][i+m];
         }
       }
       // the smoothness term increment
@@ -757,8 +759,8 @@ bool CRegistration::update_lattice(float**&Dcpx,float**&Dcpy,CVirtualContour*hig
   {
     for (int j = 0; j < MatrixRes; ++j)
     {
-      ddXB[i][j]= -Dcpx[i][j]*lamda;
-      ddYB[i][j]= -Dcpy[i][j]*lamda;
+      ddXB[i][j]= -Dcpx[i][j]*higher->lamda;
+      ddYB[i][j]= -Dcpy[i][j]*higher->lamda;
     }
   }
 
@@ -825,8 +827,8 @@ bool CRegistration::update_lattice(float**&Dcpx,float**&Dcpy,CVirtualContour*hig
         {
           higher->lattice_x[i][j] = higher->new_lattice_x[i][j];
           higher->lattice_y[i][j] = higher->new_lattice_y[i][j];
-          dXB[i][j] = dXB[i][j]+ddXB[i][j];
-          dYB[i][j] = dYB[i][j]+ddYB[i][j];
+          higher->dXB[i][j] = higher->dXB[i][j]+ddXB[i][j];
+          higher->dYB[i][j] = higher->dYB[i][j]+ddYB[i][j];
         }
       }
       // fstream filout_dxb("dXB",ios_base::out|ios_base::app);
@@ -856,7 +858,7 @@ bool CRegistration::update_lattice(float**&Dcpx,float**&Dcpy,CVirtualContour*hig
     else
     {
       numTries = numTries +1;
-      lamda = lamda /2;
+      higher->lamda = higher->lamda /2;
       if (numTries>10)
       {
         stop = true;// the stop works on the iteratrations
@@ -867,8 +869,8 @@ bool CRegistration::update_lattice(float**&Dcpx,float**&Dcpy,CVirtualContour*hig
       {
         for (int j = 0; j < N; ++j)
         {
-          ddXB[i][j] = -Dcpx[i][j]*lamda;
-          ddYB[i][j] = -Dcpy[i][j]*lamda;
+          ddXB[i][j] = -Dcpx[i][j]*higher->lamda;
+          ddYB[i][j] = -Dcpy[i][j]*higher->lamda;
         }
       }
     }

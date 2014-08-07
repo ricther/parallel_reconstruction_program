@@ -17,16 +17,17 @@ contour_couple::contour_couple()
 
 bool contour_couple:: operator == (const contour_couple& right)
 {
-  if(this->vcontour1->m_contour==right.vcontour1->m_contour)
+
+  if(this->vcontour1->m_contour->contour_index==right.vcontour1->m_contour->contour_index)
   {
-    if(this->vcontour2->m_contour==right.vcontour2->m_contour)
+    if(this->vcontour2->m_contour->contour_index==right.vcontour2->m_contour->contour_index)
     {
       return true;
     }
   }
-  if (this->vcontour1->m_contour==right.vcontour2->m_contour)
+  if (this->vcontour1->m_contour->contour_index==right.vcontour2->m_contour->contour_index)
   {
-    if (this->vcontour2->m_contour==right.vcontour1->m_contour)
+    if (this->vcontour2->m_contour->contour_index==right.vcontour1->m_contour->contour_index)
     {
       return true;
     }
@@ -54,15 +55,16 @@ void CContourArrangement::setup()
 
 void CContourArrangement::setup_use_omp()
 {
-  std::vector<contour_couple*> vec_couple1,vec_couple2;
+
   int size = m_shape->vec_layerID.size();
 #pragma omp parallel for num_threads(thread_num)
   for (int i = 0; i < size-1; ++i)
   {
+    std::vector<contour_couple*> vec_couple1,vec_couple2;
     get_couple(m_shape->map_Layer[m_shape->vec_layerID[i]],m_shape->map_Layer[m_shape->vec_layerID[i+1]],vec_couple1);
     get_couple(m_shape->map_Layer[m_shape->vec_layerID[i+1]],m_shape->map_Layer[m_shape->vec_layerID[i]],vec_couple2);
     get_union_couple(vec_couple1,vec_couple2);
-    vec_couple1.clear();vec_couple2.clear();
+    //    vec_couple1.clear();vec_couple2.clear();
   }
 }
 
@@ -70,7 +72,6 @@ void CContourArrangement::setup_use_omp()
 
 void CContourArrangement::get_union_couple(  std::vector<contour_couple*>& couple1,  std::vector<contour_couple*>& couple2)
 {
-
   std::vector<contour_couple*>::iterator itr2=couple1.begin(),etr2=couple1.end();
   for(;itr2!=etr2;++itr2)
   {

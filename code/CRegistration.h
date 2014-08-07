@@ -37,7 +37,7 @@ class CRegistration
   void Register();
   void Register_use_openmp();
   private:
-  void reset();
+  void reset(CVirtualContour*);
   void shape_vicinity(CVirtualContour*,int);//first is higher_layer as source,second is the narrow band width
   int narrow_band;
   int vicinity_points_num;
@@ -48,8 +48,6 @@ class CRegistration
   //the grill in distance map
   void init_lattice(CVirtualContour*);
   
-  float* xvb;//the lattice's x value
-  float* yvb;//the lattice's y value
   //bspline_update
   void bspline_update(CVirtualContour*,int mode,std::vector<CPoint*>&,std::vector<CPoint*>&);// mode = 0,use the normal lattice, mode = 1 ,use the new lattice.p
   //compute energy
@@ -70,12 +68,11 @@ class CRegistration
   void fill_the_hole(CCorrespond* corres,int& count,int first,int size,int last_index,int index, CPoint* point1, CVirtualContour *higher,int gap,bool isforeward);
   int get_relate_index(int first, int size, int old_index);
   void get_gap(int first, int size, int index, int last_index,int &real_gap,bool& isforeward );
-  float** XB;// original control point coordinates;
-  float** YB;
-  float** dXB;
-  float** dYB;
 
-  float lamda;// step size
+  float* xvb;//the lattice's x value
+  float* yvb;//the lattice's y value
+
+
   float kappa;//weight factor controlling the smoothness term
 
   const int NumberRows,NumberCols;

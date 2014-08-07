@@ -158,63 +158,63 @@ void CShapeDisplay::draw_lattice(vtkSmartPointer<vtkRenderer> renderer)
 
 void CShapeDisplay::draw_lattice_content(vtkSmartPointer<vtkRenderer> renderer,CContour* contour,int mode)//mode 1 draw x axis mode 2 draw y axis
 {
-  // int N=MatrixRes;
-  // if(mode==1)
-  // {
-  //   for (int i = 0; i < N; ++i)
-  //   {
-  //     vtkSmartPointer<vtkActor> actor= vtkSmartPointer<vtkActor>::New();
-  //     vtkSmartPointer<vtkPolyData> m_polydata= vtkSmartPointer<vtkPolyData>::New();
-  //     vtkSmartPointer<vtkPolyDataMapper> mapper= vtkSmartPointer<vtkPolyDataMapper>::New();
-  //     vtkSmartPointer<vtkPoints> m_points= vtkSmartPointer<vtkPoints>::New();
-  //     vtkSmartPointer<vtkCellArray> m_lines= vtkSmartPointer<vtkCellArray>::New();
-  //     vtkIdType* lineIndices=new vtkIdType[MatrixRes];
+  int N=MatrixRes;
+  if(mode==1)
+  {
+    for (int i = 0; i < N; ++i)
+    {
+      vtkSmartPointer<vtkActor> actor= vtkSmartPointer<vtkActor>::New();
+      vtkSmartPointer<vtkPolyData> m_polydata= vtkSmartPointer<vtkPolyData>::New();
+      vtkSmartPointer<vtkPolyDataMapper> mapper= vtkSmartPointer<vtkPolyDataMapper>::New();
+      vtkSmartPointer<vtkPoints> m_points= vtkSmartPointer<vtkPoints>::New();
+      vtkSmartPointer<vtkCellArray> m_lines= vtkSmartPointer<vtkCellArray>::New();
+      vtkIdType* lineIndices=new vtkIdType[MatrixRes];
       
-  //     int count=0;
-  //     for (int j = 0; j < N; ++j)
-  //     {
-  //      m_points->InsertPoint(static_cast<vtkIdType>(count),contour->lattice_x[i][j],contour->lattice_y[i][j],contour->LayerID);
-  //       lineIndices[count] = static_cast<vtkIdType>(count);
-  //       count++;
-  //     }
-  //     m_lines->InsertNextCell(MatrixRes,lineIndices);
-  //     delete[] lineIndices;
+      int count=0;
+      for (int j = 0; j < N; ++j)
+      {
+       m_points->InsertPoint(static_cast<vtkIdType>(count),contour->vec_virtual_contour[0]->lattice_x[i][j],contour->vec_virtual_contour[0]->lattice_y[i][j],contour->LayerID);
+        lineIndices[count] = static_cast<vtkIdType>(count);
+        count++;
+      }
+      m_lines->InsertNextCell(MatrixRes,lineIndices);
+      delete[] lineIndices;
 
-  //     m_polydata->SetPoints(m_points);
-  //     m_polydata->SetLines(m_lines);
-  //     mapper->SetInput(m_polydata);
-  //     actor->SetMapper(mapper);
-  //     renderer->AddActor(actor);
-  //   }
-  // }
-  // else
-  // {
-  //   for (int j = 0; j < N; ++j)
-  //   {
-  //     vtkSmartPointer<vtkActor> actor= vtkSmartPointer<vtkActor>::New();
-  //     vtkSmartPointer<vtkPolyData> m_polydata= vtkSmartPointer<vtkPolyData>::New();
-  //     vtkSmartPointer<vtkPolyDataMapper> mapper= vtkSmartPointer<vtkPolyDataMapper>::New();
-  //     vtkSmartPointer<vtkPoints> m_points= vtkSmartPointer<vtkPoints>::New();
-  //     vtkSmartPointer<vtkCellArray> m_lines= vtkSmartPointer<vtkCellArray>::New();
-  //     vtkIdType* lineIndices=new vtkIdType[MatrixRes];
+      m_polydata->SetPoints(m_points);
+      m_polydata->SetLines(m_lines);
+      mapper->SetInput(m_polydata);
+      actor->SetMapper(mapper);
+      renderer->AddActor(actor);
+    }
+  }
+  else
+  {
+    for (int j = 0; j < N; ++j)
+    {
+      vtkSmartPointer<vtkActor> actor= vtkSmartPointer<vtkActor>::New();
+      vtkSmartPointer<vtkPolyData> m_polydata= vtkSmartPointer<vtkPolyData>::New();
+      vtkSmartPointer<vtkPolyDataMapper> mapper= vtkSmartPointer<vtkPolyDataMapper>::New();
+      vtkSmartPointer<vtkPoints> m_points= vtkSmartPointer<vtkPoints>::New();
+      vtkSmartPointer<vtkCellArray> m_lines= vtkSmartPointer<vtkCellArray>::New();
+      vtkIdType* lineIndices=new vtkIdType[MatrixRes];
       
-  //     int count=0;
-  //     for (int i = 0; i < N; ++i)
-  //     {
-  //       m_points->InsertPoint(static_cast<vtkIdType>(count),contour->lattice_x[i][j],contour->lattice_y[i][j],contour->LayerID);
-  //       lineIndices[count] = static_cast<vtkIdType>(count);
-  //       count++;
-  //     }
-  //     m_lines->InsertNextCell(MatrixRes,lineIndices);
-  //     delete[] lineIndices;
+      int count=0;
+      for (int i = 0; i < N; ++i)
+      {
+        m_points->InsertPoint(static_cast<vtkIdType>(count),contour->vec_virtual_contour[0]->lattice_x[i][j],contour->vec_virtual_contour[0]->lattice_y[i][j],contour->LayerID);
+        lineIndices[count] = static_cast<vtkIdType>(count);
+        count++;
+      }
+      m_lines->InsertNextCell(MatrixRes,lineIndices);
+      delete[] lineIndices;
 
-  //     m_polydata->SetPoints(m_points);
-  //     m_polydata->SetLines(m_lines);
-  //     mapper->SetInput(m_polydata);
-  //     actor->SetMapper(mapper);
-  //     renderer->AddActor(actor);
-  //   }
-  // }
+      m_polydata->SetPoints(m_points);
+      m_polydata->SetLines(m_lines);
+      mapper->SetInput(m_polydata);
+      actor->SetMapper(mapper);
+      renderer->AddActor(actor);
+    }
+  }
 }
 
 void CShapeDisplay::draw_medial_axis(vtkSmartPointer<vtkRenderer> renderer)

@@ -8,6 +8,8 @@
 #include "CMap.h"
 #include "initial.h"
 #include <map>
+
+class CVirtualContour;
 class CPoint;
 class CLayer;
 
@@ -17,6 +19,7 @@ class CContour
 
  public:
   CContour(const float ID,CLayer*);
+  static int contour_index;             /**< the unique id for contour */
   CLayer* m_layer;
   std::string filename;
   float LayerID;
@@ -26,7 +29,7 @@ class CContour
   std::vector<CPoint*> vec_points_orderd;// the point after check the sequnce
   std::vector<CPoint*> vec_Points_Origin;// the points after normalize;
   std::vector<CPoint*> vec_Points_Inter; //just used in CMap. can clear after calculate Distancemap
-
+  std::vector<CVirtualContour*> vec_virtual_contour;
   void operator=(CContour &temp);
   bool read_single_layer_without_z(std::fstream&);
   bool read_contour_with_z(std::fstream& fin);

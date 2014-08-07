@@ -17,7 +17,7 @@
   <contour_pointnum_threshold>30</contour_pointnum_threshold>
   <point_distance_scale>0</point_distance_scale>
   <boundary_coverage_rate_threshold>0.0001</boundary_coverage_rate_threshold>
-  <use_open_mp>true</use_open_mp>
+  <use_open_mp>false</use_open_mp>
   <thread_num>2</thread_num>
   <gap_threshold>8</gap_threshold>
   <use_contour_smooth>false</use_contour_smooth>

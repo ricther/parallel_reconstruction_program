@@ -13,7 +13,7 @@ CContourDisplay(std::map<float,CLayer*>& temp_map):map_Layer(temp_map){};
   void initial_contour_actor(std::vector<CPoint*>::iterator,std::vector<CPoint*>::iterator,int,double);
   void update_contour_polydata(float LayerID,int id);
   void update_polydata(std::vector<CPoint*>::iterator,std::vector<CPoint*>::iterator,int,double);
-  virtual void set_iterator(CContour* temp);
+  virtual void set_iterator(CContour* temp,int deformID);
   float current_LayerID;
 protected:
   std::vector<CPoint*>::iterator point_itr,point_etr;

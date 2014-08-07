@@ -7,7 +7,7 @@ class COriginContour:public CContourDisplay
 {
 public:
   COriginContour(std::map<float,CLayer*>& temp_map):CContourDisplay(temp_map){};
-  virtual void set_iterator(CContour* temp)
+  virtual void set_iterator(CContour* temp,int deformID)
   {
     point_itr= temp->vec_Points_Origin.begin();
     point_etr= temp->vec_Points_Origin.end();
