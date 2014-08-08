@@ -1,5 +1,5 @@
 #pragma once
-
+// for algorithm initial
 extern const int MatrixRes;
 extern const int NumRows;
 extern const int NumCols;
@@ -20,3 +20,7 @@ extern const bool use_open_mp;
 extern const int thread_num;
 extern const int gap_threshold;
 extern const bool use_contour_smooth;
+// for debug
+
+extern const bool debug_contour_arrangement;
+extern const bool debug_registration;

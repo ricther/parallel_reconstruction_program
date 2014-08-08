@@ -52,6 +52,11 @@ const int thread_num = m_data_reader.get_value_int ("thread_num"); /**< the thre
 //@}
 const int gap_threshold = m_data_reader.get_value_float("gap_threshold"); /**< the gap of the hole, the threshold decide whether the hole to fill, the gap is metric by points num */
 const bool use_contour_smooth= m_data_reader.get_value_bool("use_contour_smooth"); /**< whether use the smooth in setup the ccontour */
+
+const bool debug_contour_arrangement= m_data_reader.get_value_bool("debug_contour_arrangement",2);
+const bool debug_registration= m_data_reader.get_value_bool("debug_registration",2);
+
+
 CShape m_source;
 
 

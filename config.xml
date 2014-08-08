@@ -3,7 +3,7 @@
   <NumRows>900</NumRows>
   <NumCols>900</NumCols>
   <interval_of_point>1</interval_of_point>
-  <layer_interval_scale>10</layer_interval_scale>
+  <layer_interval_scale>1</layer_interval_scale>
   <interval_of_line_layer>1</interval_of_line_layer>
   <distance_medialaxis_contour>3</distance_medialaxis_contour>
   <iteration_number>60</iteration_number>
@@ -18,10 +18,15 @@
   <point_distance_scale>0</point_distance_scale>
   <boundary_coverage_rate_threshold>0.0001</boundary_coverage_rate_threshold>
   <use_open_mp>false</use_open_mp>
-  <thread_num>2</thread_num>
+  <thread_num>8</thread_num>
   <gap_threshold>8</gap_threshold>
   <use_contour_smooth>false</use_contour_smooth>
 </initial>
+<debug>
+  <debug_contour_arrangement>false</debug_contour_arrangement>
+  <debug_registration>false</debug_registration>
+</debug>
 <datasource>
   <file_name>../layer/WBPETCT3D_new_20_22</file_name>
 </datasource>
+

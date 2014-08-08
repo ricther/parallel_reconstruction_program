@@ -319,6 +319,10 @@ void CMap::caldistancesmap()
     for (int j = 0; j < NUMCOLS; ++j)
     {
       DistancsMap[j][i]=Temp[i][j];
+      if (DistancsMap[j][i]!=0)
+      {
+        int asdfa=0;
+      }
     }
   }
 

@@ -139,6 +139,7 @@ void CContourArrangement:: get_couple(CLayer* first_layer, CLayer* second_layer,
         {
           if (distance<new_couple->distance)
           {
+            if(debug_contour_arrangement)
             std::cout<<first_layer->LayerID<<"-"<<second_layer->LayerID<<"distance:"<<distance<<std::endl;
             new_couple->distance=distance;
             new_couple->vcontour2=new CVirtualContour(d_itr->second);
@@ -200,6 +201,7 @@ float CContourArrangement::check_boundary_box_coverage(CContour* u, CContour*d)
   float rate_u=area_intersection/area_u;
   float rate_d=area_intersection/area_d;
   float rate=rate_u*rate_d;
+  if(debug_contour_arrangement)
   std::cout<<u->LayerID<<"-"<<d->LayerID<<"rate:"<<rate<<std::endl;
   //  float rate=rate_u>rate_d?rate_u:rate_d;
   return rate;
@@ -280,6 +282,7 @@ float CContourArrangement::check_coverage_level_set(CContour* u, CContour*d)
   float rate_u=area_intersection/area_u;
   float rate_d=area_intersection/area_d;
   float rate=rate_u*rate_d;
+  if(debug_contour_arrangement)
   std::cout<<u->LayerID<<"-"<<d->LayerID<<"rate:"<<rate<<std::endl;
   //  float rate=rate_u>rate_d?rate_u:rate_d;
   return rate;

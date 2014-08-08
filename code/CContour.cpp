@@ -246,8 +246,8 @@ void CContour::normalize(CPoint shape_center_point)//may be use the moment point
   for (;itr!=etr;++itr)
   {
     CPoint* temp = new CPoint();
-    temp->x=(*itr)->x;//-shape_center_point.x + map_center_x;
-    temp->y=(*itr)->y;//-shape_center_point.y + map_center_y;
+    temp->x=(*itr)->x-shape_center_point.x + map_center_x;
+    temp->y=(*itr)->y-shape_center_point.y + map_center_y;
     temp->z=(*itr)->z;
     temp->index=temp->get_index();
     vec_Points_Origin.push_back(temp);

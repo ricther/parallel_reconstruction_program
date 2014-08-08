@@ -289,8 +289,21 @@ void CRegistration:: regist_lower_long_higher_short(CVirtualContour* lower,CVirt
   cor->CorrespondLayer1=lower->LayerID;
   cor->CorrespondLayer2=higher->LayerID;    
   get_correspondence(cor,shorter,longer);
-  cout<<lower->LayerID<<"-"<<higher->LayerID<<":"<<cor->map_cor.size()<<endl;
+  
+  if(debug_registration)
+  cout<<lower->LayerID<<"-"<<higher->LayerID<<"have correspondence points:"<<cor->map_cor.size()<<endl;
+  
   SourceShape->vec_Cor.push_back(cor);
+  //only the higher contour need release the array, the lower don't alloc the memory
+  if(shorter->lattice_x!=NULL)
+  {
+     shorter->release_array();
+  }
+  else
+  {
+     longer->release_array();
+  }
+
 }
 
 CVirtualContour* CRegistration::find_nearest_contour(CVirtualContour* lower_contour,CLayer* higher_layer,int diffecence)
@@ -421,10 +434,11 @@ void CRegistration::init_lattice(CVirtualContour* contour)
   {
     contour->XB=make_2D_float_array(MatrixRes,MatrixRes);
     contour->YB=make_2D_float_array(MatrixRes,MatrixRes);
-    contour->dXB=make_2D_float_array(MatrixRes,MatrixRes);
-    contour->dYB=make_2D_float_array(MatrixRes,MatrixRes);
-    reset(contour);
+    //    reset(contour);
   }
+  contour->dXB=make_2D_float_array(MatrixRes,MatrixRes);
+  contour->dYB=make_2D_float_array(MatrixRes,MatrixRes);
+
   for (int i = 0; i < MatrixRes; ++i)
   {
     for (int j = 0;j < MatrixRes; ++j)
@@ -965,7 +979,10 @@ void CRegistration::get_correspondence(CCorrespond* corres,CVirtualContour* shor
          }
          else if(abs(gap)>1)
          {
-           cout<<"gap:"<<gap<<"\tindex:"<<index<<"\tlast_index:"<<last_index<<"\tfirst_index:"<<first_index<<"\tsize:"<<longer_size<<"\n";
+           if (debug_registration)
+           {
+             cout<<"gap:"<<gap<<"\tindex:"<<index<<"\tlast_index:"<<last_index<<"\tfirst_index:"<<first_index<<"\tsize:"<<longer_size<<"\n";
+           }
          }
          new_para_point->point2 = *(longer->m_contour->vec_Points_Origin[index]);
        }
@@ -996,6 +1013,7 @@ void CRegistration::get_correspondence(CCorrespond* corres,CVirtualContour* shor
         }
         else if(abs(gap)>1)
         {
+          if(debug_registration)
           cout<<"gap:"<<gap<<"\tindex:"<<index<<"\tlast_index:"<<last_index<<"\tfirst_index:"<<first_index<<"\tsize:"<<longer_size<<"\n";
         }
 
