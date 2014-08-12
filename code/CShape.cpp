@@ -18,6 +18,11 @@ CShape::CShape()
   sum_x=sum_y=0;
   m_skeleton=new CSkeleton();
   m_registration= new CRegistration(this);
+  original_max_x=-9999999;
+  original_max_y=-9999999;
+  original_min_x=9999999;
+  original_min_y=9999999;
+
 }
 
 /** 
@@ -72,20 +77,41 @@ void CShape::read()
           delete temp_layer;
           continue;
         }
-        check_edge(temp_layer->center_point->x,temp_layer->center_point->y,temp_layer->center_point->z);
+        //        check_edge(temp_layer->center_point->x,temp_layer->center_point->y,temp_layer->center_point->z);
+        check_edge(temp_layer->max_x,temp_layer->max_y,temp_layer->center_point->z);
+        check_edge(temp_layer->min_x,temp_layer->min_y,temp_layer->center_point->z);
+        check_edge_before_scale(temp_layer->original_max_x,temp_layer->original_max_y);
+        check_edge_before_scale(temp_layer->original_min_x,temp_layer->original_min_y);
+
         map_Layer.insert(make_pair(temp_layer->LayerID,temp_layer));
       }
       else
       {
         temp_layer=map_Layer.find(levelID)->second;
         result=temp_layer->read_layer_multi_contour_with_z(fin);
-        check_edge(temp_layer->center_point->x,temp_layer->center_point->y,temp_layer->center_point->z);
+        //        check_edge(temp_layer->center_point->x,temp_layer->center_point->y,temp_layer->center_point->z);
+        check_edge(temp_layer->max_x,temp_layer->max_y,temp_layer->center_point->z);
+        check_edge(temp_layer->min_x,temp_layer->min_y,temp_layer->center_point->z);
+
+        check_edge_before_scale(temp_layer->original_max_x,temp_layer->original_max_y);
+        check_edge_before_scale(temp_layer->original_min_x,temp_layer->original_min_y);
+
       }
 
     }
   }
   get_center();
   calculate_one_moment();
+  check_point_scale();
+}
+
+void CShape::check_point_scale()
+{
+  float x= original_max_x-original_min_x;
+  float y= original_max_y-original_min_y;
+  float v= x>y?x:y;
+  float scale = NumRows/v;
+  cout<<"\n********************************************************************\nthe longest distance in x direction is:" <<x<<"\t longest distance in y direction is:" <<y <<" the specified point scale is : "<<point_scale <<"\t the recommend point scale is:"<<scale<<"\n********************************************************************\n";
 }
 /** 
  * build skeleton;
@@ -102,9 +128,11 @@ void CShape::Setup()
   {
     vec_layerID.push_back(itr->first);
     layer_count++;
-    (itr->second)->setup(moment_one_point);
+    (itr->second)->setup(center_point);
     contour_count+=(itr->second)->map_contour.size();
   }
+    cout<<"\n the max and min point value after scale. max_x ="<<CContour::static_max_x<<"\t min_x="<< CContour::static_min_x<<"\t max_y="<< CContour::static_max_y<<"\t min_y="<< CContour::static_min_y<<"\n";
+
   std::cout<<"**********Layer NUM:"<<layer_count<<"\t"<<"Contour NUM:"<<contour_count<<"\n";
 }
 
@@ -127,6 +155,9 @@ void CShape::Setup_use_openmp()
     map_Layer[vec_layerID[i]]->setup(moment_one_point);
     contour_count+=map_Layer[vec_layerID[i]]->map_contour.size();
   }
+
+    cout<<"\n the max and min point value after scale. max_x ="<<CContour::static_max_x<<"\t min_x="<< CContour::static_min_x<<"\t max_y="<< CContour::static_max_y<<"\t min_y="<< CContour::static_min_y<<"\n";
+
   std::cout<<"**********Layer NUM:"<<layer_count<<"\t"<<"Contour NUM:"<<contour_count<<"\n";
 }
 
@@ -181,11 +212,36 @@ void CShape:: check_edge(float tempx,float tempy,float tempz)
     sum_x+=tempx;sum_y+=tempy;
 }
 
+void CShape::check_edge_before_scale(float tempx,float tempy)
+{
+    if (tempx>original_max_x)
+    {
+      original_max_x=tempx;
+    }
+    if (tempx<original_min_x)
+    {
+      original_min_x=tempx;
+    }
+
+    if (tempy>original_max_y)
+    {
+      original_max_y=tempy;
+    }
+    if(tempy<original_min_y)
+    {
+      original_min_y=tempy;
+    }
+
+}
+
+
+
 void CShape::get_center()
 {
   center_point.x=(max_x+min_x)/2;
   center_point.y=(max_y+min_y)/2;
   center_point.z=0;//because when do the normalize, we don't want change the z level;
+  cout<<"max_x"<<max_x<<"\t min_x"<<min_x<<"\t max_y"<<max_y<<"\t min_y"<<min_y<<"center_point.x:"<<center_point.x<<"center_point.y:"<<center_point.y<<"\n";
 }
 
 void CShape::calculate_one_moment()

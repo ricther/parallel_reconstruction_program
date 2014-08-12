@@ -16,9 +16,13 @@ CLayer::CLayer(const float ID)
   max_y=-9999999;
   min_x=9999999;
   min_y=9999999;
+  original_max_x=-9999999;
+  original_max_y=-9999999;
+  original_min_x=9999999;
+  original_min_y=9999999;
+
   center_point= new CPoint();
   moment_one_point= new CPoint();
-  last_x=last_y=9999999;
   contour_Num=0;
   medial_axis=NULL;
   medial_axis_count=0;
@@ -60,12 +64,30 @@ void CLayer:: check_edge(float tempx,float tempy )
       min_y=tempy;
     }
     sum_y+=tempy;
-    if (last_x==9999999&&last_y==9999999)
-    {
-      last_x=tempx;last_y=tempy;
-    }
-    last_x=tempx;last_y=tempy;
 }
+
+void CLayer::check_edge_before_scale(float tempx,float tempy)
+{
+    if (tempx>original_max_x)
+    {
+      original_max_x=tempx;
+    }
+    if (tempx<original_min_x)
+    {
+      original_min_x=tempx;
+    }
+
+    if (tempy>original_max_y)
+    {
+      original_max_y=tempy;
+    }
+    if(tempy<original_min_y)
+    {
+      original_min_y=tempy;
+    }
+
+}
+
 
 void CLayer::get_center()
 {
@@ -133,7 +155,7 @@ bool CLayer:: read_layer_multi_contour_with_z(std::fstream& fin)
     {
       new_contour= new CContour(contourID,this);
       result=new_contour->read_contour_with_z(fin);
-      cout<<"level:"<<new_contour->LayerID<<"\t"<<new_contour->length<<"point num:"<<new_contour->PointNum;
+      cout<<"level:"<<new_contour->LayerID<<"\t length:"<<new_contour->length<<"\t point num:"<<new_contour->PointNum;
       if (new_contour->length<contour_length_threshold&&new_contour->PointNum<contour_pointnum_threshold)
       {
         cout<<"deleted"<<endl;
@@ -149,6 +171,8 @@ bool CLayer:: read_layer_multi_contour_with_z(std::fstream& fin)
       map_contour.insert(make_pair(contourID,new_contour));
       check_edge(new_contour->max_x,new_contour->max_y);
       check_edge(new_contour->min_x,new_contour->min_y);
+      check_edge_before_scale(new_contour->original_max_x,new_contour->original_max_y);
+      check_edge_before_scale(new_contour->original_min_x,new_contour->original_min_y);
       get_center();
       check_length(new_contour->length);
       calculate_one_moment();
@@ -160,6 +184,8 @@ bool CLayer:: read_layer_multi_contour_with_z(std::fstream& fin)
       result=new_contour->read_contour_with_z(fin);
       check_edge(new_contour->max_x,new_contour->max_y);
       check_edge(new_contour->min_x,new_contour->min_y);
+      check_edge_before_scale(new_contour->original_max_x,new_contour->original_max_y);
+      check_edge_before_scale(new_contour->original_min_x,new_contour->original_min_y);
       get_center();
       calculate_one_moment();
     }
@@ -181,6 +207,7 @@ void CLayer::setup(CPoint shape_center_point)
   // {
   //   calculate_medial_axis();
   // }
+
 }
 
 void CLayer::reset()

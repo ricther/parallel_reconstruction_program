@@ -18,8 +18,12 @@ class CContour
 {
 
  public:
+  static float static_max_x;
+  static float static_min_x;
+  static float static_max_y;
+  static float static_min_y;
   CContour(const float ID,CLayer*);
-  static int contour_index;             /**< the unique id for contour */
+  int contour_index;
   CLayer* m_layer;
   std::string filename;
   float LayerID;
@@ -40,8 +44,8 @@ class CContour
   void InitMap();
   CPoint* center_point;
   CPoint* moment_one_point;
-  float max_x,max_y,min_x,min_y;
-  float length;
+  float max_x,max_y,min_x,min_y, original_max_x,original_max_y,original_min_x,original_min_y;
+  float length,original_length;         /**< the length is the contour length after scale, the original_length is the original length from the data */
   void reset();
   //  int use_as_higher_contour_count,use_as_lower_contour_count;
   void smooth();
@@ -52,10 +56,12 @@ class CContour
   int use_counter;
 private:
   void check_edge(float,float);
+  void check_edge_before_scale(float,float);
   void get_center();
   void calculate_one_moment();
   void check_point_seq();
   float sum_x,sum_y;
-  float last_x,last_y;
+  float last_x,last_y,original_last_x,original_last_y;
   CPoint* get_the_nearest_unused_point(CPoint* point);
+  static int static_contour_index;             /**< the unique id for contour */
 };

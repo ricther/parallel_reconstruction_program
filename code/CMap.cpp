@@ -225,6 +225,7 @@ void CMap::drawcontour()
   {
     int x=m_contour->vec_Points_Inter[i]->x;
     int y=m_contour->vec_Points_Inter[i]->y;
+    //    std::cout<<x<<"\t"<<y<<"\n";
     SignMap[x][y]=255;
     DistancsMap[x][y]=0;
   }
@@ -319,10 +320,6 @@ void CMap::caldistancesmap()
     for (int j = 0; j < NUMCOLS; ++j)
     {
       DistancsMap[j][i]=Temp[i][j];
-      if (DistancsMap[j][i]!=0)
-      {
-        int asdfa=0;
-      }
     }
   }
 

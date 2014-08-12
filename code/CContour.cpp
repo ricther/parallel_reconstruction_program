@@ -5,7 +5,11 @@
 #include "math.h"
 using namespace std;
 
-int CContour::contour_index=0;
+float  CContour::static_max_x=-999999;
+float  CContour::static_min_x=999999;
+float  CContour::static_max_y=-999999;
+float  CContour::static_min_y=999999;
+int CContour::static_contour_index=0;
 CContour::CContour(const float ID,CLayer* layer)
 {
   m_layer=layer;
@@ -15,17 +19,22 @@ CContour::CContour(const float ID,CLayer* layer)
   max_y=-9999999;
   min_x=9999999;
   min_y=9999999;
+  original_max_x=-9999999;
+  original_max_y=-9999999;
+  original_min_x=9999999;
+  original_min_y=9999999;
   center_point= new CPoint();
   moment_one_point= new CPoint();
-  length=0;
+  length=0;original_length=0;
   last_x=last_y=9999999;
+  original_last_x=original_last_y=9999999;
   //  use_as_higher_contour_count=0;
   //  use_as_lower_contour_count=0;
   use_counter=0;
   sum_x=0;
   sum_y=0;
   m_Map= new CMap(this);
-  contour_index++;
+  contour_index=static_contour_index++;
 }
 
 void CContour:: operator=(CContour &temp)
@@ -66,6 +75,37 @@ void CContour:: check_edge(float tempx,float tempy )
     length+=sqrt(temp_value);
     // std::cout<<length<<"\t"<<tempx<<"\t"<<last_x<<"\t"<<tempy<<"\t"<<last_y<<"\n";
     last_x=tempx;last_y=tempy;
+}
+
+void CContour::check_edge_before_scale(float tempx,float tempy)
+{
+    if (tempx>original_max_x)
+    {
+      original_max_x=tempx;
+    }
+    if (tempx<original_min_x)
+    {
+      original_min_x=tempx;
+    }
+
+
+    if (tempy>original_max_y)
+    {
+      original_max_y=tempy;
+    }
+    if(tempy<original_min_y)
+    {
+      original_min_y=tempy;
+    }
+
+    if (original_last_x==9999999&&original_last_y==9999999)
+    {
+      original_last_x=tempx;original_last_y=tempy;
+    }
+    float temp_value=(tempx-original_last_x)*(tempx-original_last_x)+(tempy-original_last_y)*(tempy-original_last_y);
+    original_length+=sqrt(temp_value);
+
+    original_last_x=tempx;original_last_y=tempy;
 }
 
 void CContour::get_center()
@@ -136,8 +176,11 @@ bool CContour::read_contour_with_z(fstream& fin)
       fin>>temp_contourID;
       fin>>temp->x;
       fin>>temp->y;
+      check_edge_before_scale(temp->x,temp->y);
+      //      cout<<temp->x<<"\t"<<temp->y<<"\t"<<temp->z<<"\n";
       temp->x=temp->x*point_scale;
       temp->y=temp->y*point_scale;
+      //      cout<<temp->x<<"\t"<<temp->y<<"\t"<<temp->z<<"\n";
     
 
       if(temp_contourID!=contourID||temp->z!=LayerID)
@@ -240,6 +283,7 @@ void CContour::normalize(CPoint shape_center_point)//may be use the moment point
   std::vector<CPoint*>::iterator itr,etr;
   itr=vec_points_orderd.begin();
   etr=vec_points_orderd.end();
+  int n=99999999;
 
   int map_center_x=NumRows/2;
   int map_center_y=NumCols/2;
@@ -249,8 +293,29 @@ void CContour::normalize(CPoint shape_center_point)//may be use the moment point
     temp->x=(*itr)->x-shape_center_point.x + map_center_x;
     temp->y=(*itr)->y-shape_center_point.y + map_center_y;
     temp->z=(*itr)->z;
+    // if (temp->x>NumRows||temp->y>NumRows)
+    // {
+    //   cout<<temp->x<<"\t:"<<temp->y<<"\n";
+    // }
+
     temp->index=temp->get_index();
     vec_Points_Origin.push_back(temp);
+    if (temp->x>static_max_x)
+    {
+      static_max_x=temp->x;
+    }
+    if (temp->x<static_min_x )
+    {
+      static_min_x=temp->x;
+    }
+    if (temp->y>static_max_y)
+    {
+      static_max_y=temp->y;
+    }
+    if (temp->y<static_min_y)
+    {
+      static_min_y<temp->y;
+    }
   }
   // center_point->x=center_point->x-shape_center_point.x+map_center_x;
   // center_point->y=center_point->y-shape_center_point.y+map_center_y;
@@ -259,6 +324,7 @@ void CContour::normalize(CPoint shape_center_point)//may be use the moment point
   // moment_one_point->x=moment_one_point->x-shape_center_point.x+map_center_x;
   // moment_one_point->y=moment_one_point->y-shape_center_point.y+map_center_y;
   // moment_one_point->z=LayerID;
+
 }
 
 void CContour::reset()

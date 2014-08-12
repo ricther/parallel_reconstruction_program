@@ -272,13 +272,13 @@ float CContourArrangement::check_intersection_level_set(CContour* u, CContour*d)
 
 float CContourArrangement::check_coverage_level_set(CContour* u, CContour*d)
 {
-  float area_u=u->m_Map->area;
-  float area_d=d->m_Map->area;
   float area_intersection=check_intersection_use_level_set(u,d);
   if (area_intersection==0)
   {
     return 0;
   }
+  float area_u=u->m_Map->area;
+  float area_d=d->m_Map->area;
   float rate_u=area_intersection/area_u;
   float rate_d=area_intersection/area_d;
   float rate=rate_u*rate_d;

@@ -40,11 +40,14 @@ private:
  std::string m_filename;
  void read();
  void check_edge(float ,float ,float);
+ void check_edge_before_scale(float,float);
  void get_center();
  void calculate_one_moment();
  CPoint center_point;
  CPoint moment_one_point;
  float max_x,min_x,max_y,min_y,max_z,min_z,sum_x,sum_y;
+ float original_max_x,original_max_y,original_min_x,original_min_y;
+ void check_point_scale();
 };
 
 

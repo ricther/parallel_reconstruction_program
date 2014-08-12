@@ -59,7 +59,6 @@ const bool debug_registration= m_data_reader.get_value_bool("debug_registration"
 
 CShape m_source;
 
-
 void init_data();
 void vtk_setup();
 void registration();
