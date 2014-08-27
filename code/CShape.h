@@ -10,7 +10,7 @@
 #include<vtkRenderWindow.h>
 #include<vtkRenderWindowInteractor.h>
 #include"CShapeDisplay.h"
-
+#include"CContourArrangement.h"
 class CLayer;
 class CRegistration;
 class CSkeleton;
@@ -33,7 +33,7 @@ public:
  CSkeleton *m_skeleton;
  float get_next_layer(float now_layerID,int direction);//direction 0 down 1 up
  std::vector<float> vec_layerID;
- 
+ CContourArrangement* contour_arrangement;
 private:
 
  CRegistration * m_registration;

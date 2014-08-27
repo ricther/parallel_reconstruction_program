@@ -149,6 +149,13 @@ double ymaxs[5]= {0.5,0.5,0.5,1,1};
  // double ymins[5] = {0,0,0,0,0};
  // double ymaxs[5]= {1,0,0,0,0};
 
+//double backgroundcolor={0.1,0.2,0.4};
+double backgroundcolor[3]={1,1,1};
+double contour_line_color[3]={0.3,0.3,0.3};
+double contour_surface_color[3]={0.063,0.48,0.254};
+double triangle_surface_color[3]={0.027,0.27,0.12};
+
+
 vtkSmartPointer<vtkRenderer> Renderers[5];
 void vtk_draw_view1(vtkSmartPointer<vtkRenderWindow> renderWindow,vtkSmartPointer<vtkRenderWindowInteractor> interactor)
 {
@@ -157,7 +164,7 @@ void vtk_draw_view1(vtkSmartPointer<vtkRenderWindow> renderWindow,vtkSmartPointe
   //  renderer->RemoveLight( renderer->GetLights()->GetNextItem());
   renderWindow->AddRenderer(renderer);
   
-  renderer->SetBackground(0.1, 0.2, 0.4);
+  renderer->SetBackground(backgroundcolor);
 
   renderer->SetViewport(xmins[0],ymins[0],xmaxs[0],ymaxs[0]);
   
@@ -192,7 +199,7 @@ void vtk_draw_view2(vtkSmartPointer<vtkRenderWindow> renderWindow,vtkSmartPointe
   // light->SetAmbientColor(0,1,0);
   // light->SetSpecularColor(0,0,1);
   
-  renderer->SetBackground(0.1, 0.2, 0.4);
+  renderer->SetBackground(backgroundcolor);
 
   renderer->SetViewport(xmins[1],ymins[1],xmaxs[1],ymaxs[1]);
   
@@ -211,7 +218,7 @@ void vtk_draw_view3(vtkSmartPointer<vtkRenderWindow> renderWindow,vtkSmartPointe
   vtkSmartPointer<vtkRenderer> renderer = vtkSmartPointer<vtkRenderer>::New();
   renderWindow->AddRenderer(renderer);
   Renderers[2]=renderer;
-  renderer->SetBackground(0.1, 0.2, 0.4);
+  renderer->SetBackground(backgroundcolor);
 
   renderer->SetViewport(xmins[2],ymins[2],xmaxs[2],ymaxs[2]);
   //if transformed vector size =0 ; will render the origin points
@@ -229,7 +236,7 @@ void vtk_draw_view4(vtkSmartPointer<vtkRenderWindow> renderWindow,vtkSmartPointe
   vtkSmartPointer<vtkRenderer> renderer = vtkSmartPointer<vtkRenderer>::New();
   renderWindow->AddRenderer(renderer);
   Renderers[3]=renderer;
-  renderer->SetBackground(0.1, 0.2, 0.4);
+  renderer->SetBackground(backgroundcolor);
 
   renderer->SetViewport(xmins[3],ymins[3],xmaxs[3],ymaxs[3]);
   
@@ -247,7 +254,7 @@ void vtk_draw_view5(vtkSmartPointer<vtkRenderWindow> renderWindow,vtkSmartPointe
   vtkSmartPointer<vtkRenderer> renderer = vtkSmartPointer<vtkRenderer>::New();
   renderWindow->AddRenderer(renderer);
   Renderers[4]=renderer;
-  renderer->SetBackground(0.1, 0.2, 0.4);
+  renderer->SetBackground(backgroundcolor);
 
   renderer->SetViewport(xmins[4],ymins[4],xmaxs[4],ymaxs[4]);
   

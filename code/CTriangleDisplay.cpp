@@ -145,7 +145,7 @@ void CTriangleDisplay:: organize_data(CCorrespond* cor)
     m_triangles->InsertNextCell(triangle);
   }
 }
-
+extern double triangle_surface_color[3];
 void CTriangleDisplay:: set_up_vtk()
 {
   m_polydata->SetPoints(m_points);
@@ -153,7 +153,7 @@ void CTriangleDisplay:: set_up_vtk()
   smooth();
   //  m_polydata_mapper->SetInput(m_polydata);
   m_actor->SetMapper(m_polydata_mapper);
-  m_actor->GetProperty()->SetColor(1.0,0.4,0);
+  m_actor->GetProperty()->SetColor(triangle_surface_color);
   m_actor->GetProperty()->SetAmbient(0.5);
   m_actor->GetProperty()->SetDiffuse(0.5);
   m_actor->GetProperty()->SetSpecular(0.5);

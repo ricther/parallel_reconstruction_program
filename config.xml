@@ -3,7 +3,7 @@
   <NumRows>900</NumRows>
   <NumCols>900</NumCols>
   <interval_of_point>1</interval_of_point>
-  <layer_interval_scale>5780</layer_interval_scale>
+  <layer_interval_scale>2</layer_interval_scale>
   <interval_of_line_layer>1</interval_of_line_layer>
   <distance_medialaxis_contour>3</distance_medialaxis_contour>
   <iteration_number>60</iteration_number>
@@ -12,12 +12,12 @@
   <show_vertex_on_edge>TRUE</show_vertex_on_edge>
   <use_length_energy>TRUE</use_length_energy>
   <contour_distance_threshold>1</contour_distance_threshold>
-  <point_scale>5780</point_scale>
+  <point_scale>1</point_scale>
   <contour_length_threshold>60</contour_length_threshold>
   <contour_pointnum_threshold>30</contour_pointnum_threshold>
   <point_distance_scale>0</point_distance_scale>
   <boundary_coverage_rate_threshold>0.0001</boundary_coverage_rate_threshold>
-  <use_open_mp>false</use_open_mp>
+  <use_open_mp>true</use_open_mp>
   <thread_num>8</thread_num>
   <gap_threshold>8</gap_threshold>
   <use_contour_smooth>false</use_contour_smooth>
@@ -27,6 +27,6 @@
   <debug_registration>false</debug_registration>
 </debug>
 <datasource>
-  <file_name>../layer/bun_contour_out</file_name>
+  <file_name>../layer/output.txt</file_name>
 </datasource>
 

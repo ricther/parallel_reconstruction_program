@@ -1,0 +1,28 @@
+#pragma once
+#include <vtkTriangle.h>
+#include "CCorespond.h"
+#include <map>
+#include <vector>
+#include "CTriangleSetDisplay.h"
+#include <vtkSmartPointer.h>
+#include <vtkActor.h>
+#include <vtkPolyData.h>
+#include <vtkPolyDataMapper.h>
+#include <vtkPoints.h>
+#include <vtkCellArray.h>
+#include <vtkProperty.h>
+
+
+class CContourSurface
+{
+public:
+  CContourSurface();
+  void initial_actors(CShape*);
+  void update_actors(float layerID,int lineID);
+
+  std::vector< vtkSmartPointer<vtkActor> > vec_actor;
+
+  void set_up_vtk();
+  void set_up_data(CShape*);
+  void initial_actor(CShape *);
+}

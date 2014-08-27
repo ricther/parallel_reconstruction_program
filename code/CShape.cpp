@@ -5,6 +5,7 @@
 #include"CPoint.h"
 #include"CSkeleton.h"
 #include<omp.h>
+#include "CContourArrangement.h"
 using namespace std;
 /** 
  * initial m_skeleton;m_registration
@@ -22,7 +23,7 @@ CShape::CShape()
   original_max_y=-9999999;
   original_min_x=9999999;
   original_min_y=9999999;
-
+  contour_arrangement= new CContourArrangement(this);
 }
 
 /** 

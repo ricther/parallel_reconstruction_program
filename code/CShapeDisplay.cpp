@@ -27,6 +27,7 @@ CShapeDisplay::CShapeDisplay(CShape* temp,vtkSmartPointer<vtkRenderWindow> temp_
   m_normal_contours=new CContourSetDisplay<CNormalContour>(m_shape->map_Layer);
   m_transformed_contours=new CContourSetDisplay<CTransformedContour>(m_shape->map_Layer);
   m_triangle = new CTriangleDisplay();
+  m_contour_surface= new CContourSurface();
   m_layer_text_actor= vtkSmartPointer<vtkTextActor>::New();
   
   m_render_window=temp_window;
@@ -134,7 +135,7 @@ void CShapeDisplay::draw_normal_points(vtkSmartPointer<vtkRenderer> renderer)
   itr=m_normal_contours->vec_contour.begin();etr =m_normal_contours->vec_contour.end();
   for (;itr!=etr;++itr)
   {
-    (*itr)->m_actor->GetProperty()->SetColor(1,1,0);
+    //    (*itr)->m_actor->GetProperty()->SetColor(1,1,0);
     renderer->AddActor((*itr)->m_actor);
   }
   //   draw_medial_axis(renderer);
@@ -346,9 +347,20 @@ void CShapeDisplay::draw_triangle(vtkSmartPointer<vtkRenderer> renderer,vtkSmart
   //   //m_mesh_actor draw the mesh
   //   //    renderer->AddActor(itr->second->m_mesh_actor);
   // }
+
+  
   m_triangle->initial_actor(m_shape);
   renderer->AddActor(m_triangle->m_actor);
   //  renderer->AddActor(m_triangle->m_mesh_actor);
+
+
+  m_contour_surface->initial_actors(m_shape);
+
+  int N= m_contour_surface->vec_actor.size();
+  for (int i = 0; i < N; ++i)
+  {
+      renderer->AddActor(m_contour_surface->vec_actor[i]);
+  }
   draw_text(renderer,string("triangle surface"));
 
 }

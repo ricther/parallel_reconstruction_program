@@ -1,0 +1,25 @@
+#include "CContourSurface.h"
+
+CContourSurface::CContourSurface()
+{
+  m_triangles=vtkSmartPointer<vtkCellArray>::New();
+  m_points=vtkSmartPointer<vtkPoints>::New();
+  m_actor=vtkSmartPointer<vtkActor>::New();
+  m_mesh_actor=vtkSmartPointer<vtkActor>::New();
+  m_polydata=vtkSmartPointer<vtkPolyData>::New();
+  m_polydata_mapper=vtkSmartPointer<vtkPolyDataMapper>::New();
+}
+
+void CContourSurface:: initial_actors(CShape * m_shape)
+{
+
+  std::map<float,CLayer*::iterator itr=m_shape->map_Layer.begin(),etr=m_shape->map_Layer.end();
+  for (int i = 0; i < size; ++i)
+  {
+    CTriangleSetDisplay* new_triangle_set=new CTriangleSetDisplay();
+    new_triangle_set->initial_actors(m_shape->vec_Cor[i]); 
+    map_layer_triangles_actors.insert(make_pair(m_shape->vec_Cor[i]->CorrespondLayer1,new_triangle_set));
+    check_level(m_shape->vec_Cor[i]->CorrespondLayer1);
+    check_level(m_shape->vec_Cor[i]->CorrespondLayer2);
+  }
+}

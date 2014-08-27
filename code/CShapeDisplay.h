@@ -20,6 +20,7 @@
 #include "CCorespondDisplay.h"
 #include "CTransformedContour.h"
 #include "CTriangleDisplay.h"
+#include "CContourSurface.h"
 class CLayer;
 class CPoint;
 class CShape;
@@ -39,6 +40,7 @@ private:
   CContourDisplay* m_skeleton_contour;
   CCorespondDisplay* m_correspond;
   CTriangleDisplay* m_triangle;
+  CContourSurface* m_contour_surface;
   
   void draw_medial_axis(vtkSmartPointer<vtkRenderer>);
   void draw_lattice(vtkSmartPointer<vtkRenderer>);

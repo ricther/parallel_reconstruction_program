@@ -108,12 +108,11 @@ void CRegistration::Register()
 {
   float start_time=omp_get_wtime();
   int src_layer_num=SourceShape->map_Layer.size();
-  CContourArrangement contour_arrangement(SourceShape);
-  contour_arrangement.setup();
+  SourceShape->contour_arrangement->setup();
   //  contour_arrangement
 
-  std::vector<contour_couple*>::iterator itr=contour_arrangement.vec_contour_couple.begin(),etr=contour_arrangement.vec_contour_couple.end();
-  int size=contour_arrangement.vec_contour_couple.size();
+  std::vector<contour_couple*>::iterator itr=SourceShape->contour_arrangement->vec_contour_couple.begin(),etr=SourceShape->contour_arrangement->vec_contour_couple.end();
+  int size=SourceShape->contour_arrangement->vec_contour_couple.size();
   int counter=0;
   for (;itr!=etr;++itr)
   {
@@ -164,11 +163,10 @@ void CRegistration::Register_use_openmp()
 {
   float start_time=omp_get_wtime();
   int src_layer_num=SourceShape->map_Layer.size();
-  CContourArrangement contour_arrangement(SourceShape);
-  contour_arrangement.setup_use_omp();
+  SourceShape->contour_arrangement->setup_use_omp();
 
-  std::vector<contour_couple*>::iterator itr=contour_arrangement.vec_contour_couple.begin(),etr=contour_arrangement.vec_contour_couple.end();
-  int size=contour_arrangement.vec_contour_couple.size();
+  std::vector<contour_couple*>::iterator itr=SourceShape->contour_arrangement->vec_contour_couple.begin(),etr=SourceShape->contour_arrangement->vec_contour_couple.end();
+  int size=SourceShape->contour_arrangement->vec_contour_couple.size();
   int counter=0;
   
 #pragma omp parallel for num_threads(thread_num)
@@ -176,7 +174,7 @@ void CRegistration::Register_use_openmp()
   {
     counter++;
     std::cout<<"processing couple:"<<counter<<"\t total couple num:"<<size<<"\t complete:"<<counter*1.0/(size*1.0)<<"\n";
-    regist_lower_long_higher_short(contour_arrangement.vec_contour_couple[i]->vcontour1,contour_arrangement.vec_contour_couple[i]->vcontour2);
+    regist_lower_long_higher_short(SourceShape->contour_arrangement->vec_contour_couple[i]->vcontour1,SourceShape->contour_arrangement->vec_contour_couple[i]->vcontour2);
   }
   
 
