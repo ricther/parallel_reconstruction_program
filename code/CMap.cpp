@@ -324,6 +324,7 @@ void CMap::caldistancesmap()
   }
 
   freeMap((void**)SignMap);
+  SignMap=NULL;
   m_contour->vec_Points_Inter.clear();
   m_contour->vec_Points_Inter.resize(0);
   //////////////////////////////////////////////////////

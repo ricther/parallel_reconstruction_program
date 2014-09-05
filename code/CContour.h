@@ -12,11 +12,13 @@
 class CVirtualContour;
 class CPoint;
 class CLayer;
-
+class CContourArrangement;
 
 class CContour
 {
 
+  friend class CVirtualContour;
+  friend class CContourArrangement;
  public:
   static float static_max_x;
   static float static_min_x;
@@ -37,9 +39,9 @@ class CContour
   void operator=(CContour &temp);
   bool read_single_layer_without_z(std::fstream&);
   bool read_contour_with_z(std::fstream& fin);
-  CMap* m_Map;
-  CMedialMap* m_medial_map;
-  CMap* m_temp_map;
+
+  //  CMedialMap* m_medial_map;
+  //  CMap* m_temp_map;
   void normalize(CPoint); 
   void InitMap();
   CPoint* center_point;
@@ -49,10 +51,10 @@ class CContour
   void reset();
   //  int use_as_higher_contour_count,use_as_lower_contour_count;
   void smooth();
-  void calculate_medial_map(float**);
-  void swap_map_medialmap();
-  void swap_medialmap_map();
-  std::multimap<float,CContour*> map_neighbour; /**< record the contour intersection with this contour, which in the neighbour layer */
+  /* void calculate_medial_map(float**); */
+  /* void swap_map_medialmap(); */
+  /* void swap_medialmap_map(); */
+  std::multimap<float,CContour*> map_neighbour; /**< record the contour intersection with this contour, which in the neighbour layer ,the map_neighbour must in the CContour class, can't put in the CVirtualContour class, because in the CVirtualContour class only record the information for one pair contour, can't record the neighbour*/
   int use_counter;
 private:
   void check_edge(float,float);
@@ -64,4 +66,5 @@ private:
   float last_x,last_y,original_last_x,original_last_y;
   CPoint* get_the_nearest_unused_point(CPoint* point);
   static int static_contour_index;             /**< the unique id for contour */
+  CMap* m_Map;
 };

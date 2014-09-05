@@ -64,6 +64,7 @@ public:
    vtkSmartPointer<vtkPoints>m_points;
    vtkSmartPointer<vtkCellArray>m_triangles;
 
+   CShape* m_shape;
    void set_up_vtk();
    int get_id(int ,int ,int);
    void organize_data(CCorrespond*);

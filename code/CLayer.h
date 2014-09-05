@@ -24,7 +24,7 @@ class CLayer
 
 
 
-  std::vector<CPoint*> vec_medial_points;
+
   CPoint* center_point;
   CPoint* moment_one_point;
   float max_x,max_y,min_x,min_y, original_max_x,original_max_y,original_min_x,original_min_y;
@@ -32,8 +32,6 @@ class CLayer
   void reset();
   std::map<int,int> map_contourID;//contour_Num,contourID
   std::map<int,CContour*> map_contour;//contourID,CContour*
-  float** medial_axis;
-  int medial_axis_count;
   float total_length;
 private:
   void check_edge(float,float);
@@ -42,5 +40,5 @@ private:
   void check_length(float);
   void calculate_one_moment();
   float sum_x,sum_y;
-  void calculate_medial_axis();
+
 };

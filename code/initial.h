@@ -20,6 +20,7 @@ extern const bool use_open_mp;
 extern const int thread_num;
 extern const int gap_threshold;
 extern const bool use_contour_smooth;
+extern const bool show_contour_surface;
 // for debug
 
 extern const bool debug_contour_arrangement;

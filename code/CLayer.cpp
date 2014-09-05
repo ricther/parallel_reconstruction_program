@@ -24,8 +24,6 @@ CLayer::CLayer(const float ID)
   center_point= new CPoint();
   moment_one_point= new CPoint();
   contour_Num=0;
-  medial_axis=NULL;
-  medial_axis_count=0;
   total_length=0;
 }
 
@@ -201,13 +199,7 @@ void CLayer::setup(CPoint shape_center_point)
   {
     (itr->second)->normalize(shape_center_point);
     (itr->second)->smooth();
-    //(itr->second)->InitMap();
   }
-  // if (contour_Num>1)
-  // {
-  //   calculate_medial_axis();
-  // }
-
 }
 
 void CLayer::reset()
@@ -218,80 +210,4 @@ void CLayer::reset()
   {
     (itr->second)->reset();
   }
-}
-#include "assert.h"
-#include "CFileDebug.h"
-#include <stdlib.h>
-
-void CLayer::calculate_medial_axis()
-{
-  medial_axis_count++;
-  medial_axis=make_2D_float_array(NumRows,NumCols);
-  for (int i = 0; i < NumRows; ++i)
-  {
-    for (int j = 0; j < NumCols; ++j)
-    {
-      medial_axis[i][j]=255;
-    }
-  }
-  std::map<int,CContour*>::iterator itr,etr,nitr;
-  itr=map_contour.begin();etr=map_contour.end();
-
-  //  int a = 1;
-  for (; itr!=etr; ++itr)
-  {
-   
-    //    char intStr[10];
-    //    sprintf(intStr,"%d",a);
-    //    string str = string(intStr);
-    
-    //    CFileDebug file(str);
-    //    file.Output(itr->second->m_Map->DistancsMap);
-    //    a++;
-    
-    nitr=itr;nitr++;
-      
-    if (nitr==etr)
-    {
-      break;
-    }
-    for (; nitr!=etr; ++nitr)
-    {
-      for (int i = 0; i < NumRows; ++i)
-      {
-        for (int j = 0; j < NumCols; ++j)
-        {
-          float first=(int) itr->second->m_Map->get_distance_map(i,j);
-          float second=(int) nitr->second->m_Map->get_distance_map(i,j);
-          float margin=1;
-          if(first-second>=-margin&&first-second<=margin)
-          {
-            medial_axis[i][j]=0;
-          }
-          else if (medial_axis[i][j]==0)
-          {
-            if (itr->second->m_Map->get_distance_map(i,j)<=distance_medialaxis_contour||nitr->second->m_Map->get_distance_map(i,j)<=distance_medialaxis_contour)
-            {
-              medial_axis[i][j]=255;              
-            }
-          }
-        }
-      }
-    }
-  }
-  for (int i = 0; i < NumRows; ++i)
-  {
-    for (int j = 0; j < NumCols; ++j)
-    {
-      if( medial_axis[i][j]==0)
-      {
-        CPoint * new_point=new CPoint();
-        //because the x,y in the distance map are exchanged.
-        new_point->x=j;new_point->y=i;new_point->z=LayerID*layer_interval_scale;
-        new_point->index=new_point->get_index();
-        vec_medial_points.push_back(new_point);
-      }
-    }
-  }
-
 }

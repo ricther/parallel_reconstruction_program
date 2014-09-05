@@ -1,4 +1,3 @@
-
 #include "CRegistration.h"
 #include "CShape.h"
 #include "string.h"
@@ -90,7 +89,7 @@ void CRegistration::freeform_res1(CVirtualContour* lower,CVirtualContour*higher)
   ///////////////
   //first time calculate the intensity before bespline as though the points do not changed
   //calculate the intensity in self distancesmap
-  compute_intensity(higher->vec_Points_Vicinity,higher->m_contour->m_Map->get_distance_map(),higher->vec_intensity_old);
+  compute_intensity(higher->vec_Points_Vicinity,higher->m_Map->get_distance_map(),higher->vec_intensity_old);
   // m_file.Output_intensity_data(higher->vec_Points_Vicinity,higher->vec_intensity_old);
   // m_file2.Output(higher->m_Map->DistancsMap);
   //  init_lattice(lower);
@@ -98,7 +97,7 @@ void CRegistration::freeform_res1(CVirtualContour* lower,CVirtualContour*higher)
   bspline_update(higher,0,higher->vec_Points_Vicinity,higher->vec_new_points_vicinity);
   //second time calculate the intensity after bespline update as though the points was changed
   //calculate the intensity in lower distancemap
-  compute_intensity(higher->vec_new_points_vicinity,lower->m_contour->m_Map->get_distance_map(),higher->vec_intensity_new);
+  compute_intensity(higher->vec_new_points_vicinity,lower->m_Map->get_distance_map(),higher->vec_intensity_new);
   //m_file2.Output_intensity_data(higher->vec_new_points_vicinity,higher->vec_intensity_new);
   float errorE=energy_func_square_diff(higher);
   gradientdescent_smoother(lower,higher,errorE);
@@ -267,12 +266,13 @@ void CRegistration:: regist_lower_long_higher_short(CVirtualContour* lower,CVirt
 
   if (use_medial_axis)
   {
-    if(shorter->m_contour->m_layer->medial_axis_count>0)
+    longer->calculate_medial_axis(shorter->LayerID);
+    if(longer->medial_axis_count>0)
     {
-      longer->m_contour->calculate_medial_map(shorter->m_contour->m_layer->medial_axis);
-      longer->m_contour->swap_map_medialmap();
+      longer->calculate_medial_map(longer->medial_axis);
+      longer->swap_map_medialmap();
       freeform_res1(longer,shorter);
-      longer->m_contour->swap_medialmap_map();
+      longer->swap_medialmap_map();
     }
     else
     {
@@ -338,7 +338,7 @@ bool CRegistration::check_contour_distance(CVirtualContour* lower_contour,CVirtu
     return true;
   }
   // if have medial points, then the two layer have intersections, so needn't to calculate the distance
-  if (lower_contour->m_contour->m_layer->vec_medial_points.size()>0||higher_contour->m_contour->m_layer->vec_medial_points.size()>0)
+  if (lower_contour->vec_medial_points.size()>0||higher_contour->vec_medial_points.size()>0)
   {
     return true;
   }
@@ -676,12 +676,12 @@ void CRegistration::calculate_dlattice_by_point(float **&Dcpx,float**&Dcpy,CVirt
     float yt= higher->vec_new_points_vicinity[k]->y;
     //TODO why y and x exchange position?
 
-    fx = compute_intensity_by_point(higher->m_contour->m_Map->get_distance_map(),x,y);
-    gtx = compute_intensity_by_point(lower->m_contour->m_Map->get_distance_map(),xt,yt);
+    fx = compute_intensity_by_point(higher->m_Map->get_distance_map(),x,y);
+    gtx = compute_intensity_by_point(lower->m_Map->get_distance_map(),xt,yt);
     //distance between a transfored feature point and its corresponding target feature point
     //TODO why yt xt exchange their position? don't need exchange
-    Dg[0] = compute_intensity_by_point(lower->m_contour->m_Map->get_gx(),xt,yt);
-    Dg[1] = compute_intensity_by_point(lower->m_contour->m_Map->get_gy(),xt,yt);
+    Dg[0] = compute_intensity_by_point(lower->m_Map->get_gx(),xt,yt);
+    Dg[1] = compute_intensity_by_point(lower->m_Map->get_gy(),xt,yt);
     // filefx<<x<<"\t"<<y<<"\t"<<xt<<"\t"<<yt<<"\t"<<fx<<"\t"<<gtx<<"\t"<<Dg[0]<<"\t"<<Dg[1]<<"\r\n";
     //    filefx<<"******************************************************"<<"\r\n";
     //find the index of current pixel
@@ -829,7 +829,7 @@ bool CRegistration::update_lattice(float**&Dcpx,float**&Dcpy,CVirtualContour*hig
     // //filout_dd<<it<<"end\n";
     // filout_p<<"****************************************************\n";
     // filout_p.close();
-    compute_intensity(higher->vec_new_points_vicinity,lower->m_contour->m_Map->get_distance_map(),higher->vec_intensity_new);
+    compute_intensity(higher->vec_new_points_vicinity,lower->m_Map->get_distance_map(),higher->vec_intensity_new);
     float nextE = energy_func_square_diff(higher);
     if (nextE < errorE)
     {
@@ -935,9 +935,9 @@ void CRegistration::get_correspondence(CCorrespond* corres,CVirtualContour* shor
   {
     temp =*(shorter->vec_new_points[i]);
     int shorter_layerID=shorter->LayerID;
-    if (shorter->m_contour->m_layer->medial_axis_count>0&&use_medial_axis)
+    if (longer->medial_axis_count>0&&use_medial_axis)
     {
-      index=get_closest_point(longer->m_contour->vec_Points_Origin,shorter->m_contour->m_layer->vec_medial_points,temp, use_medial_axis_point);
+      index=get_closest_point(longer->m_contour->vec_Points_Origin,longer->vec_medial_points,temp, use_medial_axis_point);
       //      std::cout<<"use medial_axis"<<"\n";
     }
     else
@@ -961,7 +961,7 @@ void CRegistration::get_correspondence(CCorrespond* corres,CVirtualContour* shor
          CPoint* project_point=new CPoint();
          project_point->index=project_point->get_index();
          int temp_index = project_point->index;
-         *project_point=*(shorter->m_contour->m_layer->vec_medial_points[index]);
+         *project_point=*(longer->vec_medial_points[index]);
          project_point->index=temp_index;
          project_point->z=longer->m_contour->vec_Points_Origin[0]->z;
          new_para_point->point2 = *project_point;
@@ -995,7 +995,7 @@ void CRegistration::get_correspondence(CCorrespond* corres,CVirtualContour* shor
         CPoint* project_point=new CPoint();
         project_point->index=project_point->get_index();
         int temp_index = project_point->index;
-        *project_point=*(shorter->m_contour->m_layer->vec_medial_points[index]);
+        *project_point=*(longer->vec_medial_points[index]);
         project_point->index=temp_index;
         project_point->z=longer->m_contour->vec_Points_Origin[0]->z;
         new_para_point->point1 = *project_point;

@@ -220,7 +220,7 @@ void CShapeDisplay::draw_lattice_content(vtkSmartPointer<vtkRenderer> renderer,C
 
 void CShapeDisplay::draw_medial_axis(vtkSmartPointer<vtkRenderer> renderer)
 {
-  CLayer* temp = m_shape->map_Layer[2];
+  CVirtualContour* temp = m_shape->contour_arrangement->vec_contour_couple[0]->vcontour2;
   vector<CPoint*> vec=temp->vec_medial_points;
   int size= vec.size();
   for (int i = 0; i < size; ++i)
@@ -250,7 +250,7 @@ void CShapeDisplay::draw_transformed_points(vtkSmartPointer<vtkRenderer> rendere
   {
     renderer->AddActor((*itr)->m_actor);
   }
-  //  draw_medial_axis(renderer);
+  draw_medial_axis(renderer);
   //  draw_lattice(renderer);
   draw_text(renderer,"transformed_points|current_layer_in_red");
   draw_layerID(renderer,1.0);
@@ -353,13 +353,14 @@ void CShapeDisplay::draw_triangle(vtkSmartPointer<vtkRenderer> renderer,vtkSmart
   renderer->AddActor(m_triangle->m_actor);
   //  renderer->AddActor(m_triangle->m_mesh_actor);
 
-
-  m_contour_surface->initial_actors(m_shape);
-
-  int N= m_contour_surface->vec_actor.size();
-  for (int i = 0; i < N; ++i)
+  if(show_contour_surface)
   {
+    m_contour_surface->initial_actors(m_shape);
+    int N= m_contour_surface->vec_actor.size();
+    for (int i = 0; i < N; ++i)
+    {
       renderer->AddActor(m_contour_surface->vec_actor[i]);
+    }
   }
   draw_text(renderer,string("triangle surface"));
 

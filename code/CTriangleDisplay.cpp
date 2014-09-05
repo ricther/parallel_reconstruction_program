@@ -26,11 +26,11 @@ CTriangleDisplay::CTriangleDisplay()
   m_mesh_actor=vtkSmartPointer<vtkActor>::New();
   m_polydata=vtkSmartPointer<vtkPolyData>::New();
   m_polydata_mapper=vtkSmartPointer<vtkPolyDataMapper>::New();
-
+  m_shape=NULL;
 }
-void CTriangleDisplay:: initial_actors(CShape * m_shape)
+void CTriangleDisplay:: initial_actors(CShape * shape)
 {
-
+  m_shape=shape;
   int size= m_shape->vec_Cor.size();
   for (int i = 0; i < size; ++i)
   {
@@ -42,8 +42,9 @@ void CTriangleDisplay:: initial_actors(CShape * m_shape)
   }
 }
 
-void CTriangleDisplay:: initial_actor(CShape* m_shape)
+void CTriangleDisplay:: initial_actor(CShape* shape)
 {
+  m_shape=shape;
   int size= m_shape->vec_Cor.size();
   set_up_data(m_shape);
   for (int i = 0; i < size; ++i)
@@ -57,50 +58,50 @@ void CTriangleDisplay:: initial_actor(CShape* m_shape)
 
 void CTriangleDisplay:: set_up_data(CShape* m_shape)
 {
-  std::vector<CPoint*>::iterator p_itr,p_etr;
-  std::map<float,CLayer*>::iterator l_itr,l_etr;
-  std::map<int,CContour*>::iterator c_itr,c_etr;
-  l_itr=m_shape->map_Layer.begin();l_etr=m_shape->map_Layer.end();
-  int count=0;
-  for (; l_itr!=l_etr;++l_itr)
-  {
-    c_itr=l_itr->second->map_contour.begin();c_etr=l_itr->second->map_contour.end();
-    for (; c_itr!=c_etr; ++c_itr)
-    {
-      p_itr=c_itr->second->vec_Points_Origin.begin();p_etr=c_itr->second->vec_Points_Origin.end();
-      for (; p_itr!=p_etr; ++p_itr)
-      {
-        m_points->InsertPoint(static_cast<vtkIdType>(count++),(*p_itr)->x,(*p_itr)->y,(*p_itr)->z);
-        map_pindex_vtkindex.insert(make_pair((*p_itr)->index,count-1));
-      }
+  // std::vector<CPoint*>::iterator p_itr,p_etr;
+  // std::map<float,CLayer*>::iterator l_itr,l_etr;
+  // std::map<int,CContour*>::iterator c_itr,c_etr;
+  // l_itr=m_shape->map_Layer.begin();l_etr=m_shape->map_Layer.end();
+  // int count=0;
+  // for (; l_itr!=l_etr;++l_itr)
+  // {
+  //   c_itr=l_itr->second->map_contour.begin();c_etr=l_itr->second->map_contour.end();
+  //   for (; c_itr!=c_etr; ++c_itr)
+  //   {
+  //     p_itr=c_itr->second->vec_Points_Origin.begin();p_etr=c_itr->second->vec_Points_Origin.end();
+  //     for (; p_itr!=p_etr; ++p_itr)
+  //     {
+  //       m_points->InsertPoint(static_cast<vtkIdType>(count++),(*p_itr)->x,(*p_itr)->y,(*p_itr)->z);
+  //       map_pindex_vtkindex.insert(make_pair((*p_itr)->index,count-1));
+  //     }
 
-      int N=c_itr->second->vec_virtual_contour.size();
-      for (int i = 0; i < N; ++i)
-      {
-        p_itr=c_itr->second->vec_virtual_contour[0]->vec_Points_project.begin();p_etr=c_itr->second->vec_virtual_contour[0]->vec_Points_project.end();
-        for (; p_itr!=p_etr; ++p_itr)
-        {
-          m_points->InsertPoint(static_cast<vtkIdType>(count++),(*p_itr)->x,(*p_itr)->y,(*p_itr)->z);
-          map_pindex_vtkindex.insert(make_pair((*p_itr)->index,count-1));
-        }
-      }
+  //     int N=c_itr->second->vec_virtual_contour.size();
+  //     for (int i = 0; i < N; ++i)
+  //     {
+  //       p_itr=c_itr->second->vec_virtual_contour[0]->vec_Points_project.begin();p_etr=c_itr->second->vec_virtual_contour[0]->vec_Points_project.end();
+  //       for (; p_itr!=p_etr; ++p_itr)
+  //       {
+  //         m_points->InsertPoint(static_cast<vtkIdType>(count++),(*p_itr)->x,(*p_itr)->y,(*p_itr)->z);
+  //         map_pindex_vtkindex.insert(make_pair((*p_itr)->index,count-1));
+  //       }
+  //     }
     
-    }
-    if (l_itr->second->vec_medial_points.size()>0)
-    {
-      int N=l_itr->second->vec_medial_points.size();
-      for (int i = 0; i < N; ++i)
-      {
-        m_points->InsertPoint(static_cast<vtkIdType>(count++),l_itr->second->vec_medial_points[i]->x,l_itr->second->vec_medial_points[i]->y,l_itr->second->vec_medial_points[i]->z);
-        map_pindex_vtkindex.insert(make_pair(l_itr->second->vec_medial_points[i]->index,count-1));
-      }
-    }
-  }
-  vtkNew<vtkPolyDataWriter> writer;
-  vtkSmartPointer<vtkPolyData> temp_polydata = vtkSmartPointer<vtkPolyData>::New();
-  temp_polydata->SetPoints(m_points);
-  writer->SetFileName("./points.vtk");
-  writer->SetInput(temp_polydata);
+  //   }
+  //   if (l_itr->second->vec_medial_points.size()>0)
+  //   {
+  //     int N=l_itr->second->vec_medial_points.size();
+  //     for (int i = 0; i < N; ++i)
+  //     {
+  //       m_points->InsertPoint(static_cast<vtkIdType>(count++),l_itr->second->vec_medial_points[i]->x,l_itr->second->vec_medial_points[i]->y,l_itr->second->vec_medial_points[i]->z);
+  //       map_pindex_vtkindex.insert(make_pair(l_itr->second->vec_medial_points[i]->index,count-1));
+  //     }
+  //   }
+  //  }
+  // vtkNew<vtkPolyDataWriter> writer;
+  // vtkSmartPointer<vtkPolyData> temp_polydata = vtkSmartPointer<vtkPolyData>::New();
+  // temp_polydata->SetPoints(m_points);
+  // writer->SetFileName("./points.vtk");
+  // writer->SetInput(temp_polydata);
   //  writer->Write();
 
 }
@@ -138,7 +139,7 @@ void CTriangleDisplay:: organize_data(CCorrespond* cor)
   for (; itr!=etr; ++itr)
   {
     vtkSmartPointer<vtkTriangle> triangle=vtkSmartPointer<vtkTriangle>::New();
-    int a=map_pindex_vtkindex[(*itr)->a],b=map_pindex_vtkindex[(*itr)->b],c=map_pindex_vtkindex[(*itr)->c];
+    int a=m_shape->map_CPointsIndex_vtkIndex[(*itr)->a],b=m_shape->map_CPointsIndex_vtkIndex[(*itr)->b],c=m_shape->map_CPointsIndex_vtkIndex[(*itr)->c];
     triangle->GetPointIds()->SetId(0,a);
     triangle->GetPointIds()->SetId(1,b);
     triangle->GetPointIds()->SetId(2,c);
@@ -148,7 +149,7 @@ void CTriangleDisplay:: organize_data(CCorrespond* cor)
 extern double triangle_surface_color[3];
 void CTriangleDisplay:: set_up_vtk()
 {
-  m_polydata->SetPoints(m_points);
+  m_polydata->SetPoints(m_shape->m_total_points);
   m_polydata->SetPolys(m_triangles);
   smooth();
   //  m_polydata_mapper->SetInput(m_polydata);

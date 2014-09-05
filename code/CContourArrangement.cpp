@@ -77,6 +77,9 @@ void CContourArrangement::get_union_couple(  std::vector<contour_couple*>& coupl
   {
     (*itr2)->vcontour1->m_contour->use_counter++;(*itr2)->vcontour2->m_contour->use_counter++;
     vec_contour_couple.push_back(*itr2);
+    (*itr2)->vcontour1->m_contour->map_neighbour.insert(std::make_pair((*itr2)->vcontour2->m_contour->LayerID,(*itr2)->vcontour2->m_contour));
+    (*itr2)->vcontour2->m_contour->map_neighbour.insert(std::make_pair((*itr2)->vcontour1->m_contour->LayerID,(*itr2)->vcontour1->m_contour));
+
   }
   
   std::vector<contour_couple*>::iterator itr=couple2.begin(),etr=couple2.end();
@@ -95,6 +98,9 @@ void CContourArrangement::get_union_couple(  std::vector<contour_couple*>& coupl
     if (find_same==false)
     {
       (*itr)->vcontour1->m_contour->use_counter++;(*itr)->vcontour2->m_contour->use_counter++;
+      (*itr)->vcontour1->m_contour->map_neighbour.insert(std::make_pair((*itr)->vcontour2->m_contour->LayerID,(*itr)->vcontour2->m_contour));
+      (*itr)->vcontour2->m_contour->map_neighbour.insert(std::make_pair((*itr)->vcontour1->m_contour->LayerID,(*itr)->vcontour1->m_contour));
+
       vec_contour_couple.push_back(*itr);
     }
   }
@@ -155,8 +161,6 @@ void CContourArrangement:: get_couple(CLayer* first_layer, CLayer* second_layer,
     else
     {
       vec_couple.push_back(new_couple);
-      new_couple->vcontour1->m_contour->map_neighbour.insert(std::make_pair(new_couple->vcontour2->m_contour->LayerID,new_couple->vcontour2->m_contour));
-      new_couple->vcontour2->m_contour->map_neighbour.insert(std::make_pair(new_couple->vcontour1->m_contour->LayerID,new_couple->vcontour1->m_contour));
     }
   }
 }

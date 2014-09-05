@@ -1,0 +1,10 @@
+CLayer  CLayer :: CLayer
+  void  CLayer :: =
+  void  CLayer :: check_length
+  void  CLayer :: check_edge
+  void  CLayer :: get_center
+  void  CLayer :: calculate_one_moment
+  bool  CLayer :: read_layer_multi_contour_with_z
+  void  CLayer :: setup
+  void  CLayer :: reset
+  void  CLayer :: calculate_medial_axis

@@ -1,5 +1,6 @@
 #include "CLineSetDisplay.h"
 #include "assert.h"
+extern double correspondence_color[3];
 void CLineSetDisplay::initial_actors(CCorrespond* cor)
 {
   std::map<int,Parapoint*>& tvec_corpoint = cor->map_cor;
@@ -25,7 +26,7 @@ void CLineSetDisplay::initial_actors(CCorrespond* cor)
         vtkSmartPointer<vtkActor>::New();
     
     actor->SetMapper(mapper);
-
+    actor->GetProperty()->SetColor(correspondence_color);
     vec_actor.push_back(actor);
   }
 }
@@ -65,4 +66,5 @@ void CLineSetDisplay::initial_actor(CCorrespond* cor)
   m_polydata->SetLines(m_lines);
   m_polydata_mapper->SetInput(m_polydata);
   m_actor->SetMapper(m_polydata_mapper);
+  m_actor->GetProperty()->SetColor(correspondence_color);
 }

@@ -34,6 +34,7 @@ CContour::CContour(const float ID,CLayer* layer)
   sum_x=0;
   sum_y=0;
   m_Map= new CMap(this);
+
   contour_index=static_contour_index++;
 }
 
@@ -360,37 +361,39 @@ void CContour::smooth()
   } 
 }
 
-#include"CFileDebug.h"
-void CContour::calculate_medial_map(float** medial_axis)
-{
-  m_medial_map = new CMedialMap(this,medial_axis);
-  m_medial_map->setup();
-  m_medial_map->gradient();
-  //CFileDebug m_debugfile6("./medial_DistancsMap_20");
-  //m_debugfile6.Output(m_medial_map->DistancsMap);
-  //CFileDebug file("./only_medial_axis");
-  //file.Output(medial_axis);
-  // CFileDebug m_debugfile7("./medial_sign_20");
-  //  m_debugfile7.Output_sign(m_medial_map->SignMap);
+// #include"CFileDebug.h"
+// void CContour::calculate_medial_map(float** medial_axis)
+// {
+//   m_medial_map = new CMedialMap(this,medial_axis);
+//   m_medial_map->setup();
+//   m_medial_map->gradient();
+//   //CFileDebug m_debugfile6("./medial_DistancsMap_20");
+//   //m_debugfile6.Output(m_medial_map->DistancsMap);
+//   //CFileDebug file("./only_medial_axis");
+//   //file.Output(medial_axis);
+//   // CFileDebug m_debugfile7("./medial_sign_20");
+//   //  m_debugfile7.Output_sign(m_medial_map->SignMap);
   
 
 
-}
+// }
 
-void CContour::swap_map_medialmap()
-{
-  assert(m_Map);
-  assert(m_medial_map);
-  m_temp_map=m_Map;
-  m_Map=(CMap*)m_medial_map;
-}
+// void CContour::swap_map_medialmap()
+// {
+//   assert(m_Map);
+//   assert(m_medial_map);
+//   m_temp_map=m_Map;
+//   m_Map=(CMap*)m_medial_map;
+// }
 
-void CContour::swap_medialmap_map()
-{
-  assert(m_Map);
-  assert(m_medial_map);
-  m_medial_map=(CMedialMap*)m_Map;
-  m_Map=m_temp_map;
-  delete m_medial_map;
-}
+// void CContour::swap_medialmap_map()
+// {
+//   assert(m_Map);
+//   assert(m_medial_map);
+//   m_medial_map=(CMedialMap*)m_Map;
+//   m_Map=m_temp_map;
+//   delete m_medial_map;
+// }
+
+
 

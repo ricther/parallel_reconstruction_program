@@ -24,6 +24,9 @@ CShape::CShape()
   original_min_x=9999999;
   original_min_y=9999999;
   contour_arrangement= new CContourArrangement(this);
+  m_total_points = vtkSmartPointer<vtkPoints>::New();
+  vtk_points_counter=0;
+  map_CPointsIndex_vtkIndex.clear();
 }
 
 /** 
@@ -278,5 +281,52 @@ float CShape::get_next_layer(float now_layerID,int direction)
     {
       return itr->first;
     }
+  }
+}
+
+void CShape::initial_vtk_points()
+{
+  /// intial the points in the CContour
+  std::map<float,CLayer*>::iterator itr_l=map_Layer.begin(),etr_l=map_Layer.end();
+  std::map<int,CContour*>::iterator itr_c,etr_c;
+  for (;itr_l!=etr_l; ++itr_l)
+  {
+    CLayer* temp_layer= itr_l->second;
+    itr_c=temp_layer->map_contour.begin();
+    etr_c=temp_layer->map_contour.end();
+    for (; itr_c!=etr_c; ++itr_c)
+    {
+      CContour* temp_contour= itr_c->second;
+      insert_vtk_points(temp_contour->vec_points);
+      insert_vtk_points(temp_contour->vec_Points_Origin);
+    }
+  }
+  /// intial the points in the CVirtual
+
+  int size = contour_arrangement->vec_contour_couple.size();
+  for (int i = 0; i < size; ++i)
+  {
+    CVirtualContour* vcontour1 = contour_arrangement->vec_contour_couple[i]->vcontour1;
+    CVirtualContour* vcontour2 = contour_arrangement->vec_contour_couple[i]->vcontour2;
+    insert_vtk_points(vcontour1->vec_Points_project);
+    insert_vtk_points(vcontour1->vec_medial_points);
+    insert_vtk_points(vcontour2->vec_Points_project);
+    insert_vtk_points(vcontour2->vec_medial_points);
+  }
+  
+}
+
+void CShape:: insert_vtk_points(std::vector<CPoint*>& vec_points)
+{
+  if (vec_points.size()==0)
+  {
+    return;
+  }
+  std::vector<CPoint*>::iterator itr_p, etr_p;
+  itr_p=vec_points.begin();
+  etr_p=vec_points.end();
+  for (; itr_p!=etr_p; ++itr_p)
+  {
+    insert_map_CPointsIndex_vtkIndex((*itr_p),get_vtk_points_index());
   }
 }

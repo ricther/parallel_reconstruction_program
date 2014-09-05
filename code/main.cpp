@@ -55,7 +55,7 @@ const bool use_contour_smooth= m_data_reader.get_value_bool("use_contour_smooth"
 
 const bool debug_contour_arrangement= m_data_reader.get_value_bool("debug_contour_arrangement",2);
 const bool debug_registration= m_data_reader.get_value_bool("debug_registration",2);
-
+const bool show_contour_surface= m_data_reader.get_value_bool("show_contour_surface");
 
 CShape m_source;
 
@@ -93,7 +93,8 @@ void registration()
     m_source.Setup();
   }
   
-  m_source.Registration();  
+  m_source.Registration();
+  m_source.initial_vtk_points();
 }
 
 void init_data()
@@ -154,7 +155,7 @@ double backgroundcolor[3]={1,1,1};
 double contour_line_color[3]={0.3,0.3,0.3};
 double contour_surface_color[3]={0.063,0.48,0.254};
 double triangle_surface_color[3]={0.027,0.27,0.12};
-
+double correspondence_color[3]={0,0,0};
 
 vtkSmartPointer<vtkRenderer> Renderers[5];
 void vtk_draw_view1(vtkSmartPointer<vtkRenderWindow> renderWindow,vtkSmartPointer<vtkRenderWindowInteractor> interactor)

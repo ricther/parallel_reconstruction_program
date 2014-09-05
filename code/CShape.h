@@ -11,6 +11,8 @@
 #include<vtkRenderWindowInteractor.h>
 #include"CShapeDisplay.h"
 #include"CContourArrangement.h"
+#include "vtkPoints.h"
+#include "vtkSmartPointer.h"
 class CLayer;
 class CRegistration;
 class CSkeleton;
@@ -34,8 +36,20 @@ public:
  float get_next_layer(float now_layerID,int direction);//direction 0 down 1 up
  std::vector<float> vec_layerID;
  CContourArrangement* contour_arrangement;
-private:
 
+
+ std::map<int,int> map_CPointsIndex_vtkIndex;
+ vtkSmartPointer<vtkPoints> m_total_points;
+ int get_vtk_points_index(){return ++vtk_points_counter;};
+ 
+ void insert_map_CPointsIndex_vtkIndex(CPoint* point,int vtkIndex)
+ {
+   m_total_points->InsertPoint(static_cast<vtkIdType>(vtkIndex),point->x,point->y,point->z);
+   map_CPointsIndex_vtkIndex.insert(std::make_pair(point->index,vtkIndex));
+ }
+
+ void initial_vtk_points();
+private:
  CRegistration * m_registration;
  std::string m_filename;
  void read();
@@ -48,6 +62,8 @@ private:
  float max_x,min_x,max_y,min_y,max_z,min_z,sum_x,sum_y;
  float original_max_x,original_max_y,original_min_x,original_min_y;
  void check_point_scale();
+ int vtk_points_counter;
+ void insert_vtk_points(std::vector<CPoint*>& vec_points);
 };
 
 
