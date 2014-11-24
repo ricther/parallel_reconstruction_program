@@ -1,4 +1,5 @@
 #pragma once
+#include "initial.h"
 #include <vtkTriangle.h>
 #include "CCorespond.h"
 #include <map>

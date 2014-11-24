@@ -9,6 +9,7 @@ void CCorespondDisplay:: initial_actors(CShape * m_shape)
     CLineSetDisplay* new_line_set=new CLineSetDisplay();
     new_line_set->initial_actors(m_shape->vec_Cor[i]); 
     map_line_actors.insert(std::make_pair(m_shape->vec_Cor[i]->CorrespondLayer1,new_line_set));
+    map_int_line_actors.insert(std::make_pair(i,new_line_set));
     check_level(m_shape->vec_Cor[i]->CorrespondLayer1);
     check_level(m_shape->vec_Cor[i]->CorrespondLayer2);
   }
@@ -23,6 +24,7 @@ void CCorespondDisplay:: initial_actor(CShape * m_shape)
     CLineSetDisplay* new_line_set=new CLineSetDisplay();
     new_line_set->initial_actor(m_shape->vec_Cor[i]); 
     map_line_actors.insert(std::make_pair(m_shape->vec_Cor[i]->CorrespondLayer1,new_line_set));
+    map_int_line_actors.insert(std::make_pair(i,new_line_set));
     check_level(m_shape->vec_Cor[i]->CorrespondLayer1);
     check_level(m_shape->vec_Cor[i]->CorrespondLayer2);
   }
@@ -64,7 +66,16 @@ void CCorespondDisplay::update_actors(float layerID,int& lineID)
   }
 }
 
-
+void CCorespondDisplay::solo_corespond_display(int contourID)
+{
+    std::map<float,CLineSetDisplay*>::iterator itr,etr;
+  itr=map_line_actors.begin();etr=map_line_actors.end();
+  for (;itr!=etr;++itr)
+  {
+    itr->second->m_actor->SetVisibility(false);
+  }
+  map_int_line_actors[contourID]->m_actor->SetVisibility(true);
+}
 
 
 

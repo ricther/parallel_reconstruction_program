@@ -27,6 +27,7 @@ CShape::CShape()
   m_total_points = vtkSmartPointer<vtkPoints>::New();
   vtk_points_counter=0;
   map_CPointsIndex_vtkIndex.clear();
+  total_points_num=0;
 }
 
 /** 
@@ -124,7 +125,7 @@ void CShape::check_point_scale()
  */
 void CShape::Setup()
 {
-  m_skeleton->build_skeleton_new(map_Layer);
+  //  m_skeleton->build_skeleton_new(map_Layer);
   std::map<float,CLayer*>::iterator itr=map_Layer.begin(),etr=map_Layer.end();
   int layer_count=0;
   int contour_count=0;
@@ -138,11 +139,17 @@ void CShape::Setup()
     cout<<"\n the max and min point value after scale. max_x ="<<CContour::static_max_x<<"\t min_x="<< CContour::static_min_x<<"\t max_y="<< CContour::static_max_y<<"\t min_y="<< CContour::static_min_y<<"\n";
 
   std::cout<<"**********Layer NUM:"<<layer_count<<"\t"<<"Contour NUM:"<<contour_count<<"\n";
+  if (write_shape_points_to_data)
+  {
+      write_vtk_points();
+      std::cout<<"**********Write points data to vtk_points.vtk, total_points_number:"<<total_points_num<<"***************\n";
+
+  }
 }
 
 void CShape::Setup_use_openmp()
 {
-  m_skeleton->build_skeleton_new(map_Layer);
+  // m_skeleton->build_skeleton_new(map_Layer);
   std::map<float,CLayer*>::iterator itr=map_Layer.begin(),etr=map_Layer.end();
   for(;itr!=etr;++itr)
   {
@@ -308,10 +315,13 @@ void CShape::initial_vtk_points()
   {
     CVirtualContour* vcontour1 = contour_arrangement->vec_contour_couple[i]->vcontour1;
     CVirtualContour* vcontour2 = contour_arrangement->vec_contour_couple[i]->vcontour2;
+
     insert_vtk_points(vcontour1->vec_Points_project);
     insert_vtk_points(vcontour1->vec_medial_points);
+
     insert_vtk_points(vcontour2->vec_Points_project);
     insert_vtk_points(vcontour2->vec_medial_points);
+
   }
   
 }
@@ -329,4 +339,61 @@ void CShape:: insert_vtk_points(std::vector<CPoint*>& vec_points)
   {
     insert_map_CPointsIndex_vtkIndex((*itr_p),get_vtk_points_index());
   }
+}
+
+#include "vtkPolyDataWriter.h"
+#include "vtkNew.h"
+void CShape::write_vtk_points()
+{
+  vtkSmartPointer<vtkPoints> m_vtk_points= vtkSmartPointer<vtkPoints>::New();
+  vtkSmartPointer<vtkCellArray> m_vertices= vtkSmartPointer<vtkCellArray>::New();
+
+  std::map<float,CLayer*>::iterator itr_l=map_Layer.begin(),etr_l=map_Layer.end();
+  std::map<int,CContour*>::iterator itr_c,etr_c;
+
+  for (;itr_l!=etr_l; ++itr_l)
+  {
+    CLayer* temp_layer= itr_l->second;
+    itr_c=temp_layer->map_contour.begin();
+    etr_c=temp_layer->map_contour.end();
+    for (; itr_c!=etr_c; ++itr_c)
+    {
+      CContour* temp_contour= itr_c->second;
+      total_points_num+=temp_contour->vec_points.size();
+    }
+  }
+
+  itr_l=map_Layer.begin(),etr_l=map_Layer.end();
+
+  vtkIdType* Indices = new vtkIdType[total_points_num];
+  int counter=0;
+  for (;itr_l!=etr_l; ++itr_l)
+  {
+    CLayer* temp_layer= itr_l->second;
+    itr_c=temp_layer->map_contour.begin();
+    etr_c=temp_layer->map_contour.end();
+    for (; itr_c!=etr_c; ++itr_c)
+    {
+      CContour* temp_contour= itr_c->second;
+      std::vector<CPoint*> vec_points=temp_contour->vec_points;
+      std::vector<CPoint*>::iterator itr_p, etr_p;
+      itr_p=vec_points.begin();
+      etr_p=vec_points.end();
+      for (; itr_p!=etr_p; ++itr_p)
+      {
+        m_vtk_points->InsertPoint(static_cast<vtkIdType>(counter),(*itr_p)->x,(*itr_p)->y,(*itr_p)->z);
+        Indices[counter]=static_cast<vtkIdType>(counter);
+        ++counter;
+      }
+    }
+  }
+  m_vertices->InsertNextCell(total_points_num,Indices);
+  vtkSmartPointer<vtkPolyData> m_polydata= vtkSmartPointer<vtkPolyData>::New();
+  m_polydata->SetPoints(m_vtk_points);
+  m_polydata->SetVerts(m_vertices);
+  vtkNew<vtkPolyDataWriter> writer;
+  writer->SetFileName("./points.vtk");
+  writer->SetInput(m_polydata);
+  writer->Write();
+
 }

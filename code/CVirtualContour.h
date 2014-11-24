@@ -24,7 +24,7 @@ public:
     LayerID=m_contour->LayerID;
     m_contour->vec_virtual_contour.push_back(this);
     lattice_x=NULL;lattice_y=NULL;new_lattice_x=NULL;new_lattice_y=NULL;
-    XB=NULL;YB=NULL;dXB=NULL;dYB=NULL;
+    XB=NULL;YB=NULL;dXB=NULL;dYB=NULL;//XB is the final lattice_x ,YB is final lattice_y. 
     lamda=0.02;
     medial_axis=NULL;
     medial_axis_count=0;
@@ -36,19 +36,29 @@ public:
   }
   ~CVirtualContour()
   {
-     free_2D_float_array(XB); //can't release XB, scince the XB may used in the incremental FFD.
-     free_2D_float_array(YB);
+    if (XB!=NULL)
+    {
+      free_2D_float_array(lattice_x);
+      free_2D_float_array(lattice_y);
+
+    }
+
   }
   void release_array()
   {
-    free_2D_float_array(lattice_x);
-    free_2D_float_array(lattice_y);
-    free_2D_float_array(new_lattice_x);
-    free_2D_float_array(new_lattice_y);
-    //    free_2D_float_array(XB); //can't release XB, scince the XB may used in the incremental FFD.
+    /* free_2D_float_array(lattice_x); */
+    /* free_2D_float_array(lattice_y); */
+    /* free_2D_float_array(new_lattice_x); */
+    /* free_2D_float_array(new_lattice_y); */
+    //    free_2D_float_array(XB); //XB,YB is the copy of the final lattice, so we can use the lattice
     //    free_2D_float_array(YB);
-    free_2D_float_array(dXB);
-    free_2D_float_array(dYB);
+    if (dXB!=NULL)
+    {
+          free_2D_float_array(dXB);
+          free_2D_float_array(dYB);
+          free_2D_float_array(XB);
+          free_2D_float_array(YB);
+    }
     vec_Points_Vicinity.clear();
     vec_Points_Vicinity.resize(0);
     vec_new_points_vicinity.clear();
@@ -57,6 +67,13 @@ public:
     vec_intensity_old.resize(0);
     vec_intensity_new.clear();
     vec_intensity_new.resize(0);
+
+    if (new_lattice_x!=NULL)
+    {
+      free_2D_float_array(new_lattice_x);
+      free_2D_float_array(new_lattice_y);
+    }
+     
   }
   CContour* m_contour;
   float LayerID;

@@ -5,6 +5,7 @@
 #include "vtkPointData.h"
 #include "vtkDoubleArray.h"
 extern double contour_line_color[3];
+extern int linewidth;
 vtkSmartPointer<vtkActor> CContourDisplay::initialActor(float layerID,int contourID)
 {
   CLayer* temp = map_Layer[layerID];
@@ -50,7 +51,8 @@ void CContourDisplay::initial_contour_actor(std::vector<CPoint*>::iterator point
   m_polydata_mapper->SetInput(m_polydata);
 
   m_actor->SetMapper(m_polydata_mapper);
-  m_actor->GetProperty()->SetPointSize(3);
+  m_actor->GetProperty()->SetLineWidth(linewidth);
+  m_actor->GetProperty()->SetPointSize(5);
   m_actor->GetProperty()->SetColor(contour_line_color);
 }
 

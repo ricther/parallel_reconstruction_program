@@ -96,6 +96,8 @@ void CVirtualContour::calculate_medial_map(float** medial_axis)
   m_medial_map = new CMedialMap(this->m_contour,medial_axis);
   m_medial_map->setup();
   m_medial_map->gradient();
+  //to-do to test clear the medial_axis may have error,need more test 2014/10/28
+  free_2D_float_array(medial_axis);
   //CFileDebug m_debugfile6("./medial_DistancsMap_20");
   //m_debugfile6.Output(m_medial_map->DistancsMap);
   //CFileDebug file("./only_medial_axis");

@@ -315,7 +315,7 @@ void CContour::normalize(CPoint shape_center_point)//may be use the moment point
     }
     if (temp->y<static_min_y)
     {
-      static_min_y<temp->y;
+      static_min_y=temp->y;
     }
   }
   // center_point->x=center_point->x-shape_center_point.x+map_center_x;
@@ -341,7 +341,7 @@ void CContour::smooth()
   {
     return;
   }
-  float smooth_factor=4.0;
+  float smooth_factor=30.0;
   int size=vec_Points_Origin.size();
   for (int i = 0; i < size; ++i)
   {
@@ -358,7 +358,8 @@ void CContour::smooth()
     }
     CPoint temp = temp1/(smooth_factor*2+2);
     *vec_Points_Origin[i]= temp;
-  } 
+  }
+  
 }
 
 // #include"CFileDebug.h"

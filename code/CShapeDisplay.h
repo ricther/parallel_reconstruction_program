@@ -70,6 +70,7 @@ public:
 
   float current_LayerID;
   int current_lineID;
+  int current_correspondID;
   void key_down();
   void key_up();
   void key_minus();
@@ -79,6 +80,10 @@ public:
   void key_bracketleft();
   void key_bracketright();
   void key_change_viewport(std::string);
+  void key_o();
+  void key_p();
+
+  
 private:
     void init_contour_represetation_widget(vtkSmartPointer<vtkRenderWindowInteractor> interactor,vtkSmartPointer<vtkRenderer>,std::vector<CPoint*>,int scale);
   void init_contour_represetation(vtkSmartPointer<vtkRenderer>,std::vector<CPoint*>,int scale,double level);

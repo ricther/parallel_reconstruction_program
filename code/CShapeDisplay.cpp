@@ -36,6 +36,7 @@ CShapeDisplay::CShapeDisplay(CShape* temp,vtkSmartPointer<vtkRenderWindow> temp_
   count_contour=0;
   current_LayerID=1;
   current_lineID=0;
+  current_correspondID=0;
 }
 
 void CShapeDisplay::draw_correspond( vtkSmartPointer<vtkRenderer> renderer)
@@ -124,7 +125,7 @@ void CShapeDisplay::draw_origin_points(vtkSmartPointer<vtkRenderer> renderer)
   vtkSmartPointer<KeyPressInteractorStyle> style= vtkSmartPointer<KeyPressInteractorStyle>::New(); 
   m_interactor->SetInteractorStyle(style);
   style->SetShape(this);
-
+  //  draw_lattice(renderer);
   draw_text(renderer,"original points");
 }
 
@@ -151,8 +152,8 @@ void CShapeDisplay::draw_normal_points(vtkSmartPointer<vtkRenderer> renderer)
 
 void CShapeDisplay::draw_lattice(vtkSmartPointer<vtkRenderer> renderer)
 {
-  CLayer* temp = m_shape->map_Layer[15.5779];
-  CContour* temp_contour=temp->map_contour[temp->map_contourID[0]];
+  CLayer* temp = m_shape->map_Layer[20];
+  CContour* temp_contour=temp->map_contour[temp->map_contourID[1]];
   draw_lattice_content(renderer,temp_contour,1);
   draw_lattice_content(renderer,temp_contour,2);
 }
@@ -185,6 +186,7 @@ void CShapeDisplay::draw_lattice_content(vtkSmartPointer<vtkRenderer> renderer,C
       m_polydata->SetLines(m_lines);
       mapper->SetInput(m_polydata);
       actor->SetMapper(mapper);
+      actor->GetProperty()->SetColor(0,0,0);
       renderer->AddActor(actor);
     }
   }
@@ -213,6 +215,7 @@ void CShapeDisplay::draw_lattice_content(vtkSmartPointer<vtkRenderer> renderer,C
       m_polydata->SetLines(m_lines);
       mapper->SetInput(m_polydata);
       actor->SetMapper(mapper);
+      actor->GetProperty()->SetColor(0,0,0);
       renderer->AddActor(actor);
     }
   }
@@ -220,14 +223,14 @@ void CShapeDisplay::draw_lattice_content(vtkSmartPointer<vtkRenderer> renderer,C
 
 void CShapeDisplay::draw_medial_axis(vtkSmartPointer<vtkRenderer> renderer)
 {
-  CVirtualContour* temp = m_shape->contour_arrangement->vec_contour_couple[0]->vcontour2;
+  CVirtualContour* temp = m_shape->contour_arrangement->vec_contour_couple[1]->vcontour2;
   vector<CPoint*> vec=temp->vec_medial_points;
   int size= vec.size();
   for (int i = 0; i < size; ++i)
   {
     vtkSmartPointer<vtkSphereSource> point=vtkSmartPointer<vtkSphereSource>::New();
     point->SetCenter(vec[i]->x,vec[i]->y,vec[i]->z);
-    point->SetRadius(1);
+    point->SetRadius(0.5);
  
     vtkSmartPointer<vtkPolyDataMapper> mapper = 
         vtkSmartPointer<vtkPolyDataMapper>::New();
@@ -250,7 +253,7 @@ void CShapeDisplay::draw_transformed_points(vtkSmartPointer<vtkRenderer> rendere
   {
     renderer->AddActor((*itr)->m_actor);
   }
-  draw_medial_axis(renderer);
+  //  draw_medial_axis(renderer);
   //  draw_lattice(renderer);
   draw_text(renderer,"transformed_points|current_layer_in_red");
   draw_layerID(renderer,1.0);
@@ -476,6 +479,25 @@ void CShapeDisplay::key_bracketright()
     
 }
 
+void CShapeDisplay::key_o()
+{
+  m_correspond->solo_corespond_display(current_correspondID++);
+  if (current_correspondID>m_shape->vec_Cor.size())
+  {
+    current_correspondID=m_shape->vec_Cor.size();
+  }
+  m_render_window->Render();
+}
+
+void CShapeDisplay::key_p()
+{
+  m_correspond->solo_corespond_display(current_correspondID--);
+  if (current_correspondID<0)
+  {
+    current_correspondID=0;
+  }
+  m_render_window->Render();
+}
 extern vtkSmartPointer<vtkRenderer> Renderers[5];
 extern double xmins[5];
 extern double xmaxs[5];

@@ -33,6 +33,8 @@ class CLayer
   std::map<int,int> map_contourID;//contour_Num,contourID
   std::map<int,CContour*> map_contour;//contourID,CContour*
   float total_length;
+  int layer_index;
+  static int s_layer_index;
 private:
   void check_edge(float,float);
   void check_edge_before_scale(float tempx,float tempy);

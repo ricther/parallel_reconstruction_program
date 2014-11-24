@@ -5,6 +5,7 @@
 #include <vtkActor.h>
 #include <map>
 #include "CLayer.h"
+extern int linewidth;
 
 template <class Contour>
 class CContourSetDisplay
@@ -62,6 +63,7 @@ private:
       }
    }
 
+
 public:
   std::map<float,CLayer*>& map_Layer;
   std::vector<Contour*> vec_contour;
@@ -76,7 +78,7 @@ public:
       count++;
       CLayer* temp = itr->second;
       check_level(temp->LayerID);
-      //for paper input graph
+      //    for paper input graph
       /* if (count%8!=0) */
       /* { */
       /*   continue; */
@@ -120,7 +122,7 @@ public:
              (*itr)->m_actor->GetProperty()->SetColor(0.2,0.6,0);
              // (*itr)->m_actor->GetProperty()->SetColor(0.8*scale,0.4*scale,0);
            }
-           (*itr)->m_actor->GetProperty()->SetLineWidth(3);
+           (*itr)->m_actor->GetProperty()->SetLineWidth(linewidth);
            //                        (*itr)->m_actor->GetProperty()->SetColor(color,color-scale*color,color-scale*color);        
 
       }
@@ -128,6 +130,7 @@ public:
       {
           (*itr)->m_actor->SetVisibility(false);
           (*itr)->m_actor->GetProperty()->SetColor(color,color,color);
+          (*itr)->m_actor->GetProperty()->SetLineWidth(linewidth);
       }
       (*itr)->m_actor->Modified();
  

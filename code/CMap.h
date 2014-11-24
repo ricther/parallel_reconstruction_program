@@ -20,7 +20,7 @@ public:
 
   CContour* m_contour;
   void setup();
-  bool mallocMap_double(float**&);
+  bool mallocMap_float(float**&);
   bool mallocMap_char(unsigned char**&);
   void freeMap(void**);
   void gradient();
@@ -37,6 +37,7 @@ public:
     }
     return DistancsMap;
   }
+  
   float**& get_gx()
   {
     if (gx==NULL)
@@ -45,6 +46,7 @@ public:
     }
     return gx;
   }
+  
   float**& get_gy()
   {
     if (gy==NULL)

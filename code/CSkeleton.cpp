@@ -255,7 +255,7 @@ void CSkeleton::build_skeleton_new(std::map<float ,CLayer*>& map_layer)
         m_queue.back().etr=nitr;//etr=nitr,cause when use loop itr==etr finish the loop, and the pre-etr need calculate, so etr = nitr;
       }
       insert_queue(itr,etr,m_queue);
-      cout<<"branch seciton:"<<itr->second->LayerID<<"\n";
+      cout<<"branch section:"<<itr->second->LayerID<<"\n";
       old_higher_num=higher_layer_contour_num;
     }
   }

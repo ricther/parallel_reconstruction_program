@@ -71,6 +71,15 @@ class KeyPressInteractorStyle : public vtkInteractorStyleTrackballCamera
         m_display->key_bracketright();
       }
 
+      if (key == "o")
+      {
+        m_display->key_o();
+      }
+      if (key=="p")
+      {
+        m_display->key_p();
+      }
+      
       if (key == "1" || key =="2" || key == "3" || key=="4"|| key== "5"||key=="0")
       {
         m_display->key_change_viewport(key);

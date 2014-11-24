@@ -21,6 +21,8 @@ extern const int thread_num;
 extern const int gap_threshold;
 extern const bool use_contour_smooth;
 extern const bool show_contour_surface;
+extern const bool write_shape_points_to_data;
+extern const bool write_shape_triangle_to_data;
 // for debug
 
 extern const bool debug_contour_arrangement;

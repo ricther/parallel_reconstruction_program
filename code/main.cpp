@@ -52,10 +52,13 @@ const int thread_num = m_data_reader.get_value_int ("thread_num"); /**< the thre
 //@}
 const int gap_threshold = m_data_reader.get_value_float("gap_threshold"); /**< the gap of the hole, the threshold decide whether the hole to fill, the gap is metric by points num */
 const bool use_contour_smooth= m_data_reader.get_value_bool("use_contour_smooth"); /**< whether use the smooth in setup the ccontour */
+const bool write_shape_triangle_to_data= m_data_reader.get_value_bool("write_shape_triangle_to_data");
+const bool write_shape_points_to_data= m_data_reader.get_value_bool("write_shape_points_to_data");
 
 const bool debug_contour_arrangement= m_data_reader.get_value_bool("debug_contour_arrangement",2);
 const bool debug_registration= m_data_reader.get_value_bool("debug_registration",2);
 const bool show_contour_surface= m_data_reader.get_value_bool("show_contour_surface");
+
 
 CShape m_source;
 
@@ -156,6 +159,8 @@ double contour_line_color[3]={0.3,0.3,0.3};
 double contour_surface_color[3]={0.063,0.48,0.254};
 double triangle_surface_color[3]={0.027,0.27,0.12};
 double correspondence_color[3]={0,0,0};
+int linewidth=5;
+
 
 vtkSmartPointer<vtkRenderer> Renderers[5];
 void vtk_draw_view1(vtkSmartPointer<vtkRenderWindow> renderWindow,vtkSmartPointer<vtkRenderWindowInteractor> interactor)
@@ -169,8 +174,8 @@ void vtk_draw_view1(vtkSmartPointer<vtkRenderWindow> renderWindow,vtkSmartPointe
 
   renderer->SetViewport(xmins[0],ymins[0],xmaxs[0],ymaxs[0]);
   
-  //  m_source.m_display->draw_origin_points(renderer);
-  m_source.m_display->draw_normal_points(renderer);
+    m_source.m_display->draw_origin_points(renderer);
+  //  m_source.m_display->draw_normal_points(renderer);
 
   renderer->GetActiveCamera()->SetParallelProjection(1);
   
@@ -188,12 +193,14 @@ void vtk_draw_view2(vtkSmartPointer<vtkRenderWindow> renderWindow,vtkSmartPointe
   vtkSmartPointer<vtkLight> light = vtkSmartPointer<vtkLight>::New();
   light->SetLightTypeToSceneLight();
   light->SetPosition(100, 100, 100);
-  light->SetFocalPoint(-100,-100,-100); 
-  light->SetColor(0.5,0.5,0);
+  light->SetFocalPoint(50,50,0); 
+  light->SetColor(1,1,1);
+  light->SetSpecularColor(1,1,1);
   light->SetPositional(true); // required for vtkLightActor below
-  renderer->AddLight(light);
+  light->SetSwitch(true);
+
   renderer->UpdateLightsGeometryToFollowCamera();
-  light->SetSwitch(false);
+
   // light->SetConeAngle(10);
   // light->SetFocalPoint(lightFocalPoint[0], lightFocalPoint[1], lightFocalPoint[2]);
   // light->SetDiffuseColor(1,0,0);
@@ -211,7 +218,8 @@ void vtk_draw_view2(vtkSmartPointer<vtkRenderWindow> renderWindow,vtkSmartPointe
     
   renderer->ResetCamera();
 
-  // renderWindow->Render();
+  renderWindow->Render();
+  renderer->AddLight(light);
 }
 
 void vtk_draw_view3(vtkSmartPointer<vtkRenderWindow> renderWindow,vtkSmartPointer<vtkRenderWindowInteractor> interactor)

@@ -175,62 +175,6 @@ void CRegistration::Register_use_openmp()
     std::cout<<"processing couple:"<<counter<<"\t total couple num:"<<size<<"\t complete:"<<counter*1.0/(size*1.0)<<"\n";
     regist_lower_long_higher_short(SourceShape->contour_arrangement->vec_contour_couple[i]->vcontour1,SourceShape->contour_arrangement->vec_contour_couple[i]->vcontour2);
   }
-  
-
-
-  
-//   std::map<float,CLayer*>::iterator itr=SourceShape->map_Layer.begin(),etr=SourceShape->map_Layer.end(),nitr;
-//   std::vector<float> vec_layerID;
-//   int count=1;
-//   contour_couple* temp_couple;
-
-//   for (;itr!=etr ; ++itr)
-//   {
-//     vec_layerID.push_back(itr->first);
-//   }
-
-//   int size=vec_layerID.size();
-
-//   std::cout<<"use openmp to acc"<<std::endl;
-//   for (int ii = 0; ii < 2; ++ii)
-//   {
-// #pragma omp parallel for num_threads(thread_num)
-//     for (int ly=ii;ly<size-1-2;ly+=2)
-//     {
-//     CLayer *lower_layer=NULL;
-//     CLayer *higher_layer=NULL;
-//     CContour* lower_contour=NULL;
-//     CContour* higher_contour=NULL;
-
-
-//     CContourArrangement contour_arrangement(SourceShape);
-//     contour_arrangement.setup();
-
-//     lower_layer=SourceShape->map_Layer[vec_layerID[ly]];
-//     higher_layer=SourceShape->map_Layer[vec_layerID[ly+1]];
-//     #pragma omp critical
-//     {
-//     cout<<"layer_itration:"<<ly<<";layer_id"<<lower_layer->LayerID<<endl;
-//     cout<<"processing layer:"<<lower_layer->LayerID<<"-"<<higher_layer->LayerID<<"; count:"<<count<<"\ttotal layer num:"<<src_layer_num<<"\t"<<"complete:"<<count*1.0/(src_layer_num*1.0)<<"\n";
-//     }
-//     count++;
-
-//     lower_layer->reset();
-//     higher_layer->reset();
-
-//     int couple_num=contour_arrangement.vec_contour_couple.size();
-//     if (couple_num==0)
-//     {
-//       continue;
-//     }
-    
-//     for (int i = 0; i < couple_num; ++i)
-//     {
-//      temp_couple=contour_arrangement.vec_contour_couple[i];
-//      regist_lower_long_higher_short(temp_couple->contour1,temp_couple->contour2);
-//     }
-//   }
-//   }
   float end_time=omp_get_wtime();
   std::cout<<"***************************\n"<<"registration cost time with use openmp:"<<start_time-end_time<<endl<<"***************************\n";
 }
@@ -434,9 +378,14 @@ void CRegistration::init_lattice(CVirtualContour* contour)
     contour->YB=make_2D_float_array(MatrixRes,MatrixRes);
     //    reset(contour);
   }
-  contour->dXB=make_2D_float_array(MatrixRes,MatrixRes);
-  contour->dYB=make_2D_float_array(MatrixRes,MatrixRes);
 
+  if (contour->dXB==NULL)
+  {
+    contour->dXB=make_2D_float_array(MatrixRes,MatrixRes);
+    contour->dYB=make_2D_float_array(MatrixRes,MatrixRes);
+  }
+
+  reset(contour);
   for (int i = 0; i < MatrixRes; ++i)
   {
     for (int j = 0;j < MatrixRes; ++j)
@@ -563,20 +512,24 @@ void CRegistration::gradientdescent_smoother(CVirtualContour* lower,CVirtualCont
     memset(Dcpy[0],0,sizeof(float)*MatrixRes*MatrixRes);
     record[it].initial(errorE,higher);
     calculate_dlattice_by_point(Dcpx,Dcpy,higher,lower);
-    //////////////////////////////////////////////////////
-    // fstream fileout("Dcpx_Dcpy",ios_base::out|ios_base::app);
-    // for (int i = 0; i < MatrixRes; ++i)
+
+
+    // if (higher->m_contour->contourID==2)
     // {
-    //   for (int j = 0; j < MatrixRes; ++j)
+    //   fstream fileout("Dcpx_Dcpy",ios_base::out|ios_base::app);
+    //   for (int i = 0; i < MatrixRes; ++i)
     //   {
-    //     fileout<<"Dcpx["<<i<<"]["<<j<<"]:"<<Dcpx[i][j]<<"\t"<<"Dcpy["<<i<<"]["<<j<<"]:"<<Dcpy[i][j]<<"\r\n";
+    //     for (int j = 0; j < MatrixRes; ++j)
+    //     {
+    //       fileout<<"Dcpx["<<i<<"]["<<j<<"]:"<<Dcpx[i][j]<<"\t"<<"Dcpy["<<i<<"]["<<j<<"]:"<<Dcpy[i][j]<<"\r\n";
     //   }
+    //   }
+    //   fileout<<"****************************************************\n";
+    //   fileout<<it<<"end\n";
+    //   fileout<<"****************************************************\n";
+    //   fileout.close();
     // }
-    // fileout<<"****************************************************\n";
-    // fileout<<it<<"end\n";
-    // fileout<<"****************************************************\n";
-    // fileout.close();
-    //////////////////////////////////////////////////////
+    
     //TODO here ingnore  the constrains segment from 709 to 872 in the xiaolei's code (FreeForm.cpp)
     stop = update_lattice(Dcpx,Dcpy,higher,lower,errorE);
     if(stop)
@@ -592,6 +545,10 @@ void CRegistration::gradientdescent_smoother(CVirtualContour* lower,CVirtualCont
   else
   {
     current_params = record[kNumberOfIteration];
+  }
+  if (it==0)
+  {
+    int abc=0;
   }
   std::cout<<"higher_ID:"<<higher->LayerID<<"(contourID:"<<higher->m_contour->contourID<<")"<<"-lower_ID:"<<lower->LayerID<<"(contourID:"<<lower->m_contour->contourID<<")"<<"\tIteration:"<<it<<"\terrorE:"<<errorE<<"\n";
   // for (int xx = 0; xx < MatrixRes; ++xx)
@@ -667,6 +624,18 @@ void CRegistration::calculate_dlattice_by_point(float **&Dcpx,float**&Dcpy,CVirt
   float dxdLx[2],dydLx[2],dxdLy[2],dydLy[2];
   float dx[2],dy[2];
   int size = higher->vec_Points_Vicinity.size();
+
+  float ** gx=NULL;
+  float ** gy=NULL;
+  float ** higher_distance_map=NULL;
+  float ** lower_distance_map=NULL;
+#pragma omp critical
+  {
+    gx=lower->m_Map->get_gx();
+    gy=lower->m_Map->get_gy();
+    higher_distance_map=higher->m_Map->get_distance_map();
+    lower_distance_map=lower->m_Map->get_distance_map();
+  }
   //fstream filefx("fx_gtx_Dg",ios_base::out|ios_base::app);
   for(int k=0;k<size;++k)
   {
@@ -676,12 +645,16 @@ void CRegistration::calculate_dlattice_by_point(float **&Dcpx,float**&Dcpy,CVirt
     float yt= higher->vec_new_points_vicinity[k]->y;
     //TODO why y and x exchange position?
 
-    fx = compute_intensity_by_point(higher->m_Map->get_distance_map(),x,y);
-    gtx = compute_intensity_by_point(lower->m_Map->get_distance_map(),xt,yt);
+    fx = compute_intensity_by_point(higher_distance_map,x,y);
+    gtx = compute_intensity_by_point(lower_distance_map,xt,yt);
     //distance between a transfored feature point and its corresponding target feature point
     //TODO why yt xt exchange their position? don't need exchange
-    Dg[0] = compute_intensity_by_point(lower->m_Map->get_gx(),xt,yt);
-    Dg[1] = compute_intensity_by_point(lower->m_Map->get_gy(),xt,yt);
+
+    
+
+    Dg[0] = compute_intensity_by_point(gx,xt,yt);
+    Dg[1] = compute_intensity_by_point(gy,xt,yt);
+
     // filefx<<x<<"\t"<<y<<"\t"<<xt<<"\t"<<yt<<"\t"<<fx<<"\t"<<gtx<<"\t"<<Dg[0]<<"\t"<<Dg[1]<<"\r\n";
     //    filefx<<"******************************************************"<<"\r\n";
     //find the index of current pixel
@@ -723,7 +696,11 @@ void CRegistration::calculate_dlattice_by_point(float **&Dcpx,float**&Dcpy,CVirt
           
           Dcpx[j+n][i+m] = Dcpx[j+n][i+m] - 2*(fx-gtx)*dot(Dg,dx);
           Dcpy[j+n][i+m] = Dcpy[j+n][i+m] - 2*(fx-gtx)*dot(Dg,dy);
-          
+
+          // if ( j==52 && i==52 && higher->m_contour->contourID==2)
+          // {
+          //   int adf=0;
+          // }
             // the smoothness term related
           dLx[0] = dLx[0] + spline_deriv(u,m)*dux*cubic_spline(v,n)*higher->dXB[j+n][i+m];
           dLx[1] = dLx[1] + spline_deriv(u,m)*dux*cubic_spline(v, n)*higher->dYB[j+n][i+m];
@@ -759,6 +736,23 @@ void CRegistration::calculate_dlattice_by_point(float **&Dcpx,float**&Dcpy,CVirt
     }
     //end of  for(int k=0;k<size;++k) 
   }
+
+  // if (higher->m_contour->contourID==2)
+  // {
+  //   fstream fileout("Dcpx_Dcpy",ios_base::out);
+  //   for (int i = 0; i < MatrixRes; ++i)
+  //   {
+  //     for (int j = 0; j < MatrixRes; ++j)
+  //     {
+  //       fileout<<"Dcpx["<<i<<"]["<<j<<"]:"<<Dcpx[i][j]<<"\t"<<"Dcpy["<<i<<"]["<<j<<"]:"<<Dcpy[i][j]<<"\r\n";
+  //   }
+  //   }
+  //   fileout<<"****************************************************\n";
+  //   fileout<<"****************************************************\n";
+  //   fileout.close();
+  // }
+
+  int asd=0;
 }
 
 bool CRegistration::update_lattice(float**&Dcpx,float**&Dcpy,CVirtualContour*higher,CVirtualContour*lower,float& errorE)
@@ -776,21 +770,23 @@ bool CRegistration::update_lattice(float**&Dcpx,float**&Dcpy,CVirtualContour*hig
     }
   }
 
-  ///////////////////////////////////////////////////
-    //     fstream filout_dd("ddxB_ddyB",ios_base::out|ios_base::app);
-    // for (int i = 0; i <14; ++i)
-    // {
-    //   for (int j = 0; j < 14; ++j)
-    //   {
-    //     filout_dd<<"Dcpx["<<i<<"]["<<j<<"]:"<<ddXB[i][j]<<"\t"<<"Dcpy["<<i<<"]["<<j<<"]:"<<ddYB[i][j]<<"\r\n";
-    //   }
-    // }
-    // filout_dd<<"****************************************************\n";
-    // //filout_dd<<it<<"end\n";
-    // filout_dd<<"****************************************************\n";
-    // filout_dd.close();
-    // //////////////////////////
-    //////////////////
+  // if (higher->m_contour->contourID==2)
+  // {
+  //   fstream filout_dd("ddxB_ddyB",ios_base::out|ios_base::app);
+  //   for (int i = 0; i < MatrixRes; ++i)
+  //   {
+  //     for (int j = 0; j <  MatrixRes; ++j)
+  //     {
+  //       filout_dd<<"ddXB["<<i<<"]["<<j<<"]:"<<ddXB[i][j]<<"\t"<<"ddYB["<<i<<"]["<<j<<"]:"<<ddYB[i][j]<<"\r\n";
+  //     }
+  //   }
+  //   filout_dd<<"****************************************************\n";
+  //   //filout_dd<<it<<"end\n";
+  //   filout_dd<<"****************************************************\n";
+  //   filout_dd.close();
+  // }
+    //////////////////////////
+    
   bool stop=false;
   int numTries = 0;
   bool boolTry=1; //update at a new point, will try several step sizes

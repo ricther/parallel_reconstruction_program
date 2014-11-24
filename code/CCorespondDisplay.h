@@ -19,9 +19,11 @@ public:
     draw_by_layer=true;
   }
   std::multimap<float, CLineSetDisplay*> map_line_actors;
+  std::map<int, CLineSetDisplay*> map_int_line_actors;
   void initial_actors(CShape*);
   void initial_actor(CShape*);
   void update_actors(float layerID,int& lineID);
+  void solo_corespond_display(int contourID);
   float margin;
   bool draw_by_layer;
    float max_z,min_z;
@@ -59,5 +61,6 @@ public:
         return false;
       }
    }
+
 
 };

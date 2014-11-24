@@ -13,6 +13,7 @@
 #include"CContourArrangement.h"
 #include "vtkPoints.h"
 #include "vtkSmartPointer.h"
+#include "initial.h"
 class CLayer;
 class CRegistration;
 class CSkeleton;
@@ -39,7 +40,7 @@ public:
 
 
  std::map<int,int> map_CPointsIndex_vtkIndex;
- vtkSmartPointer<vtkPoints> m_total_points;
+ vtkSmartPointer<vtkPoints> m_total_points; /**< the m_total_points for the shape */
  int get_vtk_points_index(){return ++vtk_points_counter;};
  
  void insert_map_CPointsIndex_vtkIndex(CPoint* point,int vtkIndex)
@@ -64,6 +65,8 @@ private:
  void check_point_scale();
  int vtk_points_counter;
  void insert_vtk_points(std::vector<CPoint*>& vec_points);
+ void write_vtk_points();
+ int total_points_num;
 };
 
 

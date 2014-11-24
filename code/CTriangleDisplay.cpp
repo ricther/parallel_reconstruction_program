@@ -46,7 +46,7 @@ void CTriangleDisplay:: initial_actor(CShape* shape)
 {
   m_shape=shape;
   int size= m_shape->vec_Cor.size();
-  set_up_data(m_shape);
+  //  set_up_data(m_shape);
   for (int i = 0; i < size; ++i)
   {
     organize_data(m_shape->vec_Cor[i]);
@@ -156,8 +156,8 @@ void CTriangleDisplay:: set_up_vtk()
   m_actor->SetMapper(m_polydata_mapper);
   m_actor->GetProperty()->SetColor(triangle_surface_color);
   m_actor->GetProperty()->SetAmbient(0.5);
-  m_actor->GetProperty()->SetDiffuse(0.5);
-  m_actor->GetProperty()->SetSpecular(0.5);
+  m_actor->GetProperty()->SetDiffuse(1);
+  m_actor->GetProperty()->SetSpecular(1);
   //  m_actor->GetProperty()->SetRepresentationToWireframe();
 
   //Create mesh
@@ -174,10 +174,15 @@ void CTriangleDisplay:: smooth()
   vtkSmartPointer<vtkDataSetSurfaceFilter> surface= vtkSmartPointer<vtkDataSetSurfaceFilter>::New();
   surface->SetInput(m_polydata);
   surface->Update();
-  vtkNew<vtkPolyDataWriter> writer;
-  writer->SetFileName("./surface.vtk");
-  writer->SetInputConnection(surface->GetOutputPort());
-  //  writer->Write();
+
+  if(write_shape_triangle_to_data)
+  {
+    vtkNew<vtkPolyDataWriter> writer;
+    writer->SetFileName("./surface.vtk");
+    writer->SetInputConnection(surface->GetOutputPort());
+    writer->Write();
+  }
+  
   //  vtkSmartPointer<vtkTriangleFilter> m_triangles=vtkSmartPointer<vtkTriangleFilter>::New();
   // m_triangles->DebugOn();
   //  m_triangles->SetInput(m_polydata);

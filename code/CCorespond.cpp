@@ -13,18 +13,38 @@ void CCorrespond::produce_triangle()
   }
   for (int i = 0; i < count; ++i)
   {
-    CTriangle* tri= new CTriangle();
-    tri->a=map_int_index[i];
-    tri->b=map_int_index[(i+1)%count];
-    tri->c=map_int_index[(i+2)%count];
-    vec_Triangle.push_back(tri);
+    //    if (i%2==0)
+    {
+          CTriangle* tri= new CTriangle();
+          tri->a=map_int_index[i];
+          tri->b=map_int_index[(i+1)%count];
+          tri->c=map_int_index[(i+2)%count];
+          vec_Triangle.push_back(tri);
     //    std::cout<<"tri:"<<tri->a<<"\t"<<tri->b<<"\t"<<tri->c<<"\n";
-    tri = new CTriangle();
-    tri->a=map_int_index[(i+2)%count];
-    tri->b=map_int_index[(i+1)%count];
-    tri->c=map_int_index[(i+3)%count];
-    vec_Triangle.push_back(tri);
+          tri = new CTriangle();
+          tri->a=map_int_index[(i+2)%count];
+          tri->b=map_int_index[(i+1)%count];
+          tri->c=map_int_index[(i+3)%count];
+          vec_Triangle.push_back(tri);
     //    std::cout<<"tri:"<<tri->a<<"\t"<<tri->b<<"\t"<<tri->c<<"\n";
+
+    }
+    // else{
+    //       CTriangle* tri= new CTriangle();
+    //       tri->a=map_int_index[i];
+    //       tri->b=map_int_index[(i+1)%count];
+    //       tri->c=map_int_index[(i+3)%count];
+    //       vec_Triangle.push_back(tri);
+    // //    std::cout<<"tri:"<<tri->a<<"\t"<<tri->b<<"\t"<<tri->c<<"\n";
+    //       tri = new CTriangle();
+    //       tri->a=map_int_index[(i+0)%count];
+    //       tri->b=map_int_index[(i+3)%count];
+    //       tri->c=map_int_index[(i+2)%count];
+    //       vec_Triangle.push_back(tri);
+    // //    std::cout<<"tri:"<<tri->a<<"\t"<<tri->b<<"\t"<<tri->c<<"\n";
+
+    // }
+      
   }
   
 }

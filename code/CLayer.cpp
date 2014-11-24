@@ -8,6 +8,8 @@
 #include "iostream"
 using namespace std;
 
+
+int CLayer::s_layer_index=0;
 CLayer::CLayer(const float ID)
 {
   LayerID=ID;
@@ -25,6 +27,7 @@ CLayer::CLayer(const float ID)
   moment_one_point= new CPoint();
   contour_Num=0;
   total_length=0;
+  layer_index=s_layer_index++;
 }
 
 void CLayer:: operator=(CLayer &temp)

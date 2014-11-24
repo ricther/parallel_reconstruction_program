@@ -40,7 +40,7 @@ void CMap::setup()
   //tempstr=filestr+"_sign";
 
   mallocMap_char(SignMap);
-  mallocMap_double(DistancsMap);
+  mallocMap_float(DistancsMap);
   interp_closed();
   //tempstr=filestr+"_interpolate_points";
   //CFileDebug m_debugfile4(tempstr.c_str());
@@ -63,7 +63,7 @@ void CMap::setup()
   // m_debugfile2.Output(DistancsMap);
 }
 
-bool CMap::mallocMap_double(float **& array)
+bool CMap::mallocMap_float(float **& array)
 {
   array=0;
   float *arr_ptr;
@@ -343,8 +343,8 @@ void CMap::caldistancesmap()
 
 void CMap::gradient()
 {
-  mallocMap_double(gx);
-  mallocMap_double(gy);
+  mallocMap_float(gx);
+  mallocMap_float(gy);
   int r1 = NUMROWS -1;
   int c1 = NUMCOLS -1;
 
